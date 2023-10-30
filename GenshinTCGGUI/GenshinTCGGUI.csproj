@@ -1,0 +1,93 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>False</UseWindowsForms>
+    <StartupObject>GenshinTCGGUI.App</StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resource\Util\Card\Hp.png" />
+    <None Remove="Resource\Util\Card\Mp.png" />
+    <None Remove="Resource\Util\Card\MpFull.png" />
+    <None Remove="Resource\Util\Card\MpFull2.png" />
+    <None Remove="Resource\Util\Cost\Anemo.png" />
+    <None Remove="Resource\Util\Cost\Cryo.png" />
+    <None Remove="Resource\Util\Cost\Dendro.png" />
+    <None Remove="Resource\Util\Cost\Electro.png" />
+    <None Remove="Resource\Util\Cost\Geo.png" />
+    <None Remove="Resource\Util\Cost\Hydro.png" />
+    <None Remove="Resource\Util\Cost\Pyro.png" />
+    <None Remove="Resource\Util\Cost\Trival.png" />
+    <None Remove="Resource\Util\Cost\Trival_Void.png" />
+    <None Remove="Resource\Util\Edge.png" />
+    <None Remove="Resource\Util\Element\Anemo.png" />
+    <None Remove="Resource\Util\Element\Cryo.png" />
+    <None Remove="Resource\Util\Element\Dendro.png" />
+    <None Remove="Resource\Util\Element\Electro.png" />
+    <None Remove="Resource\Util\Element\Geo.png" />
+    <None Remove="Resource\Util\Element\Hydro.png" />
+    <None Remove="Resource\Util\Element\Pyro.png" />
+    <None Remove="Resource\Util\Element\Trival.png" />
+    <None Remove="Resource\Util\Icon\Artifact.png" />
+    <None Remove="Resource\Util\Icon\Talent.png" />
+    <None Remove="Resource\Util\Icon\Weapon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resource\Util\Card\Edge.png" />
+    <Resource Include="Resource\Util\Card\Hp.png" />
+    <Resource Include="Resource\Util\Card\Mp.png" />
+    <Resource Include="Resource\Util\Card\MpFull.png" />
+    <Resource Include="Resource\Util\Card\MpFull2.png" />
+    <Resource Include="Resource\Util\Cost\Anemo.png" />
+    <Resource Include="Resource\Util\Cost\Cryo.png" />
+    <Resource Include="Resource\Util\Cost\Dendro.png" />
+    <Resource Include="Resource\Util\Cost\Electro.png" />
+    <Resource Include="Resource\Util\Cost\Geo.png" />
+    <Resource Include="Resource\Util\Cost\Hydro.png" />
+    <Resource Include="Resource\Util\Cost\Pyro.png" />
+    <Resource Include="Resource\Util\Cost\Trival.png" />
+    <Resource Include="Resource\Util\Cost\Trival_Void.png" />
+    <Resource Include="Resource\Util\Element\Electro.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Util\Element\Geo.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Util\Element\Hydro.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Util\Element\Pyro.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Util\Element\Trival.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="GenshinTCG">
+      <HintPath>..\..\Genshin3_3\Genshin3_3\bin\Debug\net7.0\GenshinTCG.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resource\Util\Element\Anemo.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Util\Element\Cryo.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Util\Element\Dendro.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resource\Util\Icon\Artifact.png" />
+    <Resource Include="Resource\Util\Icon\Talent.png" />
+    <Resource Include="Resource\Util\Icon\Weapon.png" />
+  </ItemGroup>
+
+</Project>

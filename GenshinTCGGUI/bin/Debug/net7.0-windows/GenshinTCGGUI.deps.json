@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "GenshinTCGGUI/1.0.0": {
+        "dependencies": {
+          "GenshinTCG": "1.0.0.0"
+        },
+        "runtime": {
+          "GenshinTCGGUI.dll": {}
+        }
+      },
+      "GenshinTCG/1.0.0.0": {
+        "runtime": {
+          "GenshinTCG.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "GenshinTCGGUI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GenshinTCG/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
