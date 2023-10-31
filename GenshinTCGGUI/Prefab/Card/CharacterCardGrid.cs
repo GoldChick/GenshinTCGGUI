@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Resources;
 using System.Windows.Shapes;
 using TCGBase;
 
@@ -146,9 +147,9 @@ namespace Prefab
             }
 
             EffectsPanel.Children.Clear();
-            c.Effects.ForEach(e => EffectsPanel.Children.Add(new CharacterEffectGrid(e.Infos)));
+            TryAddEffect(EffectsPanel, c.Effects);
 
-            if (ints[0]==0&& c.Weapon != null)
+            if (ints[0] == 0 && c.Weapon != null)
             {
                 LeftPanel.Children.Add(new Image()
                 {
@@ -179,17 +180,55 @@ namespace Prefab
         public void UpdateTeamEffects(List<ReadonlyPersistent>? teamEffects)
         {
             TeamEffectsPanel.Children.Clear();
-            teamEffects?.ForEach(e => TeamEffectsPanel.Children.Add(new CharacterEffectGrid(e.Infos)));
+            if (teamEffects != null)
+            {
+                TryAddEffect(TeamEffectsPanel, teamEffects);
+            }
+        }
+        private static void TryAddEffect(StackPanel container, List<ReadonlyPersistent> es)
+        {
+            foreach (var e in es)
+            {
+                if (container.Children.Count < 4)
+                {
+                    if (e.NameSpace == "Minecraft")
+                    {
+                        string path = $"Resource/Minecraft/Icon/{e.Name}.png";
+                        try
+                        {
+                            Uri uri = new(path, UriKind.Relative);
+                            Application.GetResourceStream(uri);
+                            container.Children.Add(new CharacterEffectGrid(uri, e.Infos));
+                        }
+                        catch (Exception)
+                        {
+                            //只是为了检测有没有
+                        }
+                    }
+                    else
+                    {
+                        string path = System.IO.Path.Combine(Directory.GetCurrentDirectory(), $"assets/{e.NameSpace}/icon/{e.Name}.png");
+                        if (File.Exists(path))
+                        {
+                            container.Children.Add(new CharacterEffectGrid(new(path), e.Infos));
+                        }
+                    }
+                }
+                else
+                {
+                    container.Children.RemoveAt(3);
+                    container.Children.Add(new CharacterEffectGrid(new($"Resource/Minecraft/Icon/{PersistentTextures.More}.png", UriKind.Relative), e.Infos));
+                    break;
+                }
+            }
         }
         public class CharacterEffectGrid : Grid
         {
-            public CharacterEffectGrid(int[] infos)
+            public CharacterEffectGrid(Uri uri, int[] infos)
             {
-                var path = System.IO.Path.Combine(Directory.GetCurrentDirectory(), $"assets/Genshin3_3/effect/atk_self.png");
-                Uri url = File.Exists(path) ? new(path) : new("null", UriKind.Relative);
                 Children.Add(new Image()
                 {
-                    Source = new BitmapImage(url),
+                    Source = new BitmapImage(uri),
                 });
                 Children.Add(new Ellipse()
                 {

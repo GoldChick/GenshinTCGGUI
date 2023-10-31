@@ -10,6 +10,42 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resource\Minecraft\Icon\atk_up.png" />
+    <None Remove="Resource\Minecraft\Icon\atk_up_anemo.png" />
+    <None Remove="Resource\Minecraft\Icon\atk_up_cryo.png" />
+    <None Remove="Resource\Minecraft\Icon\atk_up_dendro.png" />
+    <None Remove="Resource\Minecraft\Icon\atk_up_electro.png" />
+    <None Remove="Resource\Minecraft\Icon\atk_up_geo.png" />
+    <None Remove="Resource\Minecraft\Icon\atk_up_hydro.png" />
+    <None Remove="Resource\Minecraft\Icon\atk_up_pyro.png" />
+    <None Remove="Resource\Minecraft\Icon\buff.png" />
+    <None Remove="Resource\Minecraft\Icon\daze.png" />
+    <None Remove="Resource\Minecraft\Icon\debuff.png" />
+    <None Remove="Resource\Minecraft\Icon\debuff_anemo.png" />
+    <None Remove="Resource\Minecraft\Icon\debuff_cryo.png" />
+    <None Remove="Resource\Minecraft\Icon\debuff_dendro.png" />
+    <None Remove="Resource\Minecraft\Icon\debuff_electro.png" />
+    <None Remove="Resource\Minecraft\Icon\debuff_geo.png" />
+    <None Remove="Resource\Minecraft\Icon\debuff_hydro.png" />
+    <None Remove="Resource\Minecraft\Icon\debuff_pyro.png" />
+    <None Remove="Resource\Minecraft\Icon\dot.png" />
+    <None Remove="Resource\Minecraft\Icon\enchant.png" />
+    <None Remove="Resource\Minecraft\Icon\enchant_anemo.png" />
+    <None Remove="Resource\Minecraft\Icon\enchant_cryo.png" />
+    <None Remove="Resource\Minecraft\Icon\enchant_dendro.png" />
+    <None Remove="Resource\Minecraft\Icon\enchant_electro.png" />
+    <None Remove="Resource\Minecraft\Icon\enchant_geo.png" />
+    <None Remove="Resource\Minecraft\Icon\enchant_hydro.png" />
+    <None Remove="Resource\Minecraft\Icon\enchant_pyro.png" />
+    <None Remove="Resource\Minecraft\Icon\frozen.png" />
+    <None Remove="Resource\Minecraft\Icon\full.png" />
+    <None Remove="Resource\Minecraft\Icon\heal.png" />
+    <None Remove="Resource\Minecraft\Icon\more.png" />
+    <None Remove="Resource\Minecraft\Icon\revive.png" />
+    <None Remove="Resource\Minecraft\Icon\shield_purple.png" />
+    <None Remove="Resource\Minecraft\Icon\shield_yellow.png" />
+    <None Remove="Resource\Minecraft\Icon\shiled_purple.png" />
+    <None Remove="Resource\Minecraft\Icon\special.png" />
     <None Remove="Resource\Util\Card\Hp.png" />
     <None Remove="Resource\Util\Card\Mp.png" />
     <None Remove="Resource\Util\Card\MpFull.png" />
@@ -38,6 +74,41 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resource\Minecraft\Icon\atk_up.png" />
+    <Resource Include="Resource\Minecraft\Icon\atk_up_anemo.png" />
+    <Resource Include="Resource\Minecraft\Icon\atk_up_cryo.png" />
+    <Resource Include="Resource\Minecraft\Icon\atk_up_dendro.png" />
+    <Resource Include="Resource\Minecraft\Icon\atk_up_electro.png" />
+    <Resource Include="Resource\Minecraft\Icon\atk_up_geo.png" />
+    <Resource Include="Resource\Minecraft\Icon\atk_up_hydro.png" />
+    <Resource Include="Resource\Minecraft\Icon\atk_up_pyro.png" />
+    <Resource Include="Resource\Minecraft\Icon\buff.png" />
+    <Resource Include="Resource\Minecraft\Icon\daze.png" />
+    <Resource Include="Resource\Minecraft\Icon\debuff.png" />
+    <Resource Include="Resource\Minecraft\Icon\debuff_anemo.png" />
+    <Resource Include="Resource\Minecraft\Icon\debuff_cryo.png" />
+    <Resource Include="Resource\Minecraft\Icon\debuff_dendro.png" />
+    <Resource Include="Resource\Minecraft\Icon\debuff_electro.png" />
+    <Resource Include="Resource\Minecraft\Icon\debuff_geo.png" />
+    <Resource Include="Resource\Minecraft\Icon\debuff_hydro.png" />
+    <Resource Include="Resource\Minecraft\Icon\debuff_pyro.png" />
+    <Resource Include="Resource\Minecraft\Icon\dot.png" />
+    <Resource Include="Resource\Minecraft\Icon\enchant.png" />
+    <Resource Include="Resource\Minecraft\Icon\enchant_anemo.png" />
+    <Resource Include="Resource\Minecraft\Icon\enchant_cryo.png" />
+    <Resource Include="Resource\Minecraft\Icon\enchant_dendro.png" />
+    <Resource Include="Resource\Minecraft\Icon\enchant_electro.png" />
+    <Resource Include="Resource\Minecraft\Icon\enchant_geo.png" />
+    <Resource Include="Resource\Minecraft\Icon\enchant_hydro.png" />
+    <Resource Include="Resource\Minecraft\Icon\enchant_pyro.png" />
+    <Resource Include="Resource\Minecraft\Icon\frozen.png" />
+    <Resource Include="Resource\Minecraft\Icon\full.png" />
+    <Resource Include="Resource\Minecraft\Icon\heal.png" />
+    <Resource Include="Resource\Minecraft\Icon\more.png" />
+    <Resource Include="Resource\Minecraft\Icon\revive.png" />
+    <Resource Include="Resource\Minecraft\Icon\shield_purple.png" />
+    <Resource Include="Resource\Minecraft\Icon\shield_yellow.png" />
+    <Resource Include="Resource\Minecraft\Icon\special.png" />
     <Resource Include="Resource\Util\Card\Edge.png" />
     <Resource Include="Resource\Util\Card\Hp.png" />
     <Resource Include="Resource\Util\Card\Mp.png" />

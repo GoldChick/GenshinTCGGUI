@@ -67,15 +67,18 @@ namespace Prefab
                     c.SecondImage.Effect = null;
                     c.UpdateTeamEffects(null);
                 }
-                _characters.Cards[me.CurrCharacter].UpdateTeamEffects(me.Effects);
+                //出战角色的光效
                 _characters.Cards[me.CurrCharacter].SecondImage.Effect = new DropShadowEffect()
                 {
                     BlurRadius = 30,
                     Color = (Color)ColorConverter.ConvertFromString("#97FF9700"),
                     ShadowDepth = 0
                 };
-
                 CurrCharacter = me.CurrCharacter;
+            }
+            if (CurrCharacter>=0)
+            {
+                _characters.Cards[me.CurrCharacter].UpdateTeamEffects(me.Effects);
             }
             _characters.Update(me.Characters);
             _supports.Update(me.Supports);

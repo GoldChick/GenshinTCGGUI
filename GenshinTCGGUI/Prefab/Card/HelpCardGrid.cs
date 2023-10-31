@@ -23,9 +23,12 @@ namespace Prefab
             {
                 path = "null";
             }
+            var b = BitmapFrame.Create(new Uri(path, UriKind.Relative));
+            int a = (int)Math.Round(b.Width / 210);
+            //NOTE:有些图片是210宽，有些是420，所以有些问题
             MainImage = new()
             {
-                Source = new CroppedBitmap(BitmapFrame.Create(new Uri(path, UriKind.Relative)), new Int32Rect(0, 75, 210, 210)),
+                Source = new CroppedBitmap(b, new Int32Rect(0, 75*a, 210 * a, 210 * a)),
                 Margin = new Thickness(3)
             };
             Grid timer = new()
