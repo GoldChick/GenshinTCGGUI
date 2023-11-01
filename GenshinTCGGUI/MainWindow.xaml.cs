@@ -29,7 +29,8 @@ namespace GenshinTCGGUI
     public partial class MainWindow : Window
     {
         private static MainWindow _instance;
-        internal GuiClient Client;
+        internal GuiClient Client0;
+        internal GuiClient Client1;
         internal TeamRegion TeamMe;
         internal TeamRegion TeamEnemy;
 
@@ -45,17 +46,17 @@ namespace GenshinTCGGUI
         }
         private void StartGame_Click(object sender, RoutedEventArgs e)
         {
-
             var now = DateTime.Now;
             string gameid = $"{now.Year,4}{now.Hour,2}{now.Minute,2}{now.Second,2}{now.Microsecond,3}";
 
-            Client = new GuiClient(InitRender, UpdateRender, UpdatePacketRender, RequestEventCallBack);
-            var c1 = new SleepClient();
+            Client0 = new GuiClient(InitRender, UpdateRender, UpdatePacketRender, RequestEventCallBack);
+            Client1 = new GuiClient();
 
-            Client.InitServerSetting(null);
+            Client0.InitServerSetting(null);
+            Client1.InitServerSetting(null);
 
-            game.AddClient(Client);
-            game.AddClient(c1);
+            game.AddClient(Client0);
+            game.AddClient(Client1);
 
             try
             {
@@ -95,7 +96,7 @@ namespace GenshinTCGGUI
                         break;
                     case ClientUpdateType.Dice:
                         {
-                            if (teamid == Client.MeID)
+                            if (teamid == Client0.MeID)
                             {
                                 DiceContainer.Children.Clear();
                                 for (int i = 0; i < packet.Ints.Length; i++)
@@ -116,20 +117,20 @@ namespace GenshinTCGGUI
                             {
                                 case 0://Use
                                 case 1://Blend
-                                    if (teamid == Client.MeID)
+                                    if (teamid == Client0.MeID)
                                     {
                                         CardMe.Children.RemoveAt(packet.Ints[0]);
                                     }
                                     break;
                                 case 2://Obtain
-                                    if (teamid == Client.MeID)
+                                    if (teamid == Client0.MeID)
                                     {
-                                        var req = Client.GetEventFinalDiceRequirement(new(ActionType.UseCard, CardMe.Children.Count));
-                                        CardMe.Children.Add(new ActionCardGrid(packet.Strings[0], CardMe.Children.Count, req.Cost.CostSame, req.Cost.Costs));
+                                        var req = Client0.GetEventFinalDiceRequirement(new(ActionType.UseCard, CardMe.Children.Count));
+                                        CardMe.Children.Add(new ActionCardGrid(packet.Strings[0], CardMe.Children.Count, req.CostSame, req.Costs));
                                     }
                                     break;
                                 case 3://Push
-                                    if (teamid == Client.MeID)
+                                    if (teamid == Client0.MeID)
                                     {
                                         int cnt = packet.Ints.Length;
                                         foreach (var i in packet.Ints.Reverse())
@@ -139,7 +140,7 @@ namespace GenshinTCGGUI
                                     }
                                     break;
                                 case 4://Pop
-                                    if (teamid == Client.MeID)
+                                    if (teamid == Client0.MeID)
                                     {
 
                                     }
@@ -183,8 +184,8 @@ namespace GenshinTCGGUI
                 List<SkillCardGrid> skills = new();
                 for (int i = 0; i < c.SkillCount; i++)
                 {
-                    var req = Client.GetEventFinalDiceRequirement(new(ActionType.UseSKill, i));
-                    skills.Add(new SkillCardGrid(c.Name, i, req.Cost.CostSame, req.Cost.Costs));
+                    var req = Client0.GetEventFinalDiceRequirement(new(ActionType.UseSKill, i));
+                    skills.Add(new SkillCardGrid(c.Name, i, req.CostSame, req.Costs));
                 }
                 skills.Reverse();
                 skills.ForEach(s => SkillMe.Children.Add(s));

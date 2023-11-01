@@ -28,13 +28,12 @@ namespace Prefab
         //TODO:unchecked data stored
         private int[] ints = new int[3] { 0, 0, 0 };
         public int HP { get; set; }
-        public int MP { get; set; }
         public int Element { get; set; }
         public CharacterCardGrid(string nameid, int maxhp, int maxmp, int index)
         {
             Index = index;
             var path = System.IO.Path.Combine(Directory.GetCurrentDirectory(), $"assets/Genshin3_3/character/{nameid}/main.png");
-            Uri url = File.Exists(path) ? new(path) : new("null", UriKind.Relative);
+            Uri url = File.Exists(path) ? new(path) : new("Resource/Minecraft/Action/unknown.png", UriKind.Relative);
             SecondImage = new()
             {
                 Source = new BitmapImage(url),
@@ -83,10 +82,6 @@ namespace Prefab
                 Margin = new Thickness(120, 10, 0, 0),
                 Width = 35,
             };
-            for (int i = 0; i < maxmp; i++)
-            {
-                RightPanel.Children.Add(new Image() { Source = new BitmapImage(new("Resource/Util/Card/Mp.png", UriKind.Relative)) });
-            }
 
             EffectsPanel = new()
             {
@@ -117,7 +112,13 @@ namespace Prefab
         {
             HP = c.HP;
             HPText.Text = HP.ToString();
-            MP = c.MP;
+
+            RightPanel.Children.Clear();
+            for (int i = 0; i < c.MaxMP; i++)
+            {
+                RightPanel.Children.Add(new Image() { Source = new BitmapImage(new($"Resource/Util/Card/{(i<c.MP?"MPFull":"MP")}.png", UriKind.Relative)) });
+            }
+
             Element = c.Element;
 
             ElementPanel.Children.Clear();

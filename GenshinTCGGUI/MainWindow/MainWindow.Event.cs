@@ -88,7 +88,7 @@ namespace GenshinTCGGUI
                             int[] selects = new int[8];
                             DiceSelected.ForEach(d => selects[(int)d.Element]++);
                             NetAction action = new(ActionType.Switch, CharacterSelected.Index);
-                            if (Client.GetEventFinalDiceRequirement(action).Cost.EqualTo(selects))
+                            if (Client0.GetEventFinalDiceRequirement(action).EqualTo(selects))
                             {
                                 State = ActionType.Pass;
                                 NetEvent = new(action, selects);
@@ -97,7 +97,7 @@ namespace GenshinTCGGUI
                         if (UseCardSelected != null)
                         {
                             NetAction action = new(ActionType.UseCard, UseCardSelected.Index);
-                            var additionalTargets = Client.GetTargetEnums(action);
+                            var additionalTargets = Client0.GetTargetEnums(action);
                             //TODO:比较粗浅
                             var a = (TargetEnum e) => e switch
                             {
@@ -116,7 +116,7 @@ namespace GenshinTCGGUI
                                 }
                                 int[] selects = new int[8];
                                 DiceSelected.ForEach(d => selects[(int)d.Element]++);
-                                if (Client.GetEventFinalDiceRequirement(action).Cost.EqualTo(selects))
+                                if (Client0.GetEventFinalDiceRequirement(action).EqualTo(selects))
                                 {
                                     State = ActionType.Pass;
                                     NetEvent = new(action, selects, TargetEnumSelected.Select(t => t.Index).ToArray());
@@ -128,7 +128,7 @@ namespace GenshinTCGGUI
                             NetAction action = new(ActionType.UseSKill, UseSkillSelected.Index);
                             int[] selects = new int[8];
                             DiceSelected.ForEach(d => selects[(int)d.Element]++);
-                            if (Client.GetEventFinalDiceRequirement(action).Cost.EqualTo(selects))
+                            if (Client0.GetEventFinalDiceRequirement(action).EqualTo(selects))
                             {
                                 State = ActionType.Pass;
                                 NetEvent = new(action, selects, TargetEnumSelected.Select(t => t.Index).ToArray());
@@ -146,7 +146,7 @@ namespace GenshinTCGGUI
                 int[] selects = new int[8];
                 int d = (int)DiceSelected[0].Element;
                 NetAction action = new(ActionType.Blend, UseCardSelected.Index);
-                if (d != 0 && Client.GetEventFinalDiceRequirement(action).Cost.Costs[d] == 0)
+                if (d != 0 && Client0.GetEventFinalDiceRequirement(action).Costs[d] == 0)
                 {
                     selects[d] = 1;
                     State = ActionType.Pass;

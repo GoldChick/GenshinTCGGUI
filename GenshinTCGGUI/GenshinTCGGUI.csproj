@@ -10,6 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resource\Minecraft\Action\summon_burning.png" />
+    <None Remove="Resource\Minecraft\Action\unknown.png" />
     <None Remove="Resource\Minecraft\Icon\atk_up.png" />
     <None Remove="Resource\Minecraft\Icon\atk_up_anemo.png" />
     <None Remove="Resource\Minecraft\Icon\atk_up_cryo.png" />
@@ -74,6 +76,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resource\Minecraft\Action\summon_burning.png" />
+    <Resource Include="Resource\Minecraft\Action\unknown.png" />
     <Resource Include="Resource\Minecraft\Icon\atk_up.png" />
     <Resource Include="Resource\Minecraft\Icon\atk_up_anemo.png" />
     <Resource Include="Resource\Minecraft\Icon\atk_up_cryo.png" />

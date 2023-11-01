@@ -25,7 +25,7 @@ namespace Prefab
             var path = Path.Combine(Directory.GetCurrentDirectory(), $"assets/Genshin3_3/action/{nameid}.png");
             MainImage = new()
             {
-                Source = new BitmapImage(File.Exists(path) ? new(path) : new("null", UriKind.Relative)),
+                Source = new BitmapImage(File.Exists(path) ? new(path) : new("Resource/Minecraft/Action/unknown.png", UriKind.Relative)),
                 Margin = new Thickness(3),
             };
             UniformGrid cost_container = new()

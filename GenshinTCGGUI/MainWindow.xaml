@@ -19,6 +19,8 @@
                 <TextBlock Name="DiceCount" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Black" FontSize="48">0</TextBlock>
             </Border>
             <StackPanel Name="DiceContainer" VerticalAlignment="Center" HorizontalAlignment="Center" Canvas.Top="128"/>
+            <Button x:Name="ActionPermitted" Canvas.Left="6" Canvas.Top="662" Click="ActionPermitted_Click" Content="确认行动" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Button x:Name="Blend" Canvas.Top="686" Click="Blend_Click" Content="调和手牌" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="6"/>
         </Canvas>
         <Canvas x:Name="Enemy" Height="360" Width="1152" Canvas.Left="64" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Plum"/>
         <Canvas x:Name="Me" Height="360" Width="1152" Canvas.Left="64" HorizontalAlignment="Center" Canvas.Top="360" VerticalAlignment="Top" Background="CadetBlue"/>
@@ -28,8 +30,7 @@
 
         <Canvas x:Name="ToolBar" Height="64" Width="256" HorizontalAlignment="Right" VerticalAlignment="Top" Canvas.Left="102" Background="Magenta">
             <Button x:Name="StartGame" Canvas.Left="6" Canvas.Top="1" Click="StartGame_Click">开始游戏</Button>
-            <Button x:Name="ActionPermitted" Canvas.Left="6" Canvas.Top="22" HorizontalAlignment="Center" VerticalAlignment="Top" Click="ActionPermitted_Click">确认行动</Button>
-            <Button x:Name="Blend" Canvas.Left="6" Canvas.Top="43" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Blend_Click">调和手牌</Button>
+            <Button x:Name="SwitchSide" Canvas.Left="6" Canvas.Top="37" Click="SwitchSide_Click" Content="切换视角" HorizontalAlignment="Center" VerticalAlignment="Top"/>
             <TextBlock x:Name="assist0" HorizontalAlignment="Left" Canvas.Left="63" VerticalAlignment="Center" Width="193">sb</TextBlock>
             <TextBlock x:Name="assist1" Canvas.Left="63" Width="193" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="24"><Run Text="sb"/></TextBlock>
             <TextBlock x:Name="assist2" Canvas.Left="63" Width="193" Canvas.Top="49" HorizontalAlignment="Center" VerticalAlignment="Top"><Run Text="sb"/></TextBlock>
