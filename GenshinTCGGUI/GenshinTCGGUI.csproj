@@ -10,6 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resource\Minecraft\Action\amethyst.png" />
+    <None Remove="Resource\Minecraft\Action\electro_crystal.png" />
     <None Remove="Resource\Minecraft\Action\summon_burning.png" />
     <None Remove="Resource\Minecraft\Action\unknown.png" />
     <None Remove="Resource\Minecraft\Icon\atk_up.png" />
@@ -48,6 +50,7 @@
     <None Remove="Resource\Minecraft\Icon\shield_yellow.png" />
     <None Remove="Resource\Minecraft\Icon\shiled_purple.png" />
     <None Remove="Resource\Minecraft\Icon\special.png" />
+    <None Remove="Resource\Minecraft\Table\inazuma.png" />
     <None Remove="Resource\Util\Card\Hp.png" />
     <None Remove="Resource\Util\Card\Mp.png" />
     <None Remove="Resource\Util\Card\MpFull.png" />
@@ -76,6 +79,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resource\Minecraft\Action\amethyst.png" />
+    <Resource Include="Resource\Minecraft\Action\electro_crystal.png" />
     <Resource Include="Resource\Minecraft\Action\summon_burning.png" />
     <Resource Include="Resource\Minecraft\Action\unknown.png" />
     <Resource Include="Resource\Minecraft\Icon\atk_up.png" />
@@ -113,6 +118,7 @@
     <Resource Include="Resource\Minecraft\Icon\shield_purple.png" />
     <Resource Include="Resource\Minecraft\Icon\shield_yellow.png" />
     <Resource Include="Resource\Minecraft\Icon\special.png" />
+    <Resource Include="Resource\Minecraft\Table\inazuma.png" />
     <Resource Include="Resource\Util\Card\Edge.png" />
     <Resource Include="Resource\Util\Card\Hp.png" />
     <Resource Include="Resource\Util\Card\Mp.png" />

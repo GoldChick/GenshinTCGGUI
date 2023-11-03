@@ -69,7 +69,7 @@ namespace GenshinTCGGUI
         {
             var now = DateTime.Now;
             string gameid = $"{now.Year,4}{now.Hour,2}{now.Minute,2}{now.Second,2}{now.Microsecond,3}";
-            Client0 = new GuiClient(InitRender, UpdateRender, UpdatePacketRender, RequestEventCallBack);
+            Client0 = new GuiClient(InitRender, UpdateRender, RequestEventCallBack);
             Client1 = new SocketServerClient(_ip, _port);
 
             Client0.InitServerSetting(null);
@@ -89,7 +89,6 @@ namespace GenshinTCGGUI
                     ClientClient = new(_ip, _port, UpdateFullRender);
                     ClientClient.StartClient();
                 }
-
             }
         }
         private void InitRender(ReadonlyGame game)
@@ -100,101 +99,14 @@ namespace GenshinTCGGUI
                 TeamEnemy = new(Enemy, game.Enemy);
             });
         }
-        private void UpdatePacketRender(ClientUpdatePacket packet)
-        {
-            Dispatcher.Invoke(() =>
-            {
-                int teamid = packet.Category / 10;
-                int category = packet.Category % 10;
-                switch (packet.Type)
-                {
-                    case ClientUpdateType.None:
-                        break;
-                    case ClientUpdateType.CurrTeam:
-                        break;
-                    case ClientUpdateType.WaitingTime:
-                        break;
-                    case ClientUpdateType.Character:
-                        break;
-                    case ClientUpdateType.Persistent:
-                        break;
-                    case ClientUpdateType.Dice:
-                        {
-                            if (teamid == Client0.MeID)
-                            {
-                                DiceContainer.Children.Clear();
-                                for (int i = 0; i < packet.Ints.Length; i++)
-                                {
-                                    DiceContainer.Children.Add(new DiceGrid(packet.Ints[i], i));
-                                }
-                                DiceCount.Text = DiceContainer.Children.Count.ToString();
-                            }
-                            else
-                            {
-                                //对方的
-                            }
-                        }
-                        break;
-                    case ClientUpdateType.Card:
-                        {
-                            switch (category)
-                            {
-                                case 0://Use
-                                case 1://Blend
-                                    if (teamid == Client0.MeID)
-                                    {
-                                        CardMe.Children.RemoveAt(packet.Ints[0]);
-                                    }
-                                    break;
-                                case 2://Obtain
-                                    if (teamid == Client0.MeID)
-                                    {
-                                        var acg = new ActionCardGrid(packet.Strings[0], CardMe.Children.Count);
-                                        var req = Client0.GetEventFinalDiceRequirement(new(ActionType.UseCard, CardMe.Children.Count));
-                                        acg.UpdateCost(req.CostSame, req.Costs);
-                                        CardMe.Children.Add(acg);
-                                    }
-                                    break;
-                                case 3://Push
-                                    if (teamid == Client0.MeID)
-                                    {
-                                        int cnt = packet.Ints.Length;
-                                        foreach (var i in packet.Ints.Reverse())
-                                        {
-                                            CardMe.Children.RemoveAt(i);
-                                        }
-                                    }
-                                    break;
-                                case 4://Pop
-                                    if (teamid == Client0.MeID)
-                                    {
-
-                                    }
-                                    break;
-                                case 5://Broke
-                                    break;
-                            }
-                            int cardcount = CardMe.Children.Count;
-                            CardMe.Columns = 10 + cardcount % 2;
-                            CardMe.FirstColumn = (CardMe.Columns - cardcount) / 2;
-                            for (int i = 0; i < cardcount; i++)
-                            {
-                                var acg = CardMe.Children[i] as ActionCardGrid;
-                                acg.Index = i;
-                            }
-                        }
-                        break;
-                    default:
-                        break;
-                }
-            });
-        }
         private void UpdateRender(ReadonlyGame game)
         {
             Thread.Sleep(10);
             Dispatcher.Invoke(() =>
             {
                 TeamMe.Update(game.Me);
+                CardNumMe.Text = game.LeftCardsNum.ToString();
+                CardNumEnemy.Text = game.EnemyLeftCardsNum.ToString();
                 TeamEnemy.Update(game.Enemy);
 
                 RenderSkill(game.Me);
@@ -230,6 +142,7 @@ namespace GenshinTCGGUI
             Thread.Sleep(10);
             Dispatcher.Invoke(() =>
             {
+
                 if (TeamMe == null)
                 {
                     TeamMe = new(Me, game.Me);
@@ -239,23 +152,7 @@ namespace GenshinTCGGUI
                 TeamMe.Update(me);
                 TeamEnemy.Update(game.Enemy);
 
-                CardMe.Children.Clear();
-                for (int i = 0; i < game.Cards.Count; i++)
-                {
-                    CardMe.Children.Add(new ActionCardGrid(game.Cards[i], i));
-                }
-                int cardcount = CardMe.Children.Count;
-                CardMe.Columns = 10 + cardcount % 2;
-                CardMe.FirstColumn = (CardMe.Columns - cardcount) / 2;
-
-                DiceContainer.Children.Clear();
-                for (int i = 0; i < game.Dices.Count; i++)
-                {
-                    DiceContainer.Children.Add(new DiceGrid(game.Dices[i], i));
-                }
-                DiceCount.Text = DiceContainer.Children.Count.ToString();
-
-                if (me.CurrCharacter >= 0 &&  CurrCharacterCashe != me.CurrCharacter)
+                if (me.CurrCharacter >= 0 && CurrCharacterCashe != me.CurrCharacter)
                 {
                     CurrCharacterCashe = me.CurrCharacter;
                     var c = me.Characters[CurrCharacterCashe];

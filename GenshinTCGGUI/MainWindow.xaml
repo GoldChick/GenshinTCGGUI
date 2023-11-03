@@ -7,13 +7,8 @@
         mc:Ignorable="d"
         Title="GenshinInvokationTCG" Height="736" Width="1280" ResizeMode="CanMinimize" SizeToContent="WidthAndHeight">
     <Canvas x:Name="Global_Canvas" Height="720" Width="1280">
-
-        <Canvas x:Name="LeftBar" Height="720" Width="64" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Aquamarine">
-            <Canvas x:Name="Timer" Height="128" Width="64" HorizontalAlignment="Center" VerticalAlignment="Top" Background="DarkGoldenrod" Canvas.Top="296">
-                <Button x:Name="Pass" Canvas.Left="18" Canvas.Top="54" Click="Pass_Click" Content="空过" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            </Canvas>
-        </Canvas>
-        <Canvas Name="RightBar" Height="720" Width="64" HorizontalAlignment="Right" VerticalAlignment="Center" Canvas.Left="1216" Background="AntiqueWhite">
+        <Image Source="Resource/Minecraft/Table/inazuma.png" Height="918" Width="1592" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="-156" Canvas.Top="-84"/>
+        <Canvas Name="RightBar" Height="720" Width="64" HorizontalAlignment="Right" VerticalAlignment="Center" Canvas.Left="1216" >
             <Border Name="Setting" Height="64" Width="64" Background="Red" HorizontalAlignment="Center" VerticalAlignment="Top"></Border>
             <Border  Height="64" Width="64" Background="ForestGreen" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="64">
                 <TextBlock Name="DiceCount" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Black" FontSize="48">0</TextBlock>
@@ -22,20 +17,59 @@
             <Button x:Name="ActionPermitted" Canvas.Left="6" Canvas.Top="662" Click="ActionPermitted_Click" Content="确认行动" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <Button x:Name="Blend" Canvas.Top="686" Click="Blend_Click" Content="调和手牌" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="6"/>
         </Canvas>
-        <Canvas x:Name="Enemy" Height="360" Width="1152" Canvas.Left="64" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Plum"/>
-        <Canvas x:Name="Me" Height="360" Width="1152" Canvas.Left="64" HorizontalAlignment="Center" Canvas.Top="360" VerticalAlignment="Top" Background="CadetBlue"/>
+        <Canvas x:Name="Enemy" Height="360" Width="1152" Canvas.Left="64" HorizontalAlignment="Center" Canvas.Top="40" VerticalAlignment="Top" />
+        <Canvas x:Name="Me" Height="360" Width="1152" Canvas.Left="64" HorizontalAlignment="Center" Canvas.Top="320" VerticalAlignment="Top" />
         <UniformGrid x:Name="CardMe" Height="163" Width="1152" Canvas.Left="64" HorizontalAlignment="Center" Canvas.Top="650" VerticalAlignment="Center"  Rows="1" Columns="10" MouseEnter="Card_MouseEnter" MouseLeave="Card_MouseLeave"/>
+        <UniformGrid x:Name="CardEnemy" Height="163" Width="1152" Canvas.Left="64" HorizontalAlignment="Center" Canvas.Top="-100"  VerticalAlignment="Center"  Rows="1" Columns="10"/>
         <UniformGrid x:Name="SkillMe" Height="64" Width="300" Canvas.Left="911"  Canvas.Top="600"   Rows="1" Columns="4" FlowDirection="RightToLeft">
         </UniformGrid>
 
-        <Canvas x:Name="ToolBar" Height="64" Width="1036" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="102" Background="Magenta">
+        <Canvas x:Name="ToolBar" Height="64" Width="1036" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="102" >
             <Button x:Name="StartGame" Canvas.Left="6" Click="StartGame_Click" Content="  开始游戏  " HorizontalAlignment="Center" VerticalAlignment="Top"></Button>
             <Button x:Name="StartServer" Canvas.Left="6" Canvas.Top="44" Click="StartServer_Click" Content="开启服务器" HorizontalAlignment="Center" VerticalAlignment="Top"/>
             <Button x:Name="StartClient" Canvas.Left="6" Canvas.Top="22" Click="StartClient_Click" Content="连接服务器" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <TextBlock x:Name="assist0" HorizontalAlignment="Left" Canvas.Left="63" VerticalAlignment="Top" Width="973" Height="111">sb</TextBlock>
-            <TextBlock x:Name="assist1" Canvas.Left="63" Width="193" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="24"><Run Text="sb"/></TextBlock>
-            <TextBlock x:Name="assist2" Canvas.Left="63" Width="193" Canvas.Top="49" HorizontalAlignment="Center" VerticalAlignment="Top"><Run Text="sb"/></TextBlock>
+            <TextBlock x:Name="assist0" HorizontalAlignment="Left" Canvas.Left="63" VerticalAlignment="Top" Width="973" Height="111"></TextBlock>
         </Canvas>
+
+        <Canvas x:Name="LeftBar" Height="720" Width="64">
+            <Canvas x:Name="Timer" Height="128" Width="64" HorizontalAlignment="Center" VerticalAlignment="Top" Background="DarkGoldenrod" Canvas.Top="296">
+                <Button x:Name="Pass" Canvas.Left="18" Canvas.Top="54" Click="Pass_Click" Content="空过" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            </Canvas>
+            <Grid HorizontalAlignment="Center" Height="291" VerticalAlignment="Top">
+                <Image Source="Resource/Minecraft/Action/amethyst.png" Width="130" RenderTransformOrigin="0.5,0.5" Canvas.Left="10" Canvas.Top="83" Margin="-38,23,38,6">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+                <TextBlock x:Name="CardNumEnemy" Margin="10,129,0,0" FontFamily="Arial" FontSize="40" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <TextBlock.Effect>
+                        <DropShadowEffect Color="White" ShadowDepth="0" BlurRadius="3" Direction="0" RenderingBias="Performance"/>
+                    </TextBlock.Effect>30</TextBlock>
+            </Grid>
+
+            <Grid HorizontalAlignment="Center" Height="291" VerticalAlignment="Top" Canvas.Top="429">
+                <Image Source="Resource/Minecraft/Action/electro_crystal.png" Width="130" RenderTransformOrigin="0.5,0.5" Canvas.Left="10" Canvas.Top="83" Margin="-38,23,38,6">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+                <TextBlock x:Name="CardNumMe" Margin="10,131,0,0" FontFamily="Arial" FontSize="40" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.777,0.882">
+                    <TextBlock.Effect>
+                        <DropShadowEffect Color="White" ShadowDepth="0" BlurRadius="3" Direction="0" RenderingBias="Performance"/>
+                    </TextBlock.Effect>30</TextBlock>
+            </Grid>
+        </Canvas>
+
         <!--<Canvas x:Name="Console" Height="216" Width="358" HorizontalAlignment="Right" VerticalAlignment="Top" Background="White" Canvas.Top="505" Opacity="0.4">
             <TextBlock x:Name="console_text0">sb</TextBlock>
             <TextBlock x:Name="console_text1" Canvas.Left="7" Canvas.Top="108">sb</TextBlock>

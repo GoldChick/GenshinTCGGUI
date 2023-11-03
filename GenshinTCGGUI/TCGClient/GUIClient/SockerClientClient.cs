@@ -61,6 +61,7 @@ namespace TCGClient
             {
                 _socket.Shutdown(SocketShutdown.Both);
                 _socket.Close();
+                throw;
             }
         }
         public void Receive()
@@ -87,43 +88,33 @@ namespace TCGClient
         }
         public void Send(string code, string message)
         {
-            try
-            {
-                var sendMessage = $"{code}|{message}";
-                _socket.Send(Encoding.UTF8.GetBytes(sendMessage));
-            }
-            catch (Exception)
-            {
-
-            }
+            var sendMessage = $"{code}|{message}";
+            _socket.Send(Encoding.UTF8.GetBytes(sendMessage));
         }
         private void MessageProcess(string str)
         {
             string[] strs = str.Split('|');
-            try
+            switch (strs[0])
             {
-                switch (strs[0])
-                {
-                    case "GAME":
-                        Game = JsonSerializer.Deserialize<ReadonlyGame>(strs[1]);
-                        _update.Invoke(Game);
-                        DateTime dt = DateTime.Now;
-                        MainWindow.Instance.UpdateHelpText($"curr time: {dt}");
-                        break;
-                    case "COST":
-                        DiceCostPacket packet = JsonSerializer.Deserialize<DiceCostPacket>(strs[1]);
-                        MainWindow.Instance.ClientUpdateCosts(packet);
-                        break;
-                    case "NETEVENT":
-                        ActionType demand = JsonSerializer.Deserialize<ActionType>(strs[1]);
-                        var t = Task.Run(() => MainWindow.Instance.RequestEventCallBack(demand, "no txt"));
-                        Send("NETEVENT", JsonSerializer.Serialize(t.Result));
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                MainWindow.Instance.UpdateHelpText($"客户端接收信息失败！{ex.Message} {ex.InnerException}");
+                case "GAME":
+                    Game = JsonSerializer.Deserialize<ReadonlyGame>(strs[1]);
+                    _update.Invoke(Game);
+                    DateTime dt = DateTime.Now;
+                    MainWindow.Instance.UpdateHelpText($"curr time: {dt}");
+                    break;
+                case "PACKET":
+                    var p = JsonSerializer.Deserialize<ClientUpdatePacket>(strs[1]);
+                    MainWindow.Instance.UpdatePacketRender(1, p);
+                    break;
+                case "COST":
+                    DiceCostPacket packet = JsonSerializer.Deserialize<DiceCostPacket>(strs[1]);
+                    MainWindow.Instance.ClientUpdateCosts(packet);
+                    break;
+                case "NETEVENT":
+                    ActionType demand = JsonSerializer.Deserialize<ActionType>(strs[1]);
+                    var t = Task.Run(() => MainWindow.Instance.RequestEventCallBack(demand, "no txt"));
+                    Send("NETEVENT", JsonSerializer.Serialize(t.Result));
+                    break;
             }
         }
     }

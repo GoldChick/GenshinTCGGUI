@@ -38,49 +38,29 @@ namespace TCGClient
 
             MainWindow.Instance.UpdateHelpText("服务端开启成功");
             await Task.Run(ListenClientConnect);
-            try
-            {
-                MainWindow.Instance.UpdateHelpText("服务端连接客户端成功");
-                await Task.Run(ReceiveMessage);
-            }
-            catch (Exception)
-            {
-            }
-            finally
-            {
-                CloseClientSocket();
-            }
+
+            MainWindow.Instance.UpdateHelpText("服务端连接客户端成功");
+            await Task.Run(ReceiveMessage);
+            CloseClientSocket();
         }
         public void SendToClient(string code, string message, string args = " ")
         {
-            try
-            {
-                byte[] bytes = Encoding.UTF8.GetBytes(string.Format("{0}|{1}|{2}", code, message, args));
-                string length = bytes.Length.ToString().PadLeft(8, '0');
-                _clientSocket.Send(Encoding.UTF8.GetBytes(string.Format("{0}", length)));
-                _clientSocket.Send(bytes);
-            }
-            catch (Exception)
-            {
-            }
+            byte[] bytes = Encoding.UTF8.GetBytes(string.Format("{0}|{1}|{2}", code, message, args));
+            string length = bytes.Length.ToString().PadLeft(8, '0');
+            _clientSocket.Send(Encoding.UTF8.GetBytes(string.Format("{0}", length)));
+            _clientSocket.Send(bytes);
         }
         /// <summary>
         /// 不断监听新的客户端连接，直到连接完毕
         /// </summary>
         private void ListenClientConnect()
         {
-            try
+            while (true)
             {
-                while (true)
-                {
-                    //Socket创建的新连接
-                    Socket clientSocket = _socket.Accept();
-                    _clientSocket = clientSocket;
-                    break;
-                }
-            }
-            catch (Exception)
-            {
+                //Socket创建的新连接
+                Socket clientSocket = _socket.Accept();
+                _clientSocket = clientSocket;
+                break;
             }
         }
 
@@ -106,14 +86,8 @@ namespace TCGClient
         /// </summary>
         private void CloseClientSocket()
         {
-            try
-            {
-                _clientSocket.Shutdown(SocketShutdown.Both);
-                _clientSocket.Close();
-            }
-            catch (Exception)
-            {
-            }
+            _clientSocket.Shutdown(SocketShutdown.Both);
+            _clientSocket.Close();
         }
         /// <summary>
         /// 可以在里面暴力throw从而关闭与某客户端的连接
@@ -121,27 +95,19 @@ namespace TCGClient
         private void MessageProcess(string message)
         {
             string[] strs = message.Split('|');
-            string currCode = strs[0];
-            try
+            switch (strs[0])
             {
-                switch (currCode)
-                {
-                    case "NETEVENT":
-                        var evt = JsonSerializer.Deserialize<NetEvent>(strs[1]);
-                        if (IsEventValid(evt))
-                        {
-                            NetEvent = evt;
-                        }
-                        break;
-                    case "COST":
-                        NetAction action = JsonSerializer.Deserialize<NetAction>(strs[1]);
-                        SendToClient("COST", JsonSerializer.Serialize(GetEventFinalDiceRequirement(action)));
-                        break;
-                }
-            }
-            catch (Exception)
-            {
-                throw;
+                case "NETEVENT":
+                    var evt = JsonSerializer.Deserialize<NetEvent>(strs[1]);
+                    if (IsEventValid(evt))
+                    {
+                        NetEvent = evt;
+                    }
+                    break;
+                case "COST":
+                    NetAction action = JsonSerializer.Deserialize<NetAction>(strs[1]);
+                    SendToClient("COST", JsonSerializer.Serialize(GetEventFinalDiceRequirement(action)));
+                    break;
             }
         }
 
@@ -182,14 +148,18 @@ namespace TCGClient
         public override void Update(ClientUpdatePacket packet)
         {
             base.Update(packet);
-            SendToClient("GAME", JsonSerializer.Serialize(Game));
+            SendToClient("PACKET", JsonSerializer.Serialize(packet));
             MainWindow.Instance.UpdateHelpText("服务端发送Update信息");
         }
         public override void UpdateRegion()
         {
             base.UpdateRegion();
             SendToClient("GAME", JsonSerializer.Serialize(Game));
-            MainWindow.Instance.UpdateHelpText("服务端发送UpdateRegion信息");
+        }
+        public override void BindInit(ReadonlyGame game)
+        {
+            base.BindInit(game);
+            SendToClient("GAME", JsonSerializer.Serialize(Game));
         }
     }
 }

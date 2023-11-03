@@ -12,20 +12,11 @@ namespace TCGClient
         public int MeID { get; private set; }
         private Action<ReadonlyGame> _bind;
         private Action<ReadonlyGame> _render;
-        private Action<ClientUpdatePacket> _packetrender;
         private Func<ActionType, string, NetEvent> _eventcallback;
-        public GuiClient(Action<ReadonlyGame> bind, Action<ReadonlyGame> render, Action<ClientUpdatePacket> packetrender, Func<ActionType, string, NetEvent> eventcallback)
+        public GuiClient(Action<ReadonlyGame> bind, Action<ReadonlyGame> render,Func<ActionType, string, NetEvent> eventcallback)
         {
             _bind = bind;
             _render = render;
-            _packetrender = packetrender;
-            _eventcallback = eventcallback;
-        }
-        public void ChangeCallBack(Action<ReadonlyGame> bind, Action<ReadonlyGame> render, Action<ClientUpdatePacket> packetrender, Func<ActionType, string, NetEvent> eventcallback)
-        {
-            _bind = bind;
-            _render = render;
-            _packetrender = packetrender;
             _eventcallback = eventcallback;
         }
         public override void InitServerSetting(ServerSetting setting)
@@ -67,7 +58,7 @@ namespace TCGClient
         public override void Update(ClientUpdatePacket packet)
         {
             base.Update(packet);
-            _packetrender?.Invoke(packet);
+            MainWindow.Instance.UpdatePacketRender(MeID, packet);
         }
         public override void UpdateRegion()
         {

@@ -13,20 +13,28 @@ namespace GenshinTCGGUI
     {
         private ActionType State;
         private NetEvent? NetEvent;
+        private bool _token;
         public NetEvent RequestEventCallBack(ActionType demand, string txt)
         {
             Dispatcher.Invoke(() =>
             {
                 State = demand;
-                assist1.Text = $"当前索取行动：{demand}";
-                assist2.Text = $"帮助文本：{txt}";
+                //assist1.Text = $"当前索取行动：{demand}";
+                //assist2.Text = $"帮助文本：{txt}";
                 InitSelect();
             });
+            _token = true;
+            Thread.Sleep(200);
             var a = Task.Run(() =>
             {
+                _token = false;
                 while (NetEvent == null)
                 {
                     Thread.Sleep(100);
+                    if (_token)
+                    {
+                        return null;
+                    }
                 }
                 var copy = NetEvent;
                 NetEvent = null;
