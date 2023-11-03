@@ -1,18 +1,19 @@
-﻿using System;
+﻿using GenshinTCGGUI;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.Json;
 using TCGBase;
 
 namespace TCGClient
 {
-    public class GuiClient : AbstractClient
+    public class GuiClient : AbstractMainClient
     {
         public int MeID { get; private set; }
         private Action<ReadonlyGame> _bind;
         private Action<ReadonlyGame> _render;
         private Action<ClientUpdatePacket> _packetrender;
         private Func<ActionType, string, NetEvent> _eventcallback;
-        public GuiClient()
-        {
-        }
         public GuiClient(Action<ReadonlyGame> bind, Action<ReadonlyGame> render, Action<ClientUpdatePacket> packetrender, Func<ActionType, string, NetEvent> eventcallback)
         {
             _bind = bind;
@@ -75,6 +76,7 @@ namespace TCGClient
         }
         public override NetEvent RequestEvent(ActionType demand, string help_txt = "Null")
         {
+            MainWindow.Instance.ClientUpdateCosts(GetAllDiceCost());
             return _eventcallback?.Invoke(demand, help_txt) ?? new NetEvent(new(ActionType.Pass));
         }
     }

@@ -14,38 +14,40 @@ using TCGBase;
 
 namespace Prefab
 {
-    public class ActionCardGrid :  SelectableGrid
+    public class ActionCardGrid : SelectableGrid
     {
         public string NameID { get; init; }
-        public bool SameDice { get; init; }
-        public int[] Cost { get; init; }
-        public ActionCardGrid(string nameid,int index, bool sameDice, int[] cost)
+        public UniformGrid CostContainer { get; }
+        public ActionCardGrid(string nameid, int index)
         {
             Index = index;
+            NameID = nameid;
+
             var path = Path.Combine(Directory.GetCurrentDirectory(), $"assets/Genshin3_3/action/{nameid}.png");
             MainImage = new()
             {
                 Source = new BitmapImage(File.Exists(path) ? new(path) : new("Resource/Minecraft/Action/unknown.png", UriKind.Relative)),
                 Margin = new Thickness(3),
             };
-            UniformGrid cost_container = new()
+            CostContainer = new()
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 Width = 96,
                 Rows = 5,
                 Columns = 1,
             };
-            cost.Select((x, element) => (element, x)).Where(p => p.x > 0)
-                .Select(p => new ActionCardCost(sameDice, p.element, p.x)).ToList()
-                .ForEach(c => cost_container.Children.Add(c));
-
-            NameID = nameid;
-            SameDice = sameDice;
-            Cost = cost;
 
             Children.Add(MainImage);
             Children.Add(new Image() { Source = new BitmapImage(new("Resource/Util/Card/Edge.png", UriKind.Relative)) });
-            Children.Add(cost_container);
+            Children.Add(CostContainer);
+        }
+        public void UpdateCost(DiceCostVariable dcv) => UpdateCost(dcv.CostSame, dcv.Costs);
+        public void UpdateCost(bool sameDice, int[] cost)
+        {
+            CostContainer.Children.Clear();
+            cost.Select((x, element) => (element, x)).Where(p => p.x > 0)
+                .Select(p => new ActionCardCost(sameDice, p.element, p.x)).ToList()
+                .ForEach(c => CostContainer.Children.Add(c));
         }
         public class ActionCardCost : Grid
         {

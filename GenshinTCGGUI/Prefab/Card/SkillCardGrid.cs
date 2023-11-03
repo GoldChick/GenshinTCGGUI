@@ -3,14 +3,16 @@ using System.Windows;
 using System.IO;
 using System.Windows.Media.Imaging;
 using System;
-using GenshinTCGGUI;
 using System.Linq;
+using static Prefab.ActionCardGrid;
+using TCGBase;
 
 namespace Prefab
 {
     public class SkillCardGrid : SelectableGrid
     {
-        public SkillCardGrid(string character_nameid, int index, bool sameDice, int[] cost)
+        public StackPanel CostContainer { get; }
+        public SkillCardGrid(string character_nameid, int index)
         {
             Index = index;
 
@@ -19,19 +21,24 @@ namespace Prefab
             {
                 Source = new BitmapImage(File.Exists(path) ? new(path) : new("null", UriKind.Relative)),
             };
-            StackPanel cost_container = new()
+            CostContainer = new()
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 64, 0, -26),
                 Orientation = Orientation.Horizontal
             };
-            cost.Select((x, element) => (element, x)).Where(p => p.x > 0)
-                    .Select(p => new ActionCardGrid.ActionCardCost(sameDice, p.element, p.x)).ToList()
-                    .ForEach(c => cost_container.Children.Add(c));
 
             Children.Add(MainImage);
-            Children.Add(cost_container);
+            Children.Add(CostContainer);
+        }
+        public void UpdateCost(DiceCostVariable dcv) => UpdateCost(dcv.CostSame, dcv.Costs);
+        public void UpdateCost(bool sameDice, int[] cost)
+        {
+            CostContainer.Children.Clear();
+            cost.Select((x, element) => (element, x)).Where(p => p.x > 0)
+                    .Select(p => new ActionCardCost(sameDice, p.element, p.x)).ToList()
+                    .ForEach(c => CostContainer.Children.Add(c));
         }
         //        <Grid>
         //    <Image Source = "e.png" ></ Image >

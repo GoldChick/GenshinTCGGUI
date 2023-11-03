@@ -28,10 +28,11 @@
         <UniformGrid x:Name="SkillMe" Height="64" Width="300" Canvas.Left="911"  Canvas.Top="600"   Rows="1" Columns="4" FlowDirection="RightToLeft">
         </UniformGrid>
 
-        <Canvas x:Name="ToolBar" Height="64" Width="256" HorizontalAlignment="Right" VerticalAlignment="Top" Canvas.Left="102" Background="Magenta">
-            <Button x:Name="StartGame" Canvas.Left="6" Canvas.Top="1" Click="StartGame_Click">开始游戏</Button>
-            <Button x:Name="SwitchSide" Canvas.Left="6" Canvas.Top="37" Click="SwitchSide_Click" Content="切换视角" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <TextBlock x:Name="assist0" HorizontalAlignment="Left" Canvas.Left="63" VerticalAlignment="Center" Width="193">sb</TextBlock>
+        <Canvas x:Name="ToolBar" Height="64" Width="1036" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="102" Background="Magenta">
+            <Button x:Name="StartGame" Canvas.Left="6" Click="StartGame_Click" Content="  开始游戏  " HorizontalAlignment="Center" VerticalAlignment="Top"></Button>
+            <Button x:Name="StartServer" Canvas.Left="6" Canvas.Top="44" Click="StartServer_Click" Content="开启服务器" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Button x:Name="StartClient" Canvas.Left="6" Canvas.Top="22" Click="StartClient_Click" Content="连接服务器" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <TextBlock x:Name="assist0" HorizontalAlignment="Left" Canvas.Left="63" VerticalAlignment="Top" Width="973" Height="111">sb</TextBlock>
             <TextBlock x:Name="assist1" Canvas.Left="63" Width="193" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="24"><Run Text="sb"/></TextBlock>
             <TextBlock x:Name="assist2" Canvas.Left="63" Width="193" Canvas.Top="49" HorizontalAlignment="Center" VerticalAlignment="Top"><Run Text="sb"/></TextBlock>
         </Canvas>

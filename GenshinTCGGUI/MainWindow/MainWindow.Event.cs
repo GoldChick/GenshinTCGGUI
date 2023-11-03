@@ -1,56 +1,38 @@
 ﻿using Prefab;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Security.Policy;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls.Primitives;
 using TCGBase;
+using TCGClient;
 
 namespace GenshinTCGGUI
 {
     public partial class MainWindow
     {
         private ActionType State;
-        private bool During;
-        private bool Over;
         private NetEvent? NetEvent;
         public NetEvent RequestEventCallBack(ActionType demand, string txt)
         {
             Dispatcher.Invoke(() =>
             {
                 State = demand;
-                assist0.Text = "我方行动";
                 assist1.Text = $"当前索取行动：{demand}";
                 assist2.Text = $"帮助文本：{txt}";
                 InitSelect();
             });
-            Over = false;
-
-            //if (During)
-            //{
-
-            //}
-            //else
+            var a = Task.Run(() =>
             {
-                During = true;
-                var a = Task.Run(() =>
+                while (NetEvent == null)
                 {
-                    while (NetEvent == null)
-                    {
-                        Thread.Sleep(100);
-                    }
-                    During = false;
-                    var copy = NetEvent;
-                    NetEvent = null;
-                    return copy;
-                });
-                return a.Result;
-            }
-            //TODO:超时
+                    Thread.Sleep(100);
+                }
+                var copy = NetEvent;
+                NetEvent = null;
+                return copy;
+            });
+            return a.Result;
         }
         private void ActionPermitted_Click(object sender, RoutedEventArgs e)
         {
@@ -87,51 +69,48 @@ namespace GenshinTCGGUI
                         {
                             int[] selects = new int[8];
                             DiceSelected.ForEach(d => selects[(int)d.Element]++);
-                            NetAction action = new(ActionType.Switch, CharacterSelected.Index);
-                            if (Client0.GetEventFinalDiceRequirement(action).EqualTo(selects))
+                            if (SwitchCosts.ElementAt(CharacterSelected.Index).EqualTo(selects))
                             {
                                 State = ActionType.Pass;
-                                NetEvent = new(action, selects);
+                                NetEvent = new(new(ActionType.Switch, CharacterSelected.Index), selects);
                             }
                         }
                         if (UseCardSelected != null)
                         {
-                            NetAction action = new(ActionType.UseCard, UseCardSelected.Index);
-                            var additionalTargets = Client0.GetTargetEnums(action);
-                            //TODO:比较粗浅
+                            CardCost cost = CardCosts.ElementAt(UseCardSelected.Index);
+                            var additionalTargets = cost.Targets;
                             var a = (TargetEnum e) => e switch
                             {
                                 TargetEnum.Character_Me or TargetEnum.Character_Enemy => typeof(CharacterCardGrid),
                                 TargetEnum.Card_Me => typeof(ActionCardGrid),
                                 _ => null
                             };
-                            if (additionalTargets.Count == TargetEnumSelected.Count)
+                            if (additionalTargets.Count() == TargetEnumSelected.Count)
                             {
-                                for (int i = 0; i < additionalTargets.Count; i++)
+                                for (int i = 0; i < additionalTargets.Count(); i++)
                                 {
-                                    if (TargetEnumSelected[i].GetType() != a(additionalTargets[i]))
+                                    if (TargetEnumSelected[i].GetType() != a(additionalTargets.ElementAt(i)))
                                     {
                                         break;
                                     }
                                 }
                                 int[] selects = new int[8];
                                 DiceSelected.ForEach(d => selects[(int)d.Element]++);
-                                if (Client0.GetEventFinalDiceRequirement(action).EqualTo(selects))
+                                if (cost.DiceCosts.EqualTo(selects))
                                 {
                                     State = ActionType.Pass;
-                                    NetEvent = new(action, selects, TargetEnumSelected.Select(t => t.Index).ToArray());
+                                    NetEvent = new(new(ActionType.UseCard, UseCardSelected.Index), selects, TargetEnumSelected.Select(t => t.Index).ToArray());
                                 }
                             }
                         }
                         if (UseSkillSelected != null)
                         {
-                            NetAction action = new(ActionType.UseSKill, UseSkillSelected.Index);
                             int[] selects = new int[8];
                             DiceSelected.ForEach(d => selects[(int)d.Element]++);
-                            if (Client0.GetEventFinalDiceRequirement(action).EqualTo(selects))
+                            if (SkillCosts.ElementAt(UseSkillSelected.Index).EqualTo(selects))
                             {
                                 State = ActionType.Pass;
-                                NetEvent = new(action, selects, TargetEnumSelected.Select(t => t.Index).ToArray());
+                                NetEvent = new(new(ActionType.UseSKill, UseSkillSelected.Index), selects, TargetEnumSelected.Select(t => t.Index).ToArray());
                             }
                         }
                     }
@@ -145,12 +124,11 @@ namespace GenshinTCGGUI
             {
                 int[] selects = new int[8];
                 int d = (int)DiceSelected[0].Element;
-                NetAction action = new(ActionType.Blend, UseCardSelected.Index);
-                if (d != 0 && Client0.GetEventFinalDiceRequirement(action).Costs[d] == 0)
+                if (d != 0 && BlendCost != null && BlendCost.Costs[d] == 0)
                 {
                     selects[d] = 1;
                     State = ActionType.Pass;
-                    NetEvent = new(action, selects);
+                    NetEvent = new(new(ActionType.Blend, UseCardSelected.Index), selects);
                 }
             }
         }
@@ -158,7 +136,7 @@ namespace GenshinTCGGUI
         {
             if (State == ActionType.Trival)
             {
-                State= ActionType.Pass;
+                State = ActionType.Pass;
                 NetEvent = new(new(ActionType.Pass));
             }
         }
