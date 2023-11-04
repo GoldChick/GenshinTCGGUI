@@ -88,8 +88,12 @@ namespace TCGClient
         }
         public void Send(string code, string message)
         {
-            var sendMessage = $"{code}|{message}";
-            _socket.Send(Encoding.UTF8.GetBytes(sendMessage));
+            byte[] bytes = Encoding.UTF8.GetBytes($"{code}|{message}");
+            _socket.Send(Encoding.UTF8.GetBytes(bytes.Length.ToString().PadLeft(8, '0')));
+            _socket.Send(bytes);
+
+            //var sendMessage = $"{code}|{message}";
+            //_socket.Send(Encoding.UTF8.GetBytes(sendMessage));
         }
         private void MessageProcess(string str)
         {
@@ -114,6 +118,10 @@ namespace TCGClient
                     ActionType demand = JsonSerializer.Deserialize<ActionType>(strs[1]);
                     var t = Task.Run(() => MainWindow.Instance.RequestEventCallBack(demand, "no txt"));
                     Send("NETEVENT", JsonSerializer.Serialize(t.Result));
+                    break;
+                case "ENEMY":
+                    demand = JsonSerializer.Deserialize<ActionType>(strs[1]);
+                    MainWindow.Instance.RequestEnemyEventCallBack(demand);
                     break;
             }
         }

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using GenshinTCGGUI;
+using System.Linq;
 using TCGBase;
 
 namespace TCGClient

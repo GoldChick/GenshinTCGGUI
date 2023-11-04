@@ -59,7 +59,7 @@ namespace Prefab
             Grid hp_container = new() { Width = 70 };
             hp_container.Children.Add(new Image()
             {
-                Source = new BitmapImage(new("Resource/Util/Card/Hp.png", UriKind.Relative)),
+                Source = new BitmapImage(new("Resource/Util/Card/hp-icon.png", UriKind.Relative)),
                 Width = 60
             });
             HPText = new TextBlock()

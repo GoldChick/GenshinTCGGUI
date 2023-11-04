@@ -37,49 +37,43 @@ namespace TCGClient
             _socket.Listen(1);
 
             MainWindow.Instance.UpdateHelpText("服务端开启成功");
-            await Task.Run(ListenClientConnect);
+            await Task.Run(()=> _clientSocket = _socket.Accept());
 
             MainWindow.Instance.UpdateHelpText("服务端连接客户端成功");
             await Task.Run(ReceiveMessage);
             CloseClientSocket();
         }
-        public void SendToClient(string code, string message, string args = " ")
+        public void SendToClient(string code, string message)
         {
-            byte[] bytes = Encoding.UTF8.GetBytes(string.Format("{0}|{1}|{2}", code, message, args));
-            string length = bytes.Length.ToString().PadLeft(8, '0');
-            _clientSocket.Send(Encoding.UTF8.GetBytes(string.Format("{0}", length)));
+            byte[] bytes = Encoding.UTF8.GetBytes($"{code}|{message}");
+            _clientSocket.Send(Encoding.UTF8.GetBytes(bytes.Length.ToString().PadLeft(8, '0')));
             _clientSocket.Send(bytes);
         }
-        /// <summary>
-        /// 不断监听新的客户端连接，直到连接完毕
-        /// </summary>
-        private void ListenClientConnect()
-        {
-            while (true)
-            {
-                //Socket创建的新连接
-                Socket clientSocket = _socket.Accept();
-                _clientSocket = clientSocket;
-                break;
-            }
-        }
-
         /// <summary>
         /// 接收客户端消息
         /// </summary>
         private void ReceiveMessage()
         {
-            while (true)
+            int rec = 1;
+            while (rec > 0)
             {
-                int length = _clientSocket.Receive(_buffer);
-                if (length == 0)
+                rec = _clientSocket.Receive(_buffer, 8, SocketFlags.None);
+                string str = Encoding.UTF8.GetString(_buffer, 0, rec);
+                if (int.TryParse(str, out int length))
                 {
-                    CloseClientSocket();
-                    break;
+                    int offset = 0;
+                    const int seperate = 1024;
+                    for (int i = 0; i < length / seperate; i++)
+                    {
+                        _clientSocket.Receive(_buffer, offset, seperate, SocketFlags.None);
+                        offset += seperate;
+                    }
+                    _clientSocket.Receive(_buffer, offset, length % seperate, SocketFlags.None);
+                    str = Encoding.UTF8.GetString(_buffer, 0, length);
+                    MessageProcess(str);
                 }
-                string str = Encoding.UTF8.GetString(_buffer, 0, length);
-                MessageProcess(str);
             }
+            CloseClientSocket();
         }
         /// <summary>
         /// 关闭与某个客户端的连接
@@ -133,7 +127,7 @@ namespace TCGClient
             SendToClient("COST", JsonSerializer.Serialize(GetAllDiceCost()));
             SendToClient("NETEVENT", JsonSerializer.Serialize(demand));
 
-            var a = Task.Run(() =>
+            return Task.Run(() =>
             {
                 while (NetEvent == null)
                 {
@@ -142,8 +136,12 @@ namespace TCGClient
                 var copy = NetEvent;
                 NetEvent = null;
                 return copy;
-            });
-            return a.Result;
+            }).Result;
+        }
+        public override void RequestEnemyEvent(ActionType demand)
+        {
+            base.RequestEnemyEvent(demand);
+            SendToClient("ENEMY",JsonSerializer.Serialize(demand));
         }
         public override void Update(ClientUpdatePacket packet)
         {

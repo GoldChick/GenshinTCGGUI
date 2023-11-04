@@ -8,6 +8,27 @@
         Title="GenshinInvokationTCG" Height="736" Width="1280" ResizeMode="CanMinimize" SizeToContent="WidthAndHeight">
     <Canvas x:Name="Global_Canvas" Height="720" Width="1280">
         <Image Source="Resource/Minecraft/Table/inazuma.png" Height="918" Width="1592" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="-156" Canvas.Top="-84"/>
+
+        <Canvas x:Name="Enemy" Height="360" Width="1152" Canvas.Left="64" HorizontalAlignment="Center" Canvas.Top="40" VerticalAlignment="Top" />
+        <Canvas x:Name="Me" Height="360" Width="1152" Canvas.Left="64" HorizontalAlignment="Center" Canvas.Top="320" VerticalAlignment="Top" />
+        <UniformGrid x:Name="CardEnemy" Height="163" Width="1152" Canvas.Left="64" HorizontalAlignment="Center" Canvas.Top="-100"  VerticalAlignment="Center"  Rows="1" Columns="10"/>
+        <UniformGrid x:Name="SkillMe" Height="64" Width="300" Canvas.Left="911"  Canvas.Top="600"   Rows="1" Columns="4" FlowDirection="RightToLeft"/>
+
+        <Canvas x:Name="ToolBar" Height="64" Width="1036" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="102" >
+            <Button x:Name="StartGame" Canvas.Left="6" Click="StartGame_Click" Content="  开始游戏  " HorizontalAlignment="Center" VerticalAlignment="Top"></Button>
+            <Button x:Name="StartServer" Canvas.Left="6" Canvas.Top="44" Click="StartServer_Click" Content="开启服务器" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Button x:Name="StartClient" Canvas.Left="6" Canvas.Top="22" Click="StartClient_Click" Content="连接服务器" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <TextBlock x:Name="assist0" HorizontalAlignment="Left" Canvas.Left="63" VerticalAlignment="Top" Width="973" Height="111"></TextBlock>
+        </Canvas>
+        <Grid x:Name="Tip" Background="Orange" Height="56" Width="803" HorizontalAlignment="Left" Canvas.Top="344" VerticalAlignment="Center" Canvas.Left="237" Opacity="0.7" Visibility="Hidden">
+            <TextBlock FontFamily="Arial Black" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="White" ShadowDepth="0" BlurRadius="2" Direction="315.3"/>
+                </TextBlock.Effect>我方行动</TextBlock>
+        </Grid>
+        <Grid x:Name="BlackBlocker_DiceAndCard" Background="Black" Height="720" Width="1280" Opacity="0.5" Visibility="Hidden"></Grid>
+        <UniformGrid x:Name="CardMe" Height="163" Width="1152" Canvas.Left="64" HorizontalAlignment="Center" Canvas.Top="650" VerticalAlignment="Center"  Rows="1" Columns="10" MouseEnter="Card_MouseEnter" MouseLeave="Card_MouseLeave"/>
+        <Grid x:Name="BlackBlocker_DiceOnly" Background="Black" Height="720" Width="1280" Opacity="0.5" Visibility="Hidden"></Grid>
         <Canvas Name="RightBar" Height="720" Width="64" HorizontalAlignment="Right" VerticalAlignment="Center" Canvas.Left="1216" >
             <Border Name="Setting" Height="64" Width="64" Background="Red" HorizontalAlignment="Center" VerticalAlignment="Top"></Border>
             <Border  Height="64" Width="64" Background="ForestGreen" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="64">
@@ -17,20 +38,6 @@
             <Button x:Name="ActionPermitted" Canvas.Left="6" Canvas.Top="662" Click="ActionPermitted_Click" Content="确认行动" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <Button x:Name="Blend" Canvas.Top="686" Click="Blend_Click" Content="调和手牌" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="6"/>
         </Canvas>
-        <Canvas x:Name="Enemy" Height="360" Width="1152" Canvas.Left="64" HorizontalAlignment="Center" Canvas.Top="40" VerticalAlignment="Top" />
-        <Canvas x:Name="Me" Height="360" Width="1152" Canvas.Left="64" HorizontalAlignment="Center" Canvas.Top="320" VerticalAlignment="Top" />
-        <UniformGrid x:Name="CardMe" Height="163" Width="1152" Canvas.Left="64" HorizontalAlignment="Center" Canvas.Top="650" VerticalAlignment="Center"  Rows="1" Columns="10" MouseEnter="Card_MouseEnter" MouseLeave="Card_MouseLeave"/>
-        <UniformGrid x:Name="CardEnemy" Height="163" Width="1152" Canvas.Left="64" HorizontalAlignment="Center" Canvas.Top="-100"  VerticalAlignment="Center"  Rows="1" Columns="10"/>
-        <UniformGrid x:Name="SkillMe" Height="64" Width="300" Canvas.Left="911"  Canvas.Top="600"   Rows="1" Columns="4" FlowDirection="RightToLeft">
-        </UniformGrid>
-
-        <Canvas x:Name="ToolBar" Height="64" Width="1036" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="102" >
-            <Button x:Name="StartGame" Canvas.Left="6" Click="StartGame_Click" Content="  开始游戏  " HorizontalAlignment="Center" VerticalAlignment="Top"></Button>
-            <Button x:Name="StartServer" Canvas.Left="6" Canvas.Top="44" Click="StartServer_Click" Content="开启服务器" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <Button x:Name="StartClient" Canvas.Left="6" Canvas.Top="22" Click="StartClient_Click" Content="连接服务器" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <TextBlock x:Name="assist0" HorizontalAlignment="Left" Canvas.Left="63" VerticalAlignment="Top" Width="973" Height="111"></TextBlock>
-        </Canvas>
-
         <Canvas x:Name="LeftBar" Height="720" Width="64">
             <Canvas x:Name="Timer" Height="128" Width="64" HorizontalAlignment="Center" VerticalAlignment="Top" Background="DarkGoldenrod" Canvas.Top="296">
                 <Button x:Name="Pass" Canvas.Left="18" Canvas.Top="54" Click="Pass_Click" Content="空过" HorizontalAlignment="Center" VerticalAlignment="Top"/>
@@ -69,10 +76,5 @@
                     </TextBlock.Effect>30</TextBlock>
             </Grid>
         </Canvas>
-
-        <!--<Canvas x:Name="Console" Height="216" Width="358" HorizontalAlignment="Right" VerticalAlignment="Top" Background="White" Canvas.Top="505" Opacity="0.4">
-            <TextBlock x:Name="console_text0">sb</TextBlock>
-            <TextBlock x:Name="console_text1" Canvas.Left="7" Canvas.Top="108">sb</TextBlock>
-        </Canvas>-->
     </Canvas>
 </Window>

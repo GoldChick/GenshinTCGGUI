@@ -69,7 +69,7 @@ namespace GenshinTCGGUI
         {
             var now = DateTime.Now;
             string gameid = $"{now.Year,4}{now.Hour,2}{now.Minute,2}{now.Second,2}{now.Microsecond,3}";
-            Client0 = new GuiClient(InitRender, UpdateRender, RequestEventCallBack);
+            Client0 = new GuiClient(InitRender, UpdateRender);
             Client1 = new SocketServerClient(_ip, _port);
 
             Client0.InitServerSetting(null);

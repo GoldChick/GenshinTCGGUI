@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using TCGBase;
 using TCGClient;
 
@@ -14,18 +16,47 @@ namespace GenshinTCGGUI
         private ActionType State;
         private NetEvent? NetEvent;
         private bool _token;
+        private bool _iscurrteam;
         public NetEvent RequestEventCallBack(ActionType demand, string txt)
         {
             Dispatcher.Invoke(() =>
             {
                 State = demand;
-                //assist1.Text = $"当前索取行动：{demand}";
-                //assist2.Text = $"帮助文本：{txt}";
                 InitSelect();
+                switch (State)
+                {
+                    case ActionType.ReRollDice:
+                        BlackBlocker_DiceOnly.Visibility = Visibility.Visible;
+                        BlackBlocker_DiceAndCard.Visibility = Visibility.Hidden;
+                        break;
+                    case ActionType.ReRollCard:
+                        BlackBlocker_DiceAndCard.Visibility = Visibility.Visible;
+                        BlackBlocker_DiceOnly.Visibility = Visibility.Hidden;
+                        break;
+                    default:
+                        if (!_iscurrteam)
+                        {
+                            Task.Run(() =>
+                            {
+                                Dispatcher.Invoke(() =>
+                                {
+                                    Tip.Background = new SolidColorBrush(Colors.Gold);
+                                    Tip.Visibility = Visibility.Visible;
+                                    (Tip.Children[0] as TextBlock).Text = "我方行动";
+                                });
+                                Thread.Sleep(666);
+                                Dispatcher.Invoke(() => Tip.Visibility = Visibility.Hidden);
+                            });
+                        }
+                        _iscurrteam = true;
+                        BlackBlocker_DiceAndCard.Visibility = Visibility.Hidden;
+                        BlackBlocker_DiceOnly.Visibility = Visibility.Hidden;
+                        break;
+                }
             });
             _token = true;
             Thread.Sleep(200);
-            var a = Task.Run(() =>
+            return Task.Run(() =>
             {
                 _token = false;
                 while (NetEvent == null)
@@ -33,14 +64,42 @@ namespace GenshinTCGGUI
                     Thread.Sleep(100);
                     if (_token)
                     {
-                        return null;
+                        return new(new(ActionType.Pass));
                     }
                 }
                 var copy = NetEvent;
                 NetEvent = null;
                 return copy;
-            });
-            return a.Result;
+            }).Result;
+        }
+        public void RequestEnemyEventCallBack(ActionType demand)
+        {
+            switch (demand)
+            {
+                case ActionType.ReRollDice:
+                    break;
+                case ActionType.ReRollCard:
+                    break;
+                case ActionType.SwitchForced:
+                    break;
+                default:
+                    if (_iscurrteam)
+                    {
+                        Task.Run(() =>
+                        {
+                            Dispatcher.Invoke(() =>
+                            {
+                                Tip.Background = new SolidColorBrush(Colors.Purple);
+                                Tip.Visibility = Visibility.Visible;
+                                (Tip.Children[0] as TextBlock).Text = "对方行动";
+                            });
+                            Thread.Sleep(666);
+                            Dispatcher.Invoke(() => Tip.Visibility = Visibility.Hidden);
+                        });
+                    }
+                    _iscurrteam = false;
+                    break;
+            }
         }
         private void ActionPermitted_Click(object sender, RoutedEventArgs e)
         {
