@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -147,9 +148,11 @@ namespace Prefab
             }
 
             EffectsPanel.Children.Clear();
-            TryAddEffect(EffectsPanel, c.Effects);
 
-            if (ints[0] == 0 && c.Weapon != null)
+            TryAddEffect(EffectsPanel, c.Effects.Where(e => e.NameSpace != "equipment"));
+
+            var equips=c.Effects.Where(e => e.NameSpace == "equipment").Select(e=>e.Name);
+            if (ints[0] == 0 && equips.Contains("weapon"))
             {
                 LeftPanel.Children.Add(new Image()
                 {
@@ -158,7 +161,7 @@ namespace Prefab
                 });
                 ints[0] = 1;
             }
-            if (ints[1] == 0 && c.Artifact != null)
+            if (ints[1] == 0 && equips.Contains("artifact"))
             {
                 LeftPanel.Children.Add(new Image()
                 {
@@ -167,7 +170,7 @@ namespace Prefab
                 });
                 ints[1] = 1;
             }
-            if (ints[2] == 0 && c.Talent != null)
+            if (ints[2] == 0 && equips.Contains("talent"))
             {
                 LeftPanel.Children.Add(new Image()
                 {
@@ -185,7 +188,7 @@ namespace Prefab
                 TryAddEffect(TeamEffectsPanel, teamEffects);
             }
         }
-        private static void TryAddEffect(StackPanel container, List<ReadonlyPersistent> es)
+        private static void TryAddEffect(StackPanel container, IEnumerable<ReadonlyPersistent> es)
         {
             foreach (var e in es)
             {
