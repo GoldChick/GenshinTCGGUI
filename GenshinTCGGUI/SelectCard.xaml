@@ -1,0 +1,60 @@
+﻿<Window x:Class="GenshinTCGGUI.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GenshinTCGGUI"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800" ResizeMode="CanMinimize">
+    <Grid>
+        <Grid>
+            <Button Margin="0,0,716,389" Click="ChooseCharacter">选择角色牌</Button>
+            <Button Margin="89,0,620,389" Click="ChooseAction">选择行动牌</Button>
+            <Button Margin="698,0,0,389">确认选择</Button>
+            <UniformGrid Name="CharacterCardsSelected" Rows="1" Columns="3" Margin="10,83,487,218">
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+            </UniformGrid>
+            <UniformGrid Name="ActionCardsSelected" Rows="3" Columns="10" Margin="349,51,10,173">
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+                <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+            </UniformGrid>
+            <ScrollViewer x:Name="ActionCardScroll" Margin="0,232,0,10" VerticalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" UseLayoutRounding="False" HorizontalScrollBarVisibility="Auto">
+                <StackPanel x:Name="ActionCardToSelectPanel" Orientation="Horizontal" Height="180"/>
+            </ScrollViewer>
+            <ScrollViewer x:Name="CharacterCardScroll" Margin="0,232,0,10" VerticalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" UseLayoutRounding="False" HorizontalScrollBarVisibility="Auto">
+                <StackPanel x:Name="CharacterCardToSelectPanel" Orientation="Horizontal" Height="180"/>
+            </ScrollViewer>
+        </Grid>
+
+    </Grid>
+</Window>

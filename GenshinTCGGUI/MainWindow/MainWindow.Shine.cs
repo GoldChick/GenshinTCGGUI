@@ -15,7 +15,7 @@ namespace GenshinTCGGUI
         /// <summary>
         /// 上一个被选中的卡牌，在屏幕上显示说明，点击其他地方取消显示
         /// </summary>
-        public SelectableGrid? LastSelected { get; set; }
+        public GamingSelectableGrid? LastSelected { get; set; }
         /// <summary>
         /// 切人使用<br/>
         /// Trival SwitchForced
@@ -35,12 +35,12 @@ namespace GenshinTCGGUI
         /// 使用卡牌时的TargetNum提供<br/>
         /// Trival
         /// </summary>
-        public List<SelectableGrid> TargetEnumSelected { get; set; }
+        public List<GamingSelectableGrid> TargetEnumSelected { get; set; }
         /// <summary>
         /// 重投卡牌使用<br/>
         /// RerollCard
         /// </summary>
-        public List<SelectableGrid> RerollCardsSelected { get; set; }
+        public List<GamingSelectableGrid> RerollCardsSelected { get; set; }
         /// <summary>
         /// 提供/重投骰子<br/>
         /// Trival RerollDice
@@ -49,7 +49,7 @@ namespace GenshinTCGGUI
         /// <summary>
         /// 添加要选中的卡牌/骰子
         /// </summary>
-        public void TrySelect(SelectableGrid selected)
+        public void TrySelect(GamingSelectableGrid selected)
         {
             LastSelected = selected;
             switch (State)

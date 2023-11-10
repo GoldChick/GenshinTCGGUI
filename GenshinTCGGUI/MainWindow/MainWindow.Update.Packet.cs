@@ -64,7 +64,7 @@ namespace GenshinTCGGUI
                                     card.Children.RemoveAt(packet.Ints[0]);
                                     break;
                                 case 2://Obtain
-                                    card.Children.Add(teamid == meid ? new ActionCardGrid(packet.Strings[0], CardMe.Children.Count) : new UnselectableActionCardGrid());
+                                    card.Children.Add(teamid == meid ? new ActionCardGrid(packet.Strings[0], CardMe.Children.Count) : new GamingUnselectableActionCardGrid());
                                     break;
                                 case 3://Push
                                     foreach (var i in packet.Ints.Reverse())

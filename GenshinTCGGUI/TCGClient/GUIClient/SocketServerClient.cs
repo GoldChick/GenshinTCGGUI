@@ -116,7 +116,7 @@ namespace TCGClient
                 Characters = new[] { "genshin3_3:mona", "genshin3_3:xiangling", "genshin3_3:noel" },
                 ActionCards = new[] { "genshin3_3:partner_timmie", "genshin3_3:partner_timmie", "genshin3_3:partner_timmie", "genshin3_3:partner_timmie", "genshin3_3:partner_timmie" ,
                                                       "genshin3_3:partner_timmie", "genshin3_3:partner_timmie", "genshin3_3:partner_timmie", "genshin3_3:partner_timmie", "genshin3_3:partner_timmie" ,
-                                                      "genshin3_3:赌徒的耳环", "genshin3_3:partner_timmie", "genshin3_3:赌徒的耳环", "genshin3_3:partner_changtheninth", "genshin3_3:partner_changtheninth" ,
+                                                      "genshin3_3:food_sweetchicken", "genshin3_3:partner_timmie", "genshin3_3:food_sweetchicken", "genshin3_3:partner_changtheninth", "genshin3_3:partner_changtheninth" ,
                                                       "genshin3_3:partner_changtheninth", "genshin3_3:partner_changtheninth", "genshin3_3:partner_changtheninth", "genshin3_3:partner_changtheninth", "genshin3_3:partner_changtheninth" ,
                                                       "genshin3_3:partner_liusu", "genshin3_3:partner_liusu", "genshin3_3:partner_liusu", "genshin3_3:partner_liusu", "genshin3_3:partner_liusu" ,
                                                       "genshin3_3:location_dawnwinery", "genshin3_3:location_dawnwinery", "genshin3_3:location_dawnwinery", "genshin3_3:location_dawnwinery", "genshin3_3:location_dawnwinery" },
