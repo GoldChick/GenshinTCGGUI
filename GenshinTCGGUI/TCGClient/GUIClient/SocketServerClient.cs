@@ -11,6 +11,7 @@ using GenshinTCGGUI;
 using System.Linq;
 using System.Reflection;
 using System.Collections.Generic;
+using System.IO;
 
 namespace TCGClient
 {
@@ -36,10 +37,10 @@ namespace TCGClient
             _socket.Bind(endPoint);
             _socket.Listen(1);
 
-            MainWindow.Instance.UpdateHelpText("服务端开启成功");
+            _tb?.Invoke("服务端开启成功");
             await Task.Run(()=> _clientSocket = _socket.Accept());
 
-            MainWindow.Instance.UpdateHelpText("服务端连接客户端成功");
+            _tb?.Invoke("服务端连接客户端成功");
             await Task.Run(ReceiveMessage);
             CloseClientSocket();
         }
@@ -111,16 +112,9 @@ namespace TCGClient
 
         public override ServerPlayerCardSet RequestCardSet()
         {
-            return new(new PlayerNetCardSet()
-            {
-                Characters = new[] { "genshin3_3:mona", "genshin3_3:xiangling", "genshin3_3:noel" },
-                ActionCards = new[] { "genshin3_3:partner_timmie", "genshin3_3:partner_timmie", "genshin3_3:partner_timmie", "genshin3_3:partner_timmie", "genshin3_3:partner_timmie" ,
-                                                      "genshin3_3:partner_timmie", "genshin3_3:partner_timmie", "genshin3_3:partner_timmie", "genshin3_3:partner_timmie", "genshin3_3:partner_timmie" ,
-                                                      "genshin3_3:food_sweetchicken", "genshin3_3:partner_timmie", "genshin3_3:food_sweetchicken", "genshin3_3:partner_changtheninth", "genshin3_3:partner_changtheninth" ,
-                                                      "genshin3_3:partner_changtheninth", "genshin3_3:partner_changtheninth", "genshin3_3:partner_changtheninth", "genshin3_3:partner_changtheninth", "genshin3_3:partner_changtheninth" ,
-                                                      "genshin3_3:partner_liusu", "genshin3_3:partner_liusu", "genshin3_3:partner_liusu", "genshin3_3:partner_liusu", "genshin3_3:partner_liusu" ,
-                                                      "genshin3_3:location_dawnwinery", "genshin3_3:location_dawnwinery", "genshin3_3:location_dawnwinery", "genshin3_3:location_dawnwinery", "genshin3_3:location_dawnwinery" },
-            });
+            var setjson = File.ReadAllText(Directory.GetCurrentDirectory() + "/cardsets/1.json");
+            var set = JsonSerializer.Deserialize<CardSetSetting>(setjson);
+            return new(set.CardSet);
         }
         public override NetEvent RequestEvent(ActionType demand, string help_txt = "Null")
         {
@@ -147,7 +141,6 @@ namespace TCGClient
         {
             base.Update(packet);
             SendToClient("PACKET", JsonSerializer.Serialize(packet));
-            MainWindow.Instance.UpdateHelpText("服务端发送Update信息");
         }
         public override void UpdateRegion()
         {

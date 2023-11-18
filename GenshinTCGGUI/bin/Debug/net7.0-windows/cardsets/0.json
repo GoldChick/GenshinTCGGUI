@@ -1,0 +1,42 @@
+{
+    "CardSetName": "test",
+    "CardSet": {
+        "Characters": [
+            "genshin3_3:qq",
+            "genshin3_3:hydro",
+            "genshin3_3:fischl"
+        ],
+        "ActionCards": [
+            "genshin3_3:weapon_sacrificial_catalyst",
+            "genshin3_3:weapon_sacrificial_catalyst",
+            "genshin3_3:artifact_luckydogsilvercirclet",
+            "genshin3_3:artifact_luckydogsilvercirclet",
+            "genshin3_3:artifact_hydro_big",
+            "genshin3_3:artifact_hydro_big",
+            "genshin3_3:partner_paimon",
+            "genshin3_3:partner_paimon",
+            "genshin3_3:partner_liben",
+            "genshin3_3:partner_liben",
+            "genshin3_3:location_liyuehabor",
+            "genshin3_3:location_liyuehabor",
+            "genshin3_3:location_jadechamber",
+            "genshin3_3:location_jadechamber",
+            "genshin3_3:food_mondstadthashbrown",
+            "genshin3_3:food_mondstadthashbrown",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_leaveittome",
+            "genshin3_3:event_sendoff",
+            "genshin3_3:event_sendoff",
+            "genshin3_3:event_starsigns",
+            "genshin3_3:event_starsigns",
+            "genshin3_3:event_strategize",
+            "genshin3_3:event_strategize",
+            "genshin3_3:dice_geo",
+            "genshin3_3:dice_geo",
+            "genshin3_3:talent_ningguang",
+            "genshin3_3:talent_ningguang",
+            "genshin3_3:talent_qq"
+        ]
+    }
+}

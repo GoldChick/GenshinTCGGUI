@@ -1,4 +1,6 @@
-﻿using TCGBase;
+﻿using System.IO;
+using TCGBase;
+using TCGClient;
 
 namespace GenshinTCGGUI
 {
@@ -6,10 +8,13 @@ namespace GenshinTCGGUI
     {
         private static readonly GameManager _instance = new();
         public static GameManager Instance => _instance;
-        public Game Game;
         public GameManager()
         {
-            Game= new Game();
+            Registry.Instance.LoadDlls(Directory.GetCurrentDirectory() + "/mods");
         }
+        public GuiClient Client0;
+        public SocketServerClient Client1;
+
+        public SocketClientClient ClientClient;
     }
 }

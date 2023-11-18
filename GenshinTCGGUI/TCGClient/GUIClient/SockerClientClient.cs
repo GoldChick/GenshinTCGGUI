@@ -10,9 +10,14 @@ using GenshinTCGGUI;
 using System.Threading;
 using System.Windows.Threading;
 using Prefab;
+using System.Windows.Controls;
+using System.Windows.Documents;
 
 namespace TCGClient
 {
+    /// <summary>
+    /// 作为gui主题的
+    /// </summary>
     public class SocketClientClient
     {
         private readonly string _ip = string.Empty;
@@ -20,7 +25,8 @@ namespace TCGClient
         private readonly Socket _socket;
         private readonly byte[] _buffer = new byte[1024 * 1024 * 2];
 
-        private readonly Action<ReadonlyGame> _update;
+        private Action<string>? _tb;
+        private Action<ReadonlyGame>? _update;
 
         private ReadonlyGame Game;
         /// <summary>
@@ -28,40 +34,31 @@ namespace TCGClient
         /// </summary>
         /// <param name="ip">连接服务器的IP</param>
         /// <param name="port">连接服务器的端口</param>
-        public SocketClientClient(string ip, int port, Action<ReadonlyGame> updatefull)
+        public SocketClientClient(string ip, int port)
         {
             _ip = ip;
             _port = port;
-            _update = updatefull;
             _socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         }
+        public void BindHelpTextAction(Action<string>? tb) => _tb = tb;
+        public void BindUpdateFullRenderAction(Action<ReadonlyGame>? updatefull) => _update = updatefull;
         /// <summary>
         /// 开启服务,连接服务端
         /// </summary>
         public async void StartClient()
         {
+            IPAddress address = IPAddress.Parse(_ip);
+            IPEndPoint endPoint = new(address, _port);
             try
             {
-                IPAddress address = IPAddress.Parse(_ip);
-                IPEndPoint endPoint = new(address, _port);
-                MainWindow.Instance.UpdateHelpText("客户端开启成功");
-                try
-                {
-                    _socket.Connect(endPoint);
-                    MainWindow.Instance.UpdateHelpText("客户端连接成功");
-                    await Task.Run(Receive);
-                }
-                catch (Exception ex)
-                {
-                    MainWindow.Instance.UpdateHelpText($"客户端收到错误 {ex.Message}");
-                    return;
-                }
+                _socket.Connect(endPoint);
+                _tb?.Invoke("客户端连接成功");
+                await Task.Run(Receive);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                _socket.Shutdown(SocketShutdown.Both);
-                _socket.Close();
-                throw;
+                _tb?.Invoke($"客户端收到错误 {ex.Message}");
+                return;
             }
         }
         public void Receive()
@@ -91,9 +88,6 @@ namespace TCGClient
             byte[] bytes = Encoding.UTF8.GetBytes($"{code}|{message}");
             _socket.Send(Encoding.UTF8.GetBytes(bytes.Length.ToString().PadLeft(8, '0')));
             _socket.Send(bytes);
-
-            //var sendMessage = $"{code}|{message}";
-            //_socket.Send(Encoding.UTF8.GetBytes(sendMessage));
         }
         private void MessageProcess(string str)
         {
@@ -102,7 +96,7 @@ namespace TCGClient
             {
                 case "GAME":
                     Game = JsonSerializer.Deserialize<ReadonlyGame>(strs[1]);
-                    _update.Invoke(Game);
+                    _update?.Invoke(Game);
                     DateTime dt = DateTime.Now;
                     MainWindow.Instance.UpdateHelpText($"curr time: {dt}");
                     break;

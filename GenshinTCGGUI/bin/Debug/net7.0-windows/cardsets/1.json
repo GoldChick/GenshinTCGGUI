@@ -1,0 +1,42 @@
+{
+    "CardSetName": "test",
+    "CardSet": {
+        "Characters": [
+            "genshin3_3:fischl",
+            "genshin3_3:diona",
+            "genshin3_3:chongyun"
+        ],
+        "ActionCards": [
+            "genshin3_3:weapon_sacrificial_sword",
+            "genshin3_3:weapon_sacrificial_sword",
+            "genshin3_3:weapon_sacrificial_bow",
+            "genshin3_3:weapon_sacrificial_bow",
+            "genshin3_3:weapon_wolfgravestone_claymore",
+            "genshin3_3:weapon_wolfgravestone_claymore",
+            "genshin3_3:artifact_luckydogsilvercirclet",
+            "genshin3_3:artifact_luckydogsilvercirclet",
+            "genshin3_3:artifact_gamblerearrings",
+            "genshin3_3:artifact_gamblerearrings",
+            "genshin3_3:partner_paimon",
+            "genshin3_3:partner_paimon",
+            "genshin3_3:partner_timmie",
+            "genshin3_3:partner_timmie",
+            "genshin3_3:partner_liusu",
+            "genshin3_3:partner_liusu",
+            "genshin3_3:partner_liben",
+            "genshin3_3:partner_liben",
+            "genshin3_3:partner_changtheninth",
+            "genshin3_3:partner_changtheninth",
+            "genshin3_3:location_jadechamber",
+            "genshin3_3:location_jadechamber",
+            "genshin3_3:food_mondstadthashbrown",
+            "genshin3_3:food_mondstadthashbrown",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_changingshifts",
+            "genshin3_3:event_changingshifts",
+            "genshin3_3:event_starsigns",
+            "genshin3_3:event_starsigns"
+        ]
+    }
+}

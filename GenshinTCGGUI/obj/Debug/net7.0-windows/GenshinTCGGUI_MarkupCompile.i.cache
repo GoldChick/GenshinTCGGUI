@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\Users\11847\Documents\GenshinTCGGUI\GenshinTCGGUI\App.xaml
-21641650779
+3-1790933100
 
-27-128253341
+33-2087122106
 199-812858360
-MainWindow.xaml;SelectCard.xaml;
+MainWindow.xaml;SelectCard.xaml;Start.xaml;
 
-True
+False
 

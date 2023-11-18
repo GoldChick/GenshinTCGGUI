@@ -1,4 +1,5 @@
 ﻿using GenshinTCGGUI;
+using System;
 using System.Linq;
 using TCGBase;
 
@@ -6,6 +7,8 @@ namespace TCGClient
 {
     public abstract class AbstractMainClient : AbstractClient
     {
+        protected Action<string>? _tb;
+        public void BindHelpTextAction(Action<string>? tb) => _tb = tb;
         public DiceCostPacket GetAllDiceCost()
         {
            return new(Game.Cards.Select((value, index) => new CardCost(GetEventFinalDiceRequirement(new(ActionType.UseCard, index)), GetTargetEnums(new(ActionType.UseCard, index)))),

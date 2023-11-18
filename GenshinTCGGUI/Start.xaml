@@ -1,0 +1,29 @@
+﻿<Window x:Class="GenshinTCGGUI.Start"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GenshinTCGGUI"
+        mc:Ignorable="d"
+        Title="Start" Height="320" Width="320" ResizeMode="CanMinimize">
+    <Grid>
+        <UniformGrid Rows="6" Columns="1" Margin="28,35,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button x:Name="b0" Click="StartGame">开始游戏</Button>
+            <Button x:Name="b1" Click="StartServer">开启服务器</Button>
+            <Button x:Name="b2" Click="StartClient">连接服务器</Button>
+            <Button x:Name="b3" Click="UpdateCardSet">搭配卡组</Button>
+        </UniformGrid>
+        <TextBlock x:Name="HelpText" TextWrapping="Wrap" Background="BlueViolet" Margin="107,23,10,124" FontFamily="Arial"></TextBlock>
+        <UniformGrid x:Name="CardMe" Margin="0,200,160,0" Rows="1" Columns="3">
+            <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+            <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+            <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+        </UniformGrid>
+        <UniformGrid x:Name="CardEnemy" Margin="160,200,0,0" Rows="1" Columns="3">
+            <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+            <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+            <Image Source="Resource/minecraft/action/amethyst.png"></Image>
+        </UniformGrid>
+
+    </Grid>
+</Window>

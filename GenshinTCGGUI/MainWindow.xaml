@@ -15,9 +15,6 @@
         <UniformGrid x:Name="SkillMe" Height="64" Width="300" Canvas.Left="911"  Canvas.Top="600"   Rows="1" Columns="4" FlowDirection="RightToLeft"/>
 
         <Canvas x:Name="ToolBar" Height="64" Width="1036" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="102" >
-            <Button x:Name="StartGame" Canvas.Left="6" Click="StartGame_Click" Content="  开始游戏  " HorizontalAlignment="Center" VerticalAlignment="Top"></Button>
-            <Button x:Name="StartServer" Canvas.Left="6" Canvas.Top="44" Click="StartServer_Click" Content="开启服务器" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <Button x:Name="StartClient" Canvas.Left="6" Canvas.Top="22" Click="StartClient_Click" Content="连接服务器" HorizontalAlignment="Center" VerticalAlignment="Top"/>
             <TextBlock x:Name="assist0" HorizontalAlignment="Left" Canvas.Left="63" VerticalAlignment="Top" Width="973" Height="111"></TextBlock>
         </Canvas>
         <Grid x:Name="Tip" Background="Orange" Height="56" Width="803" HorizontalAlignment="Left" Canvas.Top="344" VerticalAlignment="Center" Canvas.Left="237" Opacity="0.7" Visibility="Hidden">

@@ -9,59 +9,61 @@ using System.Windows.Media.Imaging;
 using TCGBase;
 namespace Prefab
 {
-    public  class PreGamingSelectableGrid : Grid
+    public enum RegistryType
     {
-        protected Image MainImage;
+        CharacterCard,
+        ActionCard
+    }
+    public class PreGamingSelectableGrid : Grid
+    {
+        public Image MainImage;
+        public int Index { get; }
+        public string NameSpace { get; }
         public string NameID { get; }
-        public PreGamingSelectableGrid(RegistryType type, string nameid)
+        public AbstractCardBase? Card { get; }
+        public PreGamingSelectableGrid(AbstractCardCharacter c, int index) : this(RegistryType.CharacterCard, c.Namespace, c.NameID, index)
         {
+            Card = c;
+        }
+        public PreGamingSelectableGrid(AbstractCardAction c, int index) : this(RegistryType.ActionCard, c.Namespace, c.NameID, index)
+        {
+            Card = c;
+        }
+        public PreGamingSelectableGrid(RegistryType type, string nameSpace, string nameid, int index, int gridtype = -1)
+        {
+            NameSpace = nameSpace;
             NameID = nameid;
+            Index = index;
 
-            var strs = nameid.Split(':');
             Uri url = new("Resource/minecraft/action/unknown.png", UriKind.Relative);
-            if (strs.Length == 2)
+            string path = "assets/path.png";
+            switch (type)
             {
-                string path="assets/path.png";
-                switch (type)
-                {
-                    case RegistryType.CharacterCard:
-                        path = Path.Combine(Directory.GetCurrentDirectory(), $"assets/{strs[0]}/character/{strs[1]}/main.png");
-                        break;
-                    case RegistryType.ActionCard:
-                        path = Path.Combine(Directory.GetCurrentDirectory(), $"assets/{strs[0]}/action/{strs[1]}.png");
-                        break;
-                }
-                if (File.Exists(path))
-                {
-                    url = new(path);
-                }
+                case RegistryType.CharacterCard:
+                    path = Path.Combine(Directory.GetCurrentDirectory(), $"assets/{nameSpace}/character/{nameid}/main.png");
+                    break;
+                case RegistryType.ActionCard:
+                    path = Path.Combine(Directory.GetCurrentDirectory(), $"assets/{nameSpace}/action/{nameid}.png");
+                    break;
+            }
+            if (File.Exists(path))
+            {
+                url = new(path);
             }
             MainImage = new()
             {
                 Source = new BitmapImage(url),
-                Height=160,
-                Width=84
+                Height = gridtype == -1 ? 160 : double.NaN,
+                Width = gridtype == -1 ? 84 : double.NaN
             };
             Children.Add(MainImage);
-
-            MouseLeftButtonDown += (s, e) => MainWindow.Instance.TrySelect(this);
-        }
-        /// <summary>
-        /// 0 无色 | 1 绿色 | 2 黄色
-        /// </summary>
-        public void Glow(int type)
-        {
-            MainImage.Effect = type == 0 ? null : new DropShadowEffect()
+            if (gridtype>=-1)
             {
-                BlurRadius = 25,
-                Color = (Color)ColorConverter.ConvertFromString(type switch
+                MouseLeftButtonDown += (s, e) =>
                 {
-                    2 => "#97FFFF00", //黄色
-                    3 => "#FFFF9700", //绿色
-                    _ => "#FF97FF00", //绿色
-                }),
-                ShadowDepth = 0
-            };
+                    SelectCard.Instance.Select(type, nameSpace, nameid, index);
+                };
+            }
         }
     }
 }

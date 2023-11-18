@@ -17,10 +17,9 @@ namespace Prefab
     public class ActionCardGrid : GamingSelectableGrid
     {
         public UniformGrid CostContainer { get; }
-        public ActionCardGrid(string nameid, int index) : base(index)
+        public ActionCardGrid(string nameSpace,string nameid, int index) : base(index)
         {
-
-            var path = Path.Combine(Directory.GetCurrentDirectory(), $"assets/Genshin3_3/action/{nameid}.png");
+            var path = Path.Combine(Directory.GetCurrentDirectory(), $"assets/{nameSpace}/action/{nameid}.png");
             MainImage = new()
             {
                 Source = new BitmapImage(File.Exists(path) ? new(path) : new("Resource/minecraft/action/unknown.png", UriKind.Relative)),

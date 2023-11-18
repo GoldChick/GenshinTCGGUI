@@ -17,7 +17,7 @@ namespace Prefab
             {
                 Width = 64,
                 Height = 64,
-                Source = new BitmapImage(new($"Resource/Util/Cost/{Element}.png", UriKind.Relative)),
+                Source = new BitmapImage(new($"Resource/util/cost/{Element}.png", UriKind.Relative)),
                 Margin = new Thickness(0, 5, 0, 0)
             };
             var ele = new Image()
@@ -25,7 +25,7 @@ namespace Prefab
                 Width = 32,
                 Height = 32,
                 Opacity = 0.8,
-                Source = new BitmapImage(new($"Resource/Util/Element/{Element}.png", UriKind.Relative)),
+                Source = new BitmapImage(new($"Resource/util/element/{Element}.png", UriKind.Relative)),
                 Margin = new Thickness(0, 5, 0, 0)
             };
             Children.Add(MainImage);

@@ -1,6 +1,7 @@
 ﻿using GenshinTCGGUI;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.Json;
 using TCGBase;
@@ -10,13 +11,10 @@ namespace TCGClient
     public class GuiClient : AbstractMainClient
     {
         public int MeID { get; private set; }
-        private Action<ReadonlyGame> _bind;
-        private Action<ReadonlyGame> _render;
-        public GuiClient(Action<ReadonlyGame> bind, Action<ReadonlyGame> render)
-        {
-            _bind = bind;
-            _render = render;
-        }
+        private Action<ReadonlyGame>? _bind;
+        private Action<ReadonlyGame>? _render;
+        public void BindInitRenderAction(Action<ReadonlyGame>? bind) => _bind = bind;
+        public void BindUpdateRenderAction(Action<ReadonlyGame>? render) => _render = render;
         public override void InitServerSetting(ServerSetting setting)
         {
             ClientSetting = new()
@@ -37,16 +35,9 @@ namespace TCGClient
 
         public override ServerPlayerCardSet RequestCardSet()
         {
-            return new(new PlayerNetCardSet()
-            {
-                Characters = new[] { "genshin3_3:hydro", "genshin3_3:fischl", "genshin3_3:debt" },
-                ActionCards = new[] { "genshin3_3:food_sweetchicken", "genshin3_3:food_sweetchicken", "genshin3_3:food_sweetchicken", "genshin3_3:food_sweetchicken", "genshin3_3:food_sweetchicken" ,
-                                                      "genshin3_3:food_sweetchicken", "genshin3_3:food_sweetchicken", "genshin3_3:food_sweetchicken", "genshin3_3:food_sweetchicken", "genshin3_3:food_sweetchicken" ,
-                                                      "genshin3_3:food_sweetchicken", "genshin3_3:food_sweetchicken", "genshin3_3:food_sweetchicken", "genshin3_3:partner_changtheninth", "genshin3_3:partner_changtheninth" ,
-                                                      "genshin3_3:partner_changtheninth", "genshin3_3:partner_changtheninth", "genshin3_3:partner_changtheninth", "genshin3_3:partner_changtheninth", "genshin3_3:partner_changtheninth" ,
-                                                      "genshin3_3:partner_liusu", "genshin3_3:partner_liusu", "genshin3_3:partner_liusu", "genshin3_3:partner_liusu", "genshin3_3:partner_liusu" ,
-                                                      "genshin3_3:location_dawnwinery", "genshin3_3:location_dawnwinery", "genshin3_3:location_dawnwinery", "genshin3_3:location_dawnwinery", "genshin3_3:location_dawnwinery" },
-            });
+            var setjson = File.ReadAllText(Directory.GetCurrentDirectory() + "/cardsets/0.json");
+            var set = JsonSerializer.Deserialize<CardSetSetting>(setjson);
+            return new(set.CardSet);
         }
         public override void BindInit(ReadonlyGame game)
         {

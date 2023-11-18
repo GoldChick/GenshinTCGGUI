@@ -1,11 +1,14 @@
 ﻿using GenshinTCGGUI;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Security.Policy;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Resources;
 using System.Windows.Shapes;
@@ -13,25 +16,83 @@ using TCGBase;
 
 namespace Prefab
 {
-    public class CharacterCardGrid : GamingSelectableGrid
+    public class CharacterCardGrid : GamingSelectableGrid, IPersistentManager
     {
         public string NameID { get; init; }
         /// <summary>
         /// 仅仅用于出战角色的发红光
         /// </summary>
         public Image SecondImage { get; init; }
-        public StackPanel ElementPanel { get; init; }
+        private StackPanel ElementPanel { get; init; }
         private StackPanel EffectsPanel { get; init; }
-        private StackPanel TeamEffectsPanel { get; init; }
         private StackPanel LeftPanel { get; init; }
         private StackPanel RightPanel { get; init; }
         private TextBlock HPText { get; init; }
-        //TODO:unchecked data stored
-        private int[] ints = new int[3] { 0, 0, 0 };
-        public int HP { get; set; }
-        public int Element { get; set; }
+
+        private int _hp;
+        private int _mp;
+        private int _element;
+        public int HP
+        {
+            get => _hp; set
+            {
+                _hp = int.Max(0, value);
+                HPText.Text = _hp.ToString();
+            }
+        }
+        public int MP
+        {
+            get => _mp;
+            set
+            {
+                _mp = int.Max(0, value);
+                RightPanel.Children.Clear();
+                for (int i = 0; i < RightPanel.Children.Count; i++)
+                {
+                    var child = RightPanel.Children[i];
+                    if (child is Image img)
+                    {
+                        img.Source = new BitmapImage(new($"Resource/Util/Card/{(i < _mp ? "MPFull" : "MP")}.png", UriKind.Relative));
+                    }
+                }
+            }
+        }
+        public int Element
+        {
+            get => _element; set
+            {
+                _element = value;
+                ElementPanel.Children.Clear();
+                if (_element == 5)
+                {
+                    ElementPanel.Children.Add(new Image()
+                    {
+                        Source = new BitmapImage(new($"Resource/util/element/{ElementCategory.Cryo}.png", UriKind.Relative)),
+                        Width = 32,
+                        Height = 32,
+                    });
+                    ElementPanel.Children.Add(new Image()
+                    {
+                        Source = new BitmapImage(new($"Resource/util/element/{ElementCategory.Dendro}.png", UriKind.Relative)),
+                        Width = 32,
+                        Height = 32,
+                    });
+                }
+                else if (_element > 0 && _element < 7)
+                {
+                    ElementPanel.Children.Add(new Image()
+                    {
+                        Source = new BitmapImage(new($"Resource/util/element/{(ElementCategory)_element}.png", UriKind.Relative)),
+                        Width = 32,
+                        Height = 32,
+                    });
+                }
+            }
+        }
         public CharacterCardGrid(string nameid, int maxhp, int maxmp, int index) : base(index)
         {
+            Effects = new();
+
             var path = System.IO.Path.Combine(Directory.GetCurrentDirectory(), $"assets/Genshin3_3/character/{nameid}/main.png");
             Uri url = File.Exists(path) ? new(path) : new("Resource/minecraft/action/unknown.png", UriKind.Relative);
             SecondImage = new()
@@ -69,7 +130,6 @@ namespace Prefab
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
                 FontSize = 20,
-                Text = maxhp.ToString()
             };
             hp_container.Children.Add(HPText);
 
@@ -82,6 +142,10 @@ namespace Prefab
                 Margin = new Thickness(120, 10, 0, 0),
                 Width = 35,
             };
+            for (int i = 0; i < maxmp; i++)
+            {
+                RightPanel.Children.Add(new Image() { Source = new BitmapImage(new($"Resource/Util/Card/MP.png", UriKind.Relative)) });
+            }
 
             EffectsPanel = new()
             {
@@ -90,14 +154,9 @@ namespace Prefab
                 Margin = new Thickness(0, 170, 0, 0),
                 Width = 117,
             };
-            TeamEffectsPanel = new()
-            {
-                HorizontalAlignment = HorizontalAlignment.Center,
-                Orientation = Orientation.Horizontal,
-                Margin = new Thickness(0, 200, 0, -30),
-                Width = 117,
-            };
+
             NameID = nameid;
+            HP = maxhp;
 
             Children.Add(SecondImage);
             Children.Add(MainImage);
@@ -106,161 +165,113 @@ namespace Prefab
             Children.Add(RightPanel);
             Children.Add(EffectsPanel);
             Children.Add(ElementPanel);
-            Children.Add(TeamEffectsPanel);
         }
-        public void Update(ReadonlyCharacter c)
+        public List<CharacterEffectGrid> Effects { get; }
+        public void Add(string nameSpace, string nameid, int variant, int availabletimes)
         {
-            HP = c.HP;
-            HPText.Text = HP.ToString();
-
-            RightPanel.Children.Clear();
-            for (int i = 0; i < c.MaxMP; i++)
+            var p = new Persistent(new(nameSpace, nameid, variant, availabletimes));
+            Effects.Add(new CharacterEffectGrid(p.Uri, Effects.Count, availabletimes));
+            if (p.Variant >= 0 && p.Uri != null)
             {
-                RightPanel.Children.Add(new Image() { Source = new BitmapImage(new($"Resource/Util/Card/{(i<c.MP?"MPFull":"MP")}.png", UriKind.Relative)) });
-            }
-
-            Element = c.Element;
-
-            ElementPanel.Children.Clear();
-            if (c.Element == 5)
-            {
-                ElementPanel.Children.Add(new Image()
+                if (EffectsPanel.Children.Count < 4)
                 {
-                    Source = new BitmapImage(new($"Resource/Util/Element/{ElementCategory.Cryo}.png", UriKind.Relative)),
-                    Width = 32,
-                    Height = 32,
-                });
-                ElementPanel.Children.Add(new Image()
+                    EffectsPanel.Children.Add(Effects.Last());
+                }
+                else
                 {
-                    Source = new BitmapImage(new($"Resource/Util/Element/{ElementCategory.Dendro}.png", UriKind.Relative)),
-                    Width = 32,
-                    Height = 32,
-                });
-            }
-            else if (c.Element > 0 && c.Element < 7)
-            {
-                ElementPanel.Children.Add(new Image()
-                {
-                    Source = new BitmapImage(new($"Resource/Util/Element/{(ElementCategory)c.Element}.png", UriKind.Relative)),
-                    Width = 32,
-                    Height = 32,
-                });
-            }
-
-            EffectsPanel.Children.Clear();
-
-            TryAddEffect(EffectsPanel, c.Effects.Where(e => e.NameSpace != "equipment"));
-
-            var equips=c.Effects.Where(e => e.NameSpace == "equipment").Select(e=>e.Name);
-            if (ints[0] == 0 && equips.Contains("weapon"))
-            {
-                LeftPanel.Children.Add(new Image()
-                {
-                    Source = new BitmapImage(new("Resource/Util/Icon/Weapon.png", UriKind.Relative)),
-                    Width = 40
-                });
-                ints[0] = 1;
-            }
-            if (ints[1] == 0 && equips.Contains("artifact"))
-            {
-                LeftPanel.Children.Add(new Image()
-                {
-                    Source = new BitmapImage(new("Resource/Util/Icon/Artifact.png", UriKind.Relative)),
-                    Width = 40
-                });
-                ints[1] = 1;
-            }
-            if (ints[2] == 0 && equips.Contains("talent"))
-            {
-                LeftPanel.Children.Add(new Image()
-                {
-                    Source = new BitmapImage(new("Resource/Util/Icon/Talent.png", UriKind.Relative)),
-                    Width = 40
-                });
-                ints[2] = 1;
-            }
-        }
-        public void UpdateTeamEffects(List<ReadonlyPersistent>? teamEffects)
-        {
-            TeamEffectsPanel.Children.Clear();
-            if (teamEffects != null)
-            {
-                TryAddEffect(TeamEffectsPanel, teamEffects);
-            }
-        }
-        private static void TryAddEffect(StackPanel container, IEnumerable<ReadonlyPersistent> es)
-        {
-            foreach (var e in es)
-            {
-                if (container.Children.Count < 4)
-                {
-                    if (e.NameSpace == "minecraft")
+                    if (EffectsPanel.Children[3] is CharacterEffectGrid eg && eg.Index == -1)
                     {
-                        string path = $"Resource/minecraft/Icon/{e.Name}.png";
-                        try
-                        {
-                            Uri uri = new(path, UriKind.Relative);
-                            Application.GetResourceStream(uri);
-                            container.Children.Add(new CharacterEffectGrid(uri, e.Infos));
-                        }
-                        catch (Exception)
-                        {
-                            //只是为了检测有没有
-                        }
+                        eg.AvailableTimes++;
                     }
                     else
                     {
-                        string path = System.IO.Path.Combine(Directory.GetCurrentDirectory(), $"assets/{e.NameSpace}/icon/{e.Name}.png");
-                        if (File.Exists(path))
+                        EffectsPanel.Children.RemoveAt(4);
+                        EffectsPanel.Children.Add(new CharacterEffectGrid(new($"Resource/minecraft/icon/more.png", UriKind.Relative), -1, 2));
+                    }
+                }
+            }
+            else if (p.Variant < 0)
+            {
+                Effects.Last().Width = 40;
+                LeftPanel.Children.Add(Effects.Last());
+            }
+        }
+
+        public void Trigger(int index, int availabletimes)
+        {
+            Effects[index].AvailableTimes = availabletimes;
+        }
+
+        public void RemoveAt(int index)
+        {
+            int i;
+            for (i = 0; i < LeftPanel.Children.Count; i++)
+            {
+                if (LeftPanel.Children[i] is CharacterEffectGrid eg && eg.Index == index)
+                {
+                    LeftPanel.Children.RemoveAt(i);
+                    i = -1;
+                    break;
+                }
+            }
+            if (i == -1)
+            {
+                var chilren = EffectsPanel.Children;
+                if (chilren.Count == 4 && chilren[3] is CharacterEffectGrid egm && egm.Index == -1)
+                {
+                    for (i = 0; i < 3; i++)
+                    {
+                        if (chilren[i] is CharacterEffectGrid eg && eg.Index == index)
                         {
-                            container.Children.Add(new CharacterEffectGrid(new(path), e.Infos));
+                            chilren.RemoveAt(i);
+                            if (chilren[1] is CharacterEffectGrid last_eg)
+                            {
+                                for (int j = last_eg.Index + 1; j < Effects.Count; j++)
+                                {
+                                    if (Effects[j].Uri != null)
+                                    {
+                                        chilren.Insert(2, Effects[j]);
+                                        break;
+                                    }
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    egm.AvailableTimes--;
+                    if (egm.AvailableTimes == 1 && chilren[2] is CharacterEffectGrid last_eg1)
+                    {
+                        for (int j = last_eg1.Index + 1; j < Effects.Count; j++)
+                        {
+                            if (Effects[j].Uri != null)
+                            {
+                                chilren.RemoveAt(3);
+                                chilren.Add(Effects[j]);
+                                break;
+                            }
                         }
                     }
                 }
                 else
                 {
-                    container.Children.RemoveAt(3);
-                    container.Children.Add(new CharacterEffectGrid(new($"Resource/minecraft/Icon/{PersistentTextures.More}.png", UriKind.Relative), e.Infos));
-                    break;
-                }
-            }
-        }
-        public class CharacterEffectGrid : Grid
-        {
-            public CharacterEffectGrid(Uri uri, int[] infos)
-            {
-                Children.Add(new Image()
-                {
-                    Source = new BitmapImage(uri),
-                });
-                Children.Add(new Ellipse()
-                {
-                    Width = 12,
-                    Height = 12,
-                    HorizontalAlignment = HorizontalAlignment.Right,
-                    VerticalAlignment = VerticalAlignment.Bottom,
-                    Fill = new VisualBrush()
+                    for (i = 0; i < chilren.Count; i++)
                     {
-                        Visual = new Ellipse()
+                        if (chilren[i] is CharacterEffectGrid eg && eg.Index == index)
                         {
-                            Width = 10,
-                            Height = 10,
-                            Fill = new SolidColorBrush(Colors.Black)
+                            chilren.RemoveAt(i);
+                            break;
                         }
                     }
-                });
-                Children.Add(new TextBlock()
+                }
+            }
+
+            Effects.RemoveAt(index);
+            for (i = 0; i < Effects.Count; i++)
+            {
+                if (Effects[i].Index >= 0)
                 {
-                    FontFamily = new("Arial Black"),
-                    Foreground = new SolidColorBrush(Colors.White),
-                    Width = 12,
-                    Height = 12,
-                    RenderTransformOrigin = new Point(0.5, 0.5),
-                    HorizontalAlignment = HorizontalAlignment.Right,
-                    VerticalAlignment = VerticalAlignment.Bottom,
-                    Margin = new Thickness(0, 0, -2, 1),
-                    Text = infos[0].ToString()
-                });
+                    Effects[i].Index = i;
+                }
             }
         }
     }
