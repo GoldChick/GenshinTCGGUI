@@ -46,7 +46,6 @@ namespace Prefab
             set
             {
                 _mp = int.Max(0, value);
-                RightPanel.Children.Clear();
                 for (int i = 0; i < RightPanel.Children.Count; i++)
                 {
                     var child = RightPanel.Children[i];

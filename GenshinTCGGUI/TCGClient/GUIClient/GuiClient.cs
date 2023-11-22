@@ -17,20 +17,6 @@ namespace TCGClient
         public void BindUpdateRenderAction(Action<ReadonlyGame>? render) => _render = render;
         public override void InitServerSetting(ServerSetting setting)
         {
-            ClientSetting = new()
-            {
-                Name = "DefaultBuiltIn",
-                DefaultCardSet = new PlayerNetCardSet()
-                {
-                    Characters = new[] { "genshin3_3:qq", "genshin3_3:yoimiya", "genshin3_3:ayaka" },
-                    ActionCards = new[] { "genshin3_3:paimon", "genshin3_3:paimon", "genshin3_3:paimon", "genshin3_3:paimon", "genshin3_3:paimon" ,
-                                                      "genshin3_3:参量质变仪", "genshin3_3:参量质变仪", "genshin3_3:参量质变仪", "genshin3_3:参量质变仪", "genshin3_3:参量质变仪" ,
-                                                      "genshin3_3:food_sweetchicken", "genshin3_3:food_sweetchicken", "genshin3_3:food_sweetchicken", "genshin3_3:寒天宣命祝词", "genshin3_3:寒天宣命祝词" ,
-                                                      "genshin3_3:寒天宣命祝词", "genshin3_3:寒天宣命祝词", "genshin3_3:寒天宣命祝词", "genshin3_3:寒天宣命祝词", "genshin3_3:寒天宣命祝词" ,
-                                                      "genshin3_3:partner_liusu", "genshin3_3:partner_liusu", "genshin3_3:partner_liusu", "genshin3_3:partner_liusu", "genshin3_3:partner_liusu" ,
-                                                      "genshin3_3:location_dawnwinery", "genshin3_3:location_dawnwinery", "genshin3_3:location_dawnwinery", "genshin3_3:location_dawnwinery", "genshin3_3:location_dawnwinery" },
-                }
-            };
         }
 
         public override ServerPlayerCardSet RequestCardSet()
@@ -54,10 +40,10 @@ namespace TCGClient
             base.UpdateRegion();
             _render?.Invoke(Game);
         }
-        public override NetEvent RequestEvent(ActionType demand, string help_txt = "Null")
+        public override NetEvent RequestEvent(ActionType demand)
         {
             MainWindow.Instance.ClientUpdateCosts(GetAllDiceCost());
-            return MainWindow.Instance.RequestEventCallBack(demand, help_txt) ?? new NetEvent(new(ActionType.Pass));
+            return MainWindow.Instance.RequestEventCallBack(demand) ?? new NetEvent(new(ActionType.Pass));
         }
         public override void RequestEnemyEvent(ActionType demand)
         {

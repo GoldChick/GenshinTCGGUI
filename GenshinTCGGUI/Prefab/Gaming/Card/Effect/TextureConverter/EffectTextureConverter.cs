@@ -33,7 +33,7 @@ namespace Prefab
         public CardTextConverter(string name, string[] text)
         {
             Name = name;
-            Text = text;
+            Text = text??new string[] { "text to build"};
         }
     }
     public record EffectTextureConverter : CardTextConverter
@@ -56,13 +56,13 @@ namespace Prefab
         public EffectShowCategory ShowCategory { get; }
         public EffectTriggerCategory TriggerCategory { get; }
         public int Damage { get; }
-        public ElementCategory Element { get; }
-        public SideTextureConverter(string name, string[] text, EffectShowCategory showCategory, EffectTriggerCategory triggerCategory, int damage, ElementCategory element) : base(name, text)
+        public ElementCategory[] Element { get; }
+        public SideTextureConverter(string name, string[] text, EffectShowCategory showCategory, EffectTriggerCategory triggerCategory, int damage, ElementCategory[] element) : base(name, text)
         {
             Damage = damage;
-            Element = element;
-            ShowCategory= showCategory;
-            TriggerCategory= triggerCategory;
+            Element = element ?? new ElementCategory[] { ElementCategory.Cryo };
+            ShowCategory = showCategory;
+            TriggerCategory = triggerCategory;
         }
     }
 }

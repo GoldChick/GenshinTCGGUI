@@ -110,7 +110,7 @@ namespace TCGClient
                     break;
                 case "NETEVENT":
                     ActionType demand = JsonSerializer.Deserialize<ActionType>(strs[1]);
-                    var t = Task.Run(() => MainWindow.Instance.RequestEventCallBack(demand, "no txt"));
+                    var t = Task.Run(() => MainWindow.Instance.RequestEventCallBack(demand));
                     Send("NETEVENT", JsonSerializer.Serialize(t.Result));
                     break;
                 case "ENEMY":

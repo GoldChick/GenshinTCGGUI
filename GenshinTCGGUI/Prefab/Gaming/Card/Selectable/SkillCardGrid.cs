@@ -6,6 +6,7 @@ using System;
 using System.Linq;
 using static Prefab.ActionCardGrid;
 using TCGBase;
+using TCGClient;
 
 namespace Prefab
 {
@@ -30,13 +31,14 @@ namespace Prefab
             Children.Add(MainImage);
             Children.Add(CostContainer);
         }
-        public void UpdateCost(DiceCostVariable dcv) => UpdateCost(dcv.CostSame, dcv.Costs);
-        public void UpdateCost(bool sameDice, int[] cost)
+        public void UpdateCost(SkillCost dcv) => UpdateCost(dcv.DiceCosts.CostSame, dcv.DiceCosts.Costs, dcv.MP);
+        public void UpdateCost(bool sameDice, int[] cost, int mp)
         {
             CostContainer.Children.Clear();
             cost.Select((x, element) => (element, x)).Where(p => p.x > 0)
                     .Select(p => new ActionCardCost(sameDice, p.element, p.x)).ToList()
                     .ForEach(c => CostContainer.Children.Add(c));
+            //TODO: mp?
         }
         //        <Grid>
         //    <Image Source = "e.png" ></ Image >

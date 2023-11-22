@@ -116,7 +116,7 @@ namespace TCGClient
             var set = JsonSerializer.Deserialize<CardSetSetting>(setjson);
             return new(set.CardSet);
         }
-        public override NetEvent RequestEvent(ActionType demand, string help_txt = "Null")
+        public override NetEvent RequestEvent(ActionType demand)
         {
             SendToClient("COST", JsonSerializer.Serialize(GetAllDiceCost()));
             SendToClient("NETEVENT", JsonSerializer.Serialize(demand));

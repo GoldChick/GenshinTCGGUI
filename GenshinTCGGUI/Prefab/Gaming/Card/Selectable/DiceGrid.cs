@@ -15,15 +15,15 @@ namespace Prefab
             Element = (ElementCategory)element;
             MainImage = new Image()
             {
-                Width = 64,
-                Height = 64,
+                Width = 32,
+                Height = 32,
                 Source = new BitmapImage(new($"Resource/util/cost/{Element}.png", UriKind.Relative)),
                 Margin = new Thickness(0, 5, 0, 0)
             };
             var ele = new Image()
             {
-                Width = 32,
-                Height = 32,
+                Width = 16,
+                Height = 16,
                 Opacity = 0.8,
                 Source = new BitmapImage(new($"Resource/util/element/{Element}.png", UriKind.Relative)),
                 Margin = new Thickness(0, 5, 0, 0)

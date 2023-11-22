@@ -5,6 +5,8 @@
     ],
     "ShowCategory": 0,
     "TriggerCategory": 0,
-    "Element": 2,
+    "Element": [
+        2
+    ],
     "Damage": 1
 }

@@ -69,7 +69,7 @@ namespace Prefab
                 if (converter != null)
                 {
                     CardName = converter.Name;
-                    CardText = converter.Text[variant];
+                    CardText = converter.Text[variant % 10];
                     if (!IsSupport)
                     {
                         Grid damage_grid = new()
@@ -78,7 +78,7 @@ namespace Prefab
                         };
                         Image Element = new()
                         {
-                            Source = new BitmapImage(new($"Resource/util/element/{converter.Element}.png", UriKind.Relative)),
+                            Source = new BitmapImage(new($"Resource/util/element/{converter.Element[variant / 10]}.png", UriKind.Relative)),
                         };
                         TextBlock damage = new()
                         {

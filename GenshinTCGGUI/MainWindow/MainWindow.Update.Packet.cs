@@ -88,10 +88,6 @@ namespace GenshinTCGGUI
                                     DiceContainer.Children.Add(new DiceGrid(packet.Ints[i], i));
                                 }
                                 DiceCount.Text = DiceContainer.Children.Count.ToString();
-                                if (packet.Ints.Length < 8)
-                                {
-                                    var a = 1;
-                                }
                             }
                             else
                             {

@@ -12,7 +12,7 @@ namespace GenshinTCGGUI
     public partial class MainWindow
     {
         public IEnumerable<CardCost> CardCosts { get; private set; }
-        public IEnumerable<DiceCostVariable> SkillCosts { get; private set; }
+        public IEnumerable<SkillCost> SkillCosts { get; private set; }
         public IEnumerable<DiceCostVariable> SwitchCosts { get; private set; }
         public DiceCostVariable BlendCost { get; private set; }
         /// <summary>
@@ -37,7 +37,7 @@ namespace GenshinTCGGUI
                 }
             });
         }
-        public void ClientUpdateSkillCosts(IEnumerable<DiceCostVariable> skillcosts)
+        public void ClientUpdateSkillCosts(IEnumerable<SkillCost> skillcosts)
         {
             Dispatcher.Invoke(() =>
             {

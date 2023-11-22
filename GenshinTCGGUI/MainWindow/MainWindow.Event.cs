@@ -17,7 +17,7 @@ namespace GenshinTCGGUI
         private NetEvent? NetEvent;
         private bool _token;
         private bool _iscurrteam;
-        public NetEvent RequestEventCallBack(ActionType demand, string txt)
+        public NetEvent RequestEventCallBack(ActionType demand)
         {
             Dispatcher.Invoke(() =>
             {
@@ -174,7 +174,7 @@ namespace GenshinTCGGUI
                         {
                             int[] selects = new int[8];
                             DiceSelected.ForEach(d => selects[(int)d.Element]++);
-                            if (SkillCosts.ElementAt(UseSkillSelected.Index).EqualTo(selects))
+                            if (SkillCosts.ElementAt(UseSkillSelected.Index).DiceCosts.EqualTo(selects))
                             {
                                 State = ActionType.Pass;
                                 NetEvent = new(new(ActionType.UseSKill, UseSkillSelected.Index), selects, TargetEnumSelected.Select(t => t.Index).ToArray());
