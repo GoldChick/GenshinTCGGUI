@@ -1,5 +1,4 @@
-﻿using GenshinTCGGUI;
-using System;
+﻿using System;
 using System.Linq;
 using TCGBase;
 

@@ -88,9 +88,6 @@ namespace GenshinTCGGUI
             GameManager.Instance.Client0 = new GuiClient();
             GameManager.Instance.Client1 = new SocketServerClient(_ip, _port);
 
-            GameManager.Instance.Client0.InitServerSetting(null);
-            GameManager.Instance.Client1.InitServerSetting(null);
-
             GameManager.Instance.Client1.BindHelpTextAction((str) => Dispatcher.Invoke(() =>
             {
                 HelpText.Text = str;

@@ -32,6 +32,7 @@ namespace Prefab
         private int _hp;
         private int _mp;
         private int _element;
+        public int SkillCount { get; }
         public int HP
         {
             get => _hp; set
@@ -88,10 +89,10 @@ namespace Prefab
                 }
             }
         }
-        public CharacterCardGrid(string nameid, int maxhp, int maxmp, int index) : base(index)
+        public CharacterCardGrid(string nameid, int maxhp, int maxmp, int skillcount, int index) : base(index)
         {
             Effects = new();
-
+            
             var path = System.IO.Path.Combine(Directory.GetCurrentDirectory(), $"assets/Genshin3_3/character/{nameid}/main.png");
             Uri url = File.Exists(path) ? new(path) : new("Resource/minecraft/action/unknown.png", UriKind.Relative);
             SecondImage = new()
@@ -156,6 +157,7 @@ namespace Prefab
 
             NameID = nameid;
             HP = maxhp;
+            SkillCount = skillcount;
 
             Children.Add(SecondImage);
             Children.Add(MainImage);

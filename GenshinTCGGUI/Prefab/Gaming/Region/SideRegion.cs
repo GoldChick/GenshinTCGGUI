@@ -1,14 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls.Primitives;
-using TCGBase;
 
 namespace Prefab
 {
-    public class SideRegion : UniformGrid, IPersistentManager
+    public class SideRegion : UniformGrid, IPersistentManager,IUniformGridRegion
     {
         public bool IsSupport { get; }
         public List<SideCardGrid> Cards { get; private set; }
+
+        IEnumerable<GamingSelectableGrid> IUniformGridRegion.Cards => Cards;
+
         public SideRegion(bool issupport)
         {
             IsSupport = issupport;

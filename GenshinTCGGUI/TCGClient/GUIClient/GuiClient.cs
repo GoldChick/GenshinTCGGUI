@@ -8,16 +8,13 @@ using TCGBase;
 
 namespace TCGClient
 {
-    public class GuiClient : AbstractMainClient
+    public class GuiClient : AbstractMainClient, IGuiCllient
     {
         public int MeID { get; private set; }
         private Action<ReadonlyGame>? _bind;
         private Action<ReadonlyGame>? _render;
         public void BindInitRenderAction(Action<ReadonlyGame>? bind) => _bind = bind;
         public void BindUpdateRenderAction(Action<ReadonlyGame>? render) => _render = render;
-        public override void InitServerSetting(ServerSetting setting)
-        {
-        }
 
         public override ServerPlayerCardSet RequestCardSet()
         {
@@ -50,5 +47,7 @@ namespace TCGClient
             base.RequestEnemyEvent(demand);
             MainWindow.Instance.RequestEnemyEventCallBack(demand);
         }
+
+        public void GetCardNextValidTargets(int cardindex, int[] already_params, Action<List<int>>? callback) => callback?.Invoke(GetCardNextValidTargets(cardindex, already_params));
     }
 }

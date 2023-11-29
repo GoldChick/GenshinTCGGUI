@@ -53,6 +53,21 @@ namespace GenshinTCGGUI
                                 //TODO:显示
                                 break;
                             case ClientUpdateCreate.CharacterUpdateCategory.Switch:
+                                if (teamid == meid && packet.Ints[0] != packetteam.CurrCharacter && packet.Ints[0] >= 0)
+                                {
+                                    var c = TeamMe._characters.Cards[packet.Ints[0]];
+
+                                    SkillMe.Children.Clear();
+                                    List<SkillCardGrid> skills = new();
+                                    for (int i = 0; i < c.SkillCount; i++)
+                                    {
+                                        skills.Add(new SkillCardGrid(c.NameID, i));
+                                    }
+
+                                    skills.Reverse();
+                                    skills.ForEach(s => SkillMe.Children.Add(s));
+                                    //只是为了观感上从左往右，并且靠右
+                                }
                                 packetteam.CurrCharacter = packet.Ints[0];
                                 break;
                         }

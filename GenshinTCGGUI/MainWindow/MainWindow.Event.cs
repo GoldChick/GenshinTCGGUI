@@ -140,6 +140,7 @@ namespace GenshinTCGGUI
                             {
                                 State = ActionType.Pass;
                                 NetEvent = new(new(ActionType.Switch, CharacterSelected.Index), selects);
+                                SelectStateMachine = TrivalSelectStateMachine.None;
                             }
                         }
                         if (UseCardSelected != null)
@@ -149,7 +150,6 @@ namespace GenshinTCGGUI
                             var a = (TargetEnum e) => e switch
                             {
                                 TargetEnum.Character_Me or TargetEnum.Character_Enemy => typeof(CharacterCardGrid),
-                                TargetEnum.Card_Me => typeof(ActionCardGrid),
                                 _ => null
                             };
                             if (additionalTargets.Count() == TargetEnumSelected.Count)
@@ -167,6 +167,7 @@ namespace GenshinTCGGUI
                                 {
                                     State = ActionType.Pass;
                                     NetEvent = new(new(ActionType.UseCard, UseCardSelected.Index), selects, TargetEnumSelected.Select(t => t.Index).ToArray());
+                                    SelectStateMachine = TrivalSelectStateMachine.None;
                                 }
                             }
                         }
@@ -178,6 +179,7 @@ namespace GenshinTCGGUI
                             {
                                 State = ActionType.Pass;
                                 NetEvent = new(new(ActionType.UseSKill, UseSkillSelected.Index), selects, TargetEnumSelected.Select(t => t.Index).ToArray());
+                                SelectStateMachine = TrivalSelectStateMachine.None;
                             }
                         }
                     }
@@ -196,6 +198,7 @@ namespace GenshinTCGGUI
                     selects[d] = 1;
                     State = ActionType.Pass;
                     NetEvent = new(new(ActionType.Blend, UseCardSelected.Index), selects);
+                    SelectStateMachine = TrivalSelectStateMachine.None;
                 }
             }
         }

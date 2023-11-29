@@ -9,10 +9,15 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Media3D;
+using System.Xml.Linq;
 using TCGBase;
 
 namespace Prefab
 {
+    public interface IUniformGridRegion
+    {
+        public IEnumerable<GamingSelectableGrid> Cards { get; }
+    }
     public class TeamRegion : IPersistentManager
     {
         private readonly Canvas _canvas;
@@ -44,11 +49,11 @@ namespace Prefab
                 _currCharacter = value;
             }
         }
-
+        public readonly Grid BlackBlocker;
         public readonly SideRegion _supports;
         public readonly CharacterRegion _characters;
         public readonly SideRegion _summons;
-        public TeamRegion(Canvas canvas, ReadonlyRegion me)
+        public TeamRegion(Canvas canvas, ReadonlyRegion me, bool isme = true)
         {
             EffectsPanel = new()
             {
@@ -89,9 +94,21 @@ namespace Prefab
             Canvas.SetLeft(_summons, 904);
             Canvas.SetTop(_summons, 60);
 
+            BlackBlocker = new Grid()
+            {
+                Background = new SolidColorBrush(Colors.Black),
+                Opacity = 0.5,
+                Width = 1280,
+                Height = 360,
+                Visibility = Visibility.Hidden,
+            };
+            Canvas.SetLeft(BlackBlocker, -64);
+            Canvas.SetTop(BlackBlocker, 40 * (isme ? 1 : -1));
+
             _canvas.Children.Add(_characters);
             _canvas.Children.Add(_supports);
             _canvas.Children.Add(_summons);
+            _canvas.Children.Add(BlackBlocker);
         }
         public void Add(string nameSpace, string nameid, int variant, int availabletimes)
         {

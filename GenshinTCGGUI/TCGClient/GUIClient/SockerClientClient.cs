@@ -12,13 +12,15 @@ using System.Windows.Threading;
 using Prefab;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TCGClient
 {
     /// <summary>
     /// 作为gui主题的
     /// </summary>
-    public class SocketClientClient
+    public class SocketClientClient : IGuiCllient
     {
         private readonly string _ip = string.Empty;
         private readonly int _port = 0;
@@ -117,7 +119,18 @@ namespace TCGClient
                     demand = JsonSerializer.Deserialize<ActionType>(strs[1]);
                     MainWindow.Instance.RequestEnemyEventCallBack(demand);
                     break;
+                case "NEXT_TARGET":
+                    NextValidCallBack?.Invoke(JsonSerializer.Deserialize<List<int>>(strs[1]));
+                    NextValidCallBack = null;
+                    break;
             }
+        }
+        public Action<List<int>>? NextValidCallBack;
+
+        public void GetCardNextValidTargets(int cardindex, int[] already_params, Action<List<int>>? callback)
+        {
+            NextValidCallBack = callback;
+            Send("NEXT_TARGET", JsonSerializer.Serialize(already_params.Reverse().Append(cardindex).Reverse()));
         }
     }
 }

@@ -37,13 +37,18 @@ namespace GenshinTCGGUI
         internal int CurrCharacterCashe = -1;
         public static MainWindow Instance { get => _instance; }
         public Game game;
+        public IGuiCllient MainClient { get; }
         public MainWindow(bool isServer)
         {
             _instance = this;
+            TargetEnumsToSelect = new();
             TargetEnumSelected = new();
+            NotValidTargetStored = new();
             RerollCardsSelected = new();
             DiceSelected = new();
             InitializeComponent();
+
+            BlackBlocker_DiceOnly.MouseLeftButtonDown += (s, e) => SelectStateMachine = TrivalSelectStateMachine.None;
 
             if (isServer)
             {
@@ -53,36 +58,31 @@ namespace GenshinTCGGUI
 
                 GameManager.Instance.Client0.BindInitRenderAction(InitRender);
                 GameManager.Instance.Client0.BindUpdateRenderAction(UpdateRender);
+                MainClient = GameManager.Instance.Client0;
                 Task.Run(game.StartGame);
             }
             else
             {
                 GameManager.Instance.ClientClient.BindUpdateFullRenderAction(UpdateFullRender);
+                MainClient = GameManager.Instance.ClientClient;
             }
         }
         private void InitRender(ReadonlyGame game)
         {
             Dispatcher.Invoke(() =>
             {
-                TeamMe = new(Me, game.Me);
-                TeamEnemy = new(Enemy, game.Enemy);
+                TeamMe = new(Me, game.Me,true);
+                TeamEnemy = new(Enemy, game.Enemy,false);
+                TeamMe.BlackBlocker.MouseLeftButtonDown += (s, e) => SelectStateMachine = TrivalSelectStateMachine.None;
+                TeamEnemy.BlackBlocker.MouseLeftButtonDown += (s, e) => SelectStateMachine = TrivalSelectStateMachine.None;
             });
         }
         private void UpdateRender(ReadonlyGame game)
         {
-            Thread.Sleep(10);
-            Dispatcher.Invoke(() =>
-            {
-                CardNumMe.Text = game.LeftCardsNum.ToString();
-                CardNumEnemy.Text = game.EnemyLeftCardsNum.ToString();
-
-                RenderSkill(game.Me);
-                assist0.Text = $"当前行动：{((game.CurrTeam == game.MeID) ? "Me" : "Enemy")}";
-            });
         }
-        private void RenderSkill(ReadonlyRegion me, bool forced = false)
+        private void RenderSkill(ReadonlyRegion me)
         {
-            if (me.CurrCharacter >= 0 && (forced || CurrCharacterCashe != me.CurrCharacter))
+            if (me.CurrCharacter >= 0 && CurrCharacterCashe != me.CurrCharacter)
             {
                 CurrCharacterCashe = me.CurrCharacter;
                 var c = me.Characters[CurrCharacterCashe];
@@ -109,11 +109,12 @@ namespace GenshinTCGGUI
             Thread.Sleep(10);
             Dispatcher.Invoke(() =>
             {
-
                 if (TeamMe == null)
                 {
-                    TeamMe = new(Me, game.Me);
-                    TeamEnemy = new(Enemy, game.Enemy);
+                    TeamMe = new(Me, game.Me,true);
+                    TeamEnemy = new(Enemy, game.Enemy,false);
+                    TeamMe.BlackBlocker.MouseLeftButtonDown += (s, e) => SelectStateMachine = TrivalSelectStateMachine.None;
+                    TeamEnemy.BlackBlocker.MouseLeftButtonDown += (s, e) => SelectStateMachine = TrivalSelectStateMachine.None;
                 }
                 var me = game.Me;
 

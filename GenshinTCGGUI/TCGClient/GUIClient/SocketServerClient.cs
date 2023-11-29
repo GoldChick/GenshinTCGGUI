@@ -106,9 +106,6 @@ namespace TCGClient
             }
         }
 
-        public override void InitServerSetting(ServerSetting setting)
-        {
-        }
 
         public override ServerPlayerCardSet RequestCardSet()
         {
