@@ -89,11 +89,11 @@ namespace Prefab
                 }
             }
         }
-        public CharacterCardGrid(string nameid, int maxhp, int maxmp, int skillcount, int index) : base(index)
+        public CharacterCardGrid(string nameSpace,string nameid, int maxhp, int maxmp, int skillcount, int index) : base(index)
         {
             Effects = new();
             
-            var path = System.IO.Path.Combine(Directory.GetCurrentDirectory(), $"assets/Genshin3_3/character/{nameid}/main.png");
+            var path = System.IO.Path.Combine(Directory.GetCurrentDirectory(), $"assets/{nameSpace}/character/{nameid}/main.png");
             Uri url = File.Exists(path) ? new(path) : new("Resource/minecraft/action/unknown.png", UriKind.Relative);
             SecondImage = new()
             {
@@ -215,7 +215,7 @@ namespace Prefab
                     break;
                 }
             }
-            if (i == -1)
+            if (i != -1)
             {
                 var chilren = EffectsPanel.Children;
                 if (chilren.Count == 4 && chilren[3] is CharacterEffectGrid egm && egm.Index == -1)

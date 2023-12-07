@@ -12,9 +12,9 @@ namespace GenshinTCGGUI
     public partial class MainWindow
     {
         public IEnumerable<CardCost> CardCosts { get; private set; }
-        public IEnumerable<SkillCost> SkillCosts { get; private set; }
-        public IEnumerable<DiceCostVariable> SwitchCosts { get; private set; }
-        public DiceCostVariable BlendCost { get; private set; }
+        public IEnumerable<CostVariable> SkillCosts { get; private set; }
+        public IEnumerable<CostVariable> SwitchCosts { get; private set; }
+        public CostVariable BlendCost { get; private set; }
         /// <summary>
         /// 理想的费用更新时间：每次行动开始前
         /// </summary>
@@ -33,11 +33,11 @@ namespace GenshinTCGGUI
                 for (int i = 0; i < CardMe.Children.Count; i++)
                 {
                     ActionCardGrid acg = CardMe.Children[i] as ActionCardGrid;
-                    acg.UpdateCost(cardcosts.ElementAt(i).DiceCosts);
+                    acg.UpdateCost(cardcosts.ElementAt(i).Cost);
                 }
             });
         }
-        public void ClientUpdateSkillCosts(IEnumerable<SkillCost> skillcosts)
+        public void ClientUpdateSkillCosts(IEnumerable<CostVariable> skillcosts)
         {
             Dispatcher.Invoke(() =>
             {

@@ -5,33 +5,15 @@ using TCGBase;
 
 namespace TCGClient
 {
-    public class SkillCost
+    public class CardCost 
     {
-        public DiceCostVariable DiceCosts { get; }
-        public int MP { get; }
-        public SkillCost((DiceCostVariable cost, int mp) cost)
-        {
-            DiceCosts = cost.cost;
-            MP = cost.mp;
-        }
-        [JsonConstructor]
-        public SkillCost(DiceCostVariable diceCosts, int mP)
-        {
-            DiceCosts = diceCosts;
-            MP = mP;
-        }
-    }
-    public class CardCost : SkillCost
-    {
+        public CostVariable Cost { get; }
         public IEnumerable<TargetEnum> Targets { get; }
 
-        public CardCost((DiceCostVariable cost, int mp) cost, IEnumerable<TargetEnum> targets) : base(cost)
-        {
-            Targets = targets;
-        }
         [JsonConstructor]
-        public CardCost(DiceCostVariable diceCosts, int mp, IEnumerable<TargetEnum> targets) : base(diceCosts, mp)
+        public CardCost(CostVariable cost, IEnumerable<TargetEnum> targets) 
         {
+            Cost = cost;
             Targets = targets;
         }
     }
@@ -41,10 +23,10 @@ namespace TCGClient
     public class DiceCostPacket
     {
         public IEnumerable<CardCost> CardCosts { get; }
-        public IEnumerable<SkillCost> SkillCosts { get; }
-        public IEnumerable<DiceCostVariable> SwitchCosts { get; }
-        public DiceCostVariable? BlendCost { get; }
-        public DiceCostPacket(IEnumerable<CardCost> cardCosts, IEnumerable<SkillCost> skillCosts, IEnumerable<DiceCostVariable> switchCosts, DiceCostVariable? blendCost)
+        public IEnumerable<CostVariable> SkillCosts { get; }
+        public IEnumerable<CostVariable> SwitchCosts { get; }
+        public CostVariable? BlendCost { get; }
+        public DiceCostPacket(IEnumerable<CardCost> cardCosts, IEnumerable<CostVariable> skillCosts, IEnumerable<CostVariable> switchCosts, CostVariable? blendCost)
         {
             CardCosts = cardCosts;
             SkillCosts = skillCosts;

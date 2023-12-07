@@ -112,16 +112,23 @@ namespace TCGClient
                     break;
                 case "NETEVENT":
                     ActionType demand = JsonSerializer.Deserialize<ActionType>(strs[1]);
-                    var t = Task.Run(() => MainWindow.Instance.RequestEventCallBack(demand));
-                    Send("NETEVENT", JsonSerializer.Serialize(t.Result));
+                    Task.Run(() =>
+                    {
+                        Send("NETEVENT", JsonSerializer.Serialize(Task.Run(() => MainWindow.Instance.RequestEventCallBack(demand)).Result));
+                    });
                     break;
                 case "ENEMY":
                     demand = JsonSerializer.Deserialize<ActionType>(strs[1]);
                     MainWindow.Instance.RequestEnemyEventCallBack(demand);
                     break;
                 case "NEXT_TARGET":
-                    NextValidCallBack?.Invoke(JsonSerializer.Deserialize<List<int>>(strs[1]));
-                    NextValidCallBack = null;
+                    var ints = JsonSerializer.Deserialize<List<int>>(strs[1]);
+                    MainWindow.Instance.Dispatcher.Invoke(() =>
+                    {
+                        NextValidCallBack?.Invoke(ints);
+                        NextValidCallBack = null;
+                    }
+                    );
                     break;
             }
         }

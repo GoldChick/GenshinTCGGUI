@@ -26,3 +26,4 @@ C:\Users\11847\Documents\GenshinTCGGUI\GenshinTCGGUI\obj\Debug\net7.0-windows\Se
 C:\Users\11847\Documents\GenshinTCGGUI\GenshinTCGGUI\obj\Debug\net7.0-windows\SelectCard.baml
 C:\Users\11847\Documents\GenshinTCGGUI\GenshinTCGGUI\obj\Debug\net7.0-windows\Start.g.cs
 C:\Users\11847\Documents\GenshinTCGGUI\GenshinTCGGUI\obj\Debug\net7.0-windows\Start.baml
+C:\Users\11847\Documents\GenshinTCGGUI\GenshinTCGGUI\obj\Debug\net7.0-windows\GenshinTCGGUI.sourcelink.json

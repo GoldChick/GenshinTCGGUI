@@ -38,7 +38,7 @@ namespace TCGClient
             _socket.Listen(1);
 
             _tb?.Invoke("服务端开启成功");
-            await Task.Run(()=> _clientSocket = _socket.Accept());
+            await Task.Run(() => _clientSocket = _socket.Accept());
 
             _tb?.Invoke("服务端连接客户端成功");
             await Task.Run(ReceiveMessage);
@@ -103,9 +103,13 @@ namespace TCGClient
                     NetAction action = JsonSerializer.Deserialize<NetAction>(strs[1]);
                     SendToClient("COST", JsonSerializer.Serialize(GetEventFinalDiceRequirement(action)));
                     break;
+                case "NEXT_TARGET":
+                    var ints = JsonSerializer.Deserialize<int[]>(strs[1]);
+                    var result = GetCardNextValidTargets(ints[0], ints.Length > 1 ? ints[1..] : Array.Empty<int>());
+                    SendToClient("NEXT_TARGET", JsonSerializer.Serialize(result));
+                    break;
             }
         }
-
 
         public override ServerPlayerCardSet RequestCardSet()
         {
@@ -132,7 +136,7 @@ namespace TCGClient
         public override void RequestEnemyEvent(ActionType demand)
         {
             base.RequestEnemyEvent(demand);
-            SendToClient("ENEMY",JsonSerializer.Serialize(demand));
+            SendToClient("ENEMY", JsonSerializer.Serialize(demand));
         }
         public override void Update(ClientUpdatePacket packet)
         {

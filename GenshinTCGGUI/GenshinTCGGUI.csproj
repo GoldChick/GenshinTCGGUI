@@ -82,9 +82,10 @@
     <None Remove="Resource\util\cost\Electro.png" />
     <None Remove="Resource\util\cost\Geo.png" />
     <None Remove="Resource\util\cost\Hydro.png" />
+    <None Remove="Resource\util\cost\mp.png" />
     <None Remove="Resource\util\cost\Pyro.png" />
     <None Remove="Resource\util\cost\Trival.png" />
-    <None Remove="Resource\util\cost\Trival_Void.png" />
+    <None Remove="Resource\util\cost\void.png" />
     <None Remove="Resource\Util\Edge.png" />
     <None Remove="Resource\util\element\Anemo.png" />
     <None Remove="Resource\util\element\Cryo.png" />
@@ -171,9 +172,10 @@
     <Resource Include="Resource\util\cost\Electro.png" />
     <Resource Include="Resource\util\cost\Geo.png" />
     <Resource Include="Resource\util\cost\Hydro.png" />
+    <Resource Include="Resource\util\cost\mp.png" />
     <Resource Include="Resource\util\cost\Pyro.png" />
     <Resource Include="Resource\util\cost\Trival.png" />
-    <Resource Include="Resource\util\cost\Trival_Void.png" />
+    <Resource Include="Resource\util\cost\void.png" />
     <Resource Include="Resource\util\element\Electro.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>

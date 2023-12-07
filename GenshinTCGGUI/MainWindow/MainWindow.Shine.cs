@@ -27,7 +27,7 @@ namespace GenshinTCGGUI
         {
             get => _selectStateMachine; set
             {
-                DiceCostVariable? diceCost = null;
+                CostVariable? cost = null;
                 switch (value)
                 {
                     case TrivalSelectStateMachine.None:
@@ -59,7 +59,7 @@ namespace GenshinTCGGUI
                                 NotValidTargetStored.Clear();
                                 RerollCardsSelected.ForEach(c => c.Glow(0));
                                 RerollCardsSelected.Clear();
-                                diceCost = new(false, 0);
+                                cost = new();
                             }
                         }
                         break;
@@ -67,7 +67,7 @@ namespace GenshinTCGGUI
                         {
                             if (CharacterSelected != null)
                             {
-                                diceCost = SwitchCosts.ElementAt(CharacterSelected.Index);
+                                cost = SwitchCosts.ElementAt(CharacterSelected.Index);
                                 CharacterSelected.Glow(1);
                             }
                         }
@@ -77,7 +77,7 @@ namespace GenshinTCGGUI
                             if (UseCardSelected != null)
                             {
                                 var cc = CardCosts.ElementAt(UseCardSelected.Index);
-                                diceCost = cc.DiceCosts;
+                                cost = cc.Cost;
                                 NotValidTargetStored.ForEach(z => Panel.SetZIndex(z, 0));
                                 NotValidTargetStored.Clear();
                                 TargetEnumSelected.ForEach(c => c.Glow(0));
@@ -101,14 +101,14 @@ namespace GenshinTCGGUI
                         {
                             if (UseSkillSelected != null)
                             {
-                                diceCost = SkillCosts.ElementAt(UseSkillSelected.Index).DiceCosts;
+                                cost = SkillCosts.ElementAt(UseSkillSelected.Index);
                                 UseSkillSelected.Glow(1);
                             }
                         }
                         break;
                 }
                 DiceSelected.ForEach(c => c.Glow(0));
-                if (diceCost != null)
+                if (cost != null)
                 {
                     DiceSelected.Clear();
                     //TODO:auto select dice

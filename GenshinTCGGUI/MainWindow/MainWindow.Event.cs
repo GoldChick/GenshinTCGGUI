@@ -136,7 +136,7 @@ namespace GenshinTCGGUI
                         {
                             int[] selects = new int[8];
                             DiceSelected.ForEach(d => selects[(int)d.Element]++);
-                            if (SwitchCosts.ElementAt(CharacterSelected.Index).EqualTo(selects))
+                            if (SwitchCosts.ElementAt(CharacterSelected.Index).DiceEqualTo(selects))
                             {
                                 State = ActionType.Pass;
                                 NetEvent = new(new(ActionType.Switch, CharacterSelected.Index), selects);
@@ -163,7 +163,7 @@ namespace GenshinTCGGUI
                                 }
                                 int[] selects = new int[8];
                                 DiceSelected.ForEach(d => selects[(int)d.Element]++);
-                                if (cost.DiceCosts.EqualTo(selects))
+                                if (cost.Cost.DiceEqualTo(selects))
                                 {
                                     State = ActionType.Pass;
                                     NetEvent = new(new(ActionType.UseCard, UseCardSelected.Index), selects, TargetEnumSelected.Select(t => t.Index).ToArray());
@@ -175,7 +175,7 @@ namespace GenshinTCGGUI
                         {
                             int[] selects = new int[8];
                             DiceSelected.ForEach(d => selects[(int)d.Element]++);
-                            if (SkillCosts.ElementAt(UseSkillSelected.Index).DiceCosts.EqualTo(selects))
+                            if (SkillCosts.ElementAt(UseSkillSelected.Index).DiceEqualTo(selects))
                             {
                                 State = ActionType.Pass;
                                 NetEvent = new(new(ActionType.UseSKill, UseSkillSelected.Index), selects, TargetEnumSelected.Select(t => t.Index).ToArray());
@@ -193,7 +193,7 @@ namespace GenshinTCGGUI
             {
                 int[] selects = new int[8];
                 int d = (int)DiceSelected[0].Element;
-                if (d != 0 && BlendCost != null && BlendCost.Costs[d] == 0)
+                if (d != 0 && BlendCost != null && BlendCost.DiceCost[0] == 0 && BlendCost.DiceCost[d] == 0 )
                 {
                     selects[d] = 1;
                     State = ActionType.Pass;
