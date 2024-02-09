@@ -249,7 +249,7 @@ namespace TCGClient
                         Container.Children.Add(new DescriptionBlock(dac.Description, dac.RelatedPersistents, ingame));
                     }
                 }
-                else if (card is AbstractCardCharacter)
+                else if (card is CardCharacter)
                 {
                     path += $"character/{card.NameID}/main.png";
                     if (TryGetDescription<DescriptionCharacterCard>(card.Namespace, card.NameID, 1, out var dcc))

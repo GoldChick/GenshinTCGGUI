@@ -1,0 +1,10 @@
+{
+    "TextureNamespace": "genshin3_3",
+    "TextureNameID": "effect_xiangling_q",
+    "Name": "旋火轮",
+    "Text": [
+        "我方角色使用技能后：造成2点火元素伤害。（生成此状态的技能无法触发）\n可用次数：2"
+    ],
+    "ShowCategory": 0,
+    "TriggerCategory": 0
+}

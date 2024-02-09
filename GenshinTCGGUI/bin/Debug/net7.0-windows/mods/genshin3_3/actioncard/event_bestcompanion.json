@@ -1,6 +1,5 @@
 {
     "CardType": "Event",
-    "NameID": "event_bestcompanion",
     "Cost": [
         {
             "Type": "Void",
@@ -11,6 +10,19 @@
         "Event"
     ],
     "SkillList": [
-        "genshin3_3:event_bestcompanion"
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Dice",
+                    "Dice": [
+                        {
+                            "Type": "Trival",
+                            "Count": 2
+                        }
+                    ]
+                }
+            ]
+        }
     ]
 }

@@ -1,0 +1,38 @@
+{
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "Hydro",
+        "Liyue",
+        "Sword"
+    ],
+    "SkillList": [
+        {
+            "Type": "Skill_A",
+            "Element": "Hydro"
+        },
+        {
+            "Type": "Custom",
+            "Name": "genshin3_3:xingqiu_e"
+        },
+        {
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Pyro",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Pyro",
+                        "Amount": 7
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,6 +1,5 @@
 {
     "CardType": "Support",
-    "NameID": "support_rana",
     "Cost": [
         {
             "Type": "Trival",
@@ -11,7 +10,5 @@
         "Support",
         "Partner"
     ],
-    "SkillList": [
-        "genshin3_3:support_rana"
-    ]
+    "SkillList": []
 }

@@ -1,5 +1,4 @@
 {
-    "NameID": "ganyu",
     "MaxHP": 10,
     "MaxMP": 3,
     "Tags": [
@@ -8,9 +7,106 @@
         "Bow"
     ],
     "SkillList": [
-        "genshin3_3:ganyu_a",
-        "genshin3_3:ganyu_e",
-        "genshin3_3:ganyu_a5",
-        "genshin3_3:ganyu_q"
+        {
+            "Type": "Skill_A",
+            "Element": "Cryo"
+        },
+        {
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Cryo",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Cryo",
+                        "Amount": 1,
+                        "With": [
+                            {
+                                "Type": "Effect",
+                                "Add": [
+                                    "genshin3_3:effect_ganyu_e"
+                                ],
+                                "Target": {
+                                    "Type": "Team"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Type": "Skill",
+            "SkillCategory": "A",
+            "Cost": [
+                {
+                    "Type": "Cryo",
+                    "Count": 5
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_3:effect_ganyu_a5"
+                    ],
+                    "Team": "Me"
+                },
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Pierce",
+                        "Amount": 2,
+                        "TargetArea": "TargetExcept",
+                        "SubDamage": {
+                            "Element": "Cryo",
+                            "Amount": 2
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Cryo",
+                    "Count": 3
+                },
+                {
+                    "Type": "MP",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Pierce",
+                        "Amount": 1,
+                        "TargetArea": "TargetExcept",
+                        "SubDamage": {
+                            "Element": "Cryo",
+                            "Amount": 2
+                        },
+                        "With": [
+                            {
+                                "Type": "Effect",
+                                "Add": [
+                                    "genshin3_3:summon_ganyu_q"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     ]
 }

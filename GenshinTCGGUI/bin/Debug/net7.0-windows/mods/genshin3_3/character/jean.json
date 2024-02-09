@@ -1,5 +1,4 @@
 {
-    "NameID": "jean",
     "MaxHP": 10,
     "MaxMP": 2,
     "Tags": [
@@ -8,8 +7,61 @@
         "Sword"
     ],
     "SkillList": [
-        "genshin3_3:jean_a",
-        "genshin3_3:jean_e",
-        "genshin3_3:jean_q"
+        {
+            "Type": "Skill_A",
+            "Element": "Anemo"
+        },
+        {
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Pyro",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Anemo",
+                        "Amount": 3,
+                        "With": []
+                    }
+                }
+            ]
+        },
+        {
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Anemo",
+                    "Count": 4
+                },
+                {
+                    "Type": "MP",
+                    "Count": 2
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Heal",
+                    "Heal": {
+                        "Amount": 2,
+                        "TargetArea": "TargetExcept",
+                        "Subheal": {
+                            "Amount": 2
+                        }
+                    }
+                },
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_3:summon_jean_q"
+                    ]
+                }
+            ]
+        }
     ]
 }

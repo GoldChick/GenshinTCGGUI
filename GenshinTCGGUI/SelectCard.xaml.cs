@@ -23,7 +23,7 @@ namespace GenshinTCGGUI
         protected List<(int, string)> Chars = new();
         protected List<(int, string)> Actions = new();
 
-        protected List<AbstractCardCharacter> CardCharacters = new();
+        protected List<CardCharacter> CardCharacters = new();
         protected List<AbstractCardAction> CardActions = new();
         public SelectCard()
         {

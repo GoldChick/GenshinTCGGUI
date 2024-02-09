@@ -1,5 +1,4 @@
 {
-    "NameID": "xiangling",
     "MaxHP": 10,
     "MaxMP": 2,
     "Tags": [
@@ -8,8 +7,65 @@
         "Longweapon"
     ],
     "SkillList": [
-        "genshin3_3:xiangling_a",
-        "genshin3_3:xiangling_e",
-        "genshin3_3:xiangling_q"
+        {
+            "Type": "Skill_A",
+            "Element": "Pyro"
+        },
+        {
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Pyro",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_3:summon_xiangling_e"
+                    ]
+                }
+            ]
+        },
+        {
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Pyro",
+                    "Count": 0
+                },
+                {
+                    "Type": "MP",
+                    "Count": 0
+                },
+                {
+                    "Type": "Void",
+                    "Count": 1
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Pyro",
+                        "Amount": 3
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:effect_xiangling_q"
+                            ],
+                            "Target": {
+                                "Type": "Team"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
     ]
 }

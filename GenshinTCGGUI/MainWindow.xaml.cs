@@ -64,7 +64,6 @@ namespace GenshinTCGGUI
                     }
                     catch (Exception ex)
                     {
-                        var b = 1;
                         throw;
                     }
                 });

@@ -1,0 +1,26 @@
+{
+    "CardType": "Summon",
+    "MaxUseTimes": 2,
+    "NameID": "summon_xiangling_e",
+    "Tags": [],
+    "SkillList": [
+        {
+            "Type": "RoundOver",
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Pyro",
+                        "Amount": 2
+                    },
+                    "With": [
+                        {
+                            "Type": "Counter",
+                            "Add": -1
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

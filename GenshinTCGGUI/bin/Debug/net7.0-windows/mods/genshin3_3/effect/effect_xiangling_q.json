@@ -1,0 +1,26 @@
+{
+    "CardType": "Effect",
+    "MaxUseTimes": 2,
+    "NameID": "effect_xiangling_q",
+    "Tags": [],
+    "SkillList": [
+        {
+            "Type": "AfterUseSkill",
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Pyro",
+                        "Amount": 2
+                    },
+                    "With": [
+                        {
+                            "Type": "Counter",
+                            "Add": -1
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

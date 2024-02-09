@@ -21,7 +21,7 @@ namespace Prefab
         public string NameSpace { get; }
         public string NameID { get; }
         public AbstractCardBase? Card { get; }
-        public PreGamingSelectableGrid(AbstractCardCharacter c, int index) : this(RegistryType.CharacterCard, c.Namespace, c.NameID, index)
+        public PreGamingSelectableGrid(CardCharacter c, int index) : this(RegistryType.CharacterCard, c.Namespace, c.NameID, index)
         {
             Card = c;
         }

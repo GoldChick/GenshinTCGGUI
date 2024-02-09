@@ -1,0 +1,38 @@
+{
+    "MaxHP": 10,
+    "MaxMP": 3,
+    "Tags": [
+        "Cryo",
+        "Liyue",
+        "Claymore"
+    ],
+    "SkillList": [
+        {
+            "Type": "Skill_A",
+            "Element": "Cryo"
+        },
+        {
+            "Type": "Custom",
+            "Name": "genshin3_3:chongyun_e"
+        },
+        {
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Pyro",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Pyro",
+                        "Amount": 7
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "MaxHP": 10,
+    "MaxMP": 3,
+    "Tags": [
+        "Pyro",
+        "Inazuma",
+        "Bow"
+    ],
+    "SkillList": [
+        {
+            "Type": "Skill_A",
+            "Element": "Pyro"
+        },
+        {
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "MP": 0,
+            "Cost": [
+                {
+                    "Type": "Pyro",
+                    "Count": 1
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_3:effect_yoimiya_e"
+                    ]
+                }
+            ]
+        },
+        {
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Pyro",
+                    "Count": 3
+                },
+                {
+                    "Type": "MP",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Pyro",
+                        "Amount": 3
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:effect_yoimiya_q"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
