@@ -329,17 +329,37 @@ namespace GenshinTCGGUI
             }
         }
         /// <summary>
-        /// 添加要选中的卡牌/骰子
+        /// 添加要选中的卡牌/骰子<br/>
+        /// 如果是描述模式，就不选
         /// </summary>
         public void TrySelect(GamingSelectableGrid selected)
         {
+            if (PreView.IsChecked ?? false)
+            {
+                if (selected is ActionCardGrid acg)
+                {
+                    MidDescriptionEffectPanel.Preview(null, null);
+                    RightDescriptionPanel.PreviewActionCard(acg.NameSpace, acg.NameID, PreviewContainer, PreviewLeftImage, true);
+                }
+                else if (selected is CharacterCardGrid ccg)
+                {
+                    MidDescriptionEffectPanel.Preview(ccg.Effects, ccg.TeamRegion.Effects);
+                    RightDescriptionPanel.PreviewCharacterCard(ccg.NameSpace, ccg.NameID, PreviewContainer, PreviewLeftImage, true);
+                }
+                else
+                {
+                    PreviewLeftImage.Source = null;
+                    PreviewContainer.Visibility = Visibility.Hidden;
+                }
+                return;
+            }
             LastSelected = selected;
             switch (State)
             {
-                case ActionType.Trival:
+                case OperationType.Trival:
                     TryTrivalSelect(selected);
                     break;
-                case ActionType.ReRollDice:
+                case OperationType.ReRollDice:
                     {
                         if (selected is DiceGrid dice)
                         {
@@ -356,7 +376,7 @@ namespace GenshinTCGGUI
                         }
                         break;
                     }
-                case ActionType.ReRollCard:
+                case OperationType.ReRollCard:
                     {
                         if (selected is ActionCardGrid)
                         {
@@ -373,7 +393,7 @@ namespace GenshinTCGGUI
                         }
                         break;
                     }
-                case ActionType.SwitchForced:
+                case OperationType.Switch:
                     {
                         if (selected is CharacterCardGrid ccg)
                         {

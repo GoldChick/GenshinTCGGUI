@@ -1,0 +1,15 @@
+{
+    "NameID": "jean",
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "Anemo",
+        "Mondstadt",
+        "Sword"
+    ],
+    "SkillList": [
+        "genshin3_3:jean_a",
+        "genshin3_3:jean_e",
+        "genshin3_3:jean_q"
+    ]
+}

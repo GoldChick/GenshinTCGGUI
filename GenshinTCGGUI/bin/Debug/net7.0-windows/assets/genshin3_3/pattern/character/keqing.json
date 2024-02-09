@@ -1,0 +1,36 @@
+{
+    "CardName": "刻晴",
+    "Description": "她能构筑出许多从未设想过的牌组，拿下许多难以想象的胜利。",
+    "MaxHP": 10,
+    "MaxMP": 3,
+    "Tags": [
+        "璃月",
+        "单手剑",
+        "雷元素"
+    ],
+    "Skills": [
+        {
+            "CardName": "云来剑法",
+            "Description": "造成2点物理伤害。",
+            "Category": 0,
+            "Cost": "1雷2黑",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "星斗归位",
+            "Description": "造成3点雷元素伤害，生成手牌雷楔。",
+            "Category": 1,
+            "Cost": "3雷",
+            "RelatedPersistents": [
+                "genshin3_3:talent_keqing"
+            ]
+        },
+        {
+            "CardName": "天街巡游",
+            "Description": "造成4点雷元素伤害，对所有敌方后台角色造成3点穿透伤害。",
+            "Category": 2,
+            "Cost": "4雷3充",
+            "RelatedPersistents": []
+        }
+    ]
+}

@@ -18,7 +18,9 @@ namespace Prefab
 {
     public class CharacterCardGrid : GamingSelectableGrid, IPersistentManager
     {
+        public string NameSpace { get; init; }
         public string NameID { get; init; }
+        public TeamRegion TeamRegion { get; }
         /// <summary>
         /// 仅仅用于出战角色的发红光
         /// </summary>
@@ -89,10 +91,11 @@ namespace Prefab
                 }
             }
         }
-        public CharacterCardGrid(string nameSpace,string nameid, int maxhp, int maxmp, int skillcount, int index) : base(index)
+        public CharacterCardGrid(TeamRegion team,string nameSpace, string nameid, int maxhp, int maxmp, int skillcount, int index) : base(index)
         {
+            TeamRegion = team;
             Effects = new();
-            
+
             var path = System.IO.Path.Combine(Directory.GetCurrentDirectory(), $"assets/{nameSpace}/character/{nameid}/main.png");
             Uri url = File.Exists(path) ? new(path) : new("Resource/minecraft/action/unknown.png", UriKind.Relative);
             SecondImage = new()
@@ -155,6 +158,7 @@ namespace Prefab
                 Width = 117,
             };
 
+            NameSpace = nameSpace;
             NameID = nameid;
             HP = maxhp;
             SkillCount = skillcount;
@@ -171,7 +175,7 @@ namespace Prefab
         public void Add(string nameSpace, string nameid, int variant, int availabletimes)
         {
             var p = new Persistent(new(nameSpace, nameid, variant, availabletimes));
-            Effects.Add(new CharacterEffectGrid(p.Uri, Effects.Count, availabletimes));
+            Effects.Add(new CharacterEffectGrid(p, Effects.Count, availabletimes));
             if (p.Variant >= 0 && p.Uri != null)
             {
                 if (EffectsPanel.Children.Count < 4)
@@ -187,7 +191,7 @@ namespace Prefab
                     else
                     {
                         EffectsPanel.Children.RemoveAt(4);
-                        EffectsPanel.Children.Add(new CharacterEffectGrid(new($"Resource/minecraft/icon/more.png", UriKind.Relative), -1, 2));
+                        EffectsPanel.Children.Add(new CharacterEffectGrid(new Uri($"Resource/minecraft/icon/more.png", UriKind.Relative), -1, 2));
                     }
                 }
             }

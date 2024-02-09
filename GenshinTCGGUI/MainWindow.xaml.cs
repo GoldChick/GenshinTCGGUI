@@ -1,26 +1,13 @@
-﻿using Prefab;
+﻿using TCGClient;
+using Prefab;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Net.Sockets;
-using System.Reflection;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using TCGBase;
-using TCGClient;
 
 namespace GenshinTCGGUI
 {
@@ -35,6 +22,8 @@ namespace GenshinTCGGUI
         internal TeamRegion TeamEnemy;
 
         internal int CurrCharacterCashe = -1;
+        public DescriptionEffectPanel MidDescriptionEffectPanel { get; }
+        public DescriptionPanel RightDescriptionPanel { get; }
         public static MainWindow Instance { get => _instance; }
         public Game game;
         public IGuiCllient MainClient { get; }
@@ -48,6 +37,14 @@ namespace GenshinTCGGUI
             DiceSelected = new();
             InitializeComponent();
 
+            MidDescriptionEffectPanel = new DescriptionEffectPanel();
+            RightDescriptionPanel = new DescriptionPanel();
+
+            PreviewLeftImage.Source = null;
+            PreviewContainer.Visibility = Visibility.Hidden;
+            PreviewMidView.Content = MidDescriptionEffectPanel;
+            PreviewRightView.Content = RightDescriptionPanel;
+
             BlackBlocker_DiceOnly.MouseLeftButtonDown += (s, e) => SelectStateMachine = TrivalSelectStateMachine.None;
 
             if (isServer)
@@ -59,7 +56,18 @@ namespace GenshinTCGGUI
                 GameManager.Instance.Client0.BindInitRenderAction(InitRender);
                 GameManager.Instance.Client0.BindUpdateRenderAction(UpdateRender);
                 MainClient = GameManager.Instance.Client0;
-                Task.Run(game.StartGame);
+                Task.Run(() =>
+                {
+                    try
+                    {
+                        game.StartGame();
+                    }
+                    catch (Exception ex)
+                    {
+                        var b = 1;
+                        throw;
+                    }
+                });
             }
             else
             {
@@ -71,8 +79,8 @@ namespace GenshinTCGGUI
         {
             Dispatcher.Invoke(() =>
             {
-                TeamMe = new(Me, game.Me,true);
-                TeamEnemy = new(Enemy, game.Enemy,false);
+                TeamMe = new(Me, game.Me, true);
+                TeamEnemy = new(Enemy, game.Enemy, false);
                 TeamMe.BlackBlocker.MouseLeftButtonDown += (s, e) => SelectStateMachine = TrivalSelectStateMachine.None;
                 TeamEnemy.BlackBlocker.MouseLeftButtonDown += (s, e) => SelectStateMachine = TrivalSelectStateMachine.None;
             });
@@ -111,8 +119,8 @@ namespace GenshinTCGGUI
             {
                 if (TeamMe == null)
                 {
-                    TeamMe = new(Me, game.Me,true);
-                    TeamEnemy = new(Enemy, game.Enemy,false);
+                    TeamMe = new(Me, game.Me, true);
+                    TeamEnemy = new(Enemy, game.Enemy, false);
                     TeamMe.BlackBlocker.MouseLeftButtonDown += (s, e) => SelectStateMachine = TrivalSelectStateMachine.None;
                     TeamEnemy.BlackBlocker.MouseLeftButtonDown += (s, e) => SelectStateMachine = TrivalSelectStateMachine.None;
                 }
@@ -146,5 +154,19 @@ namespace GenshinTCGGUI
         {
             Canvas.SetTop(CardMe, 650);
         }
+        private void BackGround_Click(object sender, MouseButtonEventArgs e)
+        {
+            if (PreView.IsChecked ?? false)
+            {
+                PreviewLeftImage.Source = null;
+                PreviewContainer.Visibility = Visibility.Hidden;
+            }
+        }
+        private void PreView_Change(object sender, RoutedEventArgs e)
+        {
+            PreviewLeftImage.Source = null;
+            PreviewContainer.Visibility = Visibility.Hidden;
+        }
+
     }
 }

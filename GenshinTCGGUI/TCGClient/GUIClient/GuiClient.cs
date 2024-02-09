@@ -30,19 +30,21 @@ namespace TCGClient
         public override void Update(ClientUpdatePacket packet)
         {
             base.Update(packet);
+            var g = Game;
             MainWindow.Instance.UpdatePacketRender(MeID, packet);
         }
         public override void UpdateRegion()
         {
             base.UpdateRegion();
             _render?.Invoke(Game);
+            var g= Game;
         }
-        public override NetEvent RequestEvent(ActionType demand)
+        public override NetEvent RequestEvent(OperationType demand)
         {
             MainWindow.Instance.ClientUpdateCosts(GetAllDiceCost());
-            return MainWindow.Instance.RequestEventCallBack(demand) ?? new NetEvent(new(ActionType.Pass));
+            return MainWindow.Instance.RequestEventCallBack(demand) ?? new NetEvent(new(OperationType.Pass));
         }
-        public override void RequestEnemyEvent(ActionType demand)
+        public override void RequestEnemyEvent(OperationType demand)
         {
             base.RequestEnemyEvent(demand);
             MainWindow.Instance.RequestEnemyEventCallBack(demand);

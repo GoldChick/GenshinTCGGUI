@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
 using TCGBase;
 
 namespace Prefab
@@ -28,24 +22,12 @@ namespace Prefab
             NameID = e.NameID;
             Variant = e.Variant;
             AvailableTimes = e.AvailableTimes;
-            string path = Path.Combine(Directory.GetCurrentDirectory(), $"assets/{e.NameSpace}/pattern/effect/{e.NameID}.json");
-            if (File.Exists(path))
+            if (TryGetEffectTextureConverter<EffectTextureConverter>(e.NameSpace, e.NameID, out var converter))
             {
-                try
-                {
-                    var json = File.ReadAllText(path);
-                    var converter = JsonSerializer.Deserialize<EffectTextureConverter>(json);
-                    if (converter != null)
-                    {
-                        path = Path.Combine(Directory.GetCurrentDirectory(), $"assets/{converter.TextureNamespace}/icon/{converter.TextureNameID}.png");
-                        EffectName = converter.Name;
-                        EffectText = converter.Text[Variant >= 0 ? Variant : 0];
-                        Uri = File.Exists(path) ? new(path) : null;
-                    }
-                }
-                catch (Exception)
-                {
-                }
+                var path = Path.Combine(Directory.GetCurrentDirectory(), $"assets/{converter.TextureNamespace}/icon/{converter.TextureNameID}.png");
+                EffectName = converter.Name;
+                EffectText = converter.Text[Variant >= 0 ? Variant : 0];
+                Uri = File.Exists(path) ? new(path) : null;
             }
             Uri = Variant switch
             {
@@ -54,6 +36,25 @@ namespace Prefab
                 -3 => new Uri("Resource/util/icon/talent.png", UriKind.Relative),
                 _ => Uri
             };
+        }
+        public static bool TryGetEffectTextureConverter<T>(string nameSpace, string nameid, [NotNullWhen(true)] out T? converter) where T : CardTextConverter
+        {
+            converter = null;
+            string path = Path.Combine(Directory.GetCurrentDirectory(), $"assets/{nameSpace}/pattern/persistent/{nameid}.json");
+            if (File.Exists(path))
+            {
+                try
+                {
+                    var json = File.ReadAllText(path);
+                    converter = JsonSerializer.Deserialize<T>(json);
+                    return converter != null;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            return false;
         }
     }
 }

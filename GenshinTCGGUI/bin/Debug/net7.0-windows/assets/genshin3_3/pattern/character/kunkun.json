@@ -1,0 +1,43 @@
+{
+    "CardName": "翠翎恐蕈",
+    "Description": "悄声静听，可以听到幽林之中，偶像练习生巡视领土的脚步…",
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "魔物",
+        "其他武器",
+        "草元素"
+    ],
+    "Skills": [
+        {
+            "CardName": "菌王舞步",
+            "Description": "造成2点物理伤害。",
+            "Category": 0,
+            "Cost": "1草2黑",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "不稳定孢子云",
+            "Description": "造成3点草元素伤害。",
+            "Category": 1,
+            "Cost": "3草",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "尾羽豪放",
+            "Description": "造成4点草元素伤害，消耗所有活化激能层数，每层使此伤害+1。",
+            "Category": 2,
+            "Cost": "3草2充",
+            "RelatedPersistents": [
+                "genshin3_3:effect_kunkun"
+            ]
+        },
+        {
+            "CardName": "活化激能",
+            "Description": "【被动】战斗开始时，初始附属活化激能。",
+            "Category": 3,
+            "Cost": "",
+            "RelatedPersistents": []
+        }
+    ]
+}

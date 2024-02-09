@@ -1,0 +1,38 @@
+{
+    "CardName": "优菈",
+    "Description": "这只是一场游戏，无论取胜还是落败，你都不会因此被添上罪状。",
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "蒙德",
+        "双手剑",
+        "冰元素"
+    ],
+    "Skills": [
+        {
+            "CardName": "西风剑术·宗室",
+            "Description": "造成2点物理伤害。",
+            "Category": 0,
+            "Cost": "1冰2黑",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "冰潮的涡旋",
+            "Description": "造成2点冰元素伤害，附属冷酷之心。",
+            "Category": 1,
+            "Cost": "3冰",
+            "RelatedPersistents": [
+                "genshin3_5:effect_eula"
+            ]
+        },
+        {
+            "CardName": "凝浪之光剑",
+            "Description": "造成2点冰元素伤害，召唤光降之剑。",
+            "Category": 2,
+            "Cost": "3冰2充",
+            "RelatedPersistents": [
+                "genshin3_5:summon_eula"
+            ]
+        }
+    ]
+}

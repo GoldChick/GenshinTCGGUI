@@ -18,10 +18,10 @@ namespace Prefab
 
         IEnumerable<GamingSelectableGrid> IUniformGridRegion.Cards => Cards;
 
-        public CharacterRegion(List<ReadonlyCharacter> chars)
+        public CharacterRegion(TeamRegion team,List<ReadonlyCharacter> chars)
         {
             CurrCharacter = -1;
-            Cards = chars.Select((c, index) => new CharacterCardGrid(c.NameSpace,c.NameID, c.MaxHP, c.MaxMP, c.SkillCount, index)).ToList();
+            Cards = chars.Select((c, index) => new CharacterCardGrid(team, c.NameSpace, c.NameID, c.MaxHP, c.MaxMP, c.SkillCount, index)).ToList();
             Cards.ForEach(c => Children.Add(c));
         }
     }

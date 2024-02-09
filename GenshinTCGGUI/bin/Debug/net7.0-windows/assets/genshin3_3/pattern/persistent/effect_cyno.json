@@ -1,0 +1,10 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "shield_purple",
+    "Name": "启途誓使",
+    "Text": [
+        "结束阶段：累积1级「凭依」。\n根据「凭依」级数，提供效果：\n大于等于2级：物理伤害转化为雷元素伤害；\n大于等于4级：造成的伤害+2；\n大于等于6级时：「凭依」级数-4"
+    ],
+    "ShowCategory": 0,
+    "TriggerCategory": 0
+}

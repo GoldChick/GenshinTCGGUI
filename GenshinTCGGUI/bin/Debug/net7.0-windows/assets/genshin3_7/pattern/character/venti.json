@@ -1,0 +1,38 @@
+{
+    "CardName": "温迪",
+    "Description": "「四季轮转，四风从不止息。」\n「当然啦，功劳也不是它们的，主要是我的。」\n「要是没有吟游诗人，谁去把这些传唱？」",
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "蒙德",
+        "弓",
+        "风元素"
+    ],
+    "Skills": [
+        {
+            "CardName": "神代射术",
+            "Description": "造成2点物理伤害。",
+            "Category": 0,
+            "Cost": "1风2黑",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "高天之歌",
+            "Description": "造成2点风元素伤害，生成风域。",
+            "Category": 1,
+            "Cost": "3风",
+            "RelatedPersistents": [
+                "genshin3_7:effect_venti"
+            ]
+        },
+        {
+            "CardName": "风神之诗",
+            "Description": "造成2点风元素伤害，召唤暴风之眼。",
+            "Category": 2,
+            "Cost": "3风2充",
+            "RelatedPersistents": [
+                "genshin3_7:summon_venti"
+            ]
+        }
+    ]
+}

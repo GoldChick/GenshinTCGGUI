@@ -1,0 +1,38 @@
+{
+    "CardName": "丽莎",
+    "Description": "追寻魔导的奥秘，静待真相的机缘。",
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "蒙德",
+        "法器",
+        "雷元素"
+    ],
+    "Skills": [
+        {
+            "CardName": "指尖雷暴",
+            "Description": "造成1点雷元素伤害。如果此技能为重击，则使敌方出战角色附属引雷。",
+            "Category": 0,
+            "Cost": "1雷2黑",
+            "RelatedPersistents": [
+                "genshin4_0:effect_lisa"
+            ]
+        },
+        {
+            "CardName": "苍雷",
+            "Description": "造成2点雷元素伤害。如果此技能未触发引雷，则使敌方出战角色附属引雷。",
+            "Category": 1,
+            "Cost": "3雷",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "蔷薇的雷光",
+            "Description": "造成2点雷元素伤害。召唤蔷薇雷光。",
+            "Category": 2,
+            "Cost": "3雷2充",
+            "RelatedPersistents": [
+                "genshin4_0:summon_lisa"
+            ]
+        }
+    ]
+}

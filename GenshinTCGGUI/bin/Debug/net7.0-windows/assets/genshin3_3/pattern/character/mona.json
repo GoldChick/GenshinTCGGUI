@@ -1,0 +1,45 @@
+{
+    "CardName": "莫娜",
+    "Description": "无论胜负平弃，都是命当如此。",
+    "MaxHP": 10,
+    "MaxMP": 3,
+    "Tags": [
+        "蒙德",
+        "法器",
+        "水元素"
+    ],
+    "Skills": [
+        {
+            "CardName": "因果点破",
+            "Description": "造成1点水元素伤害。",
+            "Category": 0,
+            "Cost": "1水2黑",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "水中幻愿",
+            "Description": "造成1点水元素伤害，召唤虚影。",
+            "Category": 1,
+            "Cost": "3水",
+            "RelatedPersistents": [
+                "genshin3_3:summon_mona"
+            ]
+        },
+        {
+            "CardName": "星命定轨",
+            "Description": "造成4点水元素伤害，生成泡影。",
+            "Category": 2,
+            "Cost": "3水3充",
+            "RelatedPersistents": [
+                "genshin3_3:effect_mona"
+            ]
+        },
+        {
+            "CardName": "虚实流动",
+            "Description": "【被动】此角色为出战角色，我方执行「切换角色」行动时：将此次切换视为「快速行动」而非「战斗行动」。（每回合1次）",
+            "Category": 3,
+            "Cost": "",
+            "RelatedPersistents": []
+        }
+    ]
+}

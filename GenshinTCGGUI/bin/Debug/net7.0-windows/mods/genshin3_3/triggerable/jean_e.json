@@ -1,0 +1,20 @@
+{
+    "Type": "Skill",
+    "SkillCategory": "E",
+    "Cost": [
+        {
+            "Type": "Pyro",
+            "Count": 3
+        }
+    ],
+    "Action": [
+        {
+            "Type": "Damage",
+            "Damage": {
+                "Element": "Anemo",
+                "Amount": 3,
+                "With": []
+            }
+        }
+    ]
+}

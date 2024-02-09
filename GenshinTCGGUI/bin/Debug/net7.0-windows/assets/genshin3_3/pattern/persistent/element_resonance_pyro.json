@@ -1,0 +1,10 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "buff",
+    "Name": "双火共鸣",
+    "Text": [
+        "本回合中，附属角色下一次引发的火元素相关反应的伤害+2。"
+    ],
+    "ShowCategory": 0,
+    "TriggerCategory": 0
+}

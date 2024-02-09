@@ -1,1 +1,42 @@
-{"CardSetName":"test","CardSet":{"Characters":["genshin3_7:amber","genshin3_7:hutao","genshin3_7:nahida"],"ActionCards":["genshin3_7:artifact_capriciousvisage","genshin3_7:artifact_capriciousvisage","genshin3_7:artifact_emblemofseveredfate","genshin3_7:artifact_emblemofseveredfate","genshin3_7:artifact_helm_big","genshin3_7:artifact_helm_big","genshin3_7:artifact_shimenawareminiscence","genshin3_7:artifact_shimenawareminiscence","genshin3_7:artifact_thunderingpoise","genshin3_7:artifact_thunderingpoise","genshin3_7:artifact_vermillionhereafter","genshin3_7:artifact_vermillionhereafter","genshin3_7:weapon_ams","genshin3_7:weapon_ams","genshin3_7:weapon_athousandfloatingdreams","genshin3_7:weapon_athousandfloatingdreams","genshin3_7:weapon_elegyfortheend","genshin3_7:weapon_elegyfortheend","genshin3_7:weapon_engulfinglightning","genshin3_7:weapon_engulfinglightning","genshin3_7:location_chinjuforest","genshin3_7:location_chinjuforest","genshin3_7:location_sangonomiyashrine","genshin3_7:location_sangonomiyashrine","genshin3_7:location_sumerucity","genshin3_7:location_sumerucity","genshin3_7:location_tenshukaku","genshin3_7:location_tenshukaku","genshin3_7:location_vanarana","genshin3_7:location_vanarana"]}}
+{
+    "CardSetName": "test",
+    "CardSet": {
+        "Characters": [
+            "genshin3_3:ganyu",
+            "genshin3_3:ganyu",
+            "genshin3_3:ganyu"
+        ],
+        "ActionCards": [
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion"
+        ]
+    }
+}

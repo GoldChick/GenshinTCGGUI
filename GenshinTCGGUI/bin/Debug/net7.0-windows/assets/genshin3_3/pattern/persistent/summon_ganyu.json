@@ -1,0 +1,12 @@
+{
+    "Name": "冰灵珠",
+    "Text": [
+        "结束阶段：造成1点冰元素伤害，对所有敌方后台角色造成1点穿透伤害。\n可用次数：2"
+    ],
+    "ShowCategory": 0,
+    "TriggerCategory": 0,
+    "Element": [
+        1
+    ],
+    "Damage": 1
+}

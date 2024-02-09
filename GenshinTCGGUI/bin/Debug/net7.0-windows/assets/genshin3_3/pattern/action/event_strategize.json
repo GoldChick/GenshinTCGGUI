@@ -1,0 +1,9 @@
+{
+    "CardName": "运筹帷幄",
+    "Description": "抓2张牌。",
+    "Tags": [
+        "事件牌"
+    ],
+    "Cost": "1白",
+    "RelatedPersistents": []
+}

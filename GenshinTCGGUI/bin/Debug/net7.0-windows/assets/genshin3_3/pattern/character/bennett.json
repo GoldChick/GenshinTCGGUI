@@ -1,0 +1,36 @@
+{
+    "CardName": "班尼特",
+    "Description": "当你知道自己一定会输时，那你肯定也知道如何能赢。",
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "蒙德",
+        "单手剑",
+        "火元素"
+    ],
+    "Skills": [
+        {
+            "CardName": "好运剑",
+            "Description": "造成2点物理伤害。",
+            "Category": 0,
+            "Cost": "1火2黑",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "热情过载",
+            "Description": "造成3点火元素伤害。",
+            "Category": 1,
+            "Cost": "3火",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "美妙旅程",
+            "Description": "造成2点火元素伤害，生成鼓舞领域。",
+            "Category": 2,
+            "Cost": "4火2充",
+            "RelatedPersistents": [
+                "genshin3_3:effect_bennett"
+            ]
+        }
+    ]
+}

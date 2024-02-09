@@ -1,0 +1,10 @@
+{
+    "TextureNamespace": "genshin3_3",
+    "TextureNameID": "effect_mona",
+    "Name": "泡影",
+    "Text": [
+        "我方技能造成伤害时：移除此状态，使本次伤害加倍。"
+    ],
+    "ShowCategory": 0,
+    "TriggerCategory": 0
+}

@@ -13,11 +13,11 @@ namespace GenshinTCGGUI
 {
     public partial class MainWindow
     {
-        private ActionType State;
+        private OperationType State;
         private NetEvent? NetEvent;
         private bool _token;
         private bool _iscurrteam;
-        public NetEvent RequestEventCallBack(ActionType demand)
+        public NetEvent RequestEventCallBack(OperationType demand)
         {
             Dispatcher.Invoke(() =>
             {
@@ -25,11 +25,11 @@ namespace GenshinTCGGUI
                 InitSelect();
                 switch (State)
                 {
-                    case ActionType.ReRollDice:
+                    case OperationType.ReRollDice:
                         BlackBlocker_DiceOnly.Visibility = Visibility.Visible;
                         BlackBlocker_DiceAndCard.Visibility = Visibility.Hidden;
                         break;
-                    case ActionType.ReRollCard:
+                    case OperationType.ReRollCard:
                         BlackBlocker_DiceAndCard.Visibility = Visibility.Visible;
                         BlackBlocker_DiceOnly.Visibility = Visibility.Hidden;
                         break;
@@ -64,7 +64,7 @@ namespace GenshinTCGGUI
                     Thread.Sleep(100);
                     if (_token)
                     {
-                        return new(new(ActionType.Pass));
+                        return new(new(OperationType.Pass));
                     }
                 }
                 var copy = NetEvent;
@@ -72,15 +72,15 @@ namespace GenshinTCGGUI
                 return copy;
             }).Result;
         }
-        public void RequestEnemyEventCallBack(ActionType demand)
+        public void RequestEnemyEventCallBack(OperationType demand)
         {
             switch (demand)
             {
-                case ActionType.ReRollDice:
+                case OperationType.ReRollDice:
                     break;
-                case ActionType.ReRollCard:
+                case OperationType.ReRollCard:
                     break;
-                case ActionType.SwitchForced:
+                case OperationType.Switch:
                     break;
                 default:
                     if (_iscurrteam)
@@ -105,28 +105,28 @@ namespace GenshinTCGGUI
         {
             switch (State)
             {
-                case ActionType.ReRollDice:
+                case OperationType.ReRollDice:
                     {
                         int[] dices = new int[DiceContainer.Children.Count];
                         DiceSelected.ForEach(c => dices[c.Index] = 1);
-                        State = ActionType.Pass;
-                        NetEvent = new(new(ActionType.ReRollDice), Array.Empty<int>(), dices);
+                        State = OperationType.Pass;
+                        NetEvent = new(new(OperationType.ReRollDice), Array.Empty<int>(), dices);
                     }
                     break;
-                case ActionType.ReRollCard:
+                case OperationType.ReRollCard:
                     {
                         int[] cards = new int[CardMe.Children.Count];
                         RerollCardsSelected.ForEach(c => cards[c.Index] = 1);
-                        State = ActionType.Pass;
-                        NetEvent = new(new(ActionType.ReRollCard), Array.Empty<int>(), cards);
+                        State = OperationType.Pass;
+                        NetEvent = new(new(OperationType.ReRollCard), Array.Empty<int>(), cards);
                     }
                     break;
-                case ActionType.SwitchForced:
+                case OperationType.Switch:
                     {
                         if (CharacterSelected != null)
                         {
-                            State = ActionType.Pass;
-                            NetEvent = new(new(ActionType.SwitchForced, CharacterSelected.Index));
+                            State = OperationType.Pass;
+                            NetEvent = new(new(OperationType.Switch, CharacterSelected.Index));
                         }
                     }
                     break;
@@ -138,8 +138,8 @@ namespace GenshinTCGGUI
                             DiceSelected.ForEach(d => selects[(int)d.Element]++);
                             if (SwitchCosts.ElementAt(CharacterSelected.Index).DiceEqualTo(selects))
                             {
-                                State = ActionType.Pass;
-                                NetEvent = new(new(ActionType.Switch, CharacterSelected.Index), selects);
+                                State = OperationType.Pass;
+                                NetEvent = new(new(OperationType.Switch, CharacterSelected.Index), selects);
                                 SelectStateMachine = TrivalSelectStateMachine.None;
                             }
                         }
@@ -165,8 +165,8 @@ namespace GenshinTCGGUI
                                 DiceSelected.ForEach(d => selects[(int)d.Element]++);
                                 if (cost.Cost.DiceEqualTo(selects))
                                 {
-                                    State = ActionType.Pass;
-                                    NetEvent = new(new(ActionType.UseCard, UseCardSelected.Index), selects, TargetEnumSelected.Select(t => t.Index).ToArray());
+                                    State = OperationType.Pass;
+                                    NetEvent = new(new(OperationType.UseCard, UseCardSelected.Index), selects, TargetEnumSelected.Select(t => t.Index).ToArray());
                                     SelectStateMachine = TrivalSelectStateMachine.None;
                                 }
                             }
@@ -177,8 +177,8 @@ namespace GenshinTCGGUI
                             DiceSelected.ForEach(d => selects[(int)d.Element]++);
                             if (SkillCosts.ElementAt(UseSkillSelected.Index).DiceEqualTo(selects))
                             {
-                                State = ActionType.Pass;
-                                NetEvent = new(new(ActionType.UseSKill, UseSkillSelected.Index), selects, TargetEnumSelected.Select(t => t.Index).ToArray());
+                                State = OperationType.Pass;
+                                NetEvent = new(new(OperationType.UseSKill, UseSkillSelected.Index), selects, TargetEnumSelected.Select(t => t.Index).ToArray());
                                 SelectStateMachine = TrivalSelectStateMachine.None;
                             }
                         }
@@ -189,25 +189,25 @@ namespace GenshinTCGGUI
         }
         private void Blend_Click(object sender, RoutedEventArgs e)
         {
-            if (State == ActionType.Trival && UseCardSelected != null && DiceSelected.Count == 1)
+            if (State == OperationType.Trival && UseCardSelected != null && DiceSelected.Count == 1)
             {
                 int[] selects = new int[8];
                 int d = (int)DiceSelected[0].Element;
                 if (d != 0 && BlendCost != null && BlendCost.DiceCost[0] == 0 && BlendCost.DiceCost[d] == 0 )
                 {
                     selects[d] = 1;
-                    State = ActionType.Pass;
-                    NetEvent = new(new(ActionType.Blend, UseCardSelected.Index), selects);
+                    State = OperationType.Pass;
+                    NetEvent = new(new(OperationType.Blend, UseCardSelected.Index), selects);
                     SelectStateMachine = TrivalSelectStateMachine.None;
                 }
             }
         }
         private void Pass_Click(object sender, RoutedEventArgs e)
         {
-            if (State == ActionType.Trival)
+            if (State == OperationType.Trival)
             {
-                State = ActionType.Pass;
-                NetEvent = new(new(ActionType.Pass));
+                State = OperationType.Pass;
+                NetEvent = new(new(OperationType.Pass));
             }
         }
 

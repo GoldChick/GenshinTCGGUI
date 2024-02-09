@@ -1,0 +1,16 @@
+{
+    "CardType": "Event",
+    "NameID": "event_bestcompanion",
+    "Cost": [
+        {
+            "Type": "Void",
+            "Count": 2
+        }
+    ],
+    "Tags": [
+        "Event"
+    ],
+    "SkillList": [
+        "genshin3_3:event_bestcompanion"
+    ]
+}

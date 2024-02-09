@@ -1,0 +1,9 @@
+{
+    "CardName": "交给我吧！",
+    "Description": "我方下次执行「切换角色」行动时：将此次切换视为「快速行动」而非「战斗行动」。",
+    "Tags": [
+        "事件牌"
+    ],
+    "Cost": "0白",
+    "RelatedPersistents": []
+}

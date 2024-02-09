@@ -1,0 +1,16 @@
+{
+    "NameID": "ganyu",
+    "MaxHP": 10,
+    "MaxMP": 3,
+    "Tags": [
+        "Cryo",
+        "Liyue",
+        "Bow"
+    ],
+    "SkillList": [
+        "genshin3_3:ganyu_a",
+        "genshin3_3:ganyu_e",
+        "genshin3_3:ganyu_a5",
+        "genshin3_3:ganyu_q"
+    ]
+}

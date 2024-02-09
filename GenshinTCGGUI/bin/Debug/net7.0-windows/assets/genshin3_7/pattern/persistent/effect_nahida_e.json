@@ -1,0 +1,8 @@
+{
+    "TextureNamespace": "genshin3_7",
+    "TextureNameID": "effect_nahida_e",
+    "Name": "蕴种印",
+    "Text": [
+        "角色受到元素反应伤害后：对所附属角色造成1点穿透伤害，对所在阵营其他附属蕴种印的角色依次造成1点穿透伤害(需消耗其可用次数)\n可用次数：2"
+    ]
+}

@@ -8,7 +8,7 @@
         Title="GenshinInvokationTCG" Height="736" Width="1280" ResizeMode="CanMinimize" SizeToContent="WidthAndHeight">
     <Canvas x:Name="Global_Canvas" Height="720" Width="1280">
         <Image Source="Resource/minecraft/Table/inazuma.png" Height="918" Width="1592" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="-156" Canvas.Top="-84"/>
-        <UniformGrid x:Name="SkillMe" Height="64" Width="300" Canvas.Left="911"  Canvas.Top="600"   Rows="1" Columns="4" FlowDirection="RightToLeft"/>
+        <UniformGrid x:Name="SkillMe" Height="64" Width="300" Canvas.Left="911"  Canvas.Top="550"   Rows="1" Columns="4" FlowDirection="RightToLeft"/>
         <Canvas x:Name="Me" Height="360" Width="1152" Canvas.Left="64" HorizontalAlignment="Center" Canvas.Top="320" VerticalAlignment="Top" />
         <Canvas x:Name="Enemy" Height="360" Width="1152" Canvas.Left="64" HorizontalAlignment="Center" Canvas.Top="40" VerticalAlignment="Top" />
         <UniformGrid x:Name="CardEnemy" Height="163" Width="1152" Canvas.Left="64" HorizontalAlignment="Center" Canvas.Top="-100"  VerticalAlignment="Center"  Rows="1" Columns="10"/>
@@ -25,6 +25,18 @@
         <Grid x:Name="BlackBlocker_DiceAndCard" Background="Black" Height="720" Width="1280" Opacity="0.5" Visibility="Hidden"></Grid>
         <UniformGrid x:Name="CardMe" Height="163" Width="1152" Canvas.Left="64" HorizontalAlignment="Center" Canvas.Top="650" VerticalAlignment="Center"  Rows="1" Columns="10" MouseEnter="Card_MouseEnter" MouseLeave="Card_MouseLeave"/>
         <Grid x:Name="BlackBlocker_DiceOnly" Background="Black" Height="720" Width="1280" Opacity="0.5" Visibility="Hidden"></Grid>
+
+        <Grid x:Name="PreviewContainer" Height="440" Canvas.Top="117" Width="680" Canvas.Left="132" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Grid   Width="135" HorizontalAlignment="Left">
+                <Image x:Name="PreviewLeftImage" Source="electro_crystal.png"></Image>
+            </Grid>
+            <Grid  Margin="140,0,280,0" Background="RosyBrown">
+                <ScrollViewer x:Name="PreviewMidView" VerticalScrollBarVisibility="Disabled"/>
+            </Grid>
+            <Grid  Margin="410,0,10,0" Background="RosyBrown">
+                <ScrollViewer x:Name="PreviewRightView" VerticalScrollBarVisibility="Disabled"/>
+            </Grid>
+        </Grid>
 
         <Canvas Name="RightBar" Height="720" Width="64" HorizontalAlignment="Right" VerticalAlignment="Center" Canvas.Left="1216" >
             <Border Name="Setting" Height="64" Width="64" Background="Red" HorizontalAlignment="Center" VerticalAlignment="Top"></Border>
@@ -73,5 +85,8 @@
                     </TextBlock.Effect>30</TextBlock>
             </Grid>
         </Canvas>
+        <Button Canvas.Left="20" Canvas.Top="680">
+            <CheckBox x:Name="PreView"  Height="20" Width="100" Click="PreView_Change" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="12">预览说明</CheckBox>
+        </Button>
     </Canvas>
 </Window>

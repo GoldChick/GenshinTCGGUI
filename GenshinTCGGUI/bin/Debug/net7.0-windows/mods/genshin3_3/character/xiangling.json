@@ -1,0 +1,15 @@
+{
+    "NameID": "xiangling",
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "Pyro",
+        "Liyue",
+        "Longweapon"
+    ],
+    "SkillList": [
+        "genshin3_3:xiangling_a",
+        "genshin3_3:xiangling_e",
+        "genshin3_3:xiangling_q"
+    ]
+}

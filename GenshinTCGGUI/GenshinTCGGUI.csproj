@@ -102,6 +102,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="GenshinTCG">
+      <HintPath>..\..\GenshinTCG\GenshinTCG\bin\Release\net7.0\GenshinTCG.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="electro_crystal.png" />
     <Resource Include="Resource\minecraft\action\amethyst.png" />
     <Resource Include="Resource\minecraft\action\electro_crystal.png" />
@@ -191,12 +197,6 @@
     <Resource Include="Resource\util\element\Trival.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="GenshinTCG">
-      <HintPath>..\..\Genshin3_3\Genshin3_3\bin\Debug\net7.0\GenshinTCG.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
   <ItemGroup>

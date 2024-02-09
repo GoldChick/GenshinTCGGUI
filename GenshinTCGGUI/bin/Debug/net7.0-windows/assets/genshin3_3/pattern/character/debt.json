@@ -1,0 +1,43 @@
+{
+    "CardName": "愚人众·火之债务处理人",
+    "Description": "「死债不可免，活债更难逃…」",
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "愚人众",
+        "其他武器",
+        "火元素"
+    ],
+    "Skills": [
+        {
+            "CardName": "突刺",
+            "Description": "造成2点物理伤害。",
+            "Category": 0,
+            "Cost": "1火2黑",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "伺机而动",
+            "Description": "造成1点火元素伤害，本角色附属潜行。",
+            "Category": 1,
+            "Cost": "3火",
+            "RelatedPersistents": [
+                "genshin3_3:effect_debt"
+            ]
+        },
+        {
+            "CardName": "焚毁之锋",
+            "Description": "造成5点火元素伤害。",
+            "Category": 2,
+            "Cost": "3火2充",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "潜行大师",
+            "Description": "【被动】战斗开始时，初始附属潜行。（整场牌局只触发一次）",
+            "Category": 3,
+            "Cost": "",
+            "RelatedPersistents": []
+        }
+    ]
+}

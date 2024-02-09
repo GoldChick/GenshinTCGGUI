@@ -8,9 +8,13 @@
         Title="SelectCard" Height="450" Width="800" ResizeMode="CanMinimize">
     <Grid>
         <Grid>
+            <Image x:Name="BackGround" Source="Resource/minecraft/table/inazuma.png" Margin="-25,-25,-25,-25" MouseLeftButtonDown="BackGround_Click"/>
             <Button Margin="0,0,716,389" Click="ChooseCharacter">选择角色牌</Button>
             <Button Margin="89,0,620,389" Click="ChooseAction">选择行动牌</Button>
             <Button Margin="698,0,0,389" Click="ChooseSave">确认选择</Button>
+            <Button Margin="599,0,107,389">
+                <CheckBox x:Name="PreView" Height="15" Width="73" VerticalAlignment="Center" HorizontalAlignment="Center" Click="PreView_Change">预览说明</CheckBox>
+            </Button>
             <UniformGrid Name="CharacterCardsSelected" Rows="1" Columns="3" Margin="10,83,487,218"/>
             <UniformGrid Name="ActionCardsSelected" Rows="3" Columns="10" Margin="349,51,10,173"/>
             <ScrollViewer x:Name="ActionCardScroll" Margin="0,232,0,10" VerticalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" UseLayoutRounding="False" HorizontalScrollBarVisibility="Auto">
@@ -19,6 +23,14 @@
             <ScrollViewer x:Name="CharacterCardScroll" Margin="0,232,0,10" VerticalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" UseLayoutRounding="False" HorizontalScrollBarVisibility="Auto">
                 <StackPanel x:Name="CharacterCardToSelectPanel" Orientation="Horizontal" Height="180"/>
             </ScrollViewer>
+            <Grid x:Name="PreviewContainer" Margin="0,50,0,60">
+                <Grid  Margin="55,0,580,30">
+                    <Image x:Name="PreviewLeftImage" Source="electro_crystal.png"></Image>
+                </Grid>
+                <Grid  Margin="250,0,100,0" Background="RosyBrown">
+                    <ScrollViewer x:Name="PreviewRightView"/>
+                </Grid>
+            </Grid>
         </Grid>
 
     </Grid>

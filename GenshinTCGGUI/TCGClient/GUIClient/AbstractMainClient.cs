@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
+using System.Text.Json;
 using TCGBase;
 
 namespace TCGClient
@@ -13,8 +14,8 @@ namespace TCGClient
         {
             return new(Game.Cards.Select((value, index) => new CardCost(GetCardCostRequirement(index), GetCardTargetEnums(index))),
                          Enumerable.Range(0, Game.Me.CurrCharacter == -1 ? 0 : Game.Me.Characters[Game.Me.CurrCharacter].SkillCount).Select(GetSkillCostRequirement),
-                         Enumerable.Range(0, Game.Me.Characters.Count).Select(index => GetEventFinalDiceRequirement(new(ActionType.Switch, index))),
-                         GetEventFinalDiceRequirement(new(ActionType.Blend, 0)));
+                         Enumerable.Range(0, Game.Me.Characters.Count).Select(index => GetEventFinalDiceRequirement(new(OperationType.Switch, index))),
+                         GetEventFinalDiceRequirement(new(OperationType.Blend, 0)));
         }
     }
 }

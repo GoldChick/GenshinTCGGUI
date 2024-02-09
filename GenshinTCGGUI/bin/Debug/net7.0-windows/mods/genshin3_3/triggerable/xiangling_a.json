@@ -1,0 +1,23 @@
+{
+    "Type": "Skill",
+    "SkillCategory": "A",
+    "Cost": [
+        {
+            "Type": "Pyro",
+            "Count": 1
+        },
+        {
+            "Type": "Void",
+            "Count": 2
+        }
+    ],
+    "Action": [
+        {
+            "Type": "Damage",
+            "Damage": {
+                "Element": "Trival",
+                "Amount": 2
+            }
+        }
+    ]
+}

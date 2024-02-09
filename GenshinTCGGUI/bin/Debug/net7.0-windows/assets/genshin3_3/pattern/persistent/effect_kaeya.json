@@ -1,0 +1,8 @@
+{
+    "TextureNamespace": "genshin3_3",
+    "TextureNameID": "effect_kaeya",
+    "Name": "寒冰之棱",
+    "Text": [
+        "我方切换角色后：造成2点冰元素伤害。\n可用次数：3"
+    ]
+}

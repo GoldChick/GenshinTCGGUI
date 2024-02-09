@@ -1,0 +1,36 @@
+{
+    "Type": "Skill",
+    "SkillCategory": "Q",
+    "Cost": [
+        {
+            "Type": "Cryo",
+            "Count": 3
+        },
+        {
+            "Type": "MP",
+            "Count": 3
+        }
+    ],
+    "Action": [
+        {
+            "Type": "Damage",
+            "Damage": {
+                "Element": "Pierce",
+                "Amount": 1,
+                "TargetArea": "TargetExcept",
+                "SubDamage": {
+                    "Element": "Cryo",
+                    "Amount": 2
+                },
+                "With": [
+                    {
+                        "Type": "Effect",
+                        "Add": [
+                            "genshin3_3:summon_ganyu_q"
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

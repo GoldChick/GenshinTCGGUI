@@ -1,0 +1,39 @@
+{
+    "CardName": "九条裟罗",
+    "Description": "「此为，大义之举。」",
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "稻妻",
+        "弓",
+        "雷元素"
+    ],
+    "Skills": [
+        {
+            "CardName": "天狗传弓术",
+            "Description": "造成2点物理伤害。",
+            "Category": 0,
+            "Cost": "1雷2黑",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "鸦羽天狗霆雷召咒",
+            "Description": "造成1点雷元素伤害，召唤天狗咒雷·伏。",
+            "Category": 1,
+            "Cost": "3雷",
+            "RelatedPersistents": [
+                "genshin3_5:summon_kojousara_e",
+                "genshin3_5:effect_kojousara"
+            ]
+        },
+        {
+            "CardName": "海人化羽",
+            "Description": "造成1点雷元素伤害，召唤天狗咒雷·雷砾。",
+            "Category": 2,
+            "Cost": "4雷2充",
+            "RelatedPersistents": [
+                "genshin3_5:summon_kojousara_q"
+            ]
+        }
+    ]
+}

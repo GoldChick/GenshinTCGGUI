@@ -1,0 +1,9 @@
+{
+    "CardName": "星天之兆",
+    "Description": "我方出战角色获得1点充能。",
+    "Tags": [
+        "事件牌"
+    ],
+    "Cost": "2黑",
+    "RelatedPersistents": []
+}

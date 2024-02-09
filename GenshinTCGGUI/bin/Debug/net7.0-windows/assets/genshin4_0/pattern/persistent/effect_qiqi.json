@@ -1,0 +1,8 @@
+{
+    "TextureNamespace": "genshin4_0",
+    "TextureNameID": "effect_qiqi",
+    "Name": "度厄真符",
+    "Text": [
+        "我方角色使用技能后：如果该角色生命值未满，则治疗该角色2点。(生成此状态的技能无法触发)\n可用次数：3"
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "CardName": "琴",
+    "Description": "在夺得最终的胜利之前，她总是认为自己做得还不够好。",
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "蒙德",
+        "单手剑",
+        "风元素"
+    ],
+    "Skills": [
+        {
+            "CardName": "西风剑术",
+            "Description": "造成2点物理伤害。",
+            "Category": 0,
+            "Cost": "1风2黑",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "风压剑",
+            "Description": "造成3点风元素伤害，对方强制切换到下一个角色。",
+            "Category": 1,
+            "Cost": "3风",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "蒲公英之风",
+            "Description": "治疗我方所有角色2点，召唤蒲公英领域。",
+            "Category": 2,
+            "Cost": "3风2充",
+            "RelatedPersistents": [
+                "genshin3_3:summon_jean"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "CardName": "重云",
+    "Description": "「夏天啊，你还是悄悄过去吧…」",
+    "MaxHP": 10,
+    "MaxMP": 3,
+    "Tags": [
+        "璃月",
+        "双手剑",
+        "冰元素"
+    ],
+    "Skills": [
+        {
+            "CardName": "灭邪四式",
+            "Description": "造成2点物理伤害。",
+            "Category": 0,
+            "Cost": "1冰2黑",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "重华叠霜",
+            "Description": "造成3点冰元素伤害，生成重华叠霜领域。",
+            "Category": 1,
+            "Cost": "3冰",
+            "RelatedPersistents": [
+                "genshin3_3:effect_chongyun"
+            ]
+        },
+        {
+            "CardName": "云开星落",
+            "Description": "造成7点冰元素伤害。",
+            "Category": 2,
+            "Cost": "3冰3充",
+            "RelatedPersistents": []
+        }
+    ]
+}

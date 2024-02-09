@@ -1,0 +1,8 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "buff",
+    "Name": "泷廻鉴花",
+    "Text": [
+        "所附属角色普通攻击造成的伤害+1，造成的物理伤害变为水元素伤害。\n可用次数：3"
+    ]
+}

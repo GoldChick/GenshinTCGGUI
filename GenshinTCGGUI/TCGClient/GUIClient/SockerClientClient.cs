@@ -111,14 +111,14 @@ namespace TCGClient
                     MainWindow.Instance.ClientUpdateCosts(packet);
                     break;
                 case "NETEVENT":
-                    ActionType demand = JsonSerializer.Deserialize<ActionType>(strs[1]);
+                    OperationType demand = JsonSerializer.Deserialize<OperationType>(strs[1]);
                     Task.Run(() =>
                     {
                         Send("NETEVENT", JsonSerializer.Serialize(Task.Run(() => MainWindow.Instance.RequestEventCallBack(demand)).Result));
                     });
                     break;
                 case "ENEMY":
-                    demand = JsonSerializer.Deserialize<ActionType>(strs[1]);
+                    demand = JsonSerializer.Deserialize<OperationType>(strs[1]);
                     MainWindow.Instance.RequestEnemyEventCallBack(demand);
                     break;
                 case "NEXT_TARGET":

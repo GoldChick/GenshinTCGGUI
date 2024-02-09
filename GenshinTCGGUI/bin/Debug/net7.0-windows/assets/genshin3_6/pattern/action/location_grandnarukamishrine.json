@@ -1,0 +1,10 @@
+{
+    "CardName": "鸣神大社",
+    "Description": "每回合自动触发1次：生成1个随机的基础元素骰。\n可用次数：3",
+    "Tags": [
+        "支援牌",
+        "场地"
+    ],
+    "Cost": "1同",
+    "RelatedPersistents": []
+}

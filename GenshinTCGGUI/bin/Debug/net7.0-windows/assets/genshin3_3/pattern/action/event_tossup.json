@@ -1,0 +1,9 @@
+{
+    "CardName": "一掷乾坤",
+    "Description": "选择任意元素骰重投，可重投2次。",
+    "Tags": [
+        "事件牌"
+    ],
+    "Cost": "0白",
+    "RelatedPersistents": []
+}

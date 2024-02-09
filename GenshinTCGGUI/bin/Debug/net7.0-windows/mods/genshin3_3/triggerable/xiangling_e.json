@@ -1,0 +1,18 @@
+{
+    "Type": "Skill",
+    "SkillCategory": "E",
+    "Cost": [
+        {
+            "Type": "Pyro",
+            "Count": 3
+        }
+    ],
+    "Action": [
+        {
+            "Type": "Effect",
+            "Add": [
+                "genshin3_3:summon_xiangling_e"
+            ]
+        }
+    ]
+}

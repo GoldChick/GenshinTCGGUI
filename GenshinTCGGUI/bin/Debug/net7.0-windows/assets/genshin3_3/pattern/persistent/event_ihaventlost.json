@@ -1,0 +1,10 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "debuff",
+    "Name": "「本大爷还没有输」冷却",
+    "Text": [
+        "本回合中，我方无法再打出「本大爷还没有输」。"
+    ],
+    "ShowCategory": 0,
+    "TriggerCategory": 0
+}

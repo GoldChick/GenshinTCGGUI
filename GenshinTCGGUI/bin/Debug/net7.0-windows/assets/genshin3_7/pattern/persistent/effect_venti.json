@@ -1,0 +1,8 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "buff",
+    "Name": "风域",
+    "Text": [
+        "我方执行「切换角色」时：少花费1个元素骰。\n可用次数：2"
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "CardName": "雷泽",
+    "Description": "「牌，难。」\n「但，有朋友…」",
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "蒙德",
+        "双手剑",
+        "雷元素"
+    ],
+    "Skills": [
+        {
+            "CardName": "钢脊",
+            "Description": "造成2点物理伤害。",
+            "Category": 0,
+            "Cost": "1雷2黑",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "利爪与苍雷",
+            "Description": "造成3点雷元素伤害。",
+            "Category": 1,
+            "Cost": "3雷",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "雷牙",
+            "Description": "造成3点雷元素伤害，本角色附属雷狼。",
+            "Category": 2,
+            "Cost": "3雷2充",
+            "RelatedPersistents": [
+                "genshin3_3:effect_razor"
+            ]
+        }
+    ]
+}

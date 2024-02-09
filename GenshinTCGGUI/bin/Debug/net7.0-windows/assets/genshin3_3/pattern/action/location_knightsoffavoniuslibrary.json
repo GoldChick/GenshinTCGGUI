@@ -1,0 +1,10 @@
+{
+    "CardName": "骑士团图书馆",
+    "Description": "入场时：选择任意元素骰重投。\n投掷阶段：获得额外一次重投机会。",
+    "Tags": [
+        "支援牌",
+        "场地"
+    ],
+    "Cost": "1白",
+    "RelatedPersistents": []
+}

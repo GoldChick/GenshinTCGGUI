@@ -1,0 +1,14 @@
+{
+    "Type": "Card",
+    "Action": [
+        {
+            "Type": "AfterUseSkill",
+            "Dice": [
+                {
+                    "Type": "Trival",
+                    "Count": 2
+                }
+            ]
+        }
+    ]
+}

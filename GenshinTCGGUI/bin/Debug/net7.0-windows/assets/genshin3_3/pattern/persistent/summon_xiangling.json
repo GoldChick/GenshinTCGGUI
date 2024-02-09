@@ -1,0 +1,12 @@
+{
+    "Name": "锅巴",
+    "Text": [
+        "结束阶段：造成2点火元素伤害。\n可用次数：2"
+    ],
+    "ShowCategory": 0,
+    "TriggerCategory": 0,
+    "Element": [
+        3
+    ],
+    "Damage": 2
+}

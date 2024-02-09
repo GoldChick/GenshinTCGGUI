@@ -1,0 +1,30 @@
+{
+    "Type": "Skill",
+    "SkillCategory": "E",
+    "Cost": [
+        {
+            "Type": "Cryo",
+            "Count": 3
+        }
+    ],
+    "Action": [
+        {
+            "Type": "Damage",
+            "Damage": {
+                "Element": "Cryo",
+                "Amount": 1,
+                "With": [
+                    {
+                        "Type": "Effect",
+                        "Add": [
+                            "genshin3_3:effect_ganyu_e"
+                        ],
+                        "Target": {
+                            "Type": "Team"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

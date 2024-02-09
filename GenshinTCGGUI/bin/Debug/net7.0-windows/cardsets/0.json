@@ -1,1 +1,42 @@
-{"CardSetName":"test","CardSet":{"Characters":["genshin3_4:klee","genshin3_3:xiangling","genshin4_0:lisa"],"ActionCards":["genshin4_0:talent_lisa","genshin4_0:talent_lisa","genshin3_7:artifact_capriciousvisage","genshin3_7:artifact_capriciousvisage","genshin3_7:location_sumerucity","genshin3_7:location_sumerucity","genshin3_7:location_vanarana","genshin3_7:location_vanarana","genshin3_7:partner_rana","genshin3_7:partner_rana","genshin3_7:item_treasureseekingseelie","genshin3_7:item_treasureseekingseelie","genshin3_3:partner_liben","genshin3_3:partner_liben","genshin3_3:location_liyuehabor","genshin3_3:location_liyuehabor","genshin3_3:dice_pyro","genshin3_3:dice_pyro","genshin3_3:element_resonance_pyro","genshin3_3:element_resonance_pyro","genshin3_3:food_mondstadthashbrown","genshin3_3:food_mondstadthashbrown","genshin3_3:food_lotusflowercrisp","genshin3_3:food_lotusflowercrisp","genshin3_3:food_godusevpn","genshin3_3:partner_paimon","genshin3_3:partner_paimon","genshin3_3:event_blessing","genshin3_3:event_blessing","genshin3_3:event_bestcompanion"]}}
+{
+    "CardSetName": "test",
+    "CardSet": {
+        "Characters": [
+            "genshin3_3:ganyu",
+            "genshin3_3:xiangling",
+            "genshin3_3:jean"
+        ],
+        "ActionCards": [
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion",
+            "genshin3_3:event_bestcompanion"
+        ]
+    }
+}

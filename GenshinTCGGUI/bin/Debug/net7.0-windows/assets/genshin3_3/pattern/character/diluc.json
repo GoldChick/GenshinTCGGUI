@@ -1,0 +1,36 @@
+{
+    "CardName": "迪卢克",
+    "Description": "他的心是他最大的敌人。",
+    "MaxHP": 10,
+    "MaxMP": 3,
+    "Tags": [
+        "蒙德",
+        "双手剑",
+        "火元素"
+    ],
+    "Skills": [
+        {
+            "CardName": "淬炼之剑",
+            "Description": "造成2点物理伤害。",
+            "Category": 0,
+            "Cost": "1火2黑",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "逆焰之刃",
+            "Description": "造成3点火元素伤害。每回合第三次使用本技能时，伤害+2。",
+            "Category": 1,
+            "Cost": "3火",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "黎明",
+            "Description": "造成8点火元素伤害，本角色附属2回合火元素附魔。",
+            "Category": 2,
+            "Cost": "4火3充",
+            "RelatedPersistents": [
+                "genshin3_3:effect_bennett"
+            ]
+        }
+    ]
+}

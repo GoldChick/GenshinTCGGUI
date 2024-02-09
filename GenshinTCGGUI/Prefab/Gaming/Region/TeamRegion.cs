@@ -21,7 +21,7 @@ namespace Prefab
     public class TeamRegion : IPersistentManager
     {
         private readonly Canvas _canvas;
-        private readonly List<CharacterEffectGrid> _effects;
+        public readonly List<CharacterEffectGrid> Effects;
         private readonly StackPanel EffectsPanel;
         private int _currCharacter;
 
@@ -62,9 +62,9 @@ namespace Prefab
                 Margin = new Thickness(0, 200, 0, -30),
                 Width = 117,
             };
-            _effects = new();
+            Effects = new();
             _canvas = canvas;
-            _characters = new(me.Characters)
+            _characters = new(this, me.Characters)
             {
                 Height = 200,
                 Width = 576,
@@ -113,12 +113,12 @@ namespace Prefab
         public void Add(string nameSpace, string nameid, int variant, int availabletimes)
         {
             var p = new Persistent(new(nameSpace, nameid, variant, availabletimes));
-            _effects.Add(new CharacterEffectGrid(p.Uri, _effects.Count, availabletimes));
+            Effects.Add(new CharacterEffectGrid(p, Effects.Count, availabletimes));
             if (p.Variant >= 0 && p.Uri != null)
             {
                 if (EffectsPanel.Children.Count < 4)
                 {
-                    EffectsPanel.Children.Add(_effects.Last());
+                    EffectsPanel.Children.Add(Effects.Last());
                 }
                 else
                 {
@@ -129,7 +129,7 @@ namespace Prefab
                     else
                     {
                         EffectsPanel.Children.RemoveAt(4);
-                        EffectsPanel.Children.Add(new CharacterEffectGrid(new($"Resource/minecraft/icon/more.png", UriKind.Relative), -1, 2));
+                        EffectsPanel.Children.Add(new CharacterEffectGrid(new Uri($"Resource/minecraft/icon/more.png", UriKind.Relative), -1, 2));
                     }
                 }
             }
@@ -137,7 +137,7 @@ namespace Prefab
 
         public void Trigger(int index, int availabletimes)
         {
-            _effects[index].AvailableTimes = availabletimes;
+            Effects[index].AvailableTimes = availabletimes;
         }
 
         public void RemoveAt(int index)
@@ -152,11 +152,11 @@ namespace Prefab
                         chilren.RemoveAt(i);
                         if (chilren[1] is CharacterEffectGrid last_eg)
                         {
-                            for (int j = last_eg.Index + 1; j < _effects.Count; j++)
+                            for (int j = last_eg.Index + 1; j < Effects.Count; j++)
                             {
-                                if (_effects[j].Uri != null)
+                                if (Effects[j].Uri != null)
                                 {
-                                    chilren.Insert(2, _effects[j]);
+                                    chilren.Insert(2, Effects[j]);
                                     break;
                                 }
                             }
@@ -167,12 +167,12 @@ namespace Prefab
                 egm.AvailableTimes--;
                 if (egm.AvailableTimes == 1 && chilren[2] is CharacterEffectGrid last_eg1)
                 {
-                    for (int j = last_eg1.Index + 1; j < _effects.Count; j++)
+                    for (int j = last_eg1.Index + 1; j < Effects.Count; j++)
                     {
-                        if (_effects[j].Uri != null)
+                        if (Effects[j].Uri != null)
                         {
                             chilren.RemoveAt(3);
-                            chilren.Add(_effects[j]);
+                            chilren.Add(Effects[j]);
                             break;
                         }
                     }
@@ -190,12 +190,12 @@ namespace Prefab
                 }
             }
 
-            _effects.RemoveAt(index);
-            for (int i = 0; i < _effects.Count; i++)
+            Effects.RemoveAt(index);
+            for (int i = 0; i < Effects.Count; i++)
             {
-                if (_effects[i].Index >= 0)
+                if (Effects[i].Index >= 0)
                 {
-                    _effects[i].Index = i;
+                    Effects[i].Index = i;
                 }
             }
         }

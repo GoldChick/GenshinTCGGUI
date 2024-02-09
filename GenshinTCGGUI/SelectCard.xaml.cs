@@ -3,18 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using TCGBase;
 using TCGClient;
 
@@ -26,6 +19,7 @@ namespace GenshinTCGGUI
     public partial class SelectCard : Window
     {
         public static SelectCard Instance;
+        public DescriptionPanel DescriptionPanel { get; }
         protected List<(int, string)> Chars = new();
         protected List<(int, string)> Actions = new();
 
@@ -35,6 +29,7 @@ namespace GenshinTCGGUI
         {
             InitializeComponent();
             Instance = this;
+            //just create
             var g = GameManager.Instance;
 
             CardCharacters = Registry.Instance.GetCharacterCards();
@@ -56,6 +51,11 @@ namespace GenshinTCGGUI
                 }
             }
             ActionCardScroll.Visibility = Visibility.Hidden;
+            DescriptionPanel = new DescriptionPanel();
+
+            PreviewLeftImage.Source = null;
+            PreviewContainer.Visibility = Visibility.Hidden;
+            PreviewRightView.Content = DescriptionPanel;
         }
 
         private void ChooseCharacter(object sender, RoutedEventArgs e)
@@ -114,6 +114,11 @@ namespace GenshinTCGGUI
             }
             if (toselect.Children[index] is PreGamingSelectableGrid g)
             {
+                if (PreView.IsChecked ?? false)
+                {
+                    DescriptionPanel.PreviewCard(g.Card, PreviewContainer, PreviewLeftImage, false);
+                    return;
+                }
                 if (list.Contains((index, fullid)))
                 {
                     list.Remove((index, fullid));
@@ -152,7 +157,22 @@ namespace GenshinTCGGUI
                 Start start = new();
                 App.Current.MainWindow = start;
                 start.Show();
-                this.Close();
+                Close();
+            }
+        }
+
+        private void PreView_Change(object sender, RoutedEventArgs e)
+        {
+            PreviewLeftImage.Source = null;
+            PreviewContainer.Visibility = Visibility.Hidden;
+        }
+
+        private void BackGround_Click(object sender, MouseButtonEventArgs e)
+        {
+            if (PreView.IsChecked ?? false)
+            {
+                PreviewLeftImage.Source = null;
+                PreviewContainer.Visibility = Visibility.Hidden;
             }
         }
     }

@@ -1,0 +1,36 @@
+{
+    "CardName": "菲谢尔",
+    "Description": "「奥兹！我之眷属，展开羽翼，替我在幽夜中寻求全新的命运之线吧！」\n「小姐，我可没办法帮你换一张牌啊…」",
+    "MaxHP": 10,
+    "MaxMP": 3,
+    "Tags": [
+        "蒙德",
+        "弓",
+        "雷元素"
+    ],
+    "Skills": [
+        {
+            "CardName": "罪灭之矢",
+            "Description": "造成2点物理伤害。",
+            "Category": 0,
+            "Cost": "1雷2黑",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "夜巡影翼",
+            "Description": "造成1点雷元素伤害，召唤奥兹。",
+            "Category": 1,
+            "Cost": "3雷",
+            "RelatedPersistents": [
+                "genshin3_3:summon_fischl"
+            ]
+        },
+        {
+            "CardName": "至夜幻现",
+            "Description": "造成4点雷元素伤害，对所有敌方后台角色造成2点穿透伤害。",
+            "Category": 2,
+            "Cost": "3雷3充",
+            "RelatedPersistents": []
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+    "CardName": "魔偶剑鬼",
+    "Description": "今日，其仍徘徊在因缘断绝之地。",
+    "MaxHP": 10,
+    "MaxMP": 3,
+    "Tags": [
+        "魔物",
+        "其他武器",
+        "风元素"
+    ],
+    "Skills": [
+        {
+            "CardName": "一文字",
+            "Description": "造成2点物理伤害。",
+            "Category": 0,
+            "Cost": "1风2黑",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "孤风刀势",
+            "Description": "召唤剑影·孤风。",
+            "Category": 1,
+            "Cost": "3风",
+            "RelatedPersistents": [
+                "genshin3_3:summon_maguukenki_anemo"
+            ]
+        },
+        {
+            "CardName": "孤风刀势",
+            "Description": "召唤剑影·霜驰。",
+            "Category": 1,
+            "Cost": "3风",
+            "RelatedPersistents": [
+                "genshin3_3:summon_maguukenki_cryo"
+            ]
+        },
+        {
+            "CardName": "机巧伪天狗抄",
+            "Description": "造成4点风元素伤害。",
+            "Category": 2,
+            "Cost": "3风3充",
+            "RelatedPersistents": []
+        }
+    ]
+}

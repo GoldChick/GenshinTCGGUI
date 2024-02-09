@@ -1,0 +1,36 @@
+{
+    "CardName": "水之浅唱",
+    "Description": "无论何时都能治愈人心。",
+    "MaxHP": 10,
+    "MaxMP": 3,
+    "Tags": [
+        "蒙德",
+        "法器",
+        "水元素"
+    ],
+    "Skills": [
+        {
+            "CardName": "水之浅唱",
+            "Description": "造成1点水元素伤害。",
+            "Category": 0,
+            "Cost": "1水2黑",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "演唱，开始♪",
+            "Description": "造成1点水元素伤害，召唤歌声之环。",
+            "Category": 1,
+            "Cost": "3水",
+            "RelatedPersistents": [
+                "genshin3_3:summon_barbara"
+            ]
+        },
+        {
+            "CardName": "闪耀奇迹♪",
+            "Description": "治疗我方所有角色4点。",
+            "Category": 2,
+            "Cost": "3水3充",
+            "RelatedPersistents": []
+        }
+    ]
+}

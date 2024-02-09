@@ -1,0 +1,8 @@
+{
+    "TextureNamespace": "genshin3_4",
+    "TextureNameID": "effect_klee",
+    "Name": "轰轰火花",
+    "Text": [
+        "所在阵营的角色使用技能后：对所在阵营的出战角色造成2点火元素伤害。\n可用次数：2"
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "atk_up_geo",
+    "Name": "坚岩之力",
+    "Text": [
+        "角色造成的物理伤害变为岩元素伤害。\n每回合1次：角色造成的伤害+1。\n角色所附属的「岩盔」被移除后：也移除此状态。"
+    ],
+    "ShowCategory": 0,
+    "TriggerCategory": 0
+}

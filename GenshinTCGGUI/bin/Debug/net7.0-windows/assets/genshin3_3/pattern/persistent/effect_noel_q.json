@@ -1,0 +1,10 @@
+{
+    "TextureNamespace": "genshin3_3",
+    "TextureNameID": "effect_noel",
+    "Name": "大扫除",
+    "Text": [
+        "角色使用普通攻击时：少花费1个岩元素。（每回合1次）\n角色普通攻击造成的伤害+2，造成的物理伤害变为岩元素伤害。\n持续回合：2"
+    ],
+    "ShowCategory": 0,
+    "TriggerCategory": 0
+}

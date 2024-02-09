@@ -1,0 +1,12 @@
+{
+    "Name": "藏蕴花矢",
+    "Text": [
+        "结束阶段：造成1点草元素伤害。\n可用次数：1（可叠加，最多叠加到2次）"
+    ],
+    "ShowCategory": 0,
+    "TriggerCategory": 0,
+    "Element": [
+        6
+    ],
+    "Damage": 1
+}

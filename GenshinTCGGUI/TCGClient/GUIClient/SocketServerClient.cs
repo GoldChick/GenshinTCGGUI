@@ -94,13 +94,13 @@ namespace TCGClient
             {
                 case "NETEVENT":
                     var evt = JsonSerializer.Deserialize<NetEvent>(strs[1]);
-                    if (IsEventValid(evt))
+                    if (evt != null)
                     {
                         NetEvent = evt;
                     }
                     break;
                 case "COST":
-                    NetAction action = JsonSerializer.Deserialize<NetAction>(strs[1]);
+                    NetOperation action = JsonSerializer.Deserialize<NetOperation>(strs[1]);
                     SendToClient("COST", JsonSerializer.Serialize(GetEventFinalDiceRequirement(action)));
                     break;
                 case "NEXT_TARGET":
@@ -117,7 +117,7 @@ namespace TCGClient
             var set = JsonSerializer.Deserialize<CardSetSetting>(setjson);
             return new(set.CardSet);
         }
-        public override NetEvent RequestEvent(ActionType demand)
+        public override NetEvent RequestEvent(OperationType demand)
         {
             SendToClient("COST", JsonSerializer.Serialize(GetAllDiceCost()));
             SendToClient("NETEVENT", JsonSerializer.Serialize(demand));
@@ -133,7 +133,7 @@ namespace TCGClient
                 return copy;
             }).Result;
         }
-        public override void RequestEnemyEvent(ActionType demand)
+        public override void RequestEnemyEvent(OperationType demand)
         {
             base.RequestEnemyEvent(demand);
             SendToClient("ENEMY", JsonSerializer.Serialize(demand));

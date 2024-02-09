@@ -1,0 +1,10 @@
+{
+    "CardName": "群玉阁",
+    "Description": "投掷阶段：2个元素骰初始总是投出我方出战角色类型的元素。",
+    "Tags": [
+        "支援牌",
+        "场地"
+    ],
+    "Cost": "0白",
+    "RelatedPersistents": []
+}

@@ -1,0 +1,17 @@
+{
+    "CardType": "Support",
+    "NameID": "support_rana",
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 2
+        }
+    ],
+    "Tags": [
+        "Support",
+        "Partner"
+    ],
+    "SkillList": [
+        "genshin3_3:support_rana"
+    ]
+}

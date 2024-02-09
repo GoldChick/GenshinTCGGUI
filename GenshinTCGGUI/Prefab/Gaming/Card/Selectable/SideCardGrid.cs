@@ -61,7 +61,7 @@ namespace Prefab
             Children.Add(MainImage);
             Children.Add(timer);
 
-            path = Path.Combine(Directory.GetCurrentDirectory(), $"assets/{nameSpace}/pattern/{(IsSupport ? "support" : "summon")}/{nameid}.json");
+            path = Path.Combine(Directory.GetCurrentDirectory(), $"assets/{nameSpace}/pattern/persistent/{nameid}.json");
             if (File.Exists(path))
             {
                 var json = File.ReadAllText(path);

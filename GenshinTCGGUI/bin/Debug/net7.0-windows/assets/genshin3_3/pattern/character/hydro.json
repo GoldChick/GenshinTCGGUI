@@ -1,0 +1,43 @@
+{
+    "CardName": "纯水精灵·洛蒂娅",
+    "Description": "「但，只要百川奔流，雨露不休，水就不会消失…」",
+    "MaxHP": 10,
+    "MaxMP": 3,
+    "Tags": [
+        "魔物",
+        "其他武器",
+        "水元素"
+    ],
+    "Skills": [
+        {
+            "CardName": "翻涌",
+            "Description": "造成1点水元素伤害。",
+            "Category": 0,
+            "Cost": "1水2黑",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "纯水幻造",
+            "Description": "随机召唤1种纯水幻形。（优先生成不同的类型，最多同时存在2种不同的类型）",
+            "Category": 1,
+            "Cost": "3水",
+            "RelatedPersistents": [
+                "genshin3_3:summon_hydro"
+            ]
+        },
+        {
+            "CardName": "林野百态",
+            "Description": "随机召唤2种纯水幻形。（优先生成不同的类型，最多同时存在2种不同的类型）",
+            "Category": 1,
+            "Cost": "5水",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "潮涌与激流",
+            "Description": "造成4点水元素伤害；我方每有1个召唤物，再使此伤害+1。",
+            "Category": 2,
+            "Cost": "3水3充",
+            "RelatedPersistents": []
+        }
+    ]
+}

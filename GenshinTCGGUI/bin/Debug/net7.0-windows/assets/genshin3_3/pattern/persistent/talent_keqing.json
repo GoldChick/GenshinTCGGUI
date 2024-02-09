@@ -1,0 +1,10 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "null",
+    "Name": "雷楔",
+    "Text": [
+        "战斗行动：将刻晴切换到场上，立刻使用星斗归位。本次星斗归位会为刻晴附属雷元素附魔，但是不会再生成雷楔。\n（刻晴使用星斗归位时，如果此牌在手中：不会再生成雷楔，而是改为弃置此牌，并为刻晴附属雷元素附魔）"
+    ],
+    "ShowCategory": 0,
+    "TriggerCategory": 0
+}

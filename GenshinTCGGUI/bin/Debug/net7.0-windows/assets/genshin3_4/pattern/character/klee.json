@@ -1,0 +1,38 @@
+{
+    "CardName": "可莉",
+    "Description": "每一次抽牌，都可能带来一次「爆炸性惊喜」。",
+    "MaxHP": 10,
+    "MaxMP": 3,
+    "Tags": [
+        "蒙德",
+        "法器",
+        "火元素"
+    ],
+    "Skills": [
+        {
+            "CardName": "砰砰",
+            "Description": "造成1点火元素伤害。",
+            "Category": 0,
+            "Cost": "1火2黑",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "蹦蹦炸弹",
+            "Description": "造成3点火元素伤害，角色附属爆裂火花。",
+            "Category": 1,
+            "Cost": "3火",
+            "RelatedPersistents": [
+                "genshin3_4:effect_klee_e"
+            ]
+        },
+        {
+            "CardName": "轰轰火花",
+            "Description": "造成3点火元素伤害，对方场上生成轰轰火花。",
+            "Category": 2,
+            "Cost": "3火3充",
+            "RelatedPersistents": [
+                "genshin3_4:effect_klee_q"
+            ]
+        }
+    ]
+}

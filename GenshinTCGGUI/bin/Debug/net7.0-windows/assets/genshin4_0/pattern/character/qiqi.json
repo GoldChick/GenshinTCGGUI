@@ -1,0 +1,38 @@
+{
+    "CardName": "七七",
+    "Description": "流转不息，生生不绝。",
+    "MaxHP": 10,
+    "MaxMP": 3,
+    "Tags": [
+        "璃月",
+        "单手剑",
+        "冰元素"
+    ],
+    "Skills": [
+        {
+            "CardName": "云来古剑法",
+            "Description": "造成2点物理伤害。",
+            "Category": 0,
+            "Cost": "1冰2黑",
+            "RelatedPersistents": []
+        },
+        {
+            "CardName": "仙法·寒病鬼差",
+            "Description": "召唤寒病鬼差。",
+            "Category": 1,
+            "Cost": "3冰",
+            "RelatedPersistents": [
+                "genshin4_0:summon_qiqi"
+            ]
+        },
+        {
+            "CardName": "仙法·救苦度厄",
+            "Description": "造成3点冰元素伤害。生成度厄真符。",
+            "Category": 2,
+            "Cost": "3冰3充",
+            "RelatedPersistents": [
+                "genshin4_0:effect_qiqi"
+            ]
+        }
+    ]
+}

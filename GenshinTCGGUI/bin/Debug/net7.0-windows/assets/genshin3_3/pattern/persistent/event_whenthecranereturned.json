@@ -1,0 +1,10 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "special",
+    "Name": "鹤归之时",
+    "Text": [
+        "我方角色下一次使用技能后：如果我方存在后台角色，就切换到下一个角色。"
+    ],
+    "ShowCategory": 0,
+    "TriggerCategory": 0
+}

@@ -1,0 +1,12 @@
+{
+    "Name": "蔷薇雷光",
+    "Text": [
+        "结束阶段：造成2点雷元素伤害。\n可用次数：2"
+    ],
+    "ShowCategory": 0,
+    "TriggerCategory": 0,
+    "Element": [
+        4
+    ],
+    "Damage": 2
+}

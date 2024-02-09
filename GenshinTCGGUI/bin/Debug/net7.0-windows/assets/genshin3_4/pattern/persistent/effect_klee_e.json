@@ -1,0 +1,9 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "enchant_pyro",
+    "Name": "爆裂火花",
+    "Text": [
+        "所附属角色进行重击时：少花费1个火元素，并且伤害+1。 \n可用次数：1",
+        "所附属角色进行重击时：少花费1个火元素，并且伤害+1。 \n可用次数：2"
+    ]
+}

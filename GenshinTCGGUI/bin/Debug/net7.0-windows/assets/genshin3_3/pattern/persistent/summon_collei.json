@@ -1,0 +1,12 @@
+{
+    "Name": "柯里安巴",
+    "Text": [
+        "结束阶段：造成2点草元素伤害。\n可用次数：2"
+    ],
+    "ShowCategory": 0,
+    "TriggerCategory": 0,
+    "Element": [
+        6
+    ],
+    "Damage": 2
+}

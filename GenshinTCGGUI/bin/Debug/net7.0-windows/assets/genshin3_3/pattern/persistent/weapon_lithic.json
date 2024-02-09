@@ -1,0 +1,10 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "shield_yellow",
+    "Name": "重嶂不移",
+    "Text": [
+        "提供护盾保护角色。"
+    ],
+    "ShowCategory": 0,
+    "TriggerCategory": 0
+}

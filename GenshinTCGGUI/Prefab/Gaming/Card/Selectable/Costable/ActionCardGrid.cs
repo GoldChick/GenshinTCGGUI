@@ -16,8 +16,13 @@ namespace Prefab
 {
     public class ActionCardGrid : GamingCostableGrid
     {
+        public string NameSpace { get; }
+        public string NameID { get; }
         public ActionCardGrid(string nameSpace, string nameid, int index) : base(index)
         {
+            NameSpace = nameSpace;
+            NameID = nameid;
+
             var path = Path.Combine(Directory.GetCurrentDirectory(), $"assets/{nameSpace}/action/{nameid}.png");
             MainImage = new()
             {

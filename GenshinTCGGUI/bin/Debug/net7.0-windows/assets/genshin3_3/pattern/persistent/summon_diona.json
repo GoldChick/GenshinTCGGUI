@@ -1,0 +1,12 @@
+{
+    "Name": "酒雾领域",
+    "Text": [
+        "结束阶段：造成1点冰元素伤害，治疗我方出战角色2点。\n可用次数：2"
+    ],
+    "ShowCategory": 0,
+    "TriggerCategory": 0,
+    "Element": [
+        1
+    ],
+    "Damage": 1
+}
