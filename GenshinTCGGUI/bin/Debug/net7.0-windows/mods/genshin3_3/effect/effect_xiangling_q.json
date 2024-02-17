@@ -1,11 +1,10 @@
 {
     "CardType": "Effect",
     "MaxUseTimes": 2,
-    "NameID": "effect_xiangling_q",
-    "Tags": [],
     "SkillList": [
         {
             "Type": "AfterUseSkill",
+            "NeedEnable": true,
             "Action": [
                 {
                     "Type": "Damage",

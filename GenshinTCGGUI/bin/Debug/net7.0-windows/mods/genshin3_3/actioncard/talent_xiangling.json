@@ -1,0 +1,47 @@
+{
+    "CardType": "Equipment",
+    "Cost": [
+        {
+            "Type": "Void",
+            "Count": 1
+        }
+    ],
+    "Tags": [
+        "Equipment",
+        "Talent",
+        "Slowly"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "Alive"
+                },
+                {
+                    "Type": "Name",
+                    "Value": "genshin3_3:xiangling"
+                },
+                {
+                    "Type": "HasEffectWithTag",
+                    "Value": "AntiSkill",
+                    "Not": true
+                },
+                {
+                    "Type": "CurrCharacter"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Skill",
+                    "Value": 1
+                }
+            ]
+        }
+    ]
+}

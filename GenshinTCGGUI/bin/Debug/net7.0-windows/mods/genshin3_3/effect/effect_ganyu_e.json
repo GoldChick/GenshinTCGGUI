@@ -1,0 +1,9 @@
+{
+    "CardType": "Effect",
+    "MaxUseTimes": 2,
+    "ModList": [
+        {
+            "Type": "Barrier"
+        }
+    ]
+}

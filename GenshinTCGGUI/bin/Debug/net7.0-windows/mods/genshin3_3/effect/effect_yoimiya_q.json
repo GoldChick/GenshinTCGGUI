@@ -1,8 +1,6 @@
 {
     "CardType": "Effect",
     "MaxUseTimes": 2,
-    "NameID": "effect_xiangling_q",
-    "Tags": [],
     "SkillList": [
         {
             "Type": "AfterUseSkill",
@@ -11,14 +9,34 @@
                     "Type": "Damage",
                     "Damage": {
                         "Element": "Pyro",
-                        "Amount": 2
+                        "Amount": 1
                     },
-                    "With": [
+                    "When": [
                         {
-                            "Type": "Counter",
-                            "Add": -1
+                            "Type": "AnyTarget",
+                            "Target": {
+                                "When": [
+                                    {
+                                        "Type": "CurrCharacter"
+                                    },
+                                    {
+                                        "Type": "Name",
+                                        "Value": "genshin3_3:yoimiya",
+                                        "Not": true
+                                    }
+                                ]
+                            }
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
                 }
             ]
         }

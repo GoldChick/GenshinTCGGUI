@@ -1,0 +1,63 @@
+{
+    "CardType": "Effect",
+    "MaxUseTimes": 2,
+    "ModList": [
+        {
+            "Type": "Element",
+            "Value": 4,
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "SkillType",
+                    "Value": "A"
+                },
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Character",
+                        "When": [
+                            {
+                                "Type": "CurrCharacter"
+                            },
+                            {
+                                "Type": "Name",
+                                "Value": "genshin3_3:yoimiya"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Type": "Damage",
+            "Value": 1,
+            "When": [
+                {
+                    "Type": "SkillType",
+                    "Value": "A"
+                },
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Character",
+                        "When": [
+                            {
+                                "Type": "CurrCharacter"
+                            },
+                            {
+                                "Type": "Name",
+                                "Value": "genshin3_3:yoimiya"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

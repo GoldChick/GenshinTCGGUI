@@ -1,0 +1,38 @@
+{
+    "CardType": "Effect",
+    "MaxUseTimes": 2,
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        }
+    ],
+    "ModList": [
+        {
+            "Type": "Damage",
+            "Mode": "Add",
+            "Consume": 0,
+            "Value": 1,
+            "When": [
+                {
+                    "Type": "Element",
+                    "Value": "Hydro"
+                },
+                {
+                    "Type": "TargetMe"
+                },
+                {
+                    "Type": "Skill"
+                },
+                {
+                    "Type": "Direct"
+                }
+            ]
+        }
+    ]
+}

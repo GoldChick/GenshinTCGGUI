@@ -16,8 +16,8 @@
             "SkillCategory": "E",
             "Cost": [
                 {
-                    "Type": "Pyro",
-                    "Count": 3
+                    "Type": "Anemo",
+                    "Count": 1
                 }
             ],
             "Action": [
@@ -25,9 +25,17 @@
                     "Type": "Damage",
                     "Damage": {
                         "Element": "Anemo",
-                        "Amount": 3,
-                        "With": []
-                    }
+                        "Amount": 3
+                    },
+                    "With": [
+                        {
+                            "Type": "Switch",
+                            "Target": {
+                                "Type": "Character",
+                                "Index": 1
+                            }
+                        }
+                    ]
                 }
             ]
         },

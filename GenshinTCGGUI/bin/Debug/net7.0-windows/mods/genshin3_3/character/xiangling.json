@@ -17,7 +17,7 @@
             "Cost": [
                 {
                     "Type": "Pyro",
-                    "Count": 3
+                    "Count": 1
                 }
             ],
             "Action": [
@@ -25,6 +25,56 @@
                     "Type": "Effect",
                     "Add": [
                         "genshin3_3:summon_xiangling_e"
+                    ],
+                    "When": [
+                        {
+                            "Type": "AnyTarget",
+                            "Target": {
+                                "Type": "Character",
+                                "When": [
+                                    {
+                                        "Type": "HasEffect",
+                                        "Not": true,
+                                        "Value": "genshin3_3:talent_xiangling"
+                                    },
+                                    {
+                                        "Type": "CurrCharacter"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Pyro",
+                        "Amount": 1
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:summon_xiangling_e"
+                            ]
+                        }
+                    ],
+                    "When": [
+                        {
+                            "Type": "AnyTarget",
+                            "Target": {
+                                "Type": "Character",
+                                "When": [
+                                    {
+                                        "Type": "HasEffect",
+                                        "Value": "genshin3_3:talent_xiangling"
+                                    },
+                                    {
+                                        "Type": "CurrCharacter"
+                                    }
+                                ]
+                            }
+                        }
                     ]
                 }
             ]

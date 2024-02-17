@@ -1,0 +1,26 @@
+{
+    "CardType": "Summon",
+    "MaxUseTimes": 2,
+    "SkillList": [
+        {
+            "Type": "RoundOver",
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Anemo",
+                        "Amount": 1
+                    },
+                    "With": [
+                        {
+                            "Type": "Heal",
+                            "Heal": {
+                                "Amount": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

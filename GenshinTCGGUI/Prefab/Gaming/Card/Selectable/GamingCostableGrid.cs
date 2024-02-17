@@ -17,18 +17,14 @@ namespace Prefab
         {
             //panel init in sub
         }
-        public void UpdateCost(CostVariable dcv) => UpdateCost(dcv.DiceCost, dcv.MPCost);
-        protected void UpdateCost(int[] cost, int mp)
+        public void UpdateCost(CostVariable dcv) => UpdateCost(dcv.DiceCost);
+        protected void UpdateCost(int[] cost)
         {
             CostContainer.Children.Clear();
-            cost.Select((x, element) => (element, x)).Where(p => p.x > 0)
-                .Select(p => new CostGrid(p.element, p.x)).ToList()
-                .ForEach(c => CostContainer.Children.Add(c));
-
-            if (mp > 0)
-            {
-                CostContainer.Children.Add(new CostGrid(9, mp));
-            }
+            var list = cost.Select((x, element) => (element, x)).Where(p => p.x > 0)
+                .Select(p => new CostGrid(p.element, p.x)).ToList();
+            list.Reverse();
+            list.ForEach(c => CostContainer.Children.Add(c));
         }
         public class CostGrid : Grid
         {

@@ -25,19 +25,19 @@
                     "Type": "Damage",
                     "Damage": {
                         "Element": "Cryo",
-                        "Amount": 1,
-                        "With": [
-                            {
-                                "Type": "Effect",
-                                "Add": [
-                                    "genshin3_3:effect_ganyu_e"
-                                ],
-                                "Target": {
-                                    "Type": "Team"
-                                }
+                        "Amount": 1
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:effect_ganyu_e"
+                            ],
+                            "Target": {
+                                "Type": "Team"
                             }
-                        ]
-                    }
+                        }
+                    ]
                 }
             ]
         },
@@ -52,13 +52,6 @@
             ],
             "Action": [
                 {
-                    "Type": "Effect",
-                    "Add": [
-                        "genshin3_3:effect_ganyu_a5"
-                    ],
-                    "Team": "Me"
-                },
-                {
                     "Type": "Damage",
                     "Damage": {
                         "Element": "Pierce",
@@ -68,7 +61,55 @@
                             "Element": "Cryo",
                             "Amount": 2
                         }
-                    }
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:effect_ganyu_a5"
+                            ]
+                        }
+                    ],
+                    "When": [
+                        {
+                            "Type": "HasEffect",
+                            "Not": true,
+                            "Value": "genshin3_3:effect_ganyu_a5",
+                            "Or": {
+                                "Type": "HasEffect",
+                                "Not": true,
+                                "Value": "genshin3_3:talent_ganyu"
+                            }
+                        },
+                        {
+                            "Type": "CurrCharacter"
+                        }
+                    ]
+                },
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Pierce",
+                        "Amount": 3,
+                        "TargetArea": "TargetExcept",
+                        "SubDamage": {
+                            "Element": "Cryo",
+                            "Amount": 2
+                        }
+                    },
+                    "When": [
+                        {
+                            "Type": "HasEffect",
+                            "Value": "genshin3_3:talent_ganyu"
+                        },
+                        {
+                            "Type": "HasEffect",
+                            "Value": "genshin3_3:effect_ganyu_a5"
+                        },
+                        {
+                            "Type": "CurrCharacter"
+                        }
+                    ]
                 }
             ]
         },
@@ -95,16 +136,16 @@
                         "SubDamage": {
                             "Element": "Cryo",
                             "Amount": 2
-                        },
-                        "With": [
-                            {
-                                "Type": "Effect",
-                                "Add": [
-                                    "genshin3_3:summon_ganyu_q"
-                                ]
-                            }
-                        ]
-                    }
+                        }
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:summon_ganyu_q"
+                            ]
+                        }
+                    ]
                 }
             ]
         }
