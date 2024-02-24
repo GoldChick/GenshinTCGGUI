@@ -1,0 +1,31 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "buff",
+    "Name": "寒天宣命祝词（生效中）",
+    "Text": "附属角色造成的冰元素伤害+1。\n持续回合：1",
+    "CardType": "Effect",
+    "MaxUseTimes": 1,
+    "ModList": [
+        {
+            "Type": "Damage",
+            "Value": 1,
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "ThisCharacterCause"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        }
+    ]
+}

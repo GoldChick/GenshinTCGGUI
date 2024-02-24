@@ -1,0 +1,27 @@
+{
+    "CardName": "元素共鸣：粉碎之冰",
+    "Description": "本回合中，我方当前出战角色下一次造成的伤害+2。\n（牌组包含至少2个冰元素角色，才能加入牌组）",
+    "CardType": "Event",
+    "Cost": [
+        {
+            "Type": "Cryo",
+            "Count": 1
+        }
+    ],
+    "Tags": [
+        "Event"
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_3:element_resonance_effect_cryo"
+                    ]
+                }
+            ]
+        }
+    ]
+}

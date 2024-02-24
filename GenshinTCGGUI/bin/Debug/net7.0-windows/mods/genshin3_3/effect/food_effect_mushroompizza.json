@@ -1,0 +1,31 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "heal",
+    "MaxUseTimes": 2,
+    "Name": "烤蘑菇披萨（生效中）",
+    "Description": "结束阶段：治疗附属角色1点。可用回合：2",
+    "CardType": "Effect",
+    "Skill": [
+        {
+            "Type": "RoundOver",
+            "Action": [
+                {
+                    "Type": "Heal",
+                    "Value": 1,
+                    "Target": {
+                        "Type": "Owner"
+                    }
+                }
+            ]
+        },
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        }
+    ]
+}

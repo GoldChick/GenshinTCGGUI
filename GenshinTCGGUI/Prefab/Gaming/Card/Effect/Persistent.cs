@@ -26,7 +26,7 @@ namespace Prefab
             {
                 var path = Path.Combine(Directory.GetCurrentDirectory(), $"assets/{converter.TextureNamespace}/icon/{converter.TextureNameID}.png");
                 EffectName = converter.Name;
-                EffectText = converter.Text[Variant >= 0 ? Variant : 0];
+                EffectText = converter.Text;
                 Uri = File.Exists(path) ? new(path) : null;
             }
             Uri = Variant switch
@@ -40,7 +40,7 @@ namespace Prefab
         public static bool TryGetEffectTextureConverter<T>(string nameSpace, string nameid, [NotNullWhen(true)] out T? converter) where T : CardTextConverter
         {
             converter = null;
-            string path = Path.Combine(Directory.GetCurrentDirectory(), $"assets/{nameSpace}/pattern/persistent/{nameid}.json");
+            string path = Path.Combine(Directory.GetCurrentDirectory(), $"mods/{nameSpace}/effect/{nameid}.json");
             if (File.Exists(path))
             {
                 try

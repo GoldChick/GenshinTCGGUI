@@ -1,0 +1,42 @@
+{
+    "CardName": "兽肉薄荷卷",
+    "Description": "本回合中，目标角色之后三次普通攻击少花费1个无色元素。\n（每回合每个角色最多食用1次「料理」）",
+    "Tags": [
+        "Event",
+        "Food"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "SimpleFood"
+                }
+            ]
+        }
+    ],
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 1
+        }
+    ],
+    "CardType": "Event",
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_3:food_effect_mintymeatrolls",
+                        "minecraft:effect_full"
+                    ],
+                    "Target": {
+                        "Type": "Sender"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+    "CardName": "立本",
+    "Description": "结束阶段：按一定顺序收集我方未使用的元素骰（每回合每种最多1个）。\n行动阶段开始时：如果已收集3个元素骰，则抓2张牌，生成2点万能元素，然后弃置此牌。",
+    "Tags": [
+        "Support",
+        "Partner"
+    ],
+    "CardType": "Support",
+    "SkillList": [
+        {
+            "Type": "RoundOver",
+            "Action": [
+                {
+                    "Type": "EatDice",
+                    "Same": false,
+                    "Count": 3
+                }
+            ]
+        },
+        {
+            "Type": "RoundStart",
+            "Action": [
+                {
+                    "Type": "Dice",
+                    "Element": "Trival",
+                    "Count": 2
+                },
+                {
+                    "Type": "DrawCard",
+                    "Count": 2
+                },
+                {
+                    "Type": "DestroySelf"
+                }
+            ],
+            "When": [
+                {
+                    "Type": "DataCount",
+                    "Sign": 1,
+                    "Value": 2
+                }
+            ]
+        }
+    ]
+}

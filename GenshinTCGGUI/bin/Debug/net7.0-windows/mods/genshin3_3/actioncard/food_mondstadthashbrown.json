@@ -1,0 +1,53 @@
+{
+    "CardName": "蒙德土豆饼",
+    "Description": "治疗目标角色2点。\n（每回合每个角色最多食用1次「料理」）",
+    "Tags": [
+        "Event",
+        "Food"
+    ],
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 1
+        }
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "SimpleFood"
+                },
+                {
+                    "Type": "HPLost",
+                    "Sign": 1,
+                    "Value": 0
+                }
+            ]
+        }
+    ],
+    "CardType": "Event",
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Heal",
+                    "Value": 2,
+                    "Target": {
+                        "Type": "Sender"
+                    }
+                },
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "minecraft:effect_full"
+                    ],
+                    "Target": {
+                        "Type": "Sender"
+                    }
+                }
+            ]
+        }
+    ]
+}

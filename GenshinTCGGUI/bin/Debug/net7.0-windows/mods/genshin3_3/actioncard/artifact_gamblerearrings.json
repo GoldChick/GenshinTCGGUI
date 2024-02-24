@@ -1,0 +1,57 @@
+{
+    "CardName": "赌徒的耳环",
+    "Description": "敌方角色被击倒后：如果所附属角色为「出战角色」，则生成2个万能元素。（整场牌局限制3次）\n角色最多装备1件「圣遗物」）",
+    "CardType": "Equipment",
+    "Tags": [
+        "Equipment",
+        "Artifact"
+    ],
+    "InitialUseTimes": 3,
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "Alive"
+                }
+            ]
+        }
+    ],
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 1
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "AfterHurt",
+            "Action": [
+                {
+                    "Type": "MP",
+                    "Value": 1,
+                    "Target": {
+                        "Type": "Character",
+                        "Index": -1,
+                        "When": [
+                            {
+                                "Type": "CurrCharacter",
+                                "Not": true
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "Counter",
+                    "Value": -1
+                }
+            ],
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1
+                }
+            ]
+        }
+    ]
+}

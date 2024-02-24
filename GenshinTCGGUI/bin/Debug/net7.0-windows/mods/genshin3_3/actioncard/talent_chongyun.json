@@ -1,0 +1,41 @@
+{
+    "CardName": "吐纳真定",
+    "Description": "战斗行动：我方出战角色为重云时，装备此牌。\n重云装备此牌后，立刻使用一次重华叠霜。\n装备有此牌的重云生成的重华叠霜领域额外获得以下效果：我方单手剑、双手剑或长柄武器角色的普通攻击伤害+1。\n（牌组中包含重云，才能加入牌组）",
+    "RelatedPersistents": [
+        "genshin3_3:effect_chongyun_e_ex"
+    ],
+    "CardType": "Equipment",
+    "Cost": [
+        {
+            "Type": "Cryo",
+            "Count": 3
+        }
+    ],
+    "Tags": [
+        "Equipment",
+        "Talent",
+        "Slowly"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "SimpleTalent",
+                    "Value": "genshin3_3:chongyun"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Skill",
+                    "Value": 1
+                }
+            ]
+        }
+    ]
+}

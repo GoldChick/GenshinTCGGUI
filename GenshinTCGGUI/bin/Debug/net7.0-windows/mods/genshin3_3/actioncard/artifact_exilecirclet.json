@@ -1,0 +1,72 @@
+{
+    "CardName": "流放者头冠",
+    "Description": "角色使用元素爆发后：所有我方后台角色获得1点充能。（每回合1次）\n角色最多装备1件「圣遗物」）",
+    "CardType": "Equipment",
+    "Tags": [
+        "Equipment",
+        "Artifact"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "Alive"
+                }
+            ]
+        }
+    ],
+    "Cost": [
+        {
+            "Type": "Void",
+            "Count": 2
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "AfterUseSkill",
+            "Action": [
+                {
+                    "Type": "MP",
+                    "Value": 1,
+                    "Target": {
+                        "Type": "Character",
+                        "Index": -1,
+                        "When": [
+                            {
+                                "Type": "CurrCharacter",
+                                "Not": true
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "Counter",
+                    "Value": -1
+                }
+            ],
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1
+                },
+                {
+                    "Type": "SkillType",
+                    "Value": "Q"
+                },
+                {
+                    "Type": "SourceThis"
+                }
+            ]
+        },
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Set": 1
+                }
+            ]
+        }
+    ]
+}

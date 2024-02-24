@@ -1,0 +1,74 @@
+{
+    "TextureNamespace": "genshin3_3",
+    "TextureNameID": "effect_bennett",
+    "Name": "鼓舞领域",
+    "Text": "我方角色使用技能时：如果该角色生命值至少为7，则使此伤害额外+2。\n我方角色使用技能后：如果该角色生命值不多于6，则治疗该角色2点。\n持续回合：2",
+    "CardType": "Effect",
+    "MaxUseTimes": 2,
+    "ModList": [
+        {
+            "Type": "Damage",
+            "Value": 2,
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "OurCharacterCause"
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Character",
+                        "When": [
+                            {
+                                "Type": "CurrCharacter"
+                            },
+                            {
+                                "Type": "HP",
+                                "Sign": 1,
+                                "Value": 6
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "AfterUseSkill",
+            "Action": [
+                {
+                    "Type": "Heal",
+                    "Value": 2
+                }
+            ],
+            "When": [
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Sender",
+                        "When": [
+                            {
+                                "Type": "HP",
+                                "Sign": -1,
+                                "Value": 7
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        }
+    ]
+}

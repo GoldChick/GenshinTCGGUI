@@ -1,0 +1,76 @@
+{
+    "CardName": "凯亚",
+    "Description": "他很擅长在他人身上发掘出「骑士般的美德」。",
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "Cryo",
+        "Mondstadt",
+        "Sword"
+    ],
+    "SkillList": [
+        {
+            "CardName": "仪典剑术",
+            "Description": "造成2点物理伤害。",
+            "Type": "Skill_A",
+            "Element": "Cryo"
+        },
+        {
+            "CardName": "霜袭",
+            "Description": "造成3点冰元素伤害。",
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Cryo",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Cryo",
+                        "Amount": 3
+                    }
+                }
+            ]
+        },
+        {
+            "CardName": "凛冽轮舞",
+            "Description": "造成1点冰元素伤害，生成寒冰之棱。",
+            "RelatedPersistents": [
+                "genshin3_3:effect_kaeya_q"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Cryo",
+                    "Count": 4
+                },
+                {
+                    "Type": "MP",
+                    "Count": 2
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Cryo",
+                        "Amount": 1
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:effect_kaeya_q"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

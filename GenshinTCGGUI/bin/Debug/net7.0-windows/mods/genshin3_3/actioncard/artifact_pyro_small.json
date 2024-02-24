@@ -1,0 +1,83 @@
+{
+    "CardName": "焦灼的魔女帽",
+    "Description": "角色使用技能或对角色使用「天赋」时：少花费1个火元素。（每回合1次）（角色最多装备1件「圣遗物」）",
+    "CardType": "Equipment",
+    "Tags": [
+        "Equipment",
+        "Artifact"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "Alive"
+                }
+            ]
+        }
+    ],
+    "Cost": [
+        {
+            "Type": "Void",
+            "Count": 2
+        }
+    ],
+    "ModList": [
+        {
+            "Type": "Dice",
+            "Element": "Pyro",
+            "Value": 1,
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1
+                },
+                {
+                    "Type": "CanBeAppliedFrom",
+                    "Target": {
+                        "Type": "Sender",
+                        "When": [
+                            {
+                                "Type": "HasTag",
+                                "Value": "Talent"
+                            }
+                        ]
+                    },
+                    "Or": {
+                        "Type": "Compound",
+                        "Value": [
+                            {
+                                "Type": "CurrCharacter"
+                            },
+                            {
+                                "Type": "AnyTarget",
+                                "Target": {
+                                    "Type": "Sender",
+                                    "When": [
+                                        {
+                                            "Type": "SkillType"
+                                        },
+                                        {
+                                            "Type": "Alive"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Set": 1
+                }
+            ]
+        }
+    ]
+}

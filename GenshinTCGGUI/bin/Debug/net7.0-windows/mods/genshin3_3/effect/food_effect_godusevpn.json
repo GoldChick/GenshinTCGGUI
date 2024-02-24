@@ -1,0 +1,30 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "buff",
+    "Name": "仙跳墙（生效中）",
+    "Description": "本回合中，附属角色下一次造成的元素爆发伤害+3。",
+    "CardType": "Effect",
+    "ModList": [
+        {
+            "Type": "Damage",
+            "Value": 3,
+            "When": [
+                {
+                    "Type": "ThisCharacterCause",
+                    "Value": "Q"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundOver",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        }
+    ]
+}

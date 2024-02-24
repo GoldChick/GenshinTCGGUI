@@ -1,0 +1,16 @@
+{
+    "CardType": "Effect",
+    "MaxUseTimes": 2,
+    "ModList": [
+        {
+            "Type": "Damage",
+            "Mode": "Mul",
+            "Value": 2,
+            "When": [
+                {
+                    "Type": "OurCharacterCause"
+                }
+            ]
+        }
+    ]
+}

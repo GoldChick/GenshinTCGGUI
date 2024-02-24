@@ -1,0 +1,16 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "shield_yellow",
+    "Name": "猫爪护盾",
+    "Text": "提供2点护盾",
+    "CardType": "Effect",
+    "MaxUseTimes": 2,
+    "ModList": [
+        {
+            "Type": "Shield"
+        }
+    ],
+    "Tags": [
+        "Shield"
+    ]
+}

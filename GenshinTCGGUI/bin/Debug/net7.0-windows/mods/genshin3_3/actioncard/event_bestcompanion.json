@@ -1,4 +1,6 @@
 {
+    "CardName": "最好的伙伴！",
+    "Description": "生成2个万能元素",
     "CardType": "Event",
     "Cost": [
         {
@@ -15,12 +17,8 @@
             "Action": [
                 {
                     "Type": "Dice",
-                    "Dice": [
-                        {
-                            "Type": "Trival",
-                            "Count": 2
-                        }
-                    ]
+                    "Element": "Trival",
+                    "Count": 2
                 }
             ]
         }

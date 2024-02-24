@@ -1,4 +1,6 @@
 {
+    "CardName": "香菱",
+    "Description": "身为一个厨师，她几乎什么都做得到。",
     "MaxHP": 10,
     "MaxMP": 2,
     "Tags": [
@@ -8,10 +10,17 @@
     ],
     "SkillList": [
         {
+            "CardName": "淬炼之剑",
+            "Description": "造成2点物理伤害。",
             "Type": "Skill_A",
             "Element": "Pyro"
         },
         {
+            "CardName": "锅巴出击",
+            "Description": "召唤锅巴。",
+            "RelatedPersistents": [
+                "genshin3_3:summon_xiangling_e"
+            ],
             "Type": "Skill",
             "SkillCategory": "E",
             "Cost": [
@@ -28,20 +37,9 @@
                     ],
                     "When": [
                         {
-                            "Type": "AnyTarget",
-                            "Target": {
-                                "Type": "Character",
-                                "When": [
-                                    {
-                                        "Type": "HasEffect",
-                                        "Not": true,
-                                        "Value": "genshin3_3:talent_xiangling"
-                                    },
-                                    {
-                                        "Type": "CurrCharacter"
-                                    }
-                                ]
-                            }
+                            "Type": "HasEffect",
+                            "Value": "genshin3_3:talent_xiangling",
+                            "Not": true
                         }
                     ]
                 },
@@ -61,25 +59,19 @@
                     ],
                     "When": [
                         {
-                            "Type": "AnyTarget",
-                            "Target": {
-                                "Type": "Character",
-                                "When": [
-                                    {
-                                        "Type": "HasEffect",
-                                        "Value": "genshin3_3:talent_xiangling"
-                                    },
-                                    {
-                                        "Type": "CurrCharacter"
-                                    }
-                                ]
-                            }
+                            "Type": "HasEffect",
+                            "Value": "genshin3_3:talent_xiangling"
                         }
                     ]
                 }
             ]
         },
         {
+            "CardName": "旋火轮",
+            "Description": "造成3点火元素伤害，生成旋火轮。",
+            "RelatedPersistents": [
+                "genshin3_3:effect_xiangling_q"
+            ],
             "Type": "Skill",
             "SkillCategory": "Q",
             "Cost": [

@@ -1,0 +1,31 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "enchant_pyro",
+    "Name": "火元素附魔",
+    "Text": "造成的物理伤害变为火元素伤害。\n持续回合：2",
+    "CardType": "Effect",
+    "MaxUseTimes": 2,
+    "ModList": [
+        {
+            "Type": "Element",
+            "Value": 3,
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "ThisCharacterCause"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        }
+    ]
+}

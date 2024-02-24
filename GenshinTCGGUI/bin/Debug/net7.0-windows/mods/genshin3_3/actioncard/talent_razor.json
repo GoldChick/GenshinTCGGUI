@@ -1,0 +1,95 @@
+{
+    "CardName": "觉醒",
+    "Description": "战斗行动：我方出战角色为雷泽时，装备此牌。\n雷泽装备此牌后，立刻使用一次利爪与苍雷。\n装备有此牌的雷泽使用利爪与苍雷后：使我方一个雷元素角色获得1点充能。（每回合1次，出战角色优先）\n（牌组中包含雷泽，才能加入牌组）",
+    "CardType": "Equipment",
+    "Cost": [
+        {
+            "Type": "Electro",
+            "Count": 3
+        }
+    ],
+    "Tags": [
+        "Equipment",
+        "Talent",
+        "Slowly"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "SimpleTalent",
+                    "Value": "genshin3_3:razor"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Skill",
+                    "Value": 1
+                }
+            ]
+        },
+        {
+            "Type": "AfterUseSkill",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1,
+                    "Target": {
+                        "Type": "Character",
+                        "When": [
+                            {
+                                "Type": "MPLost",
+                                "Sign": 1
+                            },
+                            {
+                                "Type": "HasTag",
+                                "Value": "Electro"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "MP",
+                    "Target": {
+                        "Type": "Character",
+                        "When": [
+                            {
+                                "Type": "MPLost",
+                                "Sign": 1
+                            },
+                            {
+                                "Type": "HasTag",
+                                "Value": "Electro"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "When": [
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "Counter",
+                    "Sign": 1
+                }
+            ]
+        },
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Set": 1,
+                    "Force": true
+                }
+            ]
+        }
+    ]
+}

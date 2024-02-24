@@ -28,12 +28,13 @@ namespace Prefab
     public record CardTextConverter
     {
         public string Name { get; }
-        public string[] Text { get; }
-
-        public CardTextConverter(string name, string[] text)
+        public string Text { get; }
+        public List<string> Tags { get; }
+        public CardTextConverter(string name, string? text, List<string>? tags)
         {
             Name = name;
-            Text = text??new string[] { "text to build"};
+            Text = text ?? "text to build";
+            Tags = tags ?? new();
         }
     }
     public record EffectTextureConverter : CardTextConverter
@@ -43,7 +44,7 @@ namespace Prefab
         public EffectShowCategory ShowCategory { get; }
         public EffectTriggerCategory TriggerCategory { get; }
 
-        public EffectTextureConverter(string textureNamespace, string textureNameID, string name, string[] text, EffectShowCategory showCategory, EffectTriggerCategory triggerCategory) : base(name, text)
+        public EffectTextureConverter(string textureNamespace, string textureNameID, string name, string text, EffectShowCategory showCategory, EffectTriggerCategory triggerCategory, List<string>? tags) : base(name, text, tags)
         {
             TextureNamespace = textureNamespace;
             TextureNameID = textureNameID;
@@ -57,7 +58,7 @@ namespace Prefab
         public EffectTriggerCategory TriggerCategory { get; }
         public int Damage { get; }
         public ElementCategory[] Element { get; }
-        public SideTextureConverter(string name, string[] text, EffectShowCategory showCategory, EffectTriggerCategory triggerCategory, int damage, ElementCategory[] element) : base(name, text)
+        public SideTextureConverter(string name, string text, EffectShowCategory showCategory, EffectTriggerCategory triggerCategory, int damage, ElementCategory[] element, List<string>? tags) : base(name, text, tags)
         {
             Damage = damage;
             Element = element ?? new ElementCategory[] { ElementCategory.Cryo };

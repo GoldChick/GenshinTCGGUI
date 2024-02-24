@@ -1,0 +1,22 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "shield_purple",
+    "Name": "潜行",
+    "Text": "所附属角色受到的伤害-1，造成的伤害+1。\n可用次数：2",
+    "CardType": "Effect",
+    "MaxUseTimes": 2,
+    "ModList": [
+        {
+            "Type": "Barrier"
+        },
+        {
+            "Type": "Damage",
+            "Value": 1,
+            "When": [
+                {
+                    "Type": "ThisCharacterCause"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,67 @@
+{
+    "Name": "奥兹",
+    "Text": "结束阶段：造成1点雷元素伤害。\n我方菲谢尔进行普通攻击后：造成2点雷元素伤害。（需消耗可用次数）\n可用次数：2",
+    "Element": [
+        4
+    ],
+    "Damage": 1,
+    "CardType": "Summon",
+    "MaxUseTimes": 2,
+    "SkillList": [
+        {
+            "Type": "RoundOver",
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Electro",
+                        "Amount": 1
+                    },
+                    "With": [
+                        {
+                            "Type": "Counter",
+                            "Add": -1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Type": "AfterUseSkill",
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Electro",
+                        "Amount": 2
+                    }
+                },
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ],
+            "When": [
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "SkillType",
+                    "Value": "A"
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Sender",
+                        "When": [
+                            {
+                                "Type": "Name",
+                                "Value": "genshin3_3:fischl"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

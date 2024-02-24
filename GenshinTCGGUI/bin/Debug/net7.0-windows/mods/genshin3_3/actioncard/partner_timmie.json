@@ -1,0 +1,44 @@
+{
+    "CardName": "提米",
+    "Description": "每回合自动触发1次：此牌累积1只「鸽子」。\n累积3只「鸽子」时：抓1张牌，生成1点万能元素，弃置此牌。",
+    "Tags": [
+        "Support",
+        "Partner"
+    ],
+    "CardType": "Support",
+    "SkillList": [
+        {
+            "Type": "RoundStart",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": 1
+                }
+            ]
+        },
+        {
+            "Type": "RoundStart",
+            "Action": [
+                {
+                    "Type": "Dice",
+                    "Element": "Trival",
+                    "Count": 1
+                },
+                {
+                    "Type": "DrawCard",
+                    "Count": 1
+                },
+                {
+                    "Type": "DestroySelf"
+                }
+            ],
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1,
+                    "Value": 2
+                }
+            ]
+        }
+    ]
+}

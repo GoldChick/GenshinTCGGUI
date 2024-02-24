@@ -1,0 +1,41 @@
+{
+    "CardName": "镜锢之笼",
+    "Description": "战斗行动：我方出战角色为愚人众·藏镜仕女时，装备此牌。\n愚人众·藏镜仕女装备此牌后，立刻使用一次潋波绽破。\n装备有此牌的愚人众·藏镜仕女生成的水光破镜获得以下效果：\n初始持续回合+1，并且会使从所附属角色切换到其他角色时所需元素骰费用+1。\n（牌组中包含愚人众·藏镜仕女，才能加入牌组）",
+    "RelatedPersistents": [
+        "genshin3_3:effect_maiden_e_ex"
+    ],
+    "CardType": "Equipment",
+    "Cost": [
+        {
+            "Type": "Hydro",
+            "Count": 3
+        }
+    ],
+    "Tags": [
+        "Equipment",
+        "Talent",
+        "Slowly"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "SimpleTalent",
+                    "Value": "genshin3_3:maiden"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Skill",
+                    "Value": 1
+                }
+            ]
+        }
+    ]
+}

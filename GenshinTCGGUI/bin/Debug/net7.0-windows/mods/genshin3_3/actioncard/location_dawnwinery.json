@@ -1,0 +1,54 @@
+{
+    "CardName": "晨曦酒庄",
+    "Description": "我方执行「切换角色」行动时：少花费1个元素骰。（每回合1次）",
+    "Tags": [
+        "Support",
+        "Location"
+    ],
+    "InitialUseTimes": 1,
+    "CardType": "Support",
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 2
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Set": 1
+                }
+            ]
+        }
+    ],
+    "ModList": [
+        {
+            "Type": "Dice",
+            "Value": 1,
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1
+                },
+                {
+                    "Type": "SkillType",
+                    "Not": true
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Sender",
+                        "When": [
+                            {
+                                "Type": "Alive"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

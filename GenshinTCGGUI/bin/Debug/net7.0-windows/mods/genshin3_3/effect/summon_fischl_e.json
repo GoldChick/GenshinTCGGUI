@@ -1,4 +1,8 @@
 {
+    "Name": "奥兹",
+    "Text": "结束阶段：造成1点雷元素伤害。\n可用次数：2",
+    "Element": 4,
+    "Damage": 1,
     "CardType": "Summon",
     "MaxUseTimes": 2,
     "SkillList": [

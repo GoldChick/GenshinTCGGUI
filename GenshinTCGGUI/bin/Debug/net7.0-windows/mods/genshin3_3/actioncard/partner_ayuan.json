@@ -1,0 +1,51 @@
+{
+    "CardName": "阿圆",
+    "Description": "打出「场地」支援牌时：少花费2个元素骰。（每回合1次）",
+    "Tags": [
+        "Support",
+        "Partner"
+    ],
+    "CardType": "Support",
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 2
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Set": 1
+                }
+            ]
+        }
+    ],
+    "ModList": [
+        {
+            "Type": "Dice",
+            "Value": 2,
+            "Consume": 1,
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Sender",
+                        "When": [
+                            {
+                                "Type": "HasTag",
+                                "Value": "Location"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

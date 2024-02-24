@@ -1,0 +1,20 @@
+{
+    "CardName": "元素共鸣：交织之草",
+    "Description": "生成1个草元素骰。\n（牌组包含至少2个草元素角色，才能加入牌组）",
+    "Tags": [
+        "Event"
+    ],
+    "CardType": "Event",
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Dice",
+                    "Element": "Dendro",
+                    "Count": 1
+                }
+            ]
+        }
+    ]
+}

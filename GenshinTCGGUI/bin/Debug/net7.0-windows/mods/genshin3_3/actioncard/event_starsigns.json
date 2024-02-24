@@ -1,0 +1,40 @@
+{
+    "CardName": "星天之兆",
+    "Description": "我方出战角色获得1点充能。",
+    "Tags": [
+        "Event"
+    ],
+    "Cost": [
+        {
+            "Type": "Void",
+            "Count": 2
+        }
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "CurrCharacter"
+                },
+                {
+                    "Type": "MPLost",
+                    "Sign": 1,
+                    "Value": 0
+                }
+            ]
+        }
+    ],
+    "CardType": "Event",
+    "Skill": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "MP",
+                    "Value": 1
+                }
+            ]
+        }
+    ]
+}

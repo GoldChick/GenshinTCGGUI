@@ -1,0 +1,104 @@
+{
+    "CardName": "宵宫",
+    "Description": "花见坂第十一届全街邀请赛「长野原队」队长兼首发牌手。",
+    "MaxHP": 10,
+    "MaxMP": 3,
+    "Tags": [
+        "Pyro",
+        "Inazuma",
+        "Bow"
+    ],
+    "SkillList": [
+        {
+            "CardName": "烟火打扬",
+            "Description": "造成2点物理伤害。",
+            "Type": "Skill_A",
+            "Element": "Pyro"
+        },
+        {
+            "CardName": "焰硝庭火舞",
+            "Description": "本角色附属庭火焰硝。（此技能不产生充能）",
+            "RelatedPersistents": [
+                "genshin3_3:effect_yoimiya_e"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Pyro",
+                    "Count": 1
+                }
+            ],
+            "MP": 0,
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_3:effect_yoimiya_e"
+                    ],
+                    "Remove": [
+                        "genshin3_3:effect_yoimiya_e_ex"
+                    ],
+                    "When": [
+                        {
+                            "Type": "HasEffect",
+                            "Name": "genshin3_3:talent_yoimiya",
+                            "Not": true
+                        }
+                    ]
+                },
+                {
+                    "Type": "Effect",
+                    "Remove": [
+                        "genshin3_3:effect_yoimiya_e"
+                    ],
+                    "Add": [
+                        "genshin3_3:effect_yoimiya_e_ex"
+                    ],
+                    "When": [
+                        {
+                            "Type": "HasEffect",
+                            "Name": "genshin3_3:talent_yoimiya"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "CardName": "琉金云间草",
+            "Description": "造成3点火元素伤害，生成硫金火光。",
+            "RelatedPersistents": [
+                "genshin3_3:effect_yoimiya_q"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Pyro",
+                    "Count": 3
+                },
+                {
+                    "Type": "MP",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Pyro",
+                        "Amount": 3
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:effect_yoimiya_q"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

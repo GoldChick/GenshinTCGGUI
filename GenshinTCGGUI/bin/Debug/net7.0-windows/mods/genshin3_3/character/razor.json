@@ -1,0 +1,76 @@
+{
+    "CardName": "雷泽",
+    "Description": "「牌，难。」\n「但，有朋友…」",
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "Electro",
+        "Mondstadt",
+        "Claymore"
+    ],
+    "SkillList": [
+        {
+            "CardName": "钢脊",
+            "Description": "造成2点物理伤害。",
+            "Type": "Skill_A",
+            "Element": "Electro"
+        },
+        {
+            "CardName": "利爪与苍雷",
+            "Description": "造成3点雷元素伤害。",
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Electro",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Electro",
+                        "Amount": 3
+                    }
+                }
+            ]
+        },
+        {
+            "CardName": "雷牙",
+            "Description": "造成3点雷元素伤害，本角色附属雷狼。",
+            "RelatedPersistents": [
+                "genshin3_3:effect_razor_q"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Electro",
+                    "Count": 3
+                },
+                {
+                    "Type": "MP",
+                    "Count": 2
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Electro",
+                        "Amount": 3
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:effect_razor_q"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

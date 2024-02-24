@@ -1,0 +1,75 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "shield_purple",
+    "Name": "璇玑屏",
+    "Text": "我方出战角色受到至少为2的伤害时：抵消1点伤害。\n可用次数：2",
+    "CardType": "Effect",
+    "MaxUseTimes": 2,
+    "ModList": [
+        {
+            "Type": "Barrier",
+            "When": [
+                {
+                    "Type": "Damage",
+                    "Sign": 1,
+                    "Value": 1
+                }
+            ]
+        },
+        {
+            "Type": "Damage",
+            "Value": 2,
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "SkillType",
+                    "Value": "Q"
+                },
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Character",
+                        "When": [
+                            {
+                                "Type": "Name",
+                                "Value": "genshin3_3:ningguang"
+                            },
+                            {
+                                "Type": "CurrCharacter"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Type": "Damage",
+            "Value": 1,
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Character",
+                        "When": [
+                            {
+                                "Type": "Name",
+                                "Value": "genshin3_3:ningguang"
+                            },
+                            {
+                                "Type": "HasEffect",
+                                "Value": "genshin3_3:talent_ningguang"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

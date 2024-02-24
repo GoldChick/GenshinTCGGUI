@@ -1,4 +1,6 @@
 {
+    "CardName": "琴",
+    "Description": "在夺得最终的胜利之前，她总是认为自己做得还不够好。",
     "MaxHP": 10,
     "MaxMP": 2,
     "Tags": [
@@ -8,10 +10,14 @@
     ],
     "SkillList": [
         {
+            "CardName": "西风剑术",
+            "Description": "造成2点物理伤害。",
             "Type": "Skill_A",
             "Element": "Anemo"
         },
         {
+            "CardName": "风压剑",
+            "Description": "造成3点风元素伤害，对方强制切换到下一个角色。",
             "Type": "Skill",
             "SkillCategory": "E",
             "Cost": [
@@ -32,6 +38,7 @@
                             "Type": "Switch",
                             "Target": {
                                 "Type": "Character",
+                                "Team": "Enemy",
                                 "Index": 1
                             }
                         }
@@ -40,6 +47,11 @@
             ]
         },
         {
+            "CardName": "蒲公英之风",
+            "Description": "治疗我方所有角色2点，召唤蒲公英领域。",
+            "RelatedPersistents": [
+                "genshin3_3:summon_jean_q"
+            ],
             "Type": "Skill",
             "SkillCategory": "Q",
             "Cost": [
@@ -55,12 +67,9 @@
             "Action": [
                 {
                     "Type": "Heal",
-                    "Heal": {
-                        "Amount": 2,
-                        "TargetArea": "TargetExcept",
-                        "Subheal": {
-                            "Amount": 2
-                        }
+                    "Value": 2,
+                    "Target": {
+                        "Index": -1
                     }
                 },
                 {

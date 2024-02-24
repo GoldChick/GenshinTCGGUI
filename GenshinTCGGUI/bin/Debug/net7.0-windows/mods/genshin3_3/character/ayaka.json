@@ -1,0 +1,84 @@
+{
+    "CardName": "神里绫华",
+    "Description": "如霜凝华，如鹭在庭。",
+    "MaxHP": 10,
+    "MaxMP": 3,
+    "Tags": [
+        "Cryo",
+        "Inazuma",
+        "Sword"
+    ],
+    "SkillList": [
+        {
+            "CardName": "神里流·倾",
+            "Description": "造成2点物理伤害。",
+            "Type": "Skill_A",
+            "Element": "Cryo"
+        },
+        {
+            "CardName": "神里流·冰华",
+            "Description": "造成3点冰元素伤害。",
+            "Type": "Skill_E",
+            "Element": "Cryo",
+            "DoElementDamage": true
+        },
+        {
+            "CardName": "神里流·霜灭",
+            "Description": "造成4点冰元素伤害，召唤霜见雪关扉。",
+            "RelatedPersistents": [
+                "genshin3_3:summon_ayaka_q"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Cryo",
+                    "Count": 3
+                },
+                {
+                    "Type": "MP",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Cryo",
+                        "Amount": 4
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:summon_ayaka_q"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "CardName": "神里流·霰步",
+            "Description": "【被动】此角色被切换为「出战角色」时，附属1回合冰元素附魔。",
+            "SkillCategory": "P",
+            "Type": "AfterSwitch",
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_3:effect_ayaka_p"
+                    ]
+                }
+            ],
+            "When": [
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "CurrCharacter"
+                }
+            ]
+        }
+    ]
+}

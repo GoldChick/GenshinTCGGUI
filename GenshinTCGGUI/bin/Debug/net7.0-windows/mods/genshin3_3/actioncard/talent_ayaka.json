@@ -1,0 +1,82 @@
+{
+    "CardName": "寒天宣命祝词",
+    "Description": "装备有此牌的神里绫华生成的冰元素附魔会使所附属角色造成的冰元素伤害+1。\n切换到装备有此牌的神里绫华时：少花费1个元素骰。（每回合1次）\n（牌组中包含神里绫华，才能加入牌组）",
+    "CardType": "Equipment",
+    "Cost": [
+        {
+            "Type": "Cryo",
+            "Count": 4
+        }
+    ],
+    "Tags": [
+        "Equipment",
+        "Talent"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "Alive"
+                },
+                {
+                    "Type": "Name",
+                    "Value": "genshin3_3:ayaka"
+                }
+            ]
+        }
+    ],
+    "ModList": [
+        {
+            "Type": "Dice",
+            "Value": 1,
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1
+                },
+                {
+                    "Type": "SkillType",
+                    "Not": true
+                },
+                {
+                    "Type": "AnyTargetWithSameIndex",
+                    "Target": {
+                        "Type": "Sender",
+                        "Index": 1
+                    }
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "AfterSwitch",
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_3:effect_ayaka_p_ex"
+                    ]
+                }
+            ],
+            "When": [
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "CurrCharacter"
+                }
+            ]
+        },
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Set": 1
+                }
+            ]
+        }
+    ]
+}

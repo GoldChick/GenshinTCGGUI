@@ -1,0 +1,27 @@
+{
+    "CardName": "刘苏",
+    "Description": "我方切换角色后：如果切换到的角色没有充能，则使该角色获得1点充能。（每回合1次）可用次数：2",
+    "Tags": [
+        "Support",
+        "Partner"
+    ],
+    "InitialUseTimes": 2,
+    "CardType": "Support",
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 1
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "SetData",
+                    "RemoveAt": 0
+                }
+            ]
+        }
+    ]
+}

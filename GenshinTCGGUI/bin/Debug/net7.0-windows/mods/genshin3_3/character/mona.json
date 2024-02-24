@@ -1,0 +1,76 @@
+{
+    "MaxHP": 10,
+    "MaxMP": 3,
+    "Tags": [
+        "Hydro",
+        "Mondstadt",
+        "Catalyst"
+    ],
+    "SkillList": [
+        {
+            "Type": "Skill_A",
+            "Element": "Hydro",
+            "DoElementDamage": true
+        },
+        {
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Hydro",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Hydro",
+                        "Amount": 1
+                    },
+                    "With": [
+                        {
+                            "Type": "Switch",
+                            "Target": {
+                                "Type": "Character",
+                                "Team": "Enemy",
+                                "Reverse": true
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Hydro",
+                    "Count": 3
+                },
+                {
+                    "Type": "MP",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Hydro",
+                        "Amount": 4
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:summon_sucrose_q"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

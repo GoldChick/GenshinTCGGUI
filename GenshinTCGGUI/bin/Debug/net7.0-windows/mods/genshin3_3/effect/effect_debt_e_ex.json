@@ -1,0 +1,32 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "shield_purple",
+    "Name": "潜行",
+    "Text": "所附属角色受到的伤害-1，造成的伤害+1，造成的物理伤害转变成火元素伤害。\n可用次数：3",
+    "CardType": "Effect",
+    "MaxUseTimes": 3,
+    "ModList": [
+        {
+            "Type": "Barrier"
+        },
+        {
+            "Type": "Damage",
+            "Value": 1,
+            "When": [
+                {
+                    "Type": "ThisCharacterCause"
+                }
+            ]
+        },
+        {
+            "Type": "Element",
+            "Value": 3,
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "ThisCharacterCause"
+                }
+            ]
+        }
+    ]
+}

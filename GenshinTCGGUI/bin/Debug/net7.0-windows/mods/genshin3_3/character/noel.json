@@ -1,0 +1,90 @@
+{
+    "CardName": "诺艾尔",
+    "Description": "整理牌桌这种事，真的可以交给她。",
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "Geo",
+        "Mondstadt",
+        "Claymore"
+    ],
+    "SkillList": [
+        {
+            "CardName": "西风剑术·女仆",
+            "Description": "造成2点物理伤害。",
+            "Type": "Skill_A",
+            "Element": "Geo"
+        },
+        {
+            "CardName": "护心铠",
+            "Description": "造成1点岩元素伤害，生成护体岩铠。",
+            "RelatedPersistents": [
+                "genshin3_3:effect_noel_e"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Geo",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Geo",
+                        "Amount": 1
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:effect_noel_e"
+                            ],
+                            "Target": {
+                                "Type": "Team"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "CardName": "大扫除",
+            "Description": "造成4点岩元素伤害，角色附属大扫除。",
+            "RelatedPersistents": [
+                "genshin3_3:effect_noel_q"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Geo",
+                    "Count": 4
+                },
+                {
+                    "Type": "MP",
+                    "Count": 2
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Geo",
+                        "Amount": 4
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:effect_noel_q"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "CardName": "运筹帷幄",
+    "Description": "抓2张牌。",
+    "Tags": [
+        "Event"
+    ],
+    "CardType": "Event",
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 1
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "DrawCard",
+                    "Count": 2
+                }
+            ]
+        }
+    ]
+}

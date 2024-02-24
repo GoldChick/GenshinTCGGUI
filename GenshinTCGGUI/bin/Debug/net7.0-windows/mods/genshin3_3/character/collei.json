@@ -1,0 +1,87 @@
+{
+    "CardName": "柯莱",
+    "Description": "「大声喊出卡牌的名字会让它威力加倍…这一定是虚构的吧？」",
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "Dendro",
+        "Sumeru",
+        "Bow"
+    ],
+    "SkillList": [
+        {
+            "CardName": "祈颂射艺",
+            "Description": "造成2点物理伤害。",
+            "Type": "Skill_A",
+            "Element": "Dendro"
+        },
+        {
+            "CardName": "拂花偈叶",
+            "Description": "造成3点草元素伤害。",
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Dendro",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Dendro",
+                        "Amount": 3
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:effect_xiangling_q"
+                            ],
+                            "Target": {
+                                "Type": "Team"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "CardName": "猫猫秘宝",
+            "Description": "造成2点草元素伤害，召唤科里安巴。",
+            "RelatedPersistents": [
+                "genshin3_3:summon_collei_q"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Dendro",
+                    "Count": 3
+                },
+                {
+                    "Type": "MP",
+                    "Count": 2
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Dendro",
+                        "Amount": 2
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:summon_collei_q"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

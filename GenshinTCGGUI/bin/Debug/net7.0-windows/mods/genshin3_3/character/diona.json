@@ -1,0 +1,122 @@
+{
+    "CardName": "迪奥娜",
+    "Description": "用1%的力气调酒，99%的力气…拒绝失败。",
+    "MaxHP": 10,
+    "MaxMP": 3,
+    "Tags": [
+        "Cryo",
+        "Mondstadt",
+        "Bow"
+    ],
+    "SkillList": [
+        {
+            "CardName": "猎人射术",
+            "Description": "造成2点物理伤害。",
+            "Type": "Skill_A",
+            "Element": "Cryo"
+        },
+        {
+            "CardName": "猫爪冻冻",
+            "Description": "造成2点冰元素伤害，生成猫爪护盾。",
+            "RelatedPersistents": [
+                "genshin3_3:effect_diona_e"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Cryo",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Cryo",
+                        "Amount": 2
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:effect_diona_e"
+                            ],
+                            "Remove": [
+                                "genshin3_3:effect_diona_e_ex"
+                            ],
+                            "Target": {
+                                "Type": "Team"
+                            },
+                            "When": [
+                                {
+                                    "Type": "HasEffect",
+                                    "Value": "genshin3_3:talent_diona",
+                                    "Not": true
+                                }
+                            ]
+                        },
+                        {
+                            "Type": "Effect",
+                            "Remove": [
+                                "genshin3_3:effect_diona_e"
+                            ],
+                            "Add": [
+                                "genshin3_3:effect_diona_e_ex"
+                            ],
+                            "Target": {
+                                "Type": "Team"
+                            },
+                            "When": [
+                                {
+                                    "Type": "HasEffect",
+                                    "Value": "genshin3_3:talent_diona"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "CardName": "最烈特调",
+            "Description": "造成1点冰元素伤害，治疗此角色2点，召唤酒雾领域。",
+            "RelatedPersistents": [
+                "genshin3_3:summon_diona_q"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Cryo",
+                    "Count": 3
+                },
+                {
+                    "Type": "MP",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Cryo",
+                        "Amount": 1
+                    },
+                    "With": [
+                        {
+                            "Type": "Heal",
+                            "Value": 2
+                        },
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:summon_diona_q"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

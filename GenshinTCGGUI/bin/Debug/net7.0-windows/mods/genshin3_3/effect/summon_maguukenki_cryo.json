@@ -1,0 +1,61 @@
+{
+    "Name": "剑影·霜驰",
+    "Text": "结束阶段：造成1点冰元素伤害。我方魔偶剑鬼使用元素爆发后，造成1点冰元素伤害（不消耗可用次数）\n可用次数：2",
+    "Element": 1,
+    "Damage": 1,
+    "CardType": "Summon",
+    "MaxUseTimes": 2,
+    "SkillList": [
+        {
+            "Type": "AfterUseSkill",
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Cryo",
+                        "Amount": 1
+                    }
+                }
+            ],
+            "When": [
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "SkillType",
+                    "Value": "Q"
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Sender",
+                        "When": [
+                            {
+                                "Type": "Name",
+                                "Value": "genshin3_3:maguukenki"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Type": "RoundOver",
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Cryo",
+                        "Amount": 1
+                    },
+                    "With": [
+                        {
+                            "Type": "Counter",
+                            "Add": -1
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

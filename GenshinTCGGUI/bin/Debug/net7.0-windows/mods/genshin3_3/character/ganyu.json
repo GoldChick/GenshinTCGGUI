@@ -1,4 +1,6 @@
 {
+    "CardName": "甘雨",
+    "Description": "「既然是明早前要，那这份通稿，只要熬夜写完就好。」",
     "MaxHP": 10,
     "MaxMP": 3,
     "Tags": [
@@ -8,10 +10,17 @@
     ],
     "SkillList": [
         {
+            "CardName": "流天射术",
+            "Description": "造成2点物理伤害。",
             "Type": "Skill_A",
             "Element": "Cryo"
         },
         {
+            "CardName": "山泽麟迹",
+            "Description": "造成1点冰元素伤害，生成冰莲。",
+            "RelatedPersistents": [
+                "genshin3_3:effect_ganyu_e"
+            ],
             "Type": "Skill",
             "SkillCategory": "E",
             "Cost": [
@@ -42,6 +51,8 @@
             ]
         },
         {
+            "CardName": "霜华矢",
+            "Description": "造成2点冰元素伤害，对所有敌方后台角色造成2点穿透伤害",
             "Type": "Skill",
             "SkillCategory": "A",
             "Cost": [
@@ -114,6 +125,11 @@
             ]
         },
         {
+            "CardName": "降众天华",
+            "Description": "造成2点冰元素伤害，对所有敌方后台角色造成1点穿透伤害，召唤冰灵珠。",
+            "RelatedPersistents": [
+                "genshin3_3:summon_ganyu_q"
+            ],
             "Type": "Skill",
             "SkillCategory": "Q",
             "Cost": [

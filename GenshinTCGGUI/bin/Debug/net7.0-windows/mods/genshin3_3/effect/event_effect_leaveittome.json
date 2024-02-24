@@ -1,0 +1,13 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "special",
+    "Name": "交给我吧！（生效中）",
+    "Description": "我方下次执行「切换角色」行动时：将此次切换视为「快速行动」而非「战斗行动」。",
+    "CardType": "Effect",
+    "ModList": [
+        {
+            "Type": "Fast",
+            "Mode": "Switch"
+        }
+    ]
+}

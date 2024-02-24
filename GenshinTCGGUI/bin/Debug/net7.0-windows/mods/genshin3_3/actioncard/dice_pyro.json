@@ -1,0 +1,20 @@
+{
+    "CardName": "元素共鸣：交织之火",
+    "Description": "生成1个火元素骰。\n（牌组包含至少2个火元素角色，才能加入牌组）",
+    "Tags": [
+        "Event"
+    ],
+    "CardType": "Event",
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Dice",
+                    "Element": "Pyro",
+                    "Count": 1
+                }
+            ]
+        }
+    ]
+}

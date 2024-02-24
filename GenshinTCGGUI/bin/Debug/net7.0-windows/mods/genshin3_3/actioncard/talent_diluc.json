@@ -1,0 +1,74 @@
+{
+    "CardName": "流火焦灼",
+    "Description": "战斗行动：我方出战角色为迪卢克时，装备此牌。\n迪卢克装备此牌后，立刻使用一次逆焰之刃。\n装备有此牌的迪卢克每回合第2次使用逆焰之刃时，少花费1个火元素。\n（牌组中包含迪卢克，才能加入牌组）",
+    "CardType": "Equipment",
+    "Cost": [
+        {
+            "Type": "Pyro",
+            "Count": 3
+        }
+    ],
+    "Tags": [
+        "Equipment",
+        "Talent",
+        "Slowly"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "SimpleTalent",
+                    "Value": "genshin3_3:diluc"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Skill",
+                    "Value": 1
+                }
+            ]
+        }
+    ],
+    "ModList": [
+        {
+            "Type": "Dice",
+            "Element": "Pyro",
+            "Value": 1,
+            "When": [
+                {
+                    "Type": "CurrCharacter"
+                },
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "SkillType",
+                    "Value": "E"
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Character",
+                        "When": [
+                            {
+                                "Type": "CurrCharacter"
+                            },
+                            {
+                                "Type": "Counter",
+                                "Sign": 0,
+                                "Value": 1,
+                                "Index": 1
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

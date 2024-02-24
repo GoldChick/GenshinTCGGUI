@@ -1,4 +1,8 @@
 {
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "debuff",
+    "Name": "水光破镜",
+    "Text": "所附属角色受到的水元素伤害+1。\n持续回合：2\n（同一方场上最多存在一个此状态）",
     "CardType": "Effect",
     "MaxUseTimes": 2,
     "SkillList": [
@@ -24,13 +28,7 @@
                     "Value": "Hydro"
                 },
                 {
-                    "Type": "TargetMe"
-                },
-                {
-                    "Type": "Skill"
-                },
-                {
-                    "Type": "Direct"
+                    "Type": "TargetThis"
                 }
             ]
         }

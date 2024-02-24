@@ -1,0 +1,76 @@
+{
+    "CardName": "蒲公英的国土",
+    "Description": "战斗行动：我方出战角色为琴时，装备此牌。\n琴装备此牌后，立刻使用一次蒲公英之风。\n装备有此牌的琴在场时，蒲公英领域会使我方造成的风元素伤害+1。\n（牌组中包含琴，才能加入牌组）",
+    "RelatedPersistents": [
+        "genshin3_3:summon_jean_q"
+    ],
+    "CardType": "Equipment",
+    "Cost": [
+        {
+            "Type": "Anemo",
+            "Count": 4
+        },
+        {
+            "Type": "MP",
+            "Count": 2
+        }
+    ],
+    "Tags": [
+        "Equipment",
+        "Talent",
+        "Slowly"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "SimpleTalent",
+                    "Value": "genshin3_3:jean"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Skill",
+                    "Value": 2
+                }
+            ]
+        }
+    ],
+    "ModList": [
+        {
+            "Type": "Damage",
+            "Value": 1,
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "Direct"
+                },
+                {
+                    "Type": "Element",
+                    "Value": "Anemo"
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Summon",
+                        "When": [
+                            {
+                                "Type": "Name",
+                                "Value": "genshin3_3:summon_jean_q"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

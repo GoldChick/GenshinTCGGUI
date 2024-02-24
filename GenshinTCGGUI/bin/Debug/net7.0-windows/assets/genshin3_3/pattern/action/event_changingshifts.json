@@ -1,9 +1,0 @@
-{
-    "CardName": "换班时间",
-    "Description": "我方下次执行「切换角色」行动时：少花费1个元素骰。",
-    "Tags": [
-        "事件牌"
-    ],
-    "Cost": "0白",
-    "RelatedPersistents": []
-}

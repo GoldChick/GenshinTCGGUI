@@ -1,0 +1,73 @@
+{
+    "CardName": "便携营养袋",
+    "Description": "入场时：从牌组中随机抽取1张「料理」事件。\n我方打出「料理」事件牌时：从牌组中随机抽取1张「料理」事件。（每回合1次）",
+    "CardType": "Support",
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 1
+        }
+    ],
+    "Tags": [
+        "Support",
+        "Item"
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "DrawCard",
+                    "Count": 1,
+                    "WithTag": [
+                        "Food"
+                    ]
+                }
+            ]
+        },
+        {
+            "Type": "AfterUseCard",
+            "Action": [
+                {
+                    "Type": "DrawCard",
+                    "Count": 1,
+                    "WithTag": [
+                        "Food"
+                    ]
+                },
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ],
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1,
+                    "Value": 0
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Sender",
+                        "When": [
+                            {
+                                "Type": "HasTag",
+                                "Value": "Food"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Set": 1
+                }
+            ]
+        }
+    ]
+}

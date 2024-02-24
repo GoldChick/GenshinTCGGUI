@@ -1,0 +1,127 @@
+{
+    "CardName": "魔偶剑鬼",
+    "Description": "今日，其仍徘徊在因缘断绝之地。",
+    "MaxHP": 10,
+    "MaxMP": 3,
+    "Tags": [
+        "Anemo",
+        "Mob",
+        "OtherWeapon"
+    ],
+    "SkillList": [
+        {
+            "CardName": "一文字",
+            "Description": "造成2点物理伤害。",
+            "Type": "Skill_A",
+            "Element": "Anemo"
+        },
+        {
+            "CardName": "孤风刀势",
+            "Description": "召唤剑影·孤风。",
+            "RelatedPersistents": [
+                "genshin3_3:summon_maguukenki_anemo"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Anemo",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_3:summon_maguukenki_anemo"
+                    ]
+                },
+                {
+                    "Type": "Switch",
+                    "Target": {
+                        "Type": "Character",
+                        "When": [
+                            {
+                                "Type": "CurrCharacter",
+                                "Not": true
+                            }
+                        ]
+                    },
+                    "When": [
+                        {
+                            "Type": "HasEffect",
+                            "Value": "genshin3_3:talent_maguukenki"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "CardName": "霜驰影突",
+            "Description": "召唤剑影·霜驰。",
+            "RelatedPersistents": [
+                "genshin3_3:summon_maguukenki_cryo"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Cryo",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_3:summon_maguukenki_cryo"
+                    ]
+                },
+                {
+                    "Type": "Switch",
+                    "Target": {
+                        "Type": "Character",
+                        "Reverse": true,
+                        "When": [
+                            {
+                                "Type": "CurrCharacter",
+                                "Not": true
+                            }
+                        ]
+                    },
+                    "When": [
+                        {
+                            "Type": "HasEffect",
+                            "Value": "genshin3_3:talent_maguukenki"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "CardName": "机巧伪天狗抄",
+            "Description": "造成4点风元素伤害。",
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Anemo",
+                    "Count": 3
+                },
+                {
+                    "Type": "MP",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Anemo",
+                        "Amount": 4
+                    }
+                }
+            ]
+        }
+    ]
+}

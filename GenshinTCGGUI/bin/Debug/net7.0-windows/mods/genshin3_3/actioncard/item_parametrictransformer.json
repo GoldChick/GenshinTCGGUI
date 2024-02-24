@@ -1,0 +1,76 @@
+{
+    "CardName": "参量质变仪",
+    "Description": "双方角色使用技能后：如果造成了元素伤害，此牌累积1个「质变进度」。\n累积3个「质变进度」时：生成3个不同的基础元素骰，弃置此支援。",
+    "CardType": "Support",
+    "InitialUseTimes": 0,
+    "Cost": [
+        {
+            "Type": "Void",
+            "Count": 2
+        }
+    ],
+    "Tags": [
+        "Support",
+        "Item"
+    ],
+    "SkillList": [
+        {
+            "Type": "AfterHurt",
+            "Action": [
+                {
+                    "Type": "SetData",
+                    "Value": "Add"
+                }
+            ],
+            "When": [
+                {
+                    "Type": "Element"
+                },
+                {
+                    "Type": "Damage",
+                    "Sign": 1,
+                    "Value": -1
+                }
+            ]
+        },
+        {
+            "Type": "AfterUseSkill",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": 1,
+                    "When": [
+                        {
+                            "Type": "DataCount",
+                            "Sign": 1
+                        }
+                    ]
+                },
+                {
+                    "Type": "SetData",
+                    "Value": "Clear"
+                }
+            ]
+        },
+        {
+            "Type": "AfterUseSkill",
+            "Action": [
+                {
+                    "Type": "Dice",
+                    "Element": "Random",
+                    "Count": 3
+                },
+                {
+                    "Type": "DestroySelf"
+                }
+            ],
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1,
+                    "Value": 2
+                }
+            ]
+        }
+    ]
+}

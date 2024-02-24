@@ -1,0 +1,47 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "buff",
+    "MaxUseTimes": 3,
+    "Name": "兽肉薄荷卷（生效中）",
+    "Description": "本回合中，附属角色普通攻击少花费1个无色元素。可用次数：3",
+    "CardType": "Effect",
+    "ModList": [
+        {
+            "Type": "Dice",
+            "Element": "Void",
+            "Value": 1,
+            "Consume": 1,
+            "When": [
+                {
+                    "Type": "CurrCharacter"
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Sender",
+                        "When": [
+                            {
+                                "Type": "SkillType",
+                                "Value": "A"
+                            },
+                            {
+                                "Type": "Alive"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundOver",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        }
+    ]
+}

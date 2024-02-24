@@ -1,0 +1,45 @@
+{
+    "CardName": "璃月港口",
+    "Description": "结束阶段：抓2张牌。\n可用次数：2",
+    "Tags": [
+        "Support",
+        "Location"
+    ],
+    "InitialUseTimes": 2,
+    "CardType": "Support",
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 2
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundOver",
+            "Action": [
+                {
+                    "Type": "DrawCard",
+                    "Count": 2
+                },
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        },
+        {
+            "Type": "RoundOver",
+            "Action": [
+                {
+                    "Type": "DestroySelf"
+                }
+            ],
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 0
+                }
+            ]
+        }
+    ]
+}

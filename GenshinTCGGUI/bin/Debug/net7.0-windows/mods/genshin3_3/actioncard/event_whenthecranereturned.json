@@ -1,0 +1,27 @@
+{
+    "CardName": "鹤归之时",
+    "Description": "我方角色下一次使用技能后：如果我方存在后台角色，就切换到下一个角色。",
+    "Tags": [
+        "Event"
+    ],
+    "CardType": "Event",
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 1
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_3:event_effect_whenthecranereturned"
+                    ]
+                }
+            ]
+        }
+    ]
+}

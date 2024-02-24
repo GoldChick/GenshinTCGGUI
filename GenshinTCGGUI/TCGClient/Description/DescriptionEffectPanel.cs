@@ -1,5 +1,4 @@
-﻿using GenshinTCGGUI;
-using Prefab;
+﻿using Prefab;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -14,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Xml.Linq;
 using TCGBase;
-using TCGClient;
 
 namespace TCGClient
 {
@@ -116,28 +114,28 @@ namespace TCGClient
             CharacterContainer.Update(character);
             TeamContainer.Update(team);
         }
-        public static bool TryGetDescription<T>(string nameSpace, string nameid, int mode, [NotNullWhen(true)] out T? value) where T : AbstractDescriptionCard
-        {
-            value = null;
-            string path = Path.Combine(Directory.GetCurrentDirectory(), $"assets/{nameSpace}/pattern/{mode switch
-            {
-                1 => "character",
-                2 => "persistent",
-                _ => "action"
-            }}/{nameid}.json");
-            if (File.Exists(path))
-            {
-                try
-                {
-                    var json = File.ReadAllText(path);
-                    value = JsonSerializer.Deserialize<T>(json);
-                    return value != null;
-                }
-                catch (Exception)
-                {
-                }
-            }
-            return false;
-        }
+        //public static bool TryGetDescription<T>(string nameSpace, string nameid, int mode, [NotNullWhen(true)] out T? value) where T : AbstractDescriptionCard
+        //{
+        //    value = null;
+        //    string path = Path.Combine(Directory.GetCurrentDirectory(), $"assets/{nameSpace}/pattern/{mode switch
+        //    {
+        //        1 => "character",
+        //        2 => "persistent",
+        //        _ => "action"
+        //    }}/{nameid}.json");
+        //    if (File.Exists(path))
+        //    {
+        //        try
+        //        {
+        //            var json = File.ReadAllText(path);
+        //            value = JsonSerializer.Deserialize<T>(json);
+        //            return value != null;
+        //        }
+        //        catch (Exception)
+        //        {
+        //        }
+        //    }
+        //    return false;
+        //}
     }
 }

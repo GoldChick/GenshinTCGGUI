@@ -69,7 +69,7 @@ namespace Prefab
                 if (converter != null)
                 {
                     CardName = converter.Name;
-                    CardText = converter.Text[variant % 10];
+                    CardText = converter.Text;
                     if (!IsSupport)
                     {
                         Grid damage_grid = new()

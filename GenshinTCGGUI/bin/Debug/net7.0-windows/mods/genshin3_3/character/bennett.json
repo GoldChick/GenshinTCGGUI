@@ -1,0 +1,93 @@
+{
+    "CardName": "班尼特",
+    "Description": "当你知道自己一定会输时，那你肯定也知道如何能赢。",
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "Pyro",
+        "Mondstadt",
+        "Sword"
+    ],
+    "SkillList": [
+        {
+            "CardName": "好运剑",
+            "Description": "造成2点物理伤害。",
+            "Type": "Skill_A",
+            "Element": "Pyro"
+        },
+        {
+            "CardName": "热情过载",
+            "Description": "造成3点火元素伤害。",
+            "Type": "Skill_E",
+            "Element": "Pyro",
+            "DoElementDamage": true
+        },
+        {
+            "CardName": "美妙旅程",
+            "Description": "造成2点火元素伤害，生成鼓舞领域。",
+            "RelatedPersistents": [
+                "genshin3_3:effect_bennett_q"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Pyro",
+                    "Count": 4
+                },
+                {
+                    "Type": "MP",
+                    "Count": 2
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Pyro",
+                        "Amount": 2
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:effect_bennett_q"
+                            ],
+                            "Remove": [
+                                "genshin3_3:effect_bennett_q_ex"
+                            ],
+                            "Target": {
+                                "Type": "Team"
+                            },
+                            "When": [
+                                {
+                                    "Type": "HasEffect",
+                                    "Value": "genshin3_3:talent_bennett",
+                                    "Not": true
+                                }
+                            ]
+                        },
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:effect_bennett_q_ex"
+                            ],
+                            "Remove": [
+                                "genshin3_3:effect_bennett_q"
+                            ],
+                            "Target": {
+                                "Type": "Team"
+                            },
+                            "When": [
+                                {
+                                    "Type": "HasEffect",
+                                    "Value": "genshin3_3:talent_bennett"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

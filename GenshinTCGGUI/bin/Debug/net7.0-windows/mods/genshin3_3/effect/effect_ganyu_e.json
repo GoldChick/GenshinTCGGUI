@@ -1,4 +1,8 @@
 {
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "shield_purple",
+    "Name": "冰莲",
+    "Text": "角色受到的伤害-1。\n可用次数：2",
     "CardType": "Effect",
     "MaxUseTimes": 2,
     "ModList": [

@@ -1,0 +1,100 @@
+{
+    "CardName": "迪卢克",
+    "Description": "他的心是他最大的敌人。",
+    "MaxHP": 10,
+    "MaxMP": 3,
+    "Tags": [
+        "Pyro",
+        "Mondstadt",
+        "Claymore"
+    ],
+    "SkillList": [
+        {
+            "CardName": "淬炼之剑",
+            "Description": "造成2点物理伤害。",
+            "Type": "Skill_A",
+            "Element": "Pyro"
+        },
+        {
+            "CardName": "逆焰之刃",
+            "Description": "造成3点火元素伤害。每回合第三次使用本技能时，伤害+2。",
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Pyro",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Pyro",
+                        "Amount": 3
+                    },
+                    "When": [
+                        {
+                            "Type": "Counter",
+                            "Index": 1,
+                            "Sign": 0,
+                            "Value": 2,
+                            "Not": true
+                        }
+                    ]
+                },
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Pyro",
+                        "Amount": 5
+                    },
+                    "When": [
+                        {
+                            "Type": "Counter",
+                            "Index": 1,
+                            "Sign": 0,
+                            "Value": 2
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "CardName": "黎明",
+            "Description": "造成8点火元素伤害，本角色附属2回合火元素附魔。",
+            "RelatedPersistents": [
+                "genshin3_3:effect_diluc_q"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Pyro",
+                    "Count": 4
+                },
+                {
+                    "Type": "MP",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Pyro",
+                        "Amount": 8
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:effect_diluc_q"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

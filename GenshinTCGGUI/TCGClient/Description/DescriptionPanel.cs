@@ -55,7 +55,7 @@ namespace TCGClient
         {
             public TextBlock Description;
             public StackPanel PersistentContainer;
-            public DescriptionBlock(string description, string[] persistents, bool ingame)
+            public DescriptionBlock(string description, List<string> persistents, bool ingame)
             {
                 Description = new TextBlock()
                 {
@@ -83,7 +83,7 @@ namespace TCGClient
             public TextBlock Category;
             public TextBlock Description;
             public StackPanel PersistentContainer;
-            public DescriptionSkillBlock(string head, string cost, SkillCategory category, string description, string[] persistents, bool ingame)
+            public DescriptionSkillBlock(string head, string cost, SkillCategory category, string description, List<string> persistents, bool ingame)
             {
                 int width = ingame ? 260 : 400;
                 Head = new TextBlock()
@@ -136,6 +136,7 @@ namespace TCGClient
         private class DescriptionPersistentBlock : StackPanel
         {
             public TextBlock Head;
+            public TextBlock Tags;
             public TextBlock Description;
             public DescriptionPersistentBlock(string persistent, bool ingame)
             {
@@ -146,6 +147,12 @@ namespace TCGClient
                     Width = width,
                     Text = "",
                     Foreground = new SolidColorBrush(Colors.DeepPink)
+                };
+                Tags = new TextBlock()
+                {
+                    Width = width,
+                    Text = "",
+                    TextWrapping = TextWrapping.Wrap,
                 };
                 Description = new TextBlock()
                 {
@@ -161,11 +168,19 @@ namespace TCGClient
                         if (Prefab.Persistent.TryGetEffectTextureConverter<CardTextConverter>(strs[0], strs[1], out var converter))
                         {
                             Head.Text = converter.Name;
-                            Description.Text = converter.Text[0];
+                            if (converter.Tags.Any())
+                            {
+                                Tags.Text = string.Join(" ", converter.Tags);
+                            }
+                            Description.Text = converter.Text;
                         }
                     }
                 }
                 Children.Add(Head);
+                if (Tags.Text!="")
+                {
+                    Children.Add(Tags);
+                }
                 Children.Add(Description);
             }
         }
@@ -183,7 +198,7 @@ namespace TCGClient
             if (TryGetDescription<DescriptionActionCard>(nameSpace, nameid, 0, out var dac))
             {
                 Head.Text = dac.CardName;
-                Second.Text = dac.Cost;
+                Second.Text = dac.CostText;
                 string tags = "";
                 foreach (var s in dac.Tags)
                 {
@@ -214,9 +229,9 @@ namespace TCGClient
                     tags += " ";
                 }
                 Tags.Text = tags;
-                foreach (var s in dcc.Skills)
+                foreach (var s in dcc.SkillList)
                 {
-                    Container.Children.Add(new DescriptionSkillBlock(s.CardName, s.Cost, s.Category, s.Description, s.RelatedPersistents, ingame));
+                    Container.Children.Add(new DescriptionSkillBlock(s.CardName, s.CostText, s.SkillCategory, s.Description, s.RelatedPersistents, ingame));
                 }
             }
             if (img != null)
@@ -238,7 +253,7 @@ namespace TCGClient
                     if (TryGetDescription<DescriptionActionCard>(card.Namespace, card.NameID, 0, out var dac))
                     {
                         Head.Text = dac.CardName;
-                        Second.Text = dac.Cost;
+                        Second.Text = dac.CostText;
                         string tags = "";
                         foreach (var s in dac.Tags)
                         {
@@ -264,9 +279,9 @@ namespace TCGClient
                             tags += " ";
                         }
                         Tags.Text = tags;
-                        foreach (var s in dcc.Skills)
+                        foreach (var s in dcc.SkillList)
                         {
-                            Container.Children.Add(new DescriptionSkillBlock(s.CardName, s.Cost, s.Category, s.Description, s.RelatedPersistents, ingame));
+                            Container.Children.Add(new DescriptionSkillBlock(s.CardName, s.CostText, s.SkillCategory, s.Description, s.RelatedPersistents, ingame));
                         }
                     }
                 }
@@ -277,18 +292,18 @@ namespace TCGClient
             }
         }
         /// <summary>
-        /// mode=0: action<br/>
+        /// mode=0: actioncard<br/>
         /// mode=1: character<br/>
         /// mode=2: persistent
         /// </summary>
         public static bool TryGetDescription<T>(string nameSpace, string nameid, int mode, [NotNullWhen(true)] out T? value) where T : AbstractDescriptionCard
         {
             value = null;
-            string path = Path.Combine(Directory.GetCurrentDirectory(), $"assets/{nameSpace}/pattern/{mode switch
+            string path = Path.Combine(Directory.GetCurrentDirectory(), $"mods/{nameSpace}/{mode switch
             {
                 1 => "character",
                 2 => "persistent",
-                _ => "action"
+                _ => "actioncard"
             }}/{nameid}.json");
             if (File.Exists(path))
             {

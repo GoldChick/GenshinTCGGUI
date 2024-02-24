@@ -1,0 +1,106 @@
+{
+    "CardName": "菲谢尔",
+    "Description": "「奥兹！我之眷属，展开羽翼，替我在幽夜中寻求全新的命运之线吧！」\n「小姐，我可没办法帮你换一张牌啊…」",
+    "MaxHP": 10,
+    "MaxMP": 3,
+    "Tags": [
+        "Electro",
+        "Mondstadt",
+        "Bow"
+    ],
+    "SkillList": [
+        {
+            "CardName": "罪灭之矢",
+            "Description": "造成2点物理伤害。",
+            "Type": "Skill_A",
+            "Element": "Electro"
+        },
+        {
+            "CardName": "夜巡影翼",
+            "Description": "造成1点雷元素伤害，召唤奥兹。",
+            "RelatedPersistents": [
+                "genshin3_3:summon_fischl_e"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Electro",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Electro",
+                        "Amount": 1
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:summon_fischl_e"
+                            ],
+                            "Remove": [
+                                "genshin3_3:summon_fischl_e_ex"
+                            ],
+                            "When": [
+                                {
+                                    "Type": "HasEffect",
+                                    "Value": "genshin3_3:talent_fischl",
+                                    "Not": true
+                                }
+                            ]
+                        },
+                        {
+                            "Type": "Effect",
+                            "Remove": [
+                                "genshin3_3:summon_fischl_e"
+                            ],
+                            "Add": [
+                                "genshin3_3:summon_fischl_e_ex"
+                            ],
+                            "When": [
+                                {
+                                    "Type": "HasEffect",
+                                    "Value": "genshin3_3:talent_fischl"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "CardName": "至夜幻现",
+            "Description": "造成4点雷元素伤害，对所有敌方后台角色造成2点穿透伤害。",
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Electro",
+                    "Count": 3
+                },
+                {
+                    "Type": "MP",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Pierce",
+                        "Amount": 2,
+                        "TargetArea": "TargetExcept",
+                        "SubDamage": {
+                            "Element": "Electro",
+                            "Amount": 4
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

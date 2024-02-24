@@ -1,0 +1,64 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "debuff",
+    "Name": "水光破镜",
+    "Text": "所附属角色受到的水元素伤害+1。\n从所附属角色切换到其他角色时所需元素骰费用+1\n持续回合：3\n（同一方场上最多存在一个此状态）",
+    "CardType": "Effect",
+    "MaxUseTimes": 3,
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        }
+    ],
+    "ModList": [
+        {
+            "Type": "Damage",
+            "Mode": "Add",
+            "Consume": 0,
+            "Value": 1,
+            "When": [
+                {
+                    "Type": "Element",
+                    "Value": "Hydro"
+                },
+                {
+                    "Type": "TargetThis"
+                }
+            ]
+        },
+        {
+            "Type": "Dice",
+            "Consume": 0,
+            "Value": -1,
+            "When": [
+                {
+                    "Type": "CurrCharacter"
+                },
+                {
+                    "Type": "SkillType",
+                    "Not": true
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Sender",
+                        "When": [
+                            {
+                                "Type": "Alive"
+                            },
+                            {
+                                "Type": "CurrCharacter"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

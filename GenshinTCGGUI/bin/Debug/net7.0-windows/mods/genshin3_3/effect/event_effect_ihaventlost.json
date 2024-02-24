@@ -1,0 +1,18 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "debuff",
+    "Name": "「本大爷还没有输」冷却",
+    "Description": "本回合中，我方无法再打出「本大爷还没有输」。",
+    "CardType": "Effect",
+    "SkillList": [
+        {
+            "Type": "RoundOver",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        }
+    ]
+}

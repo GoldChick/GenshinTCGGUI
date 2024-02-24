@@ -1,4 +1,8 @@
 {
+    "TextureNamespace": "genshin3_3",
+    "TextureNameID": "effect_yoimiya",
+    "Name": "琉金火光",
+    "Text": "宵宫以外的我方角色使用技能后：造成1点火元素伤害。\n持续回合：2",
     "CardType": "Effect",
     "MaxUseTimes": 2,
     "SkillList": [
@@ -10,24 +14,25 @@
                     "Damage": {
                         "Element": "Pyro",
                         "Amount": 1
-                    },
-                    "When": [
-                        {
-                            "Type": "AnyTarget",
-                            "Target": {
-                                "When": [
-                                    {
-                                        "Type": "CurrCharacter"
-                                    },
-                                    {
-                                        "Type": "Name",
-                                        "Value": "genshin3_3:yoimiya",
-                                        "Not": true
-                                    }
-                                ]
+                    }
+                }
+            ],
+            "When": [
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Sender",
+                        "When": [
+                            {
+                                "Type": "Name",
+                                "Value": "genshin3_3:yoimiya",
+                                "Not": true
                             }
-                        }
-                    ]
+                        ]
+                    }
                 }
             ]
         },

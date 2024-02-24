@@ -1,0 +1,108 @@
+{
+    "CardName": "愚人众·藏镜仕女",
+    "Description": "一切隐秘，都将深藏于潋光的水镜之中吧…",
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "Hydro",
+        "Fatui",
+        "OtherWeapon"
+    ],
+    "SkillList": [
+        {
+            "CardName": "水弹",
+            "Description": "造成1点水元素伤害。",
+            "Type": "Skill_A",
+            "Element": "Hydro",
+            "DoElementDamage": true
+        },
+        {
+            "CardName": "潋波绽破",
+            "Description": "造成2点水元素伤害，目标角色附属水光破镜。",
+            "RelatedPersistents": [
+                "genshin3_3:effect_maiden_e"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Hydro",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Hydro",
+                        "Amount": 2
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:effect_maiden_e"
+                            ],
+                            "Remove": [
+                                "genshin3_3:effect_maiden_e_ex"
+                            ],
+                            "Target": {
+                                "Team": "Enemy"
+                            },
+                            "When": [
+                                {
+                                    "Type": "HasEffect",
+                                    "Value": "genshin3_3:talent_maiden",
+                                    "Not": true
+                                }
+                            ]
+                        },
+                        {
+                            "Type": "Effect",
+                            "Remove": [
+                                "genshin3_3:effect_maiden_e"
+                            ],
+                            "Add": [
+                                "genshin3_3:effect_maiden_e_ex"
+                            ],
+                            "Target": {
+                                "Team": "Enemy"
+                            },
+                            "When": [
+                                {
+                                    "Type": "HasEffect",
+                                    "Value": "genshin3_3:talent_maiden"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "CardName": "粼镜折光",
+            "Description": "造成5点水元素伤害。",
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Hydro",
+                    "Count": 3
+                },
+                {
+                    "Type": "MP",
+                    "Count": 2
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Hydro",
+                        "Amount": 5
+                    }
+                }
+            ]
+        }
+    ]
+}

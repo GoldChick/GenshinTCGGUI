@@ -1,0 +1,31 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "enchant_cryo",
+    "Name": "冰元素附魔",
+    "Text": "造成的物理伤害变为冰元素伤害。\n持续回合：1",
+    "CardType": "Effect",
+    "MaxUseTimes": 1,
+    "ModList": [
+        {
+            "Type": "Element",
+            "Value": 1,
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "ThisCharacterCause"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        }
+    ]
+}

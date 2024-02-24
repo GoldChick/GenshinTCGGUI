@@ -1,0 +1,68 @@
+{
+    "CardName": "天空之脊",
+    "Description": "角色造成的伤害+1。\n每回合1次：角色使用「普通攻击」造成的伤害额外+1。\n（「单手剑」角色才能装备。角色最多装备1件「武器」）",
+    "CardType": "Equipment",
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 3
+        }
+    ],
+    "Tags": [
+        "Equipment",
+        "Weapon",
+        "Longweapon"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "SimpleWeapon",
+                    "Value": "Longweapon"
+                }
+            ]
+        }
+    ],
+    "ModList": [
+        {
+            "Type": "Damage",
+            "Value": 1,
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "ThisCharacterCause"
+                }
+            ]
+        },
+        {
+            "Type": "Damage",
+            "Value": 1,
+            "Consume": 1,
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1
+                },
+                {
+                    "Type": "SkillType",
+                    "Value": "A"
+                },
+                {
+                    "Type": "ThisCharacterCause"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Set": "1"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "TextureNamespace": "genshin3_3",
+    "TextureNameID": "effect_razor",
+    "Name": "雷狼",
+    "Text": "所附属角色使用普通攻击或元素战技后：造成2点雷元素伤害。\n持续回合：2",
+    "CardType": "Effect",
+    "MaxUseTimes": 2,
+    "SkillList": [
+        {
+            "Type": "AfterUseSkill",
+            "NeedEnable": true,
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Electro",
+                        "Amount": 2
+                    }
+                }
+            ],
+            "When": [
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Character",
+                        "When": [
+                            {
+                                "Type": "CurrCharacter"
+                            },
+                            {
+                                "Type": "Name",
+                                "Value": "genshin3_3:razor"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        }
+    ]
+}

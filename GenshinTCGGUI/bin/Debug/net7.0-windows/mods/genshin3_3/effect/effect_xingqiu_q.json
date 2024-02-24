@@ -1,0 +1,37 @@
+{
+    "TextureNamespace": "genshin3_3",
+    "TextureNameID": "effect_xingqiu",
+    "Name": "虹剑势",
+    "Text": "我方角色普通攻击后：造成1点水元素伤害\n可用次数：3",
+    "CardType": "Effect",
+    "MaxUseTimes": 3,
+    "SkillList": [
+        {
+            "Type": "AfterUseSkill",
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Hydro",
+                        "Amount": 1
+                    },
+                    "With": [
+                        {
+                            "Type": "Counter",
+                            "Add": -1
+                        }
+                    ]
+                }
+            ],
+            "When": [
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "SkillType",
+                    "Value": "A"
+                }
+            ]
+        }
+    ]
+}

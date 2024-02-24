@@ -1,0 +1,32 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "enchant_cryo",
+    "Name": "重华叠霜领域",
+    "Text": "我方单手剑、双手剑或长柄武器角色造成的物理伤害变为冰元素伤害。\n持续回合：2",
+    "CardType": "Effect",
+    "MaxUseTimes": 2,
+    "ModList": [
+        {
+            "Type": "Element",
+            "Value": 1,
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "OurCharacterCause",
+                    "Value": "A"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        }
+    ]
+}

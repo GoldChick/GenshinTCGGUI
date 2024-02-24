@@ -1,0 +1,87 @@
+{
+    "CardName": "砂糖",
+    "Description": "「没有实战过的牌组不值得判断强度！」",
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "Anemo",
+        "Mondstadt",
+        "Catalyst"
+    ],
+    "SkillList": [
+        {
+            "CardName": "简式风灵作成",
+            "Description": "造成1点风元素伤害。",
+            "Type": "Skill_A",
+            "Element": "Anemo",
+            "DoElementDamage": true
+        },
+        {
+            "CardName": "风灵作成·陆叁零捌",
+            "Description": "造成3点风元素伤害，对方强制切换到上一个角色。",
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Anemo",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Anemo",
+                        "Amount": 3
+                    },
+                    "With": [
+                        {
+                            "Type": "Switch",
+                            "Target": {
+                                "Type": "Character",
+                                "Team": "Enemy",
+                                "Reverse": true
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "CardName": "禁·风灵作成·柒伍同构贰型",
+            "Description": "造成1点风元素伤害，召唤大型风灵。",
+            "RelatedPersistents": [
+                "genshin3_3:summon_sucrose_q"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Anemo",
+                    "Count": 3
+                },
+                {
+                    "Type": "MP",
+                    "Count": 2
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Anemo",
+                        "Amount": 1
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:summon_sucrose_q"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

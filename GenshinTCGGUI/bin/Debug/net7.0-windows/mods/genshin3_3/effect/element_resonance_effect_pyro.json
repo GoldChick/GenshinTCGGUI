@@ -1,0 +1,34 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "buff",
+    "Name": "元素共鸣：热诚之火（生效中）",
+    "Text": "本回合中，附属角色下一次引发的火元素相关反应伤害+3。",
+    "CardType": "Effect",
+    "MaxUseTimes": 1,
+    "ModList": [
+        {
+            "Type": "Damage",
+            "Value": 3,
+            "When": [
+                {
+                    "Type": "SourceThis"
+                },
+                {
+                    "Type": "ElementRelated",
+                    "Value": "Pyro"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        }
+    ]
+}

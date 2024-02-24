@@ -1,0 +1,34 @@
+{
+    "CardName": "元素共鸣：强能之雷",
+    "Description": "我方一名充能未满的角色获得1点充能。（出战角色优先）\n（牌组包含至少2个雷元素角色，才能加入牌组）",
+    "CardType": "Event",
+    "Cost": [
+        {
+            "Type": "Electro",
+            "Count": 1
+        }
+    ],
+    "Tags": [
+        "Event"
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "MP",
+                    "Value": 1,
+                    "Target": {
+                        "When": [
+                            {
+                                "Type": "MPLost",
+                                "Sign": 1,
+                                "Value": 0
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

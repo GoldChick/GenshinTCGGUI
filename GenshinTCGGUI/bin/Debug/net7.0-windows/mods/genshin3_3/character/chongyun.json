@@ -1,0 +1,107 @@
+{
+    "CardName": "重云",
+    "Description": "「夏天啊，你还是悄悄过去吧…」",
+    "MaxHP": 10,
+    "MaxMP": 3,
+    "Tags": [
+        "Cryo",
+        "Liyue",
+        "Claymore"
+    ],
+    "SkillList": [
+        {
+            "CardName": "灭邪四式",
+            "Description": "造成2点物理伤害。",
+            "Type": "Skill_A",
+            "Element": "Cryo"
+        },
+        {
+            "CardName": "重华叠霜",
+            "Description": "造成3点冰元素伤害，生成重华叠霜领域。",
+            "RelatedPersistents": [
+                "genshin3_3:effect_chongyun_e"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Cryo",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Cryo",
+                        "Amount": 3
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:effect_chongyun_e"
+                            ],
+                            "Remove": [
+                                "genshin3_3:effect_chongyun_e_ex"
+                            ],
+                            "Target": {
+                                "Type": "Team"
+                            },
+                            "When": [
+                                {
+                                    "Type": "HasEffect",
+                                    "Value": "genshin3_3:talent_chongyun",
+                                    "Not": true
+                                }
+                            ]
+                        },
+                        {
+                            "Type": "Effect",
+                            "Remove": [
+                                "genshin3_3:effect_chongyun_e"
+                            ],
+                            "Add": [
+                                "genshin3_3:effect_chongyun_e_ex"
+                            ],
+                            "Target": {
+                                "Type": "Team"
+                            },
+                            "When": [
+                                {
+                                    "Type": "HasEffect",
+                                    "Value": "genshin3_3:talent_chongyun"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "CardName": "云开星落",
+            "Description": "造成7点冰元素伤害。",
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Cryo",
+                    "Count": 3
+                },
+                {
+                    "Type": "MP",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Cryo",
+                        "Amount": 7
+                    }
+                }
+            ]
+        }
+    ]
+}
