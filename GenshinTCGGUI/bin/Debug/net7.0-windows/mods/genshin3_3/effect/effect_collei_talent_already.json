@@ -1,0 +1,19 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "debuff",
+    "Name": "新叶（已触发）",
+    "Text": "本回合我方已触发过新叶",
+    "CardType": "Effect",
+    "MaxUseTimes": 1,
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        }
+    ]
+}

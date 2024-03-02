@@ -1,0 +1,46 @@
+{
+    "CardName": "元素共鸣：迅捷之风",
+    "Description": "切换到目标角色，生成1点万能元素。\n（牌组包含至少2个风元素角色，才能加入牌组）",
+    "CardType": "Event",
+    "Cost": [
+        {
+            "Type": "Anemo",
+            "Count": 1
+        }
+    ],
+    "Tags": [
+        "Event"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "Alive"
+                },
+                {
+                    "Type": "CurrCharacter",
+                    "Not": true
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Switch",
+                    "Target": {
+                        "Type": "Sender"
+                    }
+                },
+                {
+                    "Type": "Dice",
+                    "Element": "Trival",
+                    "Count": 1
+                }
+            ]
+        }
+    ]
+}

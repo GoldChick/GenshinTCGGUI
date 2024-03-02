@@ -30,6 +30,15 @@
             ]
         },
         {
+            "Type": "AfterOperation",
+            "Action": [
+                {
+                    "Type": "SetData",
+                    "Value": "Clear"
+                }
+            ]
+        },
+        {
             "Type": "AfterUseSkill",
             "Action": [
                 {
@@ -56,7 +65,7 @@
                     "Count": 2
                 },
                 {
-                    "Type": "DestroySelf"
+                    "Type": "Destroy"
                 }
             ],
             "When": [

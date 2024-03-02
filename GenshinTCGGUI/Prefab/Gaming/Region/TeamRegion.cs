@@ -110,11 +110,11 @@ namespace Prefab
             _canvas.Children.Add(_summons);
             _canvas.Children.Add(BlackBlocker);
         }
-        public void Add(string nameSpace, string nameid, int variant, int availabletimes)
+        public void Add(ReadonlyPersistent rp)
         {
-            var p = new Persistent(new(nameSpace, nameid, variant, availabletimes));
-            Effects.Add(new CharacterEffectGrid(p, Effects.Count, availabletimes));
-            if (p.Variant >= 0 && p.Uri != null)
+            var p = new Persistent(rp);
+            Effects.Add(new CharacterEffectGrid(p, Effects.Count, p.AvailableTimes));
+            if (p.EffectIconType is EffectIconType.Effect && p.Uri != null)
             {
                 if (EffectsPanel.Children.Count < 4)
                 {

@@ -1,0 +1,49 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "enchant",
+    "Name": "新叶",
+    "Text": "本回合中，我方角色引发草元素相关反应后：造成1点草元素伤害。",
+    "CardType": "Effect",
+    "MaxUseTimes": 1,
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        },
+        {
+            "Type": "AfterHurt",
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Dendro",
+                        "Amount": 1
+                    },
+                    "With": [
+                        {
+                            "Type": "Counter",
+                            "Add": -1
+                        }
+                    ]
+                }
+            ],
+            "When": [
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "SkillType"
+                },
+                {
+                    "Type": "ElementRelated",
+                    "Value": "Dendro"
+                }
+            ]
+        }
+    ]
+}

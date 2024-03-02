@@ -12,9 +12,7 @@ namespace TCGClient
     {
         public int MeID { get; private set; }
         private Action<ReadonlyGame>? _bind;
-        private Action<ReadonlyGame>? _render;
         public void BindInitRenderAction(Action<ReadonlyGame>? bind) => _bind = bind;
-        public void BindUpdateRenderAction(Action<ReadonlyGame>? render) => _render = render;
 
         public override ServerPlayerCardSet RequestCardSet()
         {
@@ -30,14 +28,7 @@ namespace TCGClient
         public override void Update(ClientUpdatePacket packet)
         {
             base.Update(packet);
-            var g = Game;
             MainWindow.Instance.UpdatePacketRender(MeID, packet);
-        }
-        public override void UpdateRegion()
-        {
-            base.UpdateRegion();
-            _render?.Invoke(Game);
-            var g= Game;
         }
         public override NetEvent RequestEvent(OperationType demand)
         {

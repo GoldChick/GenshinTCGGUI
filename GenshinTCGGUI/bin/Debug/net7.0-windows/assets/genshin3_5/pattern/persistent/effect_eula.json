@@ -1,8 +1,0 @@
-{
-    "TextureNamespace": "minecraft",
-    "TextureNameID": "atk_up_cryo",
-    "Name": "冷酷之心",
-    "Text": [
-        "所附属的角色使用元素战技时：伤害+3。\n重复附属时：弃置此状态。"
-    ]
-}

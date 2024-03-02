@@ -1,0 +1,37 @@
+{
+    "TextureNamespace": "genshin3_3",
+    "TextureNameID": "buff",
+    "Name": "大扫除·进行中",
+    "Text": "角色使用普通攻击时：少花费1个岩元素。（每回合1次）\n角色所附属的「大扫除」被移除后：也移除此状态。",
+    "CardType": "Effect",
+    "MaxUseTimes": 1,
+    "CustomDesperated": true,
+    "ModList": [
+        {
+            "Type": "Dice",
+            "Value": 1,
+            "Element": "Geo",
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1
+                },
+                {
+                    "Type": "ThisCharacterCause",
+                    "Value": "A"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Set": 1
+                }
+            ]
+        }
+    ]
+}

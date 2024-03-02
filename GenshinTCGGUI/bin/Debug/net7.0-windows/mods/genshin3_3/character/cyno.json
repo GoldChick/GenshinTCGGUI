@@ -1,0 +1,113 @@
+{
+    "CardName": "赛诺",
+    "Description": "卡牌中蕴藏的，是大风纪官如沙漠烈日般炙热的喜爱之情。",
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "Electro",
+        "Sumeru",
+        "LongWeapon"
+    ],
+    "SkillList": [
+        {
+            "CardName": "七圣枪术",
+            "Description": "造成2点物理伤害。",
+            "Type": "Skill_A",
+            "Element": "Electro"
+        },
+        {
+            "CardName": "秘仪·律渊渡魂",
+            "Description": "造成3点雷元素伤害。",
+            "Type": "Skill_E",
+            "DoElementDamage": true
+        },
+        {
+            "CardName": "圣仪·煟煌随狼行",
+            "Description": "造成4点雷元素伤害，启途誓使的「凭依」级数+2。",
+            "RelatedPersistents": [
+                "genshin3_3:effect_cyno_p"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Electro",
+                    "Count": 4
+                },
+                {
+                    "Type": "MP",
+                    "Count": 2
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Electro",
+                        "Amount": 4
+                    },
+                    "With": [
+                        {
+                            "Type": "Counter",
+                            "Add": 2,
+                            "When": [
+                                {
+                                    "Type": "AnyTargetWithSameIndex",
+                                    "Target": {
+                                        "Type": "Effect",
+                                        "When": [
+                                            {
+                                                "Type": "Name",
+                                                "Value": "genshin3_3:effect_cyno_p"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "Type": "Counter",
+                            "Add": -4,
+                            "When": [
+                                {
+                                    "Type": "AnyTargetWithSameIndex",
+                                    "Target": {
+                                        "Type": "Effect",
+                                        "When": [
+                                            {
+                                                "Type": "Name",
+                                                "Value": "genshin3_3:effect_cyno_p"
+                                            },
+                                            {
+                                                "Type": "Counter",
+                                                "Sign": 1,
+                                                "Value": 5
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "CardName": "行度誓惩",
+            "Description": "【被动】战斗开始时，初始附属启途誓使。",
+            "Type": "OnCharacterOn",
+            "SkillCategory": "P",
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_3:effect_cyno_p"
+                    ],
+                    "Target": {
+                        "Type": "Sender"
+                    }
+                }
+            ]
+        }
+    ]
+}

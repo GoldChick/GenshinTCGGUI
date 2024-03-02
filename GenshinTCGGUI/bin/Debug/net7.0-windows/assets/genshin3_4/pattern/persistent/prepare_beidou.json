@@ -1,8 +1,0 @@
-{
-    "TextureNamespace": "minecraft",
-    "TextureNameID": "buff",
-    "Name": "准备技能：踏潮",
-    "Text": [
-        "（需准备1个行动轮）\n造成3点雷元素伤害。"
-    ]
-}

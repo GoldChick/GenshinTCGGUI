@@ -37,5 +37,36 @@
                 }
             ]
         }
+    ],
+    "ModList": [
+        {
+            "Type": "Damage",
+            "Value": 1,
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "Direct"
+                },
+                {
+                    "Type": "Element",
+                    "Value": "Geo"
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Effect",
+                        "When": [
+                            {
+                                "Type": "Name",
+                                "Value": "genshin3_3:effect_ningguang_e"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     ]
 }

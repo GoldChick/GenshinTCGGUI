@@ -23,18 +23,9 @@
                     "Type": "SourceMe"
                 },
                 {
-                    "Type": "AnyTarget",
+                    "Type": "AnyTargetWithSameIndex",
                     "Target": {
-                        "Type": "Character",
-                        "When": [
-                            {
-                                "Type": "CurrCharacter"
-                            },
-                            {
-                                "Type": "Name",
-                                "Value": "genshin3_3:razor"
-                            }
-                        ]
+                        "Type": "Sender"
                     }
                 }
             ]

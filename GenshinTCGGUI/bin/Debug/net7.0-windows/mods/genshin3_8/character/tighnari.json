@@ -1,0 +1,81 @@
+{
+    "CardName": "提纳里",
+    "Description": "从某种角度来说，经验并不等同于智慧。",
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "Dendro",
+        "Sumeru",
+        "Bow"
+    ],
+    "SkillList": [
+        {
+            "CardName": "藏蕴破障",
+            "Description": "造成2点物理伤害。",
+            "Type": "Skill_A",
+            "Element": "Dendro"
+        },
+        {
+            "CardName": "识果种雷",
+            "Description": "造成2点草元素伤害，角色附属通塞识。",
+            "RelatedPersistents": [
+                "genshin3_6:effect_tighnari_e"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Dendro",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Dendro",
+                        "Amount": 2
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_6:effect_tighnari_e"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "CardName": "造生缠藤箭",
+            "Description": "造成4点草元素伤害，对所有敌方后台角色造成1点穿透伤害。",
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Dendro",
+                    "Count": 3
+                },
+                {
+                    "Type": "MP",
+                    "Count": 2
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Pierce",
+                        "Amount": 1,
+                        "TargetArea": "TargetExcept",
+                        "SubDamage": {
+                            "Element": "Dendro",
+                            "Amount": 4
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

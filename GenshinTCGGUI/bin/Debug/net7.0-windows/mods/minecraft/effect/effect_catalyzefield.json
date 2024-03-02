@@ -1,0 +1,19 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "full",
+    "Name": "饱腹",
+    "Text": "本回合中，无法再对角色使用料理。",
+    "CardType": "Effect",
+    "MaxUseTimes": 1,
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        }
+    ]
+}

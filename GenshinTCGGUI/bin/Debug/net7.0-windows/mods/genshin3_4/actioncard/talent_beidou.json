@@ -1,0 +1,38 @@
+{
+    "CardName": "霹雳连霄",
+    "Description": "战斗行动：我方出战角色为北斗时，装备此牌。\n北斗装备此牌后，立刻使用一次捉浪。\n装备有此牌的北斗使用踏潮后时：使北斗本回合内接下来两次「普通攻击」少花费1个无色元素。\n（牌组中包含北斗，才能加入牌组）",
+    "CardType": "Equipment",
+    "Cost": [
+        {
+            "Type": "Electro",
+            "Count": 3
+        }
+    ],
+    "Tags": [
+        "Equipment",
+        "Talent",
+        "Slowly"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "SimpleTalent",
+                    "Value": "genshin3_4:beidou"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Skill",
+                    "Value": 1
+                }
+            ]
+        }
+    ]
+}

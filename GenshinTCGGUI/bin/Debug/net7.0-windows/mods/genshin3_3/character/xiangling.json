@@ -10,7 +10,7 @@
     ],
     "SkillList": [
         {
-            "CardName": "淬炼之剑",
+            "CardName": "白案功夫",
             "Description": "造成2点物理伤害。",
             "Type": "Skill_A",
             "Element": "Pyro"

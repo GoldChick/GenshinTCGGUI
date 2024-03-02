@@ -1,0 +1,44 @@
+{
+    "CardName": "将帅兜鍪",
+    "Description": "行动阶段开始时：为角色附属「重嶂不移」。（角色最多装备1件「圣遗物」）",
+    "RelatedPersistents": [
+        "genshin3_5:artifact_effect_qianyan"
+    ],
+    "CardType": "Equipment",
+    "Tags": [
+        "Equipment",
+        "Artifact"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "Alive"
+                }
+            ]
+        }
+    ],
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 2
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundStart",
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "artifact_effect_qianyan"
+                    ],
+                    "Target": {
+                        "Type": "Owner"
+                    }
+                }
+            ]
+        }
+    ]
+}

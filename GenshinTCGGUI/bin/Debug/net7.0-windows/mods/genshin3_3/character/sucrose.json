@@ -75,8 +75,33 @@
                     "With": [
                         {
                             "Type": "Effect",
+                            "Remove": [
+                                "genshin3_3:summon_sucrose_q_ex"
+                            ],
                             "Add": [
                                 "genshin3_3:summon_sucrose_q"
+                            ],
+                            "When": [
+                                {
+                                    "Type": "HasEffect",
+                                    "Value": "genshin3_3:talent_sucrose",
+                                    "Not": true
+                                }
+                            ]
+                        },
+                        {
+                            "Type": "Effect",
+                            "Remove": [
+                                "genshin3_3:summon_sucrose_q"
+                            ],
+                            "Add": [
+                                "genshin3_3:summon_sucrose_q_ex"
+                            ],
+                            "When": [
+                                {
+                                    "Type": "HasEffect",
+                                    "Value": "genshin3_3:talent_sucrose"
+                                }
                             ]
                         }
                     ]

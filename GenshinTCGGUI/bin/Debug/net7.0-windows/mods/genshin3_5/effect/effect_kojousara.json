@@ -1,0 +1,51 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "atk_up",
+    "Name": "鸣煌护持",
+    "Text": "所附属角色元素战技和元素爆发造成的伤害+1。\n可用次数：2",
+    "CardType": "Effect",
+    "MaxUseTimes": 2,
+    "ModList": [
+        {
+            "Type": "Damage",
+            "Value": 1,
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "ThisCharacterCause",
+                    "Value": "E",
+                    "Or": {
+                        "Type": "ThisCharacterCause",
+                        "Value": "Q"
+                    }
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Character",
+                        "When": [
+                            {
+                                "Type": "HasEffect",
+                                "Value": "genshin3_5:talent_kojousara"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Type": "Damage",
+            "Value": 1,
+            "When": [
+                {
+                    "Type": "ThisCharacterCause",
+                    "Value": "E",
+                    "Or": {
+                        "Type": "ThisCharacterCause",
+                        "Value": "Q"
+                    }
+                }
+            ]
+        }
+    ]
+}

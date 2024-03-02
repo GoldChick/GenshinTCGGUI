@@ -7,8 +7,8 @@
     "MaxUseTimes": 2,
     "ModList": [
         {
-            "Type": "Element",
-            "Value": 1,
+            "Type": "Enchant",
+            "Element": "Cryo",
             "Consume": 0,
             "When": [
                 {

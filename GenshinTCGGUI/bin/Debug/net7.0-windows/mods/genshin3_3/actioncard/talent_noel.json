@@ -1,0 +1,97 @@
+{
+    "CardName": "支援就交给我吧",
+    "Description": "战斗行动：我方出战角色为诺艾尔时，装备此牌。\n诺艾尔装备此牌后，立刻使用一次护心铠。\n诺艾尔使用普通攻击后：如果此牌和护体岩铠仍在场，则治疗我方所有角色1点。（每回合1次）\n（牌组中包含诺艾尔，才能加入牌组）",
+    "RelatedPersistents": [
+        "genshin3_3:effect_noel_e"
+    ],
+    "CardType": "Equipment",
+    "Cost": [
+        {
+            "Type": "Geo",
+            "Count": 3
+        }
+    ],
+    "Tags": [
+        "Equipment",
+        "Talent",
+        "Slowly"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "SimpleTalent",
+                    "Value": "genshin3_3:noel"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Skill",
+                    "Value": 1
+                }
+            ]
+        },
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Set": 1
+                }
+            ]
+        },
+        {
+            "Type": "AfterUseSkill",
+            "Action": [
+                {
+                    "Type": "Heal",
+                    "Value": 1,
+                    "Target": {
+                        "Type": "Character",
+                        "Index": -1,
+                        "When": [
+                            {
+                                "Type": "Alive"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ],
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1
+                },
+                {
+                    "Type": "SourceThis"
+                },
+                {
+                    "Type": "SkillType",
+                    "Value": "A"
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Effect",
+                        "When": [
+                            {
+                                "Type": "Name",
+                                "Value": "genshin3_3:effect_noel_e"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

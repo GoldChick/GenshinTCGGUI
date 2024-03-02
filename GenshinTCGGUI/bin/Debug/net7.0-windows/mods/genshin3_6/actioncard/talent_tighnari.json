@@ -1,0 +1,73 @@
+{
+    "CardName": "眼识殊明",
+    "Description": "战斗行动：我方出战角色为提纳里时，装备此牌。\n提纳里装备此牌后，立即使用一次识果种雷。装备有此牌的提纳里在附属通塞识状态期间，进行重击时少花费1个无色元素。（牌组中包含提纳里，才能加入牌组）",
+    "CardType": "Equipment",
+    "RelatedPersistents": [
+        "genshin3_6:effect_tighnari_e"
+    ],
+    "Cost": [
+        {
+            "Type": "Dendro",
+            "Count": 4
+        }
+    ],
+    "Tags": [
+        "Equipment",
+        "Talent",
+        "Slowly"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "SimpleTalent",
+                    "Value": "genshin3_6:tighnari"
+                }
+            ]
+        }
+    ],
+    "ModList": [
+        {
+            "Type": "Dice",
+            "Consume": 0,
+            "Value": 1,
+            "Element": "Void",
+            "When": [
+                {
+                    "Type": "SourceThis"
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Owner",
+                        "When": [
+                            {
+                                "Type": "HasEffect",
+                                "Value": "genshin3_6:effect_tighnari_e"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "SkillType",
+                    "Value": "A"
+                },
+                {
+                    "Type": "HeavyStrike"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Skill",
+                    "Value": 1
+                }
+            ]
+        }
+    ]
+}

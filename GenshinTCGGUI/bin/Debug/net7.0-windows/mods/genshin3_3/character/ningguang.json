@@ -72,7 +72,43 @@
                     "Damage": {
                         "Element": "Geo",
                         "Amount": 6
-                    }
+                    },
+                    "When": [
+                        {
+                            "Type": "AnyTarget",
+                            "Target": {
+                                "Type": "Effect",
+                                "When": [
+                                    {
+                                        "Type": "Name",
+                                        "Value": "genshin3_3:effect_ningguang_e",
+                                        "Not": true
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Geo",
+                        "Amount": 8
+                    },
+                    "When": [
+                        {
+                            "Type": "AnyTarget",
+                            "Target": {
+                                "Type": "Effect",
+                                "When": [
+                                    {
+                                        "Type": "Name",
+                                        "Value": "genshin3_3:effect_ningguang_e"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
                 }
             ]
         }

@@ -1,0 +1,55 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "buff",
+    "Name": "元素共鸣：坚定之岩",
+    "Text": "本回合中，我方角色下一次造成岩元素伤害后：如果我方存在具有「护盾」Tag的出战状态，则为一个此类出战状态补充3点「护盾」。",
+    "CardType": "Effect",
+    "MaxUseTimes": 1,
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        },
+        {
+            "Type": "AfterHurt",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": 3,
+                    "Target": {
+                        "Type": "Effect",
+                        "When": [
+                            {
+                                "Type": "Region",
+                                "Sign": 0,
+                                "Value": -1
+                            },
+                            {
+                                "Type": "HasTag",
+                                "Value": "Shield"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ],
+            "When": [
+                {
+                    "Type": "OurCharacterCause"
+                },
+                {
+                    "Type": "Element",
+                    "Value": "Geo"
+                }
+            ]
+        }
+    ]
+}

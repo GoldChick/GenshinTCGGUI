@@ -1,0 +1,33 @@
+{
+    "CardName": "快快缝补术",
+    "Description": "选择一个我方「召唤物」，使其「可用次数」+1。",
+    "Tags": [
+        "Event"
+    ],
+    "CardType": "Event",
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 1
+        }
+    ],
+    "Select": [
+        {
+            "Type": "Summon"
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": 1,
+                    "Target": {
+                        "Type": "Sender"
+                    }
+                }
+            ]
+        }
+    ]
+}

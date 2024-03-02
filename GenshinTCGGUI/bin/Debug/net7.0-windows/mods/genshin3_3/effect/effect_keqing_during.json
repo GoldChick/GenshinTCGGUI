@@ -1,0 +1,19 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "buff",
+    "Name": "雷楔（已回收）",
+    "Text": "打出了一张雷楔。",
+    "CardType": "Effect",
+    "MaxUseTimes": 1,
+    "SkillList": [
+        {
+            "Type": "AfterOperation",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        }
+    ]
+}

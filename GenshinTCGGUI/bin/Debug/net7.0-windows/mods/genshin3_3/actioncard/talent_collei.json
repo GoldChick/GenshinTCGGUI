@@ -1,0 +1,41 @@
+{
+    "CardName": "飞叶迴斜",
+    "Description": "战斗行动：我方出战角色为柯莱时，装备此牌。\n柯莱装备此牌后，立刻使用一次拂花偈叶。\n本回合未触发过新叶，装备有此牌的柯莱使用元素战技时，生成新叶。\n（牌组中包含柯莱，才能加入牌组）",
+    "RelatedPersistents": [
+        "genshin3_3:effect_collei_talent"
+    ],
+    "CardType": "Equipment",
+    "Cost": [
+        {
+            "Type": "Dendro",
+            "Count": 4
+        }
+    ],
+    "Tags": [
+        "Equipment",
+        "Talent",
+        "Slowly"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "SimpleTalent",
+                    "Value": "genshin3_3:collei"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Skill",
+                    "Value": 1
+                }
+            ]
+        }
+    ]
+}

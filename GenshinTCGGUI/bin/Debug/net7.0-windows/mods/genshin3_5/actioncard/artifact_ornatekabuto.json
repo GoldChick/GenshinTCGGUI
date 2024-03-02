@@ -1,0 +1,51 @@
+{
+    "CardName": "华饰之兜",
+    "Description": "其他我方角色使用元素爆发后：所附属角色获得1点充能。\n（角色最多装备1件「圣遗物」）",
+    "CardType": "Equipment",
+    "Tags": [
+        "Equipment",
+        "Artifact"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "Alive"
+                }
+            ]
+        }
+    ],
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 1
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "AfterUseSkill",
+            "Action": [
+                {
+                    "Type": "MP",
+                    "Value": 1,
+                    "Target": {
+                        "Type": "Owner"
+                    }
+                }
+            ],
+            "When": [
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "AnyTargetWithSameIndex",
+                    "Target": {
+                        "Type": "Sender"
+                    },
+                    "Not": true
+                }
+            ]
+        }
+    ]
+}

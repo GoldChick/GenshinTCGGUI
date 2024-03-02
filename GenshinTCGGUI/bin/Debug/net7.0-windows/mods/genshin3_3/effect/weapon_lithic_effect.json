@@ -1,0 +1,16 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "shield_yellow",
+    "Name": "重嶂不移",
+    "Text": "提供等同于3-队伍中非璃月角色数量的护盾保护角色。",
+    "CardType": "Effect",
+    "MaxUseTimes": 3,
+    "ModList": [
+        {
+            "Type": "Shield"
+        }
+    ],
+    "Tags": [
+        "Shield"
+    ]
+}

@@ -1,0 +1,100 @@
+{
+    "TextureNamespace": "genshin3_3",
+    "TextureNameID": "effect_cyno_p",
+    "Name": "启途誓使",
+    "Text": "结束阶段：累积1级「凭依」。\n根据「凭依」级数，提供效果：\n大于等于2级：物理伤害转化为雷元素伤害；\n大于等于4级：造成的伤害+2；\n大于等于6级时：「凭依」级数-4",
+    "CardType": "Effect",
+    "InitialUseTimes": 0,
+    "MaxUseTimes": 114,
+    "ModList": [
+        {
+            "Type": "Enchant",
+            "Element": "Electro",
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1,
+                    "Value": 1
+                },
+                {
+                    "Type": "ThisCharacterCause"
+                }
+            ]
+        },
+        {
+            "Type": "Damage",
+            "Value": 2,
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1,
+                    "Value": 3
+                },
+                {
+                    "Type": "ThisCharacterCause"
+                }
+            ]
+        },
+        {
+            "Type": "Damage",
+            "Value": 1,
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 0,
+                    "Value": 0,
+                    "Or": {
+                        "Type": "Counter",
+                        "Sign": 0,
+                        "Value": 2,
+                        "Or": {
+                            "Type": "Counter",
+                            "Sign": 0,
+                            "Value": 4
+                        }
+                    }
+                },
+                {
+                    "Type": "ThisCharacterCause"
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Sender",
+                        "When": [
+                            {
+                                "Type": "HasEffect",
+                                "Value": "genshin3_3:talent_cyno"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundOver",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": 1
+                },
+                {
+                    "Type": "Counter",
+                    "Add": -4,
+                    "When": [
+                        {
+                            "Type": "Counter",
+                            "Sign": 1,
+                            "Value": 5
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls.Primitives;
+using TCGBase;
 
 namespace Prefab
 {
-    public class SideRegion : UniformGrid, IPersistentManager,IUniformGridRegion
+    public class SideRegion : UniformGrid, IPersistentManager, IUniformGridRegion
     {
         public bool IsSupport { get; }
         public List<SideCardGrid> Cards { get; private set; }
@@ -22,9 +23,9 @@ namespace Prefab
         //    Cards = Persistents.Select((p, index) => new SideCardGrid(p.NameSpace, p.NameID, index, p.AvailableTimes)).ToList();
         //    Cards.ForEach(c => Children.Add(c));
         //}
-        public void Add(string nameSpace, string nameid, int variant, int availabletimes)
+        public void Add(ReadonlyPersistent rp)
         {
-            Cards.Add(new(nameSpace, nameid, Cards.Count, variant, availabletimes));
+            Cards.Add(new(rp.NameSpace, rp.NameID, Cards.Count, rp.AvailableTimes, rp.Data));
             Children.Add(Cards.Last());
         }
         public void Trigger(int index, int availabletimes)

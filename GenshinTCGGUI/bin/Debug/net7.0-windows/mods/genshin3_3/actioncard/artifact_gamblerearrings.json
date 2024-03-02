@@ -28,18 +28,9 @@
             "Type": "AfterHurt",
             "Action": [
                 {
-                    "Type": "MP",
-                    "Value": 1,
-                    "Target": {
-                        "Type": "Character",
-                        "Index": -1,
-                        "When": [
-                            {
-                                "Type": "CurrCharacter",
-                                "Not": true
-                            }
-                        ]
-                    }
+                    "Type": "Dice",
+                    "Element": "Trival",
+                    "Count": 2
                 },
                 {
                     "Type": "Counter",
@@ -50,6 +41,16 @@
                 {
                     "Type": "Counter",
                     "Sign": 1
+                },
+                {
+                    "Type": "CurrCharacter"
+                },
+                {
+                    "Type": "TargetMe",
+                    "Not": true
+                },
+                {
+                    "Type": "Deadly"
                 }
             ]
         }

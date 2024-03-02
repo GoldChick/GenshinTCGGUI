@@ -1,0 +1,41 @@
+{
+    "CardName": "抵天雷罚",
+    "Description": "战斗行动：我方出战角色为刻晴时，装备此牌。\n刻晴装备此牌后，立刻使用一次星斗归位。\n装备有此牌的刻晴生成的雷元素附魔获得以下效果：\n初始持续回合+1，并且会使所附属角色造成的雷元素伤害+1。\n（牌组中包含刻晴，才能加入牌组）",
+    "RelatedPersistents": [
+        "genshin3_3:effect_keqing_e_ex"
+    ],
+    "CardType": "Equipment",
+    "Cost": [
+        {
+            "Type": "Electro",
+            "Count": 3
+        }
+    ],
+    "Tags": [
+        "Equipment",
+        "Talent",
+        "Slowly"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "SimpleTalent",
+                    "Value": "genshin3_3:keqing"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Skill",
+                    "Value": 1
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,97 @@
+{
+    "CardName": "荒泷一斗",
+    "Description": "「荒泷卡牌游戏王中王一斗」",
+    "MaxHP": 10,
+    "MaxMP": 3,
+    "Tags": [
+        "Geo",
+        "Inazuma",
+        "Claymore"
+    ],
+    "SkillList": [
+        {
+            "CardName": "喧哗屋传说",
+            "Description": "造成2点物理伤害。",
+            "Type": "Skill_A",
+            "Element": "Geo"
+        },
+        {
+            "CardName": "魔杀绝技·赤牛发破！",
+            "Description": "造成1点岩元素伤害，召唤阿丑，角色附属乱神之怪力、阿丑的鼓舞。",
+            "RelatedPersistents": [
+                "genshin3_6:summon_itto_e",
+                "genshin3_6:effect_itto_p",
+                "genshin3_6:effect_itto_e"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Geo",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Geo",
+                        "Amount": 1
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_6:effect_itto_p"
+                            ]
+                        },
+                        {
+                            "Type": "Effect",
+                            "Father": "First",
+                            "Add": [
+                                "genshin3_6:summon_itto_e",
+                                "genshin3_6:effect_itto_e"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "CardName": "最恶鬼王·一斗轰临！！",
+            "Description": "造成4点岩元素伤害，角色附属怒目鬼王。",
+            "RelatedPersistents": [
+                "genshin3_6:effect_itto_q"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Geo",
+                    "Count": 3
+                },
+                {
+                    "Type": "MP",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Geo",
+                        "Amount": 4
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_6:effect_itto_q"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

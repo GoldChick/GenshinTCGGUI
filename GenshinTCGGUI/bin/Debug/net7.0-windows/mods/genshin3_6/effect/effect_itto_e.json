@@ -1,0 +1,33 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "buff",
+    "Name": "阿丑的鼓舞",
+    "Text": "我方角色受到伤害后：所附属角色附属乱神之怪力。\n可用次数：1\n「阿丑」被弃置时：弃置此状态。",
+    "CardType": "Effect",
+    "MaxUseTimes": 1,
+    "SkillList": [
+        {
+            "Type": "AfterHurt",
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_6:effect_itto_p"
+                    ],
+                    "Target": {
+                        "Type": "Owner"
+                    }
+                },
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ],
+            "When": [
+                {
+                    "Type": "TargetMe"
+                }
+            ]
+        }
+    ]
+}

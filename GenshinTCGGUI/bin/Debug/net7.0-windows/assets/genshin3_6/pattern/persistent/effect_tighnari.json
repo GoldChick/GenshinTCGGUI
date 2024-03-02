@@ -1,8 +1,0 @@
-{
-    "TextureNamespace": "minecraft",
-    "TextureNameID": "buff",
-    "Name": "通塞识",
-    "Text": [
-        "所附属角色进行重击时：造成的物理伤害变为草元素伤害，并且会在使用技能后召唤藏蕴花矢。\n可用次数：2"
-    ]
-}

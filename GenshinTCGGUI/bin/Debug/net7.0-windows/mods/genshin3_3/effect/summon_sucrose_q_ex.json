@@ -1,30 +1,150 @@
 {
     "Name": "大型风灵",
     "Text": "结束阶段：造成2点风元素伤害。\n可用次数：3\n我方角色或召唤物引发扩散反应后：转换此牌的元素类型，改为造成被扩散的元素类型的伤害，并使我方造成的此类元素伤害+1。（离场前仅限一次）",
-    "Element": [
-        7
-    ],
+    "Element": 7,
     "Damage": 2,
     "CardType": "Summon",
-    "MaxUseTimes": 2,
+    "MaxUseTimes": 3,
+    "ModList": [
+        {
+            "Type": "Damage",
+            "Value": 1,
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "Compound",
+                    "Value": [
+                        {
+                            "Type": "DataContains",
+                            "Value": 1
+                        },
+                        {
+                            "Type": "Element",
+                            "Value": "Cryo"
+                        }
+                    ],
+                    "Or": {
+                        "Type": "Compound",
+                        "Value": [
+                            {
+                                "Type": "DataContains",
+                                "Value": 2
+                            },
+                            {
+                                "Type": "Element",
+                                "Value": "Hydro"
+                            }
+                        ],
+                        "Or": {
+                            "Type": "Compound",
+                            "Value": [
+                                {
+                                    "Type": "DataContains",
+                                    "Value": 3
+                                },
+                                {
+                                    "Type": "Element",
+                                    "Value": "Pyro"
+                                }
+                            ],
+                            "Or": {
+                                "Type": "Compound",
+                                "Value": [
+                                    {
+                                        "Type": "DataContains",
+                                        "Value": 4
+                                    },
+                                    {
+                                        "Type": "Element",
+                                        "Value": "Electro"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    ],
     "SkillList": [
         {
-            "Type": "RoundOver",
+            "Type": "AfterHurt",
             "Action": [
                 {
-                    "Type": "Damage",
-                    "Damage": {
-                        "Element": "Pyro",
-                        "Amount": 2
-                    },
-                    "With": [
+                    "Type": "SetData",
+                    "Value": "Add1",
+                    "When": [
                         {
-                            "Type": "Counter",
-                            "Add": -1
+                            "Type": "ElementReaction",
+                            "Value": "SwirlCryo"
+                        }
+                    ]
+                },
+                {
+                    "Type": "SetData",
+                    "Value": "Add2",
+                    "When": [
+                        {
+                            "Type": "ElementReaction",
+                            "Value": "SwirlHydro"
+                        }
+                    ]
+                },
+                {
+                    "Type": "SetData",
+                    "Value": "Add3",
+                    "When": [
+                        {
+                            "Type": "ElementReaction",
+                            "Value": "SwirlPyro"
+                        }
+                    ]
+                },
+                {
+                    "Type": "SetData",
+                    "Value": "Add4",
+                    "When": [
+                        {
+                            "Type": "ElementReaction",
+                            "Value": "SwirlElectro"
                         }
                     ]
                 }
+            ],
+            "When": [
+                {
+                    "Type": "DataCount",
+                    "Sign": 0,
+                    "Value": 0
+                },
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "ElementRelated",
+                    "Value": "Anemo"
+                },
+                {
+                    "Type": "SkillType",
+                    "Or": {
+                        "Type": "SourceSummon"
+                    }
+                }
             ]
+        },
+        {
+            "Type": "Custom",
+            "Name": "minecraft:coloredsummon",
+            "Value": {
+                "Damage": {
+                    "Element": "Anemo",
+                    "Amount": 2
+                },
+                "Consume": 1
+            }
         }
     ]
 }

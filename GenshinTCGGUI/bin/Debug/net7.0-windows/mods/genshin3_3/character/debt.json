@@ -96,6 +96,28 @@
                     }
                 }
             ]
+        },
+        {
+            "CardName": "潜行大师",
+            "Description": "【被动】战斗开始时，初始附属潜行。（整场牌局只触发一次）",
+            "SkillCategory": "P",
+            "Type": "OnCharacterOn",
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_3:effect_debt_e"
+                    ],
+                    "Target": {
+                        "Type": "Sender"
+                    }
+                }
+            ],
+            "When": [
+                {
+                    "Type": "GameStart"
+                }
+            ]
         }
     ]
 }

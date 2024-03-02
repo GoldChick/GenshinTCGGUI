@@ -1,8 +1,0 @@
-{
-    "TextureNamespace": "genshin3_5",
-    "TextureNameID": "effect_kokomi",
-    "Name": "仪来羽衣",
-    "Text": [
-        "所附属角色普通攻击造成的伤害+1。\n所附属角色普通攻击后：治疗所有我方角色1点。\n持续回合：2"
-    ]
-}

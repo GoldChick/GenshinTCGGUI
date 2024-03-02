@@ -8,8 +8,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Security.Policy;
 
 namespace Prefab
 {

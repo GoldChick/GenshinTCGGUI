@@ -1,0 +1,130 @@
+{
+    "CardName": "珊瑚宫心海",
+    "Description": "未雨绸缪，临危莫乱。",
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "Hydro",
+        "Inazuma",
+        "Catalyst"
+    ],
+    "SkillList": [
+        {
+            "CardName": "水有常形",
+            "Description": "造成1点水元素伤害。",
+            "Type": "Skill_A",
+            "Element": "Hydro",
+            "DoElementDamage": true
+        },
+        {
+            "CardName": "海月之誓",
+            "Description": "角色附属水元素，召唤化海月。",
+            "RelatedPersistents": [
+                "genshin3_5:summon_kokomi_e"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Hydro",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Element",
+                    "Value": "Hydro"
+                },
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_5:summon_kokomi_e",
+                        "genshin3_5:summon_kokomi_e"
+                    ]
+                }
+            ]
+        },
+        {
+            "CardName": "海人化羽",
+            "Description": "造成2点水元素伤害，治疗所有我方角色1点，角色附属仪来羽衣。",
+            "RelatedPersistents": [
+                "genshin3_5:effect_kokomi_q"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Hydro",
+                    "Count": 3
+                },
+                {
+                    "Type": "MP",
+                    "Count": 2
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Hydro",
+                        "Amount": 2
+                    },
+                    "With": [
+                        {
+                            "Type": "Heal",
+                            "Value": 1,
+                            "Target": [
+                                {
+                                    "Type": "Character",
+                                    "Index": -1,
+                                    "When": [
+                                        {
+                                            "Type": "Alive"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_5:effect_kokomi_q"
+                            ]
+                        },
+                        {
+                            "Type": "Counter",
+                            "Add": 1,
+                            "Target": {
+                                "Type": "Summon",
+                                "When": [
+                                    {
+                                        "Type": "Name",
+                                        "Value": "genshin3_5:summon_kokomi_e"
+                                    }
+                                ]
+                            },
+                            "When": [
+                                {
+                                    "Type": "HasEffect",
+                                    "Value": "genshin3_5:talent_kokomi"
+                                }
+                            ]
+                        },
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_5:summon_kokomi_e"
+                            ],
+                            "When": [
+                                {
+                                    "Type": "HasEffect",
+                                    "Value": "genshin3_5:talent_kokomi"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

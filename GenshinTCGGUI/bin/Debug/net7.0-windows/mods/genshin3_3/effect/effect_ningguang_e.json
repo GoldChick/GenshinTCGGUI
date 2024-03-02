@@ -44,32 +44,6 @@
                     }
                 }
             ]
-        },
-        {
-            "Type": "Damage",
-            "Value": 1,
-            "Consume": 0,
-            "When": [
-                {
-                    "Type": "SourceMe"
-                },
-                {
-                    "Type": "AnyTarget",
-                    "Target": {
-                        "Type": "Character",
-                        "When": [
-                            {
-                                "Type": "Name",
-                                "Value": "genshin3_3:ningguang"
-                            },
-                            {
-                                "Type": "HasEffect",
-                                "Value": "genshin3_3:talent_ningguang"
-                            }
-                        ]
-                    }
-                }
-            ]
         }
     ]
 }

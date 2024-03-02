@@ -1,17 +1,11 @@
-﻿using GenshinTCGGUI;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
 using System.Linq;
-using System.Security.Policy;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
-using System.Windows.Resources;
-using System.Windows.Shapes;
 using TCGBase;
 
 namespace Prefab
@@ -91,7 +85,7 @@ namespace Prefab
                 }
             }
         }
-        public CharacterCardGrid(TeamRegion team,string nameSpace, string nameid, int maxhp, int maxmp, int skillcount, int index) : base(index)
+        public CharacterCardGrid(TeamRegion team, string nameSpace, string nameid, int maxhp, int maxmp, int skillcount, int index) : base(index)
         {
             TeamRegion = team;
             Effects = new();
@@ -172,30 +166,33 @@ namespace Prefab
             Children.Add(ElementPanel);
         }
         public List<CharacterEffectGrid> Effects { get; }
-        public void Add(string nameSpace, string nameid, int variant, int availabletimes)
+        public void Add(ReadonlyPersistent rp)
         {
-            var p = new Persistent(new(nameSpace, nameid, variant, availabletimes));
-            Effects.Add(new CharacterEffectGrid(p, Effects.Count, availabletimes));
-            if (p.Variant >= 0 && p.Uri != null)
+            var p = new Persistent(rp);
+            Effects.Add(new CharacterEffectGrid(p, Effects.Count, p.AvailableTimes));
+            if (p.EffectIconType is EffectIconType.Effect)
             {
-                if (EffectsPanel.Children.Count < 4)
+                if (p.Uri != null)
                 {
-                    EffectsPanel.Children.Add(Effects.Last());
-                }
-                else
-                {
-                    if (EffectsPanel.Children[3] is CharacterEffectGrid eg && eg.Index == -1)
+                    if (EffectsPanel.Children.Count < 4)
                     {
-                        eg.AvailableTimes++;
+                        EffectsPanel.Children.Add(Effects.Last());
                     }
                     else
                     {
-                        EffectsPanel.Children.RemoveAt(4);
-                        EffectsPanel.Children.Add(new CharacterEffectGrid(new Uri($"Resource/minecraft/icon/more.png", UriKind.Relative), -1, 2));
+                        if (EffectsPanel.Children[3] is CharacterEffectGrid eg && eg.Index == -1)
+                        {
+                            eg.AvailableTimes++;
+                        }
+                        else
+                        {
+                            EffectsPanel.Children.RemoveAt(4);
+                            EffectsPanel.Children.Add(new CharacterEffectGrid(new Uri($"Resource/minecraft/icon/more.png", UriKind.Relative), -1, 2));
+                        }
                     }
                 }
             }
-            else if (p.Variant < 0)
+            else
             {
                 Effects.Last().Width = 40;
                 LeftPanel.Children.Add(Effects.Last());

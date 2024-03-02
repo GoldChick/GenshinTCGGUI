@@ -1,0 +1,164 @@
+{
+    "TextureNamespace": "genshin3_3",
+    "TextureNameID": "effect_kunkun_p",
+    "Name": "活化激能",
+    "Text": "本角色造成或受到元素伤害后：累积1层「活化激能」。（最多累积3层）\n结束阶段：如果「活化激能」层数已达到上限，就将其清空。同时，角色失去所有充能",
+    "CardType": "Effect",
+    "CustomDesperated": true,
+    "InitialUseTimes": 0,
+    "MaxUseTimes": 4,
+    "ModList": [
+        {
+            "Type": "Damage",
+            "Value": 1,
+            "Consume": 1,
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1
+                },
+                {
+                    "Type": "ThisCharacterCause",
+                    "Value": "Q"
+                }
+            ]
+        },
+        {
+            "Type": "Damage",
+            "Value": 1,
+            "Consume": 1,
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1
+                },
+                {
+                    "Type": "ThisCharacterCause",
+                    "Value": "Q"
+                }
+            ]
+        },
+        {
+            "Type": "Damage",
+            "Value": 1,
+            "Consume": 1,
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1
+                },
+                {
+                    "Type": "ThisCharacterCause",
+                    "Value": "Q"
+                }
+            ]
+        },
+        {
+            "Type": "Damage",
+            "Value": 1,
+            "Consume": 1,
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1
+                },
+                {
+                    "Type": "ThisCharacterCause",
+                    "Value": "Q"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "AfterHurt",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": 1
+                }
+            ],
+            "When": [
+                {
+                    "Type": "Element"
+                },
+                {
+                    "Type": "SourceThis",
+                    "Or": {
+                        "Type": "TargetThis"
+                    }
+                },
+                {
+                    "Type": "Counter",
+                    "Sign": -1,
+                    "Value": 3,
+                    "Or": {
+                        "Type": "Compound",
+                        "Value": [
+                            {
+                                "Type": "Counter",
+                                "Sign": -1,
+                                "Value": 4
+                            },
+                            {
+                                "Type": "AnyTargetWithSameIndex",
+                                "Target": {
+                                    "Type": "Character",
+                                    "When": [
+                                        {
+                                            "Type": "HasEffect",
+                                            "Value": "genshin3_3:talent_kunkun"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Type": "RoundOver",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Set": 0
+                },
+                {
+                    "Type": "MP",
+                    "Value": -2
+                }
+            ],
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1,
+                    "Value": 3,
+                    "Or": {
+                        "Type": "Compound",
+                        "Value": [
+                            {
+                                "Type": "Counter",
+                                "Sign": 1,
+                                "Value": 2
+                            },
+                            {
+                                "Type": "AnyTargetWithSameIndex",
+                                "Target": {
+                                    "Type": "Character",
+                                    "When": [
+                                        {
+                                            "Type": "HasEffect",
+                                            "Value": "genshin3_3:talent_kunkun",
+                                            "Not": true
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

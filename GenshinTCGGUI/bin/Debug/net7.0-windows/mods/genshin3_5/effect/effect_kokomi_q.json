@@ -1,0 +1,96 @@
+{
+    "TextureNamespace": "genshin3_5",
+    "TextureNameID": "effect_kokomi",
+    "Name": "仪来羽衣",
+    "Text": "所附属角色普通攻击造成的伤害+1。\n所附属角色普通攻击后：治疗所有我方角色1点。\n持续回合：2",
+    "CardType": "Effect",
+    "MaxUseTimes": 2,
+    "ModList": [
+        {
+            "Type": "Damage",
+            "Consume": 0,
+            "Value": 1,
+            "When": [
+                {
+                    "Type": "ThisCharacterCause",
+                    "Value": "A"
+                }
+            ]
+        },
+        {
+            "Type": "Damage",
+            "Consume": 0,
+            "Value": 1,
+            "When": [
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Owner",
+                        "When": [
+                            {
+                                "Type": "HasEffect",
+                                "Value": "genshin3_5:talent_kokomi"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "Direct"
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Sender",
+                        "When": [
+                            {
+                                "Type": "Name",
+                                "Value": "genshin3_5:summon_kokomi_e"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "AfterUseSkill",
+            "Action": [
+                {
+                    "Type": "Heal",
+                    "Value": 1,
+                    "Target": {
+                        "Type": "Character",
+                        "Index": -1,
+                        "When": [
+                            {
+                                "Type": "Alive"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "When": [
+                {
+                    "Type": "SourceThis"
+                },
+                {
+                    "Type": "SkillType",
+                    "Value": "A"
+                }
+            ]
+        },
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        }
+    ]
+}

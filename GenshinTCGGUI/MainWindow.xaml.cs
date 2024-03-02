@@ -54,7 +54,6 @@ namespace GenshinTCGGUI
                 game.AddClient(GameManager.Instance.Client1);
 
                 GameManager.Instance.Client0.BindInitRenderAction(InitRender);
-                GameManager.Instance.Client0.BindUpdateRenderAction(UpdateRender);
                 MainClient = GameManager.Instance.Client0;
                 Task.Run(() =>
                 {
@@ -83,9 +82,6 @@ namespace GenshinTCGGUI
                 TeamMe.BlackBlocker.MouseLeftButtonDown += (s, e) => SelectStateMachine = TrivalSelectStateMachine.None;
                 TeamEnemy.BlackBlocker.MouseLeftButtonDown += (s, e) => SelectStateMachine = TrivalSelectStateMachine.None;
             });
-        }
-        private void UpdateRender(ReadonlyGame game)
-        {
         }
         private void RenderSkill(ReadonlyRegion me)
         {

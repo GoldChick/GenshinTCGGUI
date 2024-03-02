@@ -1,0 +1,41 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "atk_up_cryo",
+    "Name": "冷酷之心",
+    "Text": "所附属的角色使用元素战技时：伤害+3。（不消耗可用次数）\n优菈使用元素战技后：弃置此状态。",
+    "CardType": "Effect",
+    "MaxUseTimes": 1,
+    "ModList": [
+        {
+            "Type": "Damage",
+            "Consume": 0,
+            "Value": 3,
+            "When": [
+                {
+                    "Type": "ThisCharacterCause",
+                    "Value": "E"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "AfterUseSkill",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ],
+            "When": [
+                {
+                    "Type": "SourceThis"
+                },
+                {
+                    "Type": "SkillType",
+                    "Value": "E"
+                }
+            ]
+        }
+    ]
+}

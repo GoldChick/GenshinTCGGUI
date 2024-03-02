@@ -1,8 +1,0 @@
-{
-    "TextureNamespace": "minecraft",
-    "TextureNameID": "buff",
-    "Name": "乱神之怪力",
-    "Text": [
-        "所附属角色进行重击时：造成的伤害+1，如果可用次数至少为2，则少花费1个无色元素。\n可用次数：1（可叠加，最多叠加到3次）"
-    ]
-}

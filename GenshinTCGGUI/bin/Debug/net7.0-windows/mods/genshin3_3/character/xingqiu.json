@@ -1,0 +1,117 @@
+{
+    "CardName": "行秋",
+    "Description": "「怎么最近小说里的主角，都是些私塾里的学生…」",
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "Hydro",
+        "Liyue",
+        "Sword"
+    ],
+    "SkillList": [
+        {
+            "CardName": "古华剑法",
+            "Description": "造成2点物理伤害。",
+            "Type": "Skill_A",
+            "Element": "Hydro"
+        },
+        {
+            "CardName": "画雨笼山",
+            "Description": "造成2点水元素伤害，本角色附着水元素，生成雨帘剑。",
+            "RelatedPersistents": [
+                "genshin3_3:effect_xingqiu_e"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Hydro",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Hydro",
+                        "Amount": 2
+                    },
+                    "With": [
+                        {
+                            "Type": "Element",
+                            "Value": "Hydro"
+                        },
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:effect_xingqiu_e"
+                            ],
+                            "Remove": [
+                                "genshin3_3:effect_xingqiu_e_ex"
+                            ],
+                            "When": [
+                                {
+                                    "Type": "HasEffect",
+                                    "Value": "genshin3_3:talent_xingqiu",
+                                    "Not": true
+                                }
+                            ]
+                        },
+                        {
+                            "Type": "Effect",
+                            "Remove": [
+                                "genshin3_3:effect_xingqiu_e"
+                            ],
+                            "Add": [
+                                "genshin3_3:effect_xingqiu_e_ex"
+                            ],
+                            "When": [
+                                {
+                                    "Type": "HasEffect",
+                                    "Value": "genshin3_3:talent_xingqiu"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "CardName": "裁雨留虹",
+            "Description": "造成2点水元素伤害，本角色附着水元素，生成虹剑势。",
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Hydro",
+                    "Count": 3
+                },
+                {
+                    "Type": "MP",
+                    "Count": 2
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Hydro",
+                        "Amount": 2
+                    },
+                    "With": [
+                        {
+                            "Type": "Element",
+                            "Value": "Hydro"
+                        },
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:effect_xingqiu_q"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

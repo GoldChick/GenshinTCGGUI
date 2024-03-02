@@ -1,0 +1,139 @@
+{
+    "CardName": "刻晴",
+    "Description": "她能构筑出许多从未设想过的牌组，拿下许多难以想象的胜利。",
+    "MaxHP": 10,
+    "MaxMP": 3,
+    "Tags": [
+        "Electro",
+        "Liyue",
+        "Sword"
+    ],
+    "SkillList": [
+        {
+            "CardName": "云来剑法",
+            "Description": "造成2点物理伤害。",
+            "Type": "Skill_A",
+            "Element": "Electro"
+        },
+        {
+            "CardName": "星斗归位",
+            "Description": "造成3点雷元素伤害，如果手牌中没有雷楔，则生成手牌雷楔。",
+            "RelatedPersistents": [
+                "genshin3_3:effect_keqing_talent"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Electro",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Electro",
+                        "Amount": 3
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:talent_keqing_ex"
+                            ],
+                            "When": [
+                                {
+                                    "Type": "HasCard",
+                                    "Value": "genshin3_3:talent_keqing_ex",
+                                    "Not": true
+                                }
+                            ]
+                        },
+                        {
+                            "Type": "Effect",
+                            "Remove": [
+                                "genshin3_3:talent_keqing_ex",
+                                "genshin3_3:effect_keqing_e_ex",
+                                "genshin3_3:effect_keqing_during"
+                            ],
+                            "Add": [
+                                "genshin3_3:effect_keqing_e"
+                            ],
+                            "When": [
+                                {
+                                    "Type": "HasCard",
+                                    "Value": "genshin3_3:talent_keqing_ex",
+                                    "Or": {
+                                        "Type": "HasEffect",
+                                        "Value": "genshin3_3:effect_keqing_during"
+                                    }
+                                },
+                                {
+                                    "Type": "HasEffect",
+                                    "value": "genshin3_3:talent_keqing",
+                                    "Not": true
+                                }
+                            ]
+                        },
+                        {
+                            "Type": "Effect",
+                            "Remove": [
+                                "genshin3_3:talent_keqing_ex",
+                                "genshin3_3:effect_keqing_e",
+                                "genshin3_3:effect_keqing_during"
+                            ],
+                            "Add": [
+                                "genshin3_3:effect_keqing_e_ex"
+                            ],
+                            "When": [
+                                {
+                                    "Type": "HasCard",
+                                    "Value": "genshin3_3:talent_keqing_ex",
+                                    "Or": {
+                                        "Type": "HasEffect",
+                                        "Value": "genshin3_3:effect_keqing_during"
+                                    }
+                                },
+                                {
+                                    "Type": "HasEffect",
+                                    "value": "genshin3_3:talent_keqing"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "CardName": "天街巡游",
+            "Description": "造成4点雷元素伤害，对所有敌方后台角色造成3点穿透伤害。",
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Electro",
+                    "Count": 4
+                },
+                {
+                    "Type": "MP",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Pierce",
+                        "TargetArea": "TargetExcept",
+                        "Amount": 3,
+                        "SubDamage": {
+                            "Element": "Electro",
+                            "Amount": 4
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

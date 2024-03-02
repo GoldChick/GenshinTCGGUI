@@ -60,7 +60,7 @@
             "Action": [
                 {
                     "Type": "Counter",
-                    "Set": "1"
+                    "Set": 1
                 }
             ]
         }

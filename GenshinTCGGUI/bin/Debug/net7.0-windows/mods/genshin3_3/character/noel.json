@@ -52,9 +52,10 @@
         },
         {
             "CardName": "大扫除",
-            "Description": "造成4点岩元素伤害，角色附属大扫除。",
+            "Description": "造成4点岩元素伤害，角色附属大扫除和大扫除·进行中。",
             "RelatedPersistents": [
-                "genshin3_3:effect_noel_q"
+                "genshin3_3:effect_noel_q",
+                "genshin3_3:effect_noel_q_dice"
             ],
             "Type": "Skill",
             "SkillCategory": "Q",
@@ -78,8 +79,10 @@
                     "With": [
                         {
                             "Type": "Effect",
+                            "Father": "First",
                             "Add": [
-                                "genshin3_3:effect_noel_q"
+                                "genshin3_3:effect_noel_q",
+                                "genshin3_3:effect_noel_q_dice"
                             ]
                         }
                     ]

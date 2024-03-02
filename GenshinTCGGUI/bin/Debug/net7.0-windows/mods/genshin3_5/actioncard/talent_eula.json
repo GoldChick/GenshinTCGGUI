@@ -1,0 +1,42 @@
+{
+    "CardName": "战欲涌现",
+    "Description": "战斗行动：我方出战角色为优菈时，装备此牌。\n优菈装备此牌后，立刻使用一次凝浪之光剑。\n装备有此牌的优菈使用冰潮的涡旋时，会额外为光降之剑累积1点「能量层数」。\n（牌组中包含优菈，才能加入牌组）",
+    "CardType": "Equipment",
+    "Cost": [
+        {
+            "Type": "Cryo",
+            "Count": 3
+        },
+        {
+            "Type": "MP",
+            "Count": 2
+        }
+    ],
+    "Tags": [
+        "Equipment",
+        "Talent",
+        "Slowly"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "SimpleTalent",
+                    "Value": "genshin3_5:eula"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Skill",
+                    "Value": 2
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,75 @@
+{
+    "CardName": "丘丘岩盔王",
+    "Description": "绕道而行吧，因为前方是属于「王」的领域。",
+    "MaxHP": 8,
+    "MaxMP": 2,
+    "Tags": [
+        "Geo",
+        "Mob",
+        "QQ",
+        "OtherWeapon"
+    ],
+    "SkillList": [
+        {
+            "CardName": "Plama Lawa",
+            "Description": "造成2点物理伤害。",
+            "Type": "Skill_A",
+            "Element": "Geo"
+        },
+        {
+            "CardName": "Movo Lawa",
+            "Description": "造成3点物理伤害。",
+            "Type": "Skill_E",
+            "Element": "Geo"
+        },
+        {
+            "CardName": "Upa Shato",
+            "Description": "造成5点物理伤害。",
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Geo",
+                    "Count": 3
+                },
+                {
+                    "Type": "MP",
+                    "Count": 2
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Trival",
+                        "Amount": 5
+                    }
+                }
+            ]
+        },
+        {
+            "CardName": "魔化：岩盔",
+            "Description": "【被动】战斗开始时，初始附属岩盔和坚岩之力。（整场牌局只触发一次）",
+            "SkillCategory": "P",
+            "Type": "OnCharacterOn",
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Father": "First",
+                    "Add": [
+                        "genshin3_3:effect_qq_def",
+                        "genshin3_3:effect_qq_atk"
+                    ],
+                    "Target": {
+                        "Type": "Sender"
+                    }
+                }
+            ],
+            "When": [
+                {
+                    "Type": "GameStart"
+                }
+            ]
+        }
+    ]
+}

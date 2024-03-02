@@ -1,0 +1,83 @@
+{
+    "CardName": "镜华风姿",
+    "Description": "战斗行动：我方出战角色为神里绫人时，装备此牌。\n神里绫人装备此牌后，立刻使用一次神里流·镜花。\n装备有此牌的神里绫人触发泷廻鉴花的效果时，对于生命值不多于6的敌人伤害额外+1。\n（牌组中包含神里绫人，才能加入牌组）",
+    "CardType": "Equipment",
+    "RelatedPersistents": [
+        "genshin3_6:effect_ayato_e"
+    ],
+    "Cost": [
+        {
+            "Type": "Hydro",
+            "Count": 3
+        }
+    ],
+    "Tags": [
+        "Equipment",
+        "Talent",
+        "Slowly"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "SimpleTalent",
+                    "Value": "genshin3_6:ayato"
+                }
+            ]
+        }
+    ],
+    "ModList": [
+        {
+            "Type": "Damage",
+            "Consume": 0,
+            "Value": 1,
+            "When": [
+                {
+                    "Type": "SourceThis"
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Owner",
+                        "When": [
+                            {
+                                "Type": "HasEffect",
+                                "Value": "genshin3_6:effect_ayato_e"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "SkillType",
+                    "Value": "A"
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Sender",
+                        "Index": 1,
+                        "When": [
+                            {
+                                "Type": "HP",
+                                "Sign": -1,
+                                "Value": 7
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Skill",
+                    "Value": 1
+                }
+            ]
+        }
+    ]
+}

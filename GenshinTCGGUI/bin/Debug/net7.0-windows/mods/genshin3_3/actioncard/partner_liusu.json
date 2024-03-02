@@ -15,11 +15,61 @@
     ],
     "SkillList": [
         {
+            "Type": "AfterSwitch",
+            "Action": [
+                {
+                    "Type": "MP"
+                },
+                {
+                    "Type": "SetData",
+                    "Value": "Add"
+                }
+            ],
+            "When": [
+                {
+                    "Type": "DataCount",
+                    "Sign": 0,
+                    "Value": 0
+                },
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Sender",
+                        "Index": 1,
+                        "When": [
+                            {
+                                "Type": "MP",
+                                "Sign": 0,
+                                "Value": 0
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Type": "AfterSwitch",
+            "Action": [
+                {
+                    "Type": "Destroy"
+                }
+            ],
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 0
+                }
+            ]
+        },
+        {
             "Type": "RoundStep",
             "Action": [
                 {
                     "Type": "SetData",
-                    "RemoveAt": 0
+                    "Value": "Clear"
                 }
             ]
         }

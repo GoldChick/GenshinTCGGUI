@@ -1,0 +1,34 @@
+{
+    "CardName": "护法之誓",
+    "Description": "消灭场上所有「召唤物」。（不分敌我！）",
+    "Tags": [
+        "Event"
+    ],
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 4
+        }
+    ],
+    "CardType": "Event",
+    "Skill": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Destroy",
+                    "Target": {
+                        "Type": "Summon"
+                    }
+                },
+                {
+                    "Type": "Destroy",
+                    "Target": {
+                        "Type": "Summon",
+                        "Team": "Enemy"
+                    }
+                }
+            ]
+        }
+    ]
+}

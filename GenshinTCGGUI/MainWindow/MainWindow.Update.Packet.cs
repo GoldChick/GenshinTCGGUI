@@ -83,7 +83,8 @@ namespace GenshinTCGGUI
                         switch (category)
                         {
                             case 0://obtain
-                                manager.Add(packet.Strings[0], packet.Strings[1], packet.Ints[1], packet.Ints[2]);
+                                ReadonlyPersistent rp = new(packet.Strings[0], packet.Strings[1], (ReadonlyPersistent.PersistentType)packet.Ints[1], packet.Ints[2], packet.Ints[3..]);
+                                manager.Add(rp);
                                 break;
                             case 1://trigger
                                 manager.Trigger(packet.Ints[1], packet.Ints[2]);

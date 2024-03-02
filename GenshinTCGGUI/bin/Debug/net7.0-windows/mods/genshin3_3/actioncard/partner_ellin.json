@@ -1,0 +1,54 @@
+{
+    "CardName": "艾琳",
+    "Description": "我方角色使用该角色本回合使用过的技能时：少花费1个元素骰。（每回合1次）",
+    "Tags": [
+        "Support",
+        "Partner"
+    ],
+    "CardType": "Support",
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 2
+        }
+    ],
+    "ModList": [
+        {
+            "Type": "Dice",
+            "Element": "Trival",
+            "Value": 1,
+            "When": [
+                {
+                    "Type": "SkillType"
+                },
+                {
+                    "Type": "Counter",
+                    "Sign": 1
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Sender",
+                        "When": [
+                            {
+                                "Type": "Counter",
+                                "Sign": 1
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Set": 1
+                }
+            ]
+        }
+    ]
+}

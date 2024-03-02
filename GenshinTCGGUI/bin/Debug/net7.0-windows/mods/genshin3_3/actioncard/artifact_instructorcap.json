@@ -1,0 +1,89 @@
+{
+    "CardName": "教官的帽子",
+    "Description": "角色引发了元素反应后：生成1个此角色元素类型的元素骰（每回合至多3次）\n角色最多装备1件「圣遗物」）",
+    "CardType": "Equipment",
+    "Tags": [
+        "Equipment",
+        "Artifact"
+    ],
+    "InitialUseTimes": 3,
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "Alive"
+                }
+            ]
+        }
+    ],
+    "Cost": [
+        {
+            "Type": "Void",
+            "Count": 2
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "AfterHurt",
+            "Action": [
+                {
+                    "Type": "Dice",
+                    "Element": "Owner",
+                    "Value": 1
+                },
+                {
+                    "Type": "Counter",
+                    "Value": -1
+                }
+            ],
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1
+                },
+                {
+                    "Type": "SourceThis"
+                },
+                {
+                    "Type": "ElementReaction"
+                }
+            ]
+        },
+        {
+            "Type": "AfterElement",
+            "Action": [
+                {
+                    "Type": "Dice",
+                    "Element": "Owner",
+                    "Value": 1
+                },
+                {
+                    "Type": "Counter",
+                    "Value": -1
+                }
+            ],
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1
+                },
+                {
+                    "Type": "SourceThis"
+                },
+                {
+                    "Type": "ElementReaction"
+                }
+            ]
+        },
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Set": 3
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "shield_purple",
+    "Name": "雷兽之盾",
+    "Text": "我方角色普通攻击后：造成1点雷元素伤害。\n我方出战角色受到至少为3的伤害时：抵消其中1点伤害。\n持续回合：2",
+    "CardType": "Effect",
+    "MaxUseTimes": 2,
+    "ModList": [
+        {
+            "Type": "Barrier",
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "Damage",
+                    "Sign": 1,
+                    "Value": 2
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "AfterUseSkill",
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Electro",
+                        "Amount": 1
+                    }
+                }
+            ],
+            "When": [
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "SkillType",
+                    "Value": "A"
+                }
+            ]
+        },
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        }
+    ]
+}

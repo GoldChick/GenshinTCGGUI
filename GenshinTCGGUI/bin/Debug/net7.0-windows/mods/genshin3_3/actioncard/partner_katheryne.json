@@ -1,0 +1,38 @@
+{
+    "CardName": "凯瑟琳",
+    "Description": "我方执行「切换角色」行动时：将此次切换视为「快速行动」而非「战斗行动」。（每回合1次）",
+    "Tags": [
+        "Support",
+        "Partner"
+    ],
+    "CardType": "Support",
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 1
+        }
+    ],
+    "ModList": [
+        {
+            "Type": "Fast",
+            "Mode": "Switch",
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Set": 1
+                }
+            ]
+        }
+    ]
+}

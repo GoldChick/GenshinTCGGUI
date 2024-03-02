@@ -1,0 +1,70 @@
+{
+    "CardName": "翠翎恐蕈",
+    "Description": "悄声静听，可以听到幽林之中，偶像练习生巡视领土的脚步…",
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "Dendro",
+        "Mob",
+        "OtherWeapon"
+    ],
+    "SkillList": [
+        {
+            "CardName": "菌王舞步",
+            "Description": "造成2点物理伤害。",
+            "Type": "Skill_A",
+            "Element": "Dendro"
+        },
+        {
+            "CardName": "不稳定孢子云",
+            "Description": "造成3点草元素伤害。",
+            "Type": "Skill_E",
+            "Element": "Dendro"
+        },
+        {
+            "CardName": "尾羽豪放",
+            "Description": "造成4点草元素伤害，消耗所有活化激能层数，每层使此伤害+1。",
+            "RelatedPersistents": [
+                "genshin3_3:effect_kunkun_p"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Dendro",
+                    "Count": 3
+                },
+                {
+                    "Type": "MP",
+                    "Count": 2
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Dendro",
+                        "Amount": 4
+                    }
+                }
+            ]
+        },
+        {
+            "CardName": "活化激能",
+            "Description": "【被动】战斗开始时，初始附属活化激能。",
+            "SkillCategory": "P",
+            "Type": "OnCharacterOn",
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_3:effect_kunkun_p"
+                    ],
+                    "Target": {
+                        "Type": "Sender"
+                    }
+                }
+            ]
+        }
+    ]
+}

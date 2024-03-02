@@ -2,13 +2,13 @@
     "TextureNamespace": "minecraft",
     "TextureNameID": "enchant_pyro",
     "Name": "庭火焰硝",
-    "Text": "所附属角色普通攻击伤害+1，造成的物理伤害变为火元素伤害。\n所附属角色使用普通攻击后：造成1点火元素伤害\n可用次数：3",
+    "Text": "所附属角色普通攻击伤害+1，并且造成的物理伤害变为火元素伤害。（不消耗可用次数）\n所附属角色使用普通攻击后：造成1点火元素伤害\n可用次数：3",
     "CardType": "Effect",
     "MaxUseTimes": 3,
     "ModList": [
         {
-            "Type": "Element",
-            "Value": 3,
+            "Type": "Enchant",
+            "Element": "Pyro",
             "Consume": 0,
             "When": [
                 {
@@ -26,8 +26,7 @@
                     "Type": "ThisCharacterCause",
                     "Value": "A"
                 }
-            ],
-            "AddData": true
+            ]
         }
     ],
     "SkillList": [
@@ -44,18 +43,17 @@
                         {
                             "Type": "Counter",
                             "Add": -1
-                        },
-                        {
-                            "Type": "SetData",
-                            "Value": "Clear"
                         }
                     ]
                 }
             ],
             "When": [
                 {
-                    "Type": "DataCount",
-                    "Sign": 1
+                    "Type": "SourceThis"
+                },
+                {
+                    "Type": "SkillType",
+                    "Value": "A"
                 }
             ]
         }

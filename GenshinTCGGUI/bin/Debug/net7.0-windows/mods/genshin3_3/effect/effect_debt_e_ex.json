@@ -19,8 +19,8 @@
             ]
         },
         {
-            "Type": "Element",
-            "Value": 3,
+            "Type": "Enchant",
+            "Element": "Pyro",
             "Consume": 0,
             "When": [
                 {

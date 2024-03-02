@@ -1,0 +1,88 @@
+{
+    "CardName": "九条裟罗",
+    "Description": "「此为，大义之举。」",
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "Electro",
+        "Inazuma",
+        "Bow"
+    ],
+    "SkillList": [
+        {
+            "CardName": "天狗传弓术",
+            "Description": "造成2点物理伤害。",
+            "Type": "Skill_A",
+            "Element": "Electro"
+        },
+        {
+            "CardName": "鸦羽天狗霆雷召咒",
+            "Description": "造成1点雷元素伤害，召唤天狗咒雷·伏。",
+            "RelatedPersistents": [
+                "genshin3_5:summon_kojousara_e",
+                "genshin3_5:effect_kojousara"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Electro",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Electro",
+                        "Amount": 1
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_5:summon_kojousara_e"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "CardName": "煌煌千道镇式",
+            "Description": "造成1点雷元素伤害，召唤天狗咒雷·雷砾。",
+            "RelatedPersistents": [
+                "genshin3_5:summon_kojousara_q"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Electro",
+                    "Count": 4
+                },
+                {
+                    "Type": "MP",
+                    "Count": 2
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Electro",
+                        "Amount": 1
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_5:summon_kojousara_q"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

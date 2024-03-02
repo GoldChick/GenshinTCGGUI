@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,8 +21,13 @@ namespace Prefab
         /// </summary>
         public bool IsSupport { get; init; }
         public TextBlock TextRightUp { get; }
-        public SideCardGrid(string nameSpace, string nameid, int index, int variant, int availabletimes) : base(index)
+        public int AvailableTimes { get; }
+        public List<int> Data { get; }
+        public SideCardGrid(string nameSpace, string nameid, int index, int availabletimes, IEnumerable<int> data) : base(index)
         {
+            AvailableTimes = availabletimes;
+            Data = data.ToList();
+
             string path = Path.Combine(Directory.GetCurrentDirectory(), $"assets/{nameSpace}/action/{nameid}.png");
             if (!File.Exists(path))
             {
@@ -78,7 +84,7 @@ namespace Prefab
                         };
                         Image Element = new()
                         {
-                            Source = new BitmapImage(new($"Resource/util/element/{converter.Element[variant / 10]}.png", UriKind.Relative)),
+                            Source = new BitmapImage(new($"Resource/util/element/{converter.Element}.png", UriKind.Relative)),
                         };
                         TextBlock damage = new()
                         {

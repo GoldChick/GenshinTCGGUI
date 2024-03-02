@@ -37,11 +37,31 @@
                         {
                             "Type": "Effect",
                             "Add": [
-                                "genshin3_3:effect_xiangling_q"
+                                "genshin3_3:effect_collei_talent",
+                                "genshin3_3:effect_collei_talent_already"
                             ],
                             "Target": {
                                 "Type": "Team"
-                            }
+                            },
+                            "When": [
+                                {
+                                    "Type": "HasEffect",
+                                    "Value": "genshin3_3:talent_collei"
+                                },
+                                {
+                                    "Type": "AnyTarget",
+                                    "Target": {
+                                        "Type": "Effect",
+                                        "When": [
+                                            {
+                                                "Type": "Name",
+                                                "Value": "genshin3_3:effect_collei_talent_already"
+                                            }
+                                        ]
+                                    },
+                                    "Not": true
+                                }
+                            ]
                         }
                     ]
                 }

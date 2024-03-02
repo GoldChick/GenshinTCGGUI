@@ -1,0 +1,31 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "enchant_hydro",
+    "Name": "泷廻鉴花",
+    "Text": "所附属角色普通攻击造成的伤害+1，造成的物理伤害变为水元素伤害。\n可用次数：3",
+    "CardType": "Effect",
+    "MaxUseTimes": 3,
+    "ModList": [
+        {
+            "Type": "Element",
+            "Value": 2,
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "ThisCharacterCause",
+                    "Value": "A"
+                }
+            ]
+        },
+        {
+            "Type": "Damage",
+            "Value": 1,
+            "When": [
+                {
+                    "Type": "ThisCharacterCause",
+                    "Value": "A"
+                }
+            ]
+        }
+    ]
+}

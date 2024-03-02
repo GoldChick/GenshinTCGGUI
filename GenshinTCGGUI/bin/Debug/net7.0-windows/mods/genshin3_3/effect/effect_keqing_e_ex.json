@@ -1,0 +1,45 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "enchant_electro",
+    "Name": "雷元素附魔",
+    "Text": "造成的物理伤害变为雷元素伤害，造成的雷元素伤害+1。\n持续回合：3",
+    "CardType": "Effect",
+    "MaxUseTimes": 3,
+    "ModList": [
+        {
+            "Type": "Enchant",
+            "Element": "Electro",
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "ThisCharacterCause"
+                }
+            ]
+        },
+        {
+            "Type": "Damage",
+            "Value": 1,
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "ThisCharacterCause"
+                },
+                {
+                    "Type": "Element",
+                    "Value": "Electro"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        }
+    ]
+}

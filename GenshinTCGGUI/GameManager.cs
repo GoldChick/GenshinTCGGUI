@@ -13,7 +13,9 @@ namespace GenshinTCGGUI
         public GameManager()
         {
             Registry.Instance.RFDll.LoadDlls(Directory.GetCurrentDirectory() + "/mods");
+            Registry.Instance.RFJson.LoadFolders(Directory.GetCurrentDirectory() + "/mods", "minecraft");
             Registry.Instance.RFJson.LoadFolders(Directory.GetCurrentDirectory() + "/mods", "genshin3_3");
+            Registry.Instance.RFJson.LoadFolders(Directory.GetCurrentDirectory() + "/mods", "genshin3_4");
         }
         public GuiClient Client0;
         public SocketServerClient Client1;

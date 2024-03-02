@@ -1,0 +1,80 @@
+{
+    "CardName": "白垩之术",
+    "Description": "从最多2个我方具有充能的后台角色（不要求不被击倒）身上，转移1点充能到我方出战角色。",
+    "Tags": [
+        "Event"
+    ],
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 1
+        }
+    ],
+    "CardType": "Event",
+    "Skill": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "MP",
+                    "Value": 1
+                },
+                {
+                    "Type": "MP",
+                    "Value": -1,
+                    "Target": {
+                        "Type": "Character",
+                        "Index": 1
+                    }
+                }
+            ],
+            "When": [
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Character",
+                        "Index": 1,
+                        "When": [
+                            {
+                                "Type": "MP",
+                                "Sign": 1
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "MP",
+                    "Value": 1
+                },
+                {
+                    "Type": "MP",
+                    "Value": -1,
+                    "Target": {
+                        "Type": "Character",
+                        "Index": 2
+                    }
+                }
+            ],
+            "When": [
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Character",
+                        "Index": 2,
+                        "When": [
+                            {
+                                "Type": "MP",
+                                "Sign": 1
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

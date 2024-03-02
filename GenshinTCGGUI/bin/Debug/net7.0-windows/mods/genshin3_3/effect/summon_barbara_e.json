@@ -1,0 +1,36 @@
+{
+    "Name": "歌声之环",
+    "Text": "结束阶段：治疗所有我方角色1点，我方出战角色附着水元素。\n可用次数：2",
+    "Element": 2,
+    "Damage": 1,
+    "CardType": "Summon",
+    "MaxUseTimes": 2,
+    "SkillList": [
+        {
+            "Type": "RoundOver",
+            "Action": [
+                {
+                    "Type": "Element",
+                    "Value": "Hydro"
+                },
+                {
+                    "Type": "Heal",
+                    "Value": 1,
+                    "Target": {
+                        "Type": "Character",
+                        "Index": -1,
+                        "When": [
+                            {
+                                "Type": "Alive"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        }
+    ]
+}

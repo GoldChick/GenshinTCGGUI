@@ -1,0 +1,83 @@
+{
+    "CardName": "芭芭拉",
+    "Description": "无论何时都能治愈人心。",
+    "MaxHP": 10,
+    "MaxMP": 3,
+    "Tags": [
+        "Hydro",
+        "Mondstadt",
+        "Catalyst"
+    ],
+    "SkillList": [
+        {
+            "CardName": "水之浅唱",
+            "Description": "造成1点水元素伤害。",
+            "Type": "Skill_A",
+            "Element": "Hydro",
+            "DoElementDamage": true
+        },
+        {
+            "CardName": "演唱，开始♪",
+            "Description": "造成1点水元素伤害，召唤歌声之环。",
+            "RelatedPersistents": [
+                "genshin3_3:summon_barbara_e"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Hydro",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Hydro",
+                        "Amount": 1
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_3:summon_barbara_e"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "CardName": "闪耀奇迹♪",
+            "Description": "治疗我方所有角色4点。",
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Hydro",
+                    "Count": 3
+                },
+                {
+                    "Type": "MP",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Heal",
+                    "Value": 4,
+                    "Target": {
+                        "Type": "Character",
+                        "Index": -1,
+                        "When": [
+                            {
+                                "Type": "Alive"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -60,7 +60,7 @@
             "Type": "RoundOver",
             "Action": [
                 {
-                    "Type": "DestroySelf"
+                    "Type": "Destroy"
                 }
             ],
             "When": [

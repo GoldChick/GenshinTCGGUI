@@ -30,7 +30,7 @@
                     "Count": 2
                 },
                 {
-                    "Type": "DestroySelf"
+                    "Type": "Destroy"
                 }
             ],
             "When": [

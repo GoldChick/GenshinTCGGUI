@@ -1,9 +1,7 @@
 {
     "Name": "蒲公英领域",
     "Text": "结束阶段：造成1点风元素伤害，治疗我方出战角色1点。\n可用次数：2",
-    "Element": [
-        7
-    ],
+    "Element": 7,
     "Damage": 1,
     "CardType": "Summon",
     "MaxUseTimes": 2,

@@ -1,0 +1,34 @@
+{
+    "CardName": "送你一程",
+    "Description": "选择一个敌方「召唤物」，使其「可用次数」-2。",
+    "Tags": [
+        "Event"
+    ],
+    "CardType": "Event",
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 2
+        }
+    ],
+    "Select": [
+        {
+            "Type": "Summon",
+            "Team": "Enemy"
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -2,
+                    "Target": {
+                        "Type": "Sender"
+                    }
+                }
+            ]
+        }
+    ]
+}

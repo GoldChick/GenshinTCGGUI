@@ -1,9 +1,5 @@
-﻿using Prefab;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 using TCGBase;
 
 namespace Prefab
@@ -20,10 +16,13 @@ namespace Prefab
         Shield,
         Timer
     }
-    public enum EffectTriggerCategory
+    /// <summary>
+    /// 支援、召唤右上角显示的数字，默认为可用次数
+    /// </summary>
+    public enum EffectNumberType
     {
-        Shine,
-        Skill
+        AvailableTime,
+        DataCount
     }
     public record CardTextConverter
     {
@@ -42,28 +41,24 @@ namespace Prefab
         public string TextureNamespace { get; }
         public string TextureNameID { get; }
         public EffectShowCategory ShowCategory { get; }
-        public EffectTriggerCategory TriggerCategory { get; }
-
-        public EffectTextureConverter(string textureNamespace, string textureNameID, string name, string text, EffectShowCategory showCategory, EffectTriggerCategory triggerCategory, List<string>? tags) : base(name, text, tags)
+        public EffectTextureConverter(string textureNamespace, string textureNameID, string name, string text, EffectShowCategory showCategory, List<string>? tags) : base(name, text, tags)
         {
             TextureNamespace = textureNamespace;
             TextureNameID = textureNameID;
             ShowCategory = showCategory;
-            TriggerCategory = triggerCategory;
         }
     }
     public record SideTextureConverter : CardTextConverter
     {
         public EffectShowCategory ShowCategory { get; }
-        public EffectTriggerCategory TriggerCategory { get; }
         public int Damage { get; }
-        public ElementCategory[] Element { get; }
-        public SideTextureConverter(string name, string text, EffectShowCategory showCategory, EffectTriggerCategory triggerCategory, int damage, ElementCategory[] element, List<string>? tags) : base(name, text, tags)
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public ElementCategory Element { get; }
+        public SideTextureConverter(string name, string text, EffectShowCategory showCategory, int damage, ElementCategory element, List<string>? tags) : base(name, text, tags)
         {
             Damage = damage;
-            Element = element ?? new ElementCategory[] { ElementCategory.Cryo };
+            Element = element;
             ShowCategory = showCategory;
-            TriggerCategory = triggerCategory;
         }
     }
 }

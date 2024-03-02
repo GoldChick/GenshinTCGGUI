@@ -1,0 +1,74 @@
+{
+    "CardName": "元素共鸣：蔓生之草",
+    "Description": "本回合中，我方下一次引发元素反应时，造成的伤害+2。\n打出后使我方场上具有「草元素造物」Tag的状态「可用次数」+1。\n（牌组包含至少2个草元素角色，才能加入牌组）",
+    "RelatedPersistents": [
+        "minecraft:summon_burning",
+        "minecraft:effect_dendrocore",
+        "minecraft:effect_catalyzefield"
+    ],
+    "CardType": "Event",
+    "Cost": [
+        {
+            "Type": "Dendro",
+            "Count": 1
+        }
+    ],
+    "Tags": [
+        "Event"
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": 1,
+                    "Target": {
+                        "Type": "Effect",
+                        "When": [
+                            {
+                                "Type": "HasTag",
+                                "Value": "DendroCreature"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "Counter",
+                    "Add": 1,
+                    "Target": {
+                        "Type": "Summon",
+                        "When": [
+                            {
+                                "Type": "HasTag",
+                                "Value": "DendroCreature"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "Counter",
+                    "Add": 1,
+                    "Target": {
+                        "Type": "Support",
+                        "When": [
+                            {
+                                "Type": "HasTag",
+                                "Value": "DendroCreature"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_3:element_resonance_effect_dendro"
+                    ],
+                    "Target": {
+                        "Type": "Team"
+                    }
+                }
+            ]
+        }
+    ]
+}

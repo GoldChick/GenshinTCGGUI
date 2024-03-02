@@ -1,0 +1,41 @@
+{
+    "CardName": "深渊的呼唤",
+    "Description": "召唤一个随机「丘丘人」召唤物！\n（牌组包含至少2个「魔物」角色，才能加入牌组）",
+    "RelatedPersistents": [
+        "genshin3_3:event_effect_hili"
+    ],
+    "Tags": [
+        "Event"
+    ],
+    "CardType": "Event",
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 2
+        }
+    ],
+    "Select": [
+        {
+            "Type": "Summon",
+            "Team": "Enemy"
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "SampleEffect",
+                    "Max": 4,
+                    "Count": 1,
+                    "Pool": [
+                        "genshin3_3:summon_hili_cryo",
+                        "genshin3_3:summon_hili_hydro",
+                        "genshin3_3:summon_hili_pyro",
+                        "genshin3_3:summon_hili_electro"
+                    ]
+                }
+            ]
+        }
+    ]
+}
