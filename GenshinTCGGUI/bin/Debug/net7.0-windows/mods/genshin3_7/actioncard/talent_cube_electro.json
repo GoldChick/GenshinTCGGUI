@@ -1,0 +1,49 @@
+{
+    "CardName": "汲能棱晶",
+    "Description": "战斗行动：我方出战角色为无相之雷时，治疗该角色3点，并附属雷晶核心。\n（牌组中包含无相之雷，才能加入牌组）",
+    "CardType": "Event",
+    "Cost": [
+        {
+            "Type": "Electro",
+            "Count": 2
+        }
+    ],
+    "Tags": [
+        "Talent",
+        "Slowly"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "CurrCharacter"
+                },
+                {
+                    "Type": "Name",
+                    "Value": "genshin3_7:cube_electro"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Heal",
+                    "Value": 3,
+                    "Target": {
+                        "Type": "Sender"
+                    }
+                },
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_7:effect_cube_electro_p"
+                    ]
+                }
+            ]
+        }
+    ]
+}

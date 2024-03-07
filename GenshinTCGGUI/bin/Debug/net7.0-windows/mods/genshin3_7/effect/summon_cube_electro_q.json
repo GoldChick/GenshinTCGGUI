@@ -1,0 +1,71 @@
+{
+    "Name": "雷锁镇域",
+    "Text": "结束阶段：造成1点雷元素伤害。\n可用次数：2\n此召唤物在场时：敌方执行「切换角色」行动的元素骰费用+1。（每回合1次）",
+    "Element": 4,
+    "Damage": 1,
+    "CardType": "Summon",
+    "MaxUseTimes": 2,
+    "ModList": [
+        {
+            "Type": "Dice",
+            "Element": "Trival",
+            "Value": -1,
+            "Consume": 0,
+            "AddData": 0,
+            "When": [
+                {
+                    "Type": "SourceMe",
+                    "Not": true
+                },
+                {
+                    "Type": "SkillType",
+                    "Not": true
+                },
+                {
+                    "Type": "DataCount",
+                    "Sign": 0
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Sender",
+                        "When": [
+                            {
+                                "Type": "CurrCharacter"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "SetData",
+                    "Value": "Clear"
+                }
+            ]
+        },
+        {
+            "Type": "RoundOver",
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Electro",
+                        "Amount": 1
+                    },
+                    "With": [
+                        {
+                            "Type": "Counter",
+                            "Add": -1
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

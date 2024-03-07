@@ -71,69 +71,21 @@
     ],
     "SkillList": [
         {
-            "Type": "AfterHurt",
-            "Action": [
-                {
-                    "Type": "SetData",
-                    "Value": "Add1",
-                    "When": [
-                        {
-                            "Type": "ElementReaction",
-                            "Value": "SwirlCryo"
+            "Type": "Custom",
+            "Name": "ColorWhenHurt",
+            "Value": {
+                "When": [
+                    {
+                        "Type": "SourceMe"
+                    },
+                    {
+                        "Type": "SkillType",
+                        "Or": {
+                            "Type": "SourceSummon"
                         }
-                    ]
-                },
-                {
-                    "Type": "SetData",
-                    "Value": "Add2",
-                    "When": [
-                        {
-                            "Type": "ElementReaction",
-                            "Value": "SwirlHydro"
-                        }
-                    ]
-                },
-                {
-                    "Type": "SetData",
-                    "Value": "Add3",
-                    "When": [
-                        {
-                            "Type": "ElementReaction",
-                            "Value": "SwirlPyro"
-                        }
-                    ]
-                },
-                {
-                    "Type": "SetData",
-                    "Value": "Add4",
-                    "When": [
-                        {
-                            "Type": "ElementReaction",
-                            "Value": "SwirlElectro"
-                        }
-                    ]
-                }
-            ],
-            "When": [
-                {
-                    "Type": "DataCount",
-                    "Sign": 0,
-                    "Value": 0
-                },
-                {
-                    "Type": "SourceMe"
-                },
-                {
-                    "Type": "ElementRelated",
-                    "Value": "Anemo"
-                },
-                {
-                    "Type": "SkillType",
-                    "Or": {
-                        "Type": "SourceSummon"
                     }
-                }
-            ]
+                ]
+            }
         },
         {
             "Type": "Custom",
@@ -143,7 +95,12 @@
                     "Element": "Anemo",
                     "Amount": 2
                 },
-                "Consume": 1
+                "With": [
+                    {
+                        "Type": "Counter",
+                        "Add": -1
+                    }
+                ]
             }
         }
     ]

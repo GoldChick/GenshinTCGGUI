@@ -1,0 +1,19 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "full",
+    "Name": "复苏冷却中",
+    "Text": "本回合无法通过「料理」复苏角色。",
+    "CardType": "Effect",
+    "MaxUseTimes": 1,
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        }
+    ]
+}

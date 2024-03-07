@@ -1,0 +1,58 @@
+{
+    "CardName": "提瓦特煎蛋",
+    "Description": "复苏目标角色，并治疗此角色1点。\n（每回合中，最多通过「料理」复苏1个角色，并且每个角色最多食用1次「料理」）",
+    "Tags": [
+        "Event",
+        "Food"
+    ],
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 2
+        }
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "Alive",
+                    "Not": true
+                }
+            ]
+        }
+    ],
+    "CardType": "Event",
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Revive",
+                    "Value": 1,
+                    "Target": {
+                        "Type": "Sender"
+                    }
+                },
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "minecraft:effect_full"
+                    ],
+                    "Target": {
+                        "Type": "Sender"
+                    }
+                },
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "minecraft:effect_revive_cooldown"
+                    ],
+                    "Target": {
+                        "Type": "Team"
+                    }
+                }
+            ]
+        }
+    ]
+}

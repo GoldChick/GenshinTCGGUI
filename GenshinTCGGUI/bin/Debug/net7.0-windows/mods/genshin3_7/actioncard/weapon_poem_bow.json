@@ -1,0 +1,63 @@
+{
+    "CardName": "终末嗟叹之诗",
+    "Description": "角色造成的伤害+1。\n角色使用「元素爆发」后：生成「千年的大乐章·别离之歌」\n（「弓」角色才能装备。角色最多装备1件「武器」）",
+    "RelatedPersistents": [
+        "genshin3_7:weapon_effect_poem_bow"
+    ],
+    "CardType": "Equipment",
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 3
+        }
+    ],
+    "Tags": [
+        "Equipment",
+        "Weapon",
+        "Bow"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "SimpleWeapon",
+                    "Value": "Bow"
+                }
+            ]
+        }
+    ],
+    "ModList": [
+        {
+            "Type": "Damage",
+            "Value": 1,
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "ThisCharacterCause"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "AfterUseSkill",
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_7:weapon_effect_poem_bow"
+                    ],
+                    "Target": {
+                        "Type": "Team"
+                    }
+                }
+            ],
+            "When": [
+                {
+                    "Type": "SourceThis"
+                }
+            ]
+        }
+    ]
+}

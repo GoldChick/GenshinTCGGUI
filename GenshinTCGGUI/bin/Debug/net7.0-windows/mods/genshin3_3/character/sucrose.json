@@ -40,7 +40,16 @@
                             "Target": {
                                 "Type": "Character",
                                 "Team": "Enemy",
-                                "Reverse": true
+                                "SortBy": "Reverse",
+                                "When": [
+                                    {
+                                        "Type": "CurrCharacter",
+                                        "Not": true
+                                    },
+                                    {
+                                        "Type": "Alive"
+                                    }
+                                ]
                             }
                         }
                     ]

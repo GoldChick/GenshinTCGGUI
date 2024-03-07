@@ -1,0 +1,120 @@
+{
+    "CardName": "迪娜泽黛",
+    "Description": "打出「伙伴」支援牌时：少花费1个元素骰。（每回合1次）\n打出「伙伴」支援牌后：从牌组中随机抽取1张「伙伴」支援牌。（整场牌局限制1次）",
+    "Tags": [
+        "Support",
+        "Partner"
+    ],
+    "CardType": "Support",
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 1
+        }
+    ],
+    "ModList": [
+        {
+            "Type": "Dice",
+            "Value": 1,
+            "Consume": 1,
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Sender",
+                        "When": [
+                            {
+                                "Type": "HasTag",
+                                "Value": "Partner"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "AfterUseCard",
+            "Action": [
+                {
+                    "Type": "SetData",
+                    "Value": "Add"
+                }
+            ],
+            "When": [
+                {
+                    "Type": "DataCount",
+                    "Sign": 0,
+                    "Value": 0
+                },
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Sender",
+                        "When": [
+                            {
+                                "Type": "HasTag",
+                                "Value": "Partner"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Type": "AfterUseCard",
+            "Action": [
+                {
+                    "Type": "DrawCard",
+                    "Count": 1,
+                    "WithTag": [
+                        "Partner"
+                    ]
+                },
+                {
+                    "Type": "SetData",
+                    "Value": "Add"
+                }
+            ],
+            "When": [
+                {
+                    "Type": "DataCount",
+                    "Sign": 0,
+                    "Value": 1
+                },
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Sender",
+                        "When": [
+                            {
+                                "Type": "HasTag",
+                                "Value": "Partner"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Set": 1
+                }
+            ]
+        }
+    ]
+}

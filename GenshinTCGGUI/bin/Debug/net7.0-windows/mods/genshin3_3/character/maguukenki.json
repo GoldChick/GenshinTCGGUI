@@ -81,11 +81,14 @@
                     "Type": "Switch",
                     "Target": {
                         "Type": "Character",
-                        "Reverse": true,
+                        "SortBy": "Reverse",
                         "When": [
                             {
                                 "Type": "CurrCharacter",
                                 "Not": true
+                            },
+                            {
+                                "Type": "Alive"
                             }
                         ]
                     },

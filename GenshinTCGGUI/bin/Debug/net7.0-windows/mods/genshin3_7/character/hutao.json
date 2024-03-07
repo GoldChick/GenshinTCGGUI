@@ -1,0 +1,137 @@
+{
+    "CardName": "胡桃",
+    "Description": "「送走，全送走。」",
+    "MaxHP": 10,
+    "MaxMP": 3,
+    "Tags": [
+        "Pyro",
+        "Liyue",
+        "Longweapon"
+    ],
+    "SkillList": [
+        {
+            "CardName": "往生秘传枪法",
+            "Description": "造成2点物理伤害。",
+            "Type": "Skill",
+            "SkillCategory": "A",
+            "Cost": [
+                {
+                    "Type": "Pyro",
+                    "Count": 1
+                },
+                {
+                    "Type": "Void",
+                    "Count": 2
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_7:effect_hutao_a"
+                    ],
+                    "Target": {
+                        "Team": "Enemy"
+                    },
+                    "When": [
+                        {
+                            "Type": "HeavyStrike"
+                        },
+                        {
+                            "Type": "HasEffect",
+                            "Value": "genshin3_7:effect_hutao_e"
+                        }
+                    ]
+                },
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Trival",
+                        "Amount": 2
+                    }
+                }
+            ]
+        },
+        {
+            "CardName": "蝶引来生",
+            "Description": "角色附属彼岸蝶舞。",
+            "RelatedPersistents": [
+                "genshin3_7:effect_hutao_e"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Pyro",
+                    "Count": 2
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_7:effect_hutao_e"
+                    ]
+                }
+            ]
+        },
+        {
+            "CardName": "安神秘法",
+            "Description": "造成4点火元素伤害，治疗自身2点。如果本角色生命值不多于6，则造成的伤害和治疗各+1。",
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Pyro",
+                    "Count": 3
+                },
+                {
+                    "Type": "MP",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Pyro",
+                        "Amount": 4
+                    },
+                    "With": [
+                        {
+                            "Type": "Heal",
+                            "Value": 2
+                        }
+                    ],
+                    "When": [
+                        {
+                            "Type": "HP",
+                            "Sign": 1,
+                            "Value": 6
+                        }
+                    ]
+                },
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Pyro",
+                        "Amount": 5
+                    },
+                    "With": [
+                        {
+                            "Type": "Heal",
+                            "Value": 3
+                        }
+                    ],
+                    "When": [
+                        {
+                            "Type": "HP",
+                            "Sign": -1,
+                            "Value": 7
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

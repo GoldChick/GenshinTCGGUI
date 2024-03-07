@@ -1,23 +1,17 @@
 {
     "TextureNamespace": "minecraft",
-    "TextureNameID": "shield_yellow",
-    "Name": "捉浪·涛拥之守",
-    "Text": "我方选择行动时：如果所附属角色能够行动，就直接使用踏潮作为行动。\n准备技能期间：提供2点护盾，保护所附属角色。",
+    "TextureNameID": "special",
+    "Name": "猜拳三连击·布",
+    "Text": "本角色将在下次行动时，直接使用技能：猜拳三连击·布。",
     "CardType": "Effect",
-    "MaxUseTimes": 2,
-    "CustomDesperated": true,
-    "ModList": [
-        {
-            "Type": "Shield"
-        }
-    ],
+    "MaxUseTimes": 1,
     "SkillList": [
         {
             "Type": "RoundDuring",
             "Action": [
                 {
                     "Type": "Prepare",
-                    "Value": 0,
+                    "Value": 1,
                     "Target": {
                         "Type": "Owner"
                     }

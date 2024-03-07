@@ -1,0 +1,29 @@
+{
+    "TextureNamespace": "genshin3_7",
+    "TextureNameID": "effect_child_stream",
+    "Name": "断流·传染",
+    "Text": "我方切换角色后：出战角色附属「断流」。（可用次数：1）",
+    "CardType": "Effect",
+    "MaxUseTimes": 1,
+    "SkillList": [
+        {
+            "Type": "AfterSwitch",
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_7:effect_tartaglia_a"
+                    ]
+                },
+                {
+                    "Type": "Destroy"
+                }
+            ],
+            "When": [
+                {
+                    "Type": "SourceMe"
+                }
+            ]
+        }
+    ]
+}

@@ -1,14 +1,14 @@
 {
-    "Name": "大型风灵",
-    "Text": "结束阶段：造成2点风元素伤害。\n可用次数：3\n我方角色或召唤物引发扩散反应后：转换此牌的元素类型，改为造成被扩散的元素类型的伤害。（离场前仅限一次）",
+    "Name": "暴风之眼",
+    "Text": "结束阶段：造成2点风元素伤害，对方切换到距离我方出战角色最近的角色。\n可用次数：2\n我方角色或召唤物引发扩散反应后：转换此牌的元素类型，改为造成被扩散的元素类型的伤害。（离场前仅限一次）",
     "Element": 7,
     "Damage": 2,
     "CardType": "Summon",
-    "MaxUseTimes": 3,
+    "MaxUseTimes": 2,
     "SkillList": [
         {
             "Type": "Custom",
-            "Name": "ColorWhenHurt",
+            "Name": "minecraft:colorwhenhurt",
             "Value": {
                 "When": [
                     {
@@ -35,6 +35,19 @@
                     {
                         "Type": "Counter",
                         "Add": -1
+                    },
+                    {
+                        "Type": "Switch",
+                        "Target": {
+                            "Type": "Character",
+                            "Team": "Enemy",
+                            "SortBy": "ClosestToEnemy",
+                            "When": [
+                                {
+                                    "Type": "Alive"
+                                }
+                            ]
+                        }
                     }
                 ]
             }

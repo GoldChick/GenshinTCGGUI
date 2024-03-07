@@ -1,0 +1,54 @@
+{
+    "TextureNamespace": "genshin3_7",
+    "TextureNameID": "effect_child_sword",
+    "Name": "近战状态",
+    "Text": "角色造成的物理伤害转换为水元素伤害。\n角色对附属有断流的角色造成的伤害+1。\n持续回合：2",
+    "CardType": "Effect",
+    "MaxUseTimes": 2,
+    "ModList": [
+        {
+            "Type": "Enchant",
+            "Element": "Hydro",
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "ThisCharacterCause"
+                }
+            ]
+        },
+        {
+            "Type": "Damage",
+            "Value": 1,
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "ThisCharacterCause"
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Sender",
+                        "Index": 1,
+                        "When": [
+                            {
+                                "Type": "HasEffect",
+                                "Value": "genshin3_7:effect_tartaglia_a"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        }
+    ]
+}

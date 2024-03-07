@@ -1,0 +1,43 @@
+{
+    "CardName": "黄油蟹蟹",
+    "Description": "本回合中，所有我方角色下次受到的伤害-2。\n（每回合每个角色最多食用1次「料理」）",
+    "Tags": [
+        "Event",
+        "Food"
+    ],
+    "Cost": [
+        {
+            "Type": "Void",
+            "Count": 2
+        }
+    ],
+    "CardType": "Event",
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_7:food_effect_buttercrab",
+                        "minecraft:effect_full"
+                    ],
+                    "Target": {
+                        "Type": "Character",
+                        "Index": -1,
+                        "When": [
+                            {
+                                "Type": "Alive"
+                            },
+                            {
+                                "Type": "HasEffect",
+                                "Value": "minecraft:effect_full",
+                                "Not": true
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

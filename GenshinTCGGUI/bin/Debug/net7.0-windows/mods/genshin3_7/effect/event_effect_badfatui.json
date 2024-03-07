@@ -1,0 +1,8 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "debuff",
+    "Name": "愚人众伏兵",
+    "Text": "「愚人众伏兵」会在自身所在阵营的角色使用技能后触发效果，对自身所在阵营的出战角色造成伤害（每回合1次）。",
+    "CardType": "Effect",
+    "MaxUseTimes": 1
+}

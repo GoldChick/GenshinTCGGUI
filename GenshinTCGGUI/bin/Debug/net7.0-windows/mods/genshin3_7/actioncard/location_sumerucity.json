@@ -1,0 +1,73 @@
+{
+    "CardName": "须弥城",
+    "Description": "我方打出「天赋」牌或我方角色使用技能时：如果我方元素骰数量不多于手牌数量，则少花费1个元素骰。（每回合1次）",
+    "Tags": [
+        "Support",
+        "Location"
+    ],
+    "CardType": "Support",
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 2
+        }
+    ],
+    "ModList": [
+        {
+            "Type": "Dice",
+            "Element": "Trival",
+            "Value": 1,
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1
+                },
+                {
+                    "Type": "DiceCount",
+                    "Sign": 1,
+                    "DynamicValue": {
+                        "Type": "CardCount"
+                    },
+                    "Not": true
+                },
+                {
+                    "Type": "CanBeAppliedFrom",
+                    "Target": {
+                        "Type": "Sender",
+                        "When": [
+                            {
+                                "Type": "HasTag",
+                                "Value": "Talent"
+                            }
+                        ]
+                    },
+                    "Or": {
+                        "Type": "AnyTarget",
+                        "Target": {
+                            "Type": "Sender",
+                            "When": [
+                                {
+                                    "Type": "SkillType"
+                                },
+                                {
+                                    "Type": "Alive"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Set": 1
+                }
+            ]
+        }
+    ]
+}

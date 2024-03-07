@@ -1,0 +1,53 @@
+{
+    "CardName": "镇守之森",
+    "Description": "结行动阶段开始时：如果我方不是「先手牌手」，则生成1个出战角色类型的元素骰。\n可用次数：3",
+    "Tags": [
+        "Support",
+        "Location"
+    ],
+    "CardType": "Support",
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 1
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundStart",
+            "Action": [
+                {
+                    "Type": "Dice",
+                    "Count": 1,
+                    "Target": {
+                        "Type": "Character"
+                    }
+                },
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ],
+            "When": [
+                {
+                    "Type": "CurrTeam",
+                    "Not": true
+                }
+            ]
+        },
+        {
+            "Type": "RoundStart",
+            "Action": [
+                {
+                    "Type": "Destroy"
+                }
+            ],
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 0
+                }
+            ]
+        }
+    ]
+}

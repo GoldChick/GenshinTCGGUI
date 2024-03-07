@@ -1,0 +1,60 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "buff",
+    "Name": "风域",
+    "Description": "我方执行「切换角色」时：少花费1个元素骰。（不消耗可用次数）\n我方进行「切换角色」行动后，若触发了上述减费效果：本回合中我方角色下次「普通攻击」少花费1个无色元素骰。\n可用次数：2",
+    "MaxUseTimes": 2,
+    "CardType": "Effect",
+    "ModList": [
+        {
+            "Type": "Dice",
+            "Consume": 0,
+            "AddData": 0,
+            "Value": 1,
+            "Element": "Trival",
+            "When": [
+                {
+                    "Type": "SkillType",
+                    "Not": true
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Sender",
+                        "When": [
+                            {
+                                "Type": "Alive"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "AfterOperation",
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_7:effect_venti_talent"
+                    ],
+                    "Target": {
+                        "Type": "Team"
+                    }
+                },
+                {
+                    "Type": "SetData",
+                    "Value": "Clear"
+                }
+            ],
+            "When": [
+                {
+                    "Type": "DataCount",
+                    "Sign": 1
+                }
+            ]
+        }
+    ]
+}

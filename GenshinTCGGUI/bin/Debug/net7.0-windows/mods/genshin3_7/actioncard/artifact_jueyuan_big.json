@@ -1,0 +1,72 @@
+{
+    "CardName": "绝缘之旗印",
+    "Description": "其他我方角色使用元素爆发后：所附属角色获得1点充能。\n角色使用「元素爆发」造成的伤害+2。（每回合一次）\n（角色最多装备1件「圣遗物」）",
+    "CardType": "Equipment",
+    "Tags": [
+        "Equipment",
+        "Artifact"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "Alive"
+                }
+            ]
+        }
+    ],
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 2
+        }
+    ],
+    "ModList": [
+        {
+            "Type": "Damage",
+            "Value": 2,
+            "When": [
+                {
+                    "Type": "ThisCharacterCause",
+                    "Value": "Q"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "AfterUseSkill",
+            "Action": [
+                {
+                    "Type": "MP",
+                    "Value": 1,
+                    "Target": {
+                        "Type": "Owner"
+                    }
+                }
+            ],
+            "When": [
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "AnyTargetWithSameIndex",
+                    "Target": {
+                        "Type": "Sender"
+                    },
+                    "Not": true
+                }
+            ]
+        },
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Set": 1
+                }
+            ]
+        }
+    ]
+}

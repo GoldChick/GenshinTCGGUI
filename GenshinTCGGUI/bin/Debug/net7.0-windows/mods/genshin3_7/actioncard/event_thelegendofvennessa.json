@@ -1,0 +1,26 @@
+{
+    "CardName": "温妮莎传奇",
+    "Description": "生成4个不同类型的基础元素骰。",
+    "CardType": "Event",
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 3
+        }
+    ],
+    "Tags": [
+        "Event"
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Dice",
+                    "Element": "Random",
+                    "Count": 4
+                }
+            ]
+        }
+    ]
+}

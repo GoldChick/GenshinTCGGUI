@@ -1,0 +1,33 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "revive",
+    "Name": "火之新生",
+    "Text": "所附属角色被击倒时：移除此效果，使角色免于被击倒，并治疗该角色3点。",
+    "CardType": "Effect",
+    "MaxUseTimes": 1,
+    "SkillList": [
+        {
+            "Type": "AntiDie",
+            "Action": [
+                {
+                    "Type": "Heal",
+                    "Value": 3,
+                    "Target": {
+                        "Type": "Owner"
+                    }
+                },
+                {
+                    "Type": "Trigger",
+                    "Value": "genshin3_7:abyss_pyro_talent"
+                },
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        }
+    ],
+    "Tags": [
+        "AntiDie"
+    ]
+}

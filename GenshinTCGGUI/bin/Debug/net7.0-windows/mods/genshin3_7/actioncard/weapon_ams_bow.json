@@ -1,0 +1,69 @@
+{
+    "CardName": "阿莫斯之弓",
+    "Description": "角色造成的伤害+1。\n角色使用原本元素骰费用+充能费用+秘传费用至少为5的技能时：伤害+2（每回合1次）\n（「弓」角色才能装备。角色最多装备1件「武器」）",
+    "CardType": "Equipment",
+    "Cost": [
+        {
+            "Type": "Trival",
+            "Count": 3
+        }
+    ],
+    "Tags": [
+        "Equipment",
+        "Weapon",
+        "Bow"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "SimpleWeapon",
+                    "Value": "Bow"
+                }
+            ]
+        }
+    ],
+    "ModList": [
+        {
+            "Type": "Damage",
+            "Value": 1,
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "ThisCharacterCause"
+                }
+            ]
+        },
+        {
+            "Type": "Damage",
+            "Value": 2,
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1
+                },
+                {
+                    "Type": "ThisCharacterCause",
+                    "Value": "Q"
+                },
+                {
+                    "Type": "SkillCostSum",
+                    "Sign": 1,
+                    "Value": 4
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Set": 1
+                }
+            ]
+        }
+    ]
+}

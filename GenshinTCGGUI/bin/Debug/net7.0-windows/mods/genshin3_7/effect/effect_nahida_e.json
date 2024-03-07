@@ -1,0 +1,150 @@
+{
+    "TextureNamespace": "genshin3_7",
+    "TextureNameID": "effect_nahida_e",
+    "Name": "蕴种印",
+    "Text": "角色受到元素反应伤害后：对所附属角色造成1点穿透伤害，使所在阵营其他角色所附属的蕴种印生效(需消耗其可用次数)\n可用次数：2",
+    "CardType": "Effect",
+    "MaxUseTimes": 2,
+    "SkillList": [
+        {
+            "Type": "CustomSenderName",
+            "SenderName": "genshin3_7:skandha",
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Pierce",
+                        "Amount": 1
+                    },
+                    "With": [
+                        {
+                            "Type": "Counter",
+                            "Add": -1
+                        }
+                    ],
+                    "When": [
+                        {
+                            "Type": "DataCount",
+                            "Sign": 0
+                        }
+                    ]
+                },
+                {
+                    "Type": "SetData",
+                    "Value": "Clear"
+                }
+            ]
+        },
+        {
+            "Type": "AfterHurt",
+            "Action": [
+                {
+                    "Type": "SetData",
+                    "Value": "Add"
+                },
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Pierce",
+                        "Amount": 1
+                    },
+                    "With": [
+                        {
+                            "Type": "Counter",
+                            "Add": -1
+                        },
+                        {
+                            "Type": "Trigger",
+                            "Value": "genshin3_7:skandha"
+                        }
+                    ],
+                    "When": [
+                        {
+                            "Type": "AnyTarget",
+                            "Not": true,
+                            "Target": {
+                                "Type": "Character",
+                                "Index": -1,
+                                "Team": "Enemy",
+                                "When": [
+                                    {
+                                        "Type": "HasEffect",
+                                        "Value": "genshin3_7:talent_nahida"
+                                    }
+                                ]
+                            },
+                            "Or": {
+                                "Type": "AnyTarget",
+                                "Not": true,
+                                "Target": {
+                                    "Type": "Effect",
+                                    "Team": "Enemy",
+                                    "When": [
+                                        {
+                                            "Type": "Name",
+                                            "Value": "genshin3_7:effect_nahida_q"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Dendro",
+                        "Amount": 1
+                    },
+                    "With": [
+                        {
+                            "Type": "Counter",
+                            "Add": -1
+                        },
+                        {
+                            "Type": "Trigger",
+                            "Value": "genshin3_7:skandha"
+                        }
+                    ],
+                    "When": [
+                        {
+                            "Type": "AnyTarget",
+                            "Target": {
+                                "Type": "Character",
+                                "Index": -1,
+                                "Team": "Enemy",
+                                "When": [
+                                    {
+                                        "Type": "HasEffect",
+                                        "Value": "genshin3_7:talent_nahida"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "Type": "AnyTarget",
+                            "Target": {
+                                "Type": "Effect",
+                                "Team": "Enemy",
+                                "When": [
+                                    {
+                                        "Type": "Name",
+                                        "Value": "genshin3_7:effect_nahida_q"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ],
+            "When": [
+                {
+                    "Type": "TargetThis"
+                },
+                {
+                    "Type": "ElementReaction"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "shield_yellow",
+    "Name": "叛逆的守护",
+    "Text": "提供1点护盾。（可叠加，最多2点）",
+    "CardType": "Effect",
+    "InitialUseTimes": 1,
+    "MaxUseTimes": 2,
+    "ModList": [
+        {
+            "Type": "Shield"
+        }
+    ],
+    "Tags": [
+        "Shield"
+    ]
+}

@@ -1,7 +1,7 @@
 {
-    "Name": "青蛙",
-    "Text": "我方出战角色受到伤害时：抵消1点伤害\n可用次数：1，耗尽时不弃置此牌。\n结束阶段：如果可用次数已耗尽，弃置此牌，造成2点水元素伤害。",
-    "Element": 2,
+    "Name": "兔兔伯爵",
+    "Text": "我方出战角色受到伤害时：抵消2点伤害\n可用次数：1，耗尽时不弃置此牌。\n结束阶段：如果可用次数已耗尽，弃置此牌，造成2点火元素伤害。",
+    "Element": 3,
     "Damage": 2,
     "CardType": "Summon",
     "MaxUseTimes": 1,
@@ -9,6 +9,7 @@
     "ModList": [
         {
             "Type": "Barrier",
+            "Value": 2,
             "When": [
                 {
                     "Type": "Counter",
@@ -24,7 +25,7 @@
                 {
                     "Type": "Damage",
                     "Damage": {
-                        "Element": "Hydro",
+                        "Element": "Pyro",
                         "Amount": 2
                     },
                     "With": [

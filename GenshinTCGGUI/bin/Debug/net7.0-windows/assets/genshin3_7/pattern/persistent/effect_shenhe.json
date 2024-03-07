@@ -1,9 +1,0 @@
-{
-    "TextureNamespace": "minecraft",
-    "TextureNameID": "atk_up_cryo",
-    "Name": "冰翎",
-    "Text": [
-        "我方角色引发的冰元素伤害+1。",
-        "我方角色引发的冰元素伤害+1。\n被我方角色的「普通攻击」触发时：不消耗可用次数。（每回合1次）"
-    ]
-}

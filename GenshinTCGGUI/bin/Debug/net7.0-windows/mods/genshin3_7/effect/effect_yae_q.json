@@ -1,0 +1,33 @@
+{
+    "TextureNamespace": "genshin3_7",
+    "TextureNameID": "effect_yae",
+    "Name": "天狐霆雷",
+    "Text": "我方选择行动前：造成3点雷元素伤害。\n可用次数：1",
+    "CardType": "Effect",
+    "MaxUseTimes": 1,
+    "SkillList": [
+        {
+            "Type": "RoundMeStart",
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Electro",
+                        "Amount": 3
+                    },
+                    "With": [
+                        {
+                            "Type": "Counter",
+                            "Add": -1
+                        }
+                    ]
+                }
+            ],
+            "When": [
+                {
+                    "Type": "SourceMe"
+                }
+            ]
+        }
+    ]
+}

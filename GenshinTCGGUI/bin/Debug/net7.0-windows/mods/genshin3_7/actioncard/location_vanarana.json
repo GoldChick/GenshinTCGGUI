@@ -1,0 +1,30 @@
+{
+    "CardName": "桓那兰那",
+    "Description": "每结束阶段：收集最多2个未使用的元素骰。\n行动阶段开始时：拿回此牌所收集的元素骰。",
+    "Tags": [
+        "Support",
+        "Location"
+    ],
+    "CardType": "Support",
+    "SkillList": [
+        {
+            "Type": "RoundOver",
+            "Action": [
+                {
+                    "Type": "EatDice",
+                    "Same": true,
+                    "Count": 2
+                }
+            ]
+        },
+        {
+            "Type": "RoundStart",
+            "Action": [
+                {
+                    "Type": "EatDice",
+                    "Eat": false
+                }
+            ]
+        }
+    ]
+}

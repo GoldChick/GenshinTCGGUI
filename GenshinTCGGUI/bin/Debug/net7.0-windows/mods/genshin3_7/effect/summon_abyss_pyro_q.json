@@ -1,0 +1,33 @@
+{
+    "Name": "黯火炉心",
+    "Text": "结束阶段：造成1点火元素伤害，对所有敌方后台角色造成1点穿透伤害。\n可用次数：2",
+    "Element": 3,
+    "Damage": 1,
+    "CardType": "Summon",
+    "MaxUseTimes": 2,
+    "SkillList": [
+        {
+            "Type": "RoundOver",
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Pierce",
+                        "Amount": 1,
+                        "TargetArea": "TargetExcept",
+                        "SubDamage": {
+                            "Element": "Pyro",
+                            "Amount": 1
+                        }
+                    },
+                    "With": [
+                        {
+                            "Type": "Counter",
+                            "Add": -1
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

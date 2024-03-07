@@ -15,34 +15,54 @@
     ],
     "SkillList": [
         {
-            "Type": "Custom",
-            "Name": "minecraft:wangshuinn",
-            "Value": {
-                "Value": 2,
-                "Consume": 1,
-                "When": [
-                    {
-                        "Type": "CurrCharacter",
-                        "Not": true
-                    },
-                    {
-                        "Type": "HPLost",
-                        "Sign": 1
-                    }
-                ]
-            }
-        },
-        {
             "Type": "RoundOver",
             "Action": [
                 {
-                    "Type": "Destroy"
-                }
-            ],
-            "When": [
+                    "Type": "Heal",
+                    "Value": 2,
+                    "Target": {
+                        "Type": "Character",
+                        "SortBy": "HPLostMost",
+                        "When": [
+                            {
+                                "Type": "Alive"
+                            },
+                            {
+                                "Type": "CurrCharacter",
+                                "Not": true
+                            }
+                        ]
+                    },
+                    "When": [
+                        {
+                            "Type": "AnyTarget",
+                            "Target": {
+                                "Type": "Character",
+                                "When": [
+                                    {
+                                        "Type": "Alive"
+                                    },
+                                    {
+                                        "Type": "CurrCharacter",
+                                        "Not": true
+                                    },
+                                    {
+                                        "Type": "HPLost",
+                                        "Sign": 1
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
                 {
-                    "Type": "Counter",
-                    "Sign": 0
+                    "Type": "Destroy",
+                    "When": [
+                        {
+                            "Type": "Counter",
+                            "Sign": 0
+                        }
+                    ]
                 }
             ]
         }

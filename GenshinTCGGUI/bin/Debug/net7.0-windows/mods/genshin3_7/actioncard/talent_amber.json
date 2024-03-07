@@ -1,0 +1,90 @@
+{
+    "CardName": "一触即发",
+    "Description": "战斗行动：我方出战角色为安柏时，装备此牌。\n安柏装备此牌后，立刻使用一次爆弹玩偶。\n安柏普通攻击后：如果此牌和兔兔伯爵仍在场，则造成4点火元素伤害,弃置兔兔伯爵。\n（牌组中包含安柏，才能加入牌组）",
+    "CardType": "Equipment",
+    "RelatedPersistents": [
+        "genshin3_7:summon_amber_e"
+    ],
+    "Cost": [
+        {
+            "Type": "Pyro",
+            "Count": 3
+        }
+    ],
+    "Tags": [
+        "Equipment",
+        "Talent",
+        "Slowly"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "SimpleTalent",
+                    "Value": "genshin3_7:amber"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Skill",
+                    "Value": 1
+                }
+            ]
+        },
+        {
+            "Type": "AfterUseSkill",
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Pyro",
+                        "Amount": 4,
+                        "With": [
+                            {
+                                "Type": "Destroy",
+                                "Target": {
+                                    "Type": "Summon",
+                                    "Index": -1,
+                                    "When": [
+                                        {
+                                            "Type": "Name",
+                                            "Value": "genshin3_7:summon_amber_e"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "When": [
+                {
+                    "Type": "SourceThis"
+                },
+                {
+                    "Type": "SkillType",
+                    "Value": "A"
+                },
+                {
+                    "Type": "AnyTarget",
+                    "Target": {
+                        "Type": "Summon",
+                        "Index": -1,
+                        "When": [
+                            {
+                                "Type": "Name",
+                                "Value": "genshin3_7:summon_amber_e"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

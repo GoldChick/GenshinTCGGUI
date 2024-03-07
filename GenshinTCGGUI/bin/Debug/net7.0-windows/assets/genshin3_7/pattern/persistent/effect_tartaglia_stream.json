@@ -1,8 +1,0 @@
-{
-    "TextureNamespace": "genshin3_7",
-    "TextureNameID": "effect_child_stream",
-    "Name": "断流",
-    "Text": [
-        "所附属角色被击倒后：对所在阵营出战角色附属「断流」。如果所在阵营出战角色已被击倒，就对该阵营下一个出战角色附属断流」。"
-    ]
-}

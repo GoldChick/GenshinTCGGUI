@@ -1,0 +1,31 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "atk_up",
+    "Name": "唐杜尔烤鸡（生效中）",
+    "Text": "回合中，该角色下一次「元素战技」造成的伤害+2。",
+    "CardType": "Effect",
+    "MaxUseTimes": 1,
+    "ModList": [
+        {
+            "Type": "Damage",
+            "Value": 2,
+            "When": [
+                {
+                    "Type": "ThisCharacterCause",
+                    "Value": "E"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
+                }
+            ]
+        }
+    ]
+}

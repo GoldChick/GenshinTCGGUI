@@ -1,0 +1,72 @@
+{
+    "CardName": "安柏",
+    "Description": "如果想要成为一名伟大的牌手…\n首先，要有坐上牌桌的勇气。",
+    "MaxHP": 10,
+    "MaxMP": 2,
+    "Tags": [
+        "Pyro",
+        "Mondstadt",
+        "Bow"
+    ],
+    "SkillList": [
+        {
+            "CardName": "神射手",
+            "Description": "造成2点物理伤害。",
+            "Type": "Skill_A",
+            "Element": "Pyro"
+        },
+        {
+            "CardName": "爆弹玩偶",
+            "Description": "召唤兔兔伯爵。",
+            "RelatedPersistents": [
+                "genshin3_7:summon_amber_e"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Pyro",
+                    "Count": 3
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_7:summon_amber_e"
+                    ]
+                }
+            ]
+        },
+        {
+            "CardName": "箭雨",
+            "Description": "造成2点火元素伤害，对所有敌方后台角色造成2点穿透伤害。",
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Pyro",
+                    "Count": 3
+                },
+                {
+                    "Type": "MP",
+                    "Count": 2
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Pierce",
+                        "Amount": 2,
+                        "TargetArea": "TargetExcept",
+                        "SubDamage": {
+                            "Element": "Pyro",
+                            "Amount": 2
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

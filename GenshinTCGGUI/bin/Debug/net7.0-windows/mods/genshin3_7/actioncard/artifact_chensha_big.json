@@ -1,0 +1,111 @@
+{
+    "CardName": "辰砂往生录",
+    "Description": "角色使用「普通攻击」或对角色使用「天赋」时：少花费1个元素骰。（每回合1次）\n角色被切换为「出战角色]后：本回合中，角色「普通攻击」造成的伤害+1。\n（角色最多装备1件「圣遗物」）",
+    "CardType": "Equipment",
+    "Tags": [
+        "Equipment",
+        "Artifact"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "Alive"
+                }
+            ]
+        }
+    ],
+    "Cost": [
+        {
+            "Type": "Void",
+            "Count": 3
+        }
+    ],
+    "ModList": [
+        {
+            "Type": "Dice",
+            "Element": "Trival",
+            "Value": 1,
+            "When": [
+                {
+                    "Type": "Counter",
+                    "Sign": 1
+                },
+                {
+                    "Type": "CanBeAppliedFrom",
+                    "Target": {
+                        "Type": "Sender",
+                        "When": [
+                            {
+                                "Type": "HasTag",
+                                "Value": "Talent"
+                            }
+                        ]
+                    },
+                    "Or": {
+                        "Type": "Compound",
+                        "Value": [
+                            {
+                                "Type": "CurrCharacter"
+                            },
+                            {
+                                "Type": "AnyTarget",
+                                "Target": {
+                                    "Type": "Sender",
+                                    "When": [
+                                        {
+                                            "Type": "SkillType",
+                                            "Value": "A"
+                                        },
+                                        {
+                                            "Type": "Alive"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Set": 1
+                }
+            ]
+        },
+        {
+            "Type": "AfterSwitch",
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_7:artifact_effect_chensha_big"
+                    ],
+                    "Target": {
+                        "Type": "Sender",
+                        "Index": 1
+                    }
+                }
+            ],
+            "When": [
+                {
+                    "Type": "SourceMe"
+                },
+                {
+                    "Type": "AnyTargetWithSameIndex",
+                    "Target": {
+                        "Type": "Sender",
+                        "Index": 1
+                    }
+                }
+            ]
+        }
+    ]
+}

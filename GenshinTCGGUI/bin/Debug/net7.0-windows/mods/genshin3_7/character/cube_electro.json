@@ -1,0 +1,150 @@
+{
+    "CardName": "无相之雷",
+    "Description": "代号为「阿莱夫」的高级雷元素生命。\n就算猜拳获胜，它一般也不会认输。",
+    "MaxHP": 8,
+    "MaxMP": 2,
+    "Tags": [
+        "Electro",
+        "Mob",
+        "OtherWeapon"
+    ],
+    "SkillList": [
+        {
+            "CardName": "雷晶投射",
+            "Description": "造成1点雷元素伤害。",
+            "Type": "Skill_A",
+            "Element": "Electro",
+            "DoElementDamage": true
+        },
+        {
+            "CardName": "猜拳三连击",
+            "Description": "造成2点雷元素伤害，然后分别准备技能：猜拳三连击·剪刀和猜拳三连击·布。",
+            "RelatedPersistents": [
+                "genshin3_7:effect_cube_electro_e_0",
+                "genshin3_7:effect_cube_electro_e_1"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "E",
+            "Cost": [
+                {
+                    "Type": "Electro",
+                    "Count": 5
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Electro",
+                        "Amount": 2
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_7:effect_cube_electro_e_0"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "CardName": "雳霆镇锁",
+            "Description": "造成2点雷元素伤害，召唤雷锁镇域。",
+            "RelatedPersistents": [
+                "genshin3_7:summon_cube_electro_q"
+            ],
+            "Type": "Skill",
+            "SkillCategory": "Q",
+            "Cost": [
+                {
+                    "Type": "Electro",
+                    "Count": 3
+                },
+                {
+                    "Type": "MP",
+                    "Count": 2
+                }
+            ],
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Electro",
+                        "Amount": 2
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_7:summon_cube_electro_q"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "CardName": "雷晶核心",
+            "Description": "【被动】战斗开始时，初始附属雷晶核心。",
+            "RelatedPersistents": [
+                "genshin3_7:effect_cube_electro_p"
+            ],
+            "Type": "OnCharacterOn",
+            "SkillCategory": "P",
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_7:effect_cube_electro_p"
+                    ],
+                    "Target": {
+                        "Type": "This"
+                    }
+                }
+            ],
+            "When": [
+                {
+                    "Type": "GameStart"
+                }
+            ]
+        },
+        {
+            "CardName": "猜拳三连击·剪刀",
+            "Description": "造成2点雷元素伤害，然后准备猜拳三连击·布。",
+            "Type": "Prepare",
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Electro",
+                        "Amount": 2
+                    },
+                    "With": [
+                        {
+                            "Type": "Effect",
+                            "Add": [
+                                "genshin3_7:effect_cube_electro_e_1"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "CardName": "猜拳三连击·布",
+            "Description": "造成3点雷元素伤害。",
+            "Type": "Prepare",
+            "Action": [
+                {
+                    "Type": "Damage",
+                    "Damage": {
+                        "Element": "Electro",
+                        "Amount": 3
+                    }
+                }
+            ]
+        }
+    ]
+}

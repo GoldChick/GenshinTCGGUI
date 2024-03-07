@@ -39,7 +39,15 @@
                             "Target": {
                                 "Type": "Character",
                                 "Team": "Enemy",
-                                "Index": 1
+                                "When": [
+                                    {
+                                        "Type": "CurrCharacter",
+                                        "Not": true
+                                    },
+                                    {
+                                        "Type": "Alive"
+                                    }
+                                ]
                             }
                         }
                     ]

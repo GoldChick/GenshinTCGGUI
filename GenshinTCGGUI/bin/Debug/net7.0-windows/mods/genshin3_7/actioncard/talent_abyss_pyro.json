@@ -1,0 +1,63 @@
+{
+    "CardName": "烬火重燃",
+    "Description": "入场时：如果装备有此牌的深渊咏者·渊火已触发过火之新生，就立刻弃置此牌，为角色附属渊火加护。\n装备有此牌的深渊咏者·渊火触发火之新生时：弃置此牌，为角色附属渊火加护。\n（牌组中包含深渊咏者·渊火，才能加入牌组）",
+    "CardType": "Equipment",
+    "Cost": [
+        {
+            "Type": "Pyro",
+            "Count": 2
+        }
+    ],
+    "Tags": [
+        "Equipment",
+        "Talent",
+        "Slowly"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "SimpleTalent",
+                    "Value": "genshin3_7:abyss_pyro"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Trigger",
+                    "Value": "genshin3_7:abyss_pyro_talent",
+                    "When": [
+                        {
+                            "Type": "HasEffect",
+                            "Value": "genshin3_7:effect_abyss_pyro_p",
+                            "Not": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Type": "CustomSenderName",
+            "SenderName": "genshin3_7:abyss_pyro_talent",
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_7:effect_abyss_pyro_talent"
+                    ],
+                    "Target": {
+                        "Type": "Owner"
+                    }
+                },
+                {
+                    "Type": "Destroy"
+                }
+            ]
+        }
+    ]
+}

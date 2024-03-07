@@ -14,12 +14,6 @@
             "Count": 2
         }
     ],
-    "Select": [
-        {
-            "Type": "Summon",
-            "Team": "Enemy"
-        }
-    ],
     "SkillList": [
         {
             "Type": "Card",

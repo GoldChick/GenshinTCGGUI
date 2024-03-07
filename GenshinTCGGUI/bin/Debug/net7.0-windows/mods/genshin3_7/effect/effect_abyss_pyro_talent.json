@@ -1,0 +1,30 @@
+{
+    "TextureNamespace": "minecraft",
+    "TextureNameID": "shield_yellow",
+    "Name": "渊火加护",
+    "Text": "为所附属角色提供3点护盾。\n此护盾耗尽前：所附属角色造成的火元素伤害+1。",
+    "CardType": "Effect",
+    "MaxUseTimes": 3,
+    "ModList": [
+        {
+            "Type": "Shield"
+        },
+        {
+            "Type": "Damage",
+            "Value": 1,
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "ThisCharacterCause"
+                },
+                {
+                    "Type": "Element",
+                    "Value": "Pyro"
+                }
+            ]
+        }
+    ],
+    "Tags": [
+        "Shield"
+    ]
+}

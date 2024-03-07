@@ -1,0 +1,41 @@
+{
+    "CardName": "深渊之灾·凝水盛放",
+    "Description": "战斗行动：我方出战角色为达达利亚时，装备此牌。\n达达利亚装备此牌后，立刻使用一次魔王武装·狂澜。\n此牌在场期间，对方出战角色附属的断流会在结束阶段对对方出战角色造成1点穿透伤害。\n（牌组中包含达达利亚，才能加入牌组）",
+    "CardType": "Equipment",
+    "RelatedPersistents": [
+        "genshin3_7:effect_tartaglia_a"
+    ],
+    "Cost": [
+        {
+            "Type": "Hydro",
+            "Count": 3
+        }
+    ],
+    "Tags": [
+        "Equipment",
+        "Talent",
+        "Slowly"
+    ],
+    "Select": [
+        {
+            "Type": "Character",
+            "When": [
+                {
+                    "Type": "SimpleTalent",
+                    "Value": "genshin3_7:tartaglia"
+                }
+            ]
+        }
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Skill",
+                    "Value": 1
+                }
+            ]
+        }
+    ]
+}
