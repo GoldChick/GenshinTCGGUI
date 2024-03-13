@@ -1,0 +1,31 @@
+{
+    "CardName": "鲸井小弟",
+    "Description": "行动阶段开始时：生成1点万能元素。然后，如果对方的支援区未满，则将此牌转移到对方的支援区。",
+    "Tags": [
+        "Support",
+        "Partner"
+    ],
+    "CardType": "Support",
+    "SkillList": [
+        {
+            "Type": "RoundStart",
+            "Action": [
+                {
+                    "Type": "Dice",
+                    "Element": "Trival",
+                    "Count": 1
+                },
+                {
+                    "Type": "PopEffect",
+                    "Target": {
+                        "Type": "Self"
+                    },
+                    "Destination": {
+                        "Type": "Support",
+                        "Team": "Enemy"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -8,7 +8,7 @@
     "SkillList": [
         {
             "Type": "Custom",
-            "Name": "ColorWhenHurt",
+            "Name": "minecraft:colorwhenhurt",
             "Value": {
                 "When": [
                     {

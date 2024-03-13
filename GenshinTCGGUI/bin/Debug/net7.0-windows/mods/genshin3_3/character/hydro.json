@@ -109,28 +109,24 @@
                     ]
                 }
             ]
-        },
+        }
+    ],
+    "ModList": [
         {
-            "CardName": "纯水之愿",
-            "Description": "我方每有1个召唤物，潮涌与激流的伤害+1。",
-            "SkillCategory": "P",
-            "Type": "Custom",
-            "Name": "minecraft:hydroq",
-            "Value": {
-                "Consume": 0,
+            "Type": "Damage",
+            "DynamicValue": {
                 "Target": {
-                    "Type": "Summon"
-                },
-                "When": [
-                    {
-                        "Type": "SourceThis"
-                    },
-                    {
-                        "Type": "SkillType",
-                        "Value": "Q"
-                    }
-                ]
-            }
+                    "Type": "Summon",
+                    "Index": -1
+                }
+            },
+            "Consume": 0,
+            "When": [
+                {
+                    "Type": "ThisCharacterCause",
+                    "Value": "Q"
+                }
+            ]
         }
     ]
 }

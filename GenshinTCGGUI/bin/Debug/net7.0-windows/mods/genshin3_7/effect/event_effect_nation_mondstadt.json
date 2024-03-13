@@ -1,8 +1,8 @@
 {
     "TextureNamespace": "minecraft",
     "TextureNameID": "buff",
-    "Name": "鹤归之时（生效中）",
-    "Description": "我方角色下一次使用技能后：如果我方存在后台角色，就切换到下一个角色。",
+    "Name": "风与自由（生效中）",
+    "Description": "本回合中，我方角色使用技能后：如果我方存在后台角色，就切换到下一个角色。",
     "CardType": "Effect",
     "SkillList": [
         {
@@ -22,15 +22,20 @@
                             }
                         ]
                     }
-                },
-                {
-                    "Type": "Counter",
-                    "Add": -1
                 }
             ],
             "When": [
                 {
                     "Type": "SourceMe"
+                }
+            ]
+        },
+        {
+            "Type": "RoundStep",
+            "Action": [
+                {
+                    "Type": "Counter",
+                    "Add": -1
                 }
             ]
         }

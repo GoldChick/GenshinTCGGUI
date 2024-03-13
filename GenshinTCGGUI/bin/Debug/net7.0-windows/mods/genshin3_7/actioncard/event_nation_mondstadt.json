@@ -1,0 +1,24 @@
+{
+    "CardName": "风与自由",
+    "Description": "本回合中，我方角色使用技能后：如果我方存在后台角色，就切换到下一个角色。",
+    "CardType": "Event",
+    "Tags": [
+        "Event"
+    ],
+    "SkillList": [
+        {
+            "Type": "Card",
+            "Action": [
+                {
+                    "Type": "Effect",
+                    "Add": [
+                        "genshin3_7:event_effect_nation_mondstadt"
+                    ],
+                    "Target": {
+                        "Type": "Team"
+                    }
+                }
+            ]
+        }
+    ]
+}
