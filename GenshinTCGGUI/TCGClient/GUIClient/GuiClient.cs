@@ -8,6 +8,10 @@ using TCGBase;
 
 namespace TCGClient
 {
+    public interface IGuiCllient
+    {
+        public void GetCardNextValidTargets(int cardindex, int[] already_params, Action<List<int>>? callback);
+    }
     public class GuiClient : AbstractMainClient, IGuiCllient
     {
         public int MeID { get; private set; }
@@ -20,10 +24,10 @@ namespace TCGClient
             var set = JsonSerializer.Deserialize<CardSetSetting>(setjson);
             return new(set.CardSet);
         }
-        public override void BindInit(ReadonlyGame game)
+        public override void BindInit()
         {
-            MeID = game.MeID;
-            _bind?.Invoke(game);
+            MeID = Game.MeID;
+            _bind?.Invoke(Game);
         }
         public override void Update(ClientUpdatePacket packet)
         {

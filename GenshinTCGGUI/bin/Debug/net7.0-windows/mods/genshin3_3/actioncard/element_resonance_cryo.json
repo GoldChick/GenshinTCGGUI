@@ -13,14 +13,8 @@
     ],
     "SkillList": [
         {
-            "Type": "Card",
-            "Action": [
-                {
-                    "Type": "Effect",
-                    "Add": [
-                        "genshin3_3:element_resonance_effect_cryo"
-                    ]
-                }
+            "Lua": [
+                "me:AddEffect('genshin3_3:element_resonance_effect_cryo',nil,me.CurrCharacter)"
             ]
         }
     ]

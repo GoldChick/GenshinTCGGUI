@@ -10,9 +10,9 @@
             "Type": "Card",
             "Action": [
                 {
-                    "Type": "Dice",
-                    "Element": "Hydro",
-                    "Count": 1
+                    "Lua": [
+                        "me:GainDice(ElementCategory.Hydro,1)"
+                    ]
                 }
             ]
         }

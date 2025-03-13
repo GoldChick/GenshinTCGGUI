@@ -11,7 +11,9 @@
             "Type": "Character",
             "When": [
                 {
-                    "Type": "Alive"
+                    "Lua": [
+                        "result=p.Alive"
+                    ]
                 }
             ]
         }
@@ -27,35 +29,23 @@
             "Type": "AfterUseSkill",
             "Action": [
                 {
-                    "Type": "MP",
-                    "Value": 1,
-                    "Target": {
-                        "Type": "Character",
-                        "Index": -1,
-                        "When": [
-                            {
-                                "Type": "CurrCharacter",
-                                "Not": true
-                            }
-                        ]
-                    }
-                },
-                {
-                    "Type": "Counter",
-                    "Value": -1
+                    "Lua": [
+                        "local count=me.Characters.Count",
+                        "for i=0,count-1,1 do",
+                        "   local curr=(i+me.CurrCharacter)%count",
+                        "   if curr~=p.PersistentRegion then",
+                        "       me.Characters[curr].MP=me.Characters[curr].MP+1",
+                        "   end",
+                        "end",
+                        "p.AvailableTimes=p.AvailableTimes-1"
+                    ]
                 }
             ],
             "When": [
                 {
-                    "Type": "Counter",
-                    "Sign": 1
-                },
-                {
-                    "Type": "SkillType",
-                    "Value": "Q"
-                },
-                {
-                    "Type": "SourceThis"
+                    "Lua": [
+                        "result=p.AvailableTimes>0 and s.MaySkill.SkillCategory==SkillCategory.Q and s.TeamID==me.TeamID and s.Persistent.HP~=nil and s.Persistent.PersistentRegion==p.PersistentRegion"
+                    ]
                 }
             ]
         },
@@ -63,8 +53,9 @@
             "Type": "RoundStep",
             "Action": [
                 {
-                    "Type": "Counter",
-                    "Set": 1
+                    "Lua": [
+                        "p.AvailableTimes=1"
+                    ]
                 }
             ]
         }

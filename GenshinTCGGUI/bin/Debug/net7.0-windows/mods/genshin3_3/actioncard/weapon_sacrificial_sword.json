@@ -4,7 +4,7 @@
     "CardType": "Equipment",
     "Cost": [
         {
-            "Type": "Trival",
+            "Type": "Trivial",
             "Count": 3
         }
     ],
@@ -41,8 +41,9 @@
             "Type": "RoundStep",
             "Action": [
                 {
-                    "Type": "Counter",
-                    "Set": 1
+                    "Lua": [
+                        "p.AvailableTimes=1"
+                    ]
                 }
             ]
         },
@@ -61,8 +62,9 @@
             ],
             "When": [
                 {
-                    "Type": "Counter",
-                    "Sign": 1
+                    "Lua": [
+                        "result=p.AvailableTimes>0"
+                    ]
                 },
                 {
                     "Type": "SourceThis"

@@ -21,14 +21,10 @@
             "Type": "Card",
             "Action": [
                 {
-                    "Type": "Effect",
-                    "Add": [
-                        "genshin3_3:food_effect_northernsmokedchicken",
-                        "minecraft:effect_full"
-                    ],
-                    "Target": {
-                        "Type": "Sender"
-                    }
+                    "Lua": [
+                        "me:AddEffect('genshin3_3:food_effect_northernsmokedchicken',nil,s.Persistents[0])",
+                        "me:AddEffect('minecraft:effect_full',nil,s.Persistents[0])"
+                    ]
                 }
             ]
         }

@@ -35,7 +35,10 @@
             "Consume": 0,
             "When": [
                 {
-                    "Type": "CurrCharacter"
+                    "Type": "Lua",
+                    "Lua": [
+                        "result=me.CurrCharacter==p.PersistentRegion"
+                    ]
                 },
                 {
                     "Type": "SourceMe"

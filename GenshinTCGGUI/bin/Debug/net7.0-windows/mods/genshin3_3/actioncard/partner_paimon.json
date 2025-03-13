@@ -9,7 +9,7 @@
     "CardType": "Support",
     "Cost": [
         {
-            "Type": "Trival",
+            "Type": "Trivial",
             "Count": 3
         }
     ],
@@ -19,7 +19,7 @@
             "Action": [
                 {
                     "Type": "Dice",
-                    "Element": "Trival",
+                    "Element": "Trivial",
                     "Count": 2
                 },
                 {

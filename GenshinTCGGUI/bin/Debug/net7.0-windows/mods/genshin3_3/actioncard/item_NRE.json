@@ -4,7 +4,7 @@
     "CardType": "Support",
     "Cost": [
         {
-            "Type": "Trival",
+            "Type": "Trivial",
             "Count": 1
         }
     ],
@@ -17,10 +17,8 @@
             "Type": "Card",
             "Action": [
                 {
-                    "Type": "DrawCard",
-                    "Count": 1,
-                    "WithTag": [
-                        "Food"
+                    "Lua": [
+                        "me.DrawCard(1,'Food')"
                     ]
                 }
             ]
@@ -29,34 +27,17 @@
             "Type": "AfterUseCard",
             "Action": [
                 {
-                    "Type": "DrawCard",
-                    "Count": 1,
-                    "WithTag": [
-                        "Food"
+                    "Lua": [
+                        "me.DrawCard(1,'Food')",
+                        "p.AvailableTimes=0"
                     ]
-                },
-                {
-                    "Type": "Counter",
-                    "Add": -1
                 }
             ],
             "When": [
                 {
-                    "Type": "Counter",
-                    "Sign": 1,
-                    "Value": 0
-                },
-                {
-                    "Type": "AnyTarget",
-                    "Target": {
-                        "Type": "Sender",
-                        "When": [
-                            {
-                                "Type": "HasTag",
-                                "Value": "Food"
-                            }
-                        ]
-                    }
+                    "Lua": [
+                        "result=s.TeamID==me.TeamID and p.AvailableTimes>0 and s.Persistent.CardBase.Tags:Contains('Food')"
+                    ]
                 }
             ]
         },
@@ -64,8 +45,9 @@
             "Type": "RoundStep",
             "Action": [
                 {
-                    "Type": "Counter",
-                    "Set": 1
+                    "Lua": [
+                        "p.AvailableTimes=1"
+                    ]
                 }
             ]
         }

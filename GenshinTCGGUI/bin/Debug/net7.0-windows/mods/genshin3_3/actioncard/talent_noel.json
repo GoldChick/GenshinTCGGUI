@@ -41,8 +41,9 @@
             "Type": "RoundStep",
             "Action": [
                 {
-                    "Type": "Counter",
-                    "Set": 1
+                    "Lua": [
+                        "p.AvailableTimes=1"
+                    ]
                 }
             ]
         },
@@ -57,7 +58,9 @@
                         "Index": -1,
                         "When": [
                             {
-                                "Type": "Alive"
+                                "Lua": [
+                                    "result=p.Alive"
+                                ]
                             }
                         ]
                     }
@@ -69,8 +72,9 @@
             ],
             "When": [
                 {
-                    "Type": "Counter",
-                    "Sign": 1
+                    "Lua": [
+                        "result=p.AvailableTimes>0"
+                    ]
                 },
                 {
                     "Type": "SourceThis"

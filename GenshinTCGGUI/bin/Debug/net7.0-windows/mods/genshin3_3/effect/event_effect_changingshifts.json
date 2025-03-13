@@ -19,7 +19,9 @@
                         "Type": "Sender",
                         "When": [
                             {
-                                "Type": "Alive"
+                                "Lua": [
+                                    "result=p.Alive"
+                                ]
                             }
                         ]
                     }

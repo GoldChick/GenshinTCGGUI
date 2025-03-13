@@ -41,7 +41,7 @@
                 {
                     "Type": "Damage",
                     "Damage": {
-                        "Element": "Trival",
+                        "Element": "Trivial",
                         "Amount": 5
                     }
                 }

@@ -1,6 +1,6 @@
 {
     "CardName": "晨曦酒庄",
-    "Description": "我方执行「切换角色」行动时：少花费1个元素骰。（每回合1次）",
+    "Description": "我方执行「切换角色」行动时：少花费1个元素骰。（每回合2次）",
     "Tags": [
         "Support",
         "Location"
@@ -9,7 +9,7 @@
     "CardType": "Support",
     "Cost": [
         {
-            "Type": "Trival",
+            "Type": "Trivial",
             "Count": 2
         }
     ],
@@ -18,8 +18,9 @@
             "Type": "RoundStep",
             "Action": [
                 {
-                    "Type": "Counter",
-                    "Set": 1
+                    "Lua": [
+                        "p.AvailableTimes=2"
+                    ]
                 }
             ]
         }
@@ -30,25 +31,16 @@
             "Value": 1,
             "When": [
                 {
-                    "Type": "Counter",
-                    "Sign": 1
-                },
-                {
-                    "Type": "SkillType",
-                    "Not": true
-                },
-                {
-                    "Type": "AnyTarget",
-                    "Target": {
-                        "Type": "Sender",
-                        "When": [
-                            {
-                                "Type": "Alive"
-                            }
-                        ]
-                    }
+                    "Lua": [
+                        "result=p.AvailableTimes>0 and s.MaySkill==nil and s.Persistent.Alive"
+                    ]
                 }
-            ]
+            ],
+            "AfterSuccess": {
+                "Lua": [
+                    "p.AvailableTimes=p.AvailableTimes-1"
+                ]
+            }
         }
     ]
 }

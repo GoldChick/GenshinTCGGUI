@@ -1,6 +1,6 @@
 {
     "CardName": "望舒客栈",
-    "Description": "结束阶段：治疗受伤最多（最大生命值与当前生命值只之差最大）的我方后台角色2点。\n可用次数：2",
+    "Description": "结束阶段：治疗受伤最多（最大生命值与当前生命值之差最大）的我方后台角色2点。\n可用次数：2",
     "Tags": [
         "Support",
         "Location"
@@ -9,7 +9,7 @@
     "CardType": "Support",
     "Cost": [
         {
-            "Type": "Trival",
+            "Type": "Trivial",
             "Count": 2
         }
     ],
@@ -18,50 +18,28 @@
             "Type": "RoundOver",
             "Action": [
                 {
-                    "Type": "Heal",
-                    "Value": 2,
-                    "Target": {
-                        "Type": "Character",
-                        "SortBy": "HPLostMost",
-                        "When": [
-                            {
-                                "Type": "Alive"
-                            },
-                            {
-                                "Type": "CurrCharacter",
-                                "Not": true
-                            }
-                        ]
-                    },
-                    "When": [
-                        {
-                            "Type": "AnyTarget",
-                            "Target": {
-                                "Type": "Character",
-                                "When": [
-                                    {
-                                        "Type": "Alive"
-                                    },
-                                    {
-                                        "Type": "CurrCharacter",
-                                        "Not": true
-                                    },
-                                    {
-                                        "Type": "HPLost",
-                                        "Sign": 1
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                },
-                {
-                    "Type": "Destroy",
-                    "When": [
-                        {
-                            "Type": "Counter",
-                            "Sign": 0
-                        }
+                    "Lua": [
+                        "local max_hp_dif=0",
+                        "local max_idx=-1",
+                        "local count=me.Characters.Count",
+                        "for i=0,count-1,1 do",
+                        "   local curr=(me.CurrCharacter+i)%count",
+                        "   local c=me.Characters[curr]",
+                        "   if c.Alive then",
+                        "       local hp_dif=c.CardBase.MaxHP-c.HP",
+                        "       if hp_dif>max_hp_dif then",
+                        "           max_hp_dif=hp_dif",
+                        "           max_idx=curr",
+                        "       end",
+                        "   end",
+                        "end",
+                        "if max_idx>=0 then",
+                        "   me:Heal(p,this,2,max_idx,false)",
+                        "   p.AvailableTimes=p.AvailableTimes-1",
+                        "   if p.AvailableTimes==0 then",
+                        "       me.Game:Destroy(p)",
+                        "   end",
+                        "end"
                     ]
                 }
             ]

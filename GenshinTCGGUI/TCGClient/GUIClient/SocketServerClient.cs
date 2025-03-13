@@ -148,9 +148,8 @@ namespace TCGClient
             base.UpdateRegion();
             SendToClient("GAME", JsonSerializer.Serialize(Game));
         }
-        public override void BindInit(ReadonlyGame game)
+        public override void BindInit()
         {
-            base.BindInit(game);
             SendToClient("GAME", JsonSerializer.Serialize(Game));
         }
     }

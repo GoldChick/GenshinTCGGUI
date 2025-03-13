@@ -8,7 +8,7 @@
     "CardType": "Support",
     "Cost": [
         {
-            "Type": "Trival",
+            "Type": "Trivial",
             "Count": 1
         }
     ],
@@ -18,8 +18,9 @@
             "Mode": "Switch",
             "When": [
                 {
-                    "Type": "Counter",
-                    "Sign": 1
+                    "Lua": [
+                        "result=p.AvailableTimes>0"
+                    ]
                 }
             ]
         }
@@ -29,8 +30,9 @@
             "Type": "RoundStep",
             "Action": [
                 {
-                    "Type": "Counter",
-                    "Set": 1
+                    "Lua": [
+                        "p.AvailableTimes=1"
+                    ]
                 }
             ]
         }

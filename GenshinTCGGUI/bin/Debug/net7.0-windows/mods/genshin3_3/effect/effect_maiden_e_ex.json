@@ -38,7 +38,10 @@
             "Value": -1,
             "When": [
                 {
-                    "Type": "CurrCharacter"
+                    "Type": "Lua",
+                    "Lua": [
+                        "result=me.CurrCharacter==p.PersistentRegion"
+                    ]
                 },
                 {
                     "Type": "SkillType",
@@ -50,10 +53,15 @@
                         "Type": "Sender",
                         "When": [
                             {
-                                "Type": "Alive"
+                                "Lua": [
+                                    "result=p.Alive"
+                                ]
                             },
                             {
-                                "Type": "CurrCharacter"
+                                "Type": "Lua",
+                                "Lua": [
+                                    "result=me.CurrCharacter==p.PersistentRegion"
+                                ]
                             }
                         ]
                     }

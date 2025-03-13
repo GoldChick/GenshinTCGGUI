@@ -13,9 +13,9 @@
                     "Type": "SimpleFood"
                 },
                 {
-                    "Type": "HPLost",
-                    "Sign": 1,
-                    "Value": 0
+                    "Lua": [
+                        "result=p.HP<p.CardBase.MaxHP"
+                    ]
                 }
             ]
         }
@@ -26,20 +26,10 @@
             "Type": "Card",
             "Action": [
                 {
-                    "Type": "Heal",
-                    "Value": 1,
-                    "Target": {
-                        "Type": "Sender"
-                    }
-                },
-                {
-                    "Type": "Effect",
-                    "Add": [
-                        "minecraft:effect_full"
-                    ],
-                    "Target": {
-                        "Type": "Sender"
-                    }
+                    "Lua": [
+                        "me:Heal(p,this,1,s.Persistents[0].PersistentRegion,false)",
+                        "me:AddEffect('minecraft:effect_full',nil,s.Persistents[0])"
+                    ]
                 }
             ]
         }

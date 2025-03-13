@@ -9,7 +9,7 @@
     "CardType": "Support",
     "Cost": [
         {
-            "Type": "Trival",
+            "Type": "Trivial",
             "Count": 2
         }
     ],
@@ -18,26 +18,13 @@
             "Type": "RoundOver",
             "Action": [
                 {
-                    "Type": "DrawCard",
-                    "Count": 2
-                },
-                {
-                    "Type": "Counter",
-                    "Add": -1
-                }
-            ]
-        },
-        {
-            "Type": "RoundOver",
-            "Action": [
-                {
-                    "Type": "Destroy"
-                }
-            ],
-            "When": [
-                {
-                    "Type": "Counter",
-                    "Sign": 0
+                    "Lua": [
+                        "me:DrawCard(2)",
+                        "p.AvailableTimes=p.AvailableTimes-1",
+                        "if p.AvailableTimes==0 then",
+                        "   me.Game:Destroy(p)",
+                        "end"
+                    ]
                 }
             ]
         }

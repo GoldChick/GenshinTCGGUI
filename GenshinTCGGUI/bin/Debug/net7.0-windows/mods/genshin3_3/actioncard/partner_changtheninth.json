@@ -8,71 +8,25 @@
     "CardType": "Support",
     "SkillList": [
         {
-            "Type": "AfterHurt",
-            "Action": [
-                {
-                    "Type": "SetData",
-                    "Value": "Add"
-                }
-            ],
-            "When": [
-                {
-                    "Type": "Element",
-                    "Value": "Pierce",
-                    "Or": {
-                        "Type": "Element",
-                        "Value": "Trival",
-                        "Or": {
-                            "Type": "ElementReaction"
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "Type": "AfterOperation",
-            "Action": [
-                {
-                    "Type": "SetData",
-                    "Value": "Clear"
-                }
-            ]
-        },
-        {
             "Type": "AfterUseSkill",
             "Action": [
                 {
-                    "Type": "Counter",
-                    "Add": 1
-                },
-                {
-                    "Type": "SetData",
-                    "Value": "Clear"
+                    "Lua": [
+                        "p.AvailableTimes=p.AvailableTimes+1",
+                        "if p.AvailableTimes>2 then",
+                        "   me:DrawCard(2)",
+                        "   me:Destroy(p)",
+                        "end"
+                    ]
                 }
             ],
             "When": [
                 {
-                    "Type": "DataCount",
-                    "Sign": 1
-                }
-            ]
-        },
-        {
-            "Type": "AfterUseSkill",
-            "Action": [
-                {
-                    "Type": "DrawCard",
-                    "Count": 2
-                },
-                {
-                    "Type": "Destroy"
-                }
-            ],
-            "When": [
-                {
-                    "Type": "Counter",
-                    "Sign": 1,
-                    "Value": 2
+                    "Lua": [
+                        "local dmg_list=me.ListenerManager['minecraft:afteruseskill_do_damage']",
+                        "local reaction_list=me.ListenerManager['minecraft:afteruseskill_do_reaction']",
+                        "result=dmg_list:Contains(0) or dmg_list:Contains(8) or reaction_list.Count>0"
+                    ]
                 }
             ]
         }

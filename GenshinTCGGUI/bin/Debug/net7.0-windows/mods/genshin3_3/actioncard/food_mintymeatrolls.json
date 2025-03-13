@@ -17,7 +17,7 @@
     ],
     "Cost": [
         {
-            "Type": "Trival",
+            "Type": "Trivial",
             "Count": 1
         }
     ],
@@ -27,14 +27,10 @@
             "Type": "Card",
             "Action": [
                 {
-                    "Type": "Effect",
-                    "Add": [
-                        "genshin3_3:food_effect_mintymeatrolls",
-                        "minecraft:effect_full"
-                    ],
-                    "Target": {
-                        "Type": "Sender"
-                    }
+                    "Lua": [
+                        "me:AddEffect('genshin3_3:food_effect_mintymeatrolls',nil,s.Persistents[0])",
+                        "me:AddEffect('minecraft:effect_full',nil,s.Persistents[0])"
+                    ]
                 }
             ]
         }

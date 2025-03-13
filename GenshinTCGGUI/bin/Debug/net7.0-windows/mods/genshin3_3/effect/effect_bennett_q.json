@@ -20,7 +20,10 @@
                         "Type": "Character",
                         "When": [
                             {
-                                "Type": "CurrCharacter"
+                                "Type": "Lua",
+                                "Lua": [
+                                    "result=me.CurrCharacter==p.PersistentRegion"
+                                ]
                             },
                             {
                                 "Type": "HP",

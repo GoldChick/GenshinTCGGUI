@@ -16,11 +16,9 @@
             "Type": "Character",
             "When": [
                 {
-                    "Type": "Alive"
-                },
-                {
-                    "Type": "CurrCharacter",
-                    "Not": true
+                    "Lua": [
+                        "result=p.Alive and me.CurrCharacter!=p.PersistentRegion"
+                    ]
                 }
             ]
         }
@@ -36,9 +34,10 @@
                     }
                 },
                 {
-                    "Type": "Dice",
-                    "Element": "Trival",
-                    "Count": 1
+                    "Lua": [
+                        "me:SwitchTo(s.Persistent.PersistentRegion,false)",
+                        "me:GainDice(ElementCategory.Trivial,1)"
+                    ]
                 }
             ]
         }

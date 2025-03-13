@@ -16,17 +16,16 @@
             "Type": "Card",
             "Action": [
                 {
-                    "Type": "MP",
-                    "Value": 1,
-                    "Target": {
-                        "When": [
-                            {
-                                "Type": "MPLost",
-                                "Sign": 1,
-                                "Value": 0
-                            }
-                        ]
-                    }
+                    "Lua": [
+                        "local count=me.Characters.Count",
+                        "for i=0,count-1,1 do",
+                        "   local curr=(i+me.CurrCharacter)%count",
+                        "   if me.Characters[curr].MP<me.Characters[curr].CardBase.MaxMP then",
+                        "       me.Characters[curr].MP=me.Characters[curr].MP+1",
+                        "       break",
+                        "   end",
+                        "end"
+                    ]
                 }
             ]
         }

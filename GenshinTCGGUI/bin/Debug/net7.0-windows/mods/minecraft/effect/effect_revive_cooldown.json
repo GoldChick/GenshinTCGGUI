@@ -10,8 +10,9 @@
             "Type": "RoundStep",
             "Action": [
                 {
-                    "Type": "Counter",
-                    "Add": -1
+                    "Lua": [
+                        "p.AvailableTimes=0"
+                    ]
                 }
             ]
         }

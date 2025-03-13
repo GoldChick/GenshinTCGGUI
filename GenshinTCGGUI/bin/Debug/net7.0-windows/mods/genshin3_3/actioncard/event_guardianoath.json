@@ -6,7 +6,7 @@
     ],
     "Cost": [
         {
-            "Type": "Trival",
+            "Type": "Trivial",
             "Count": 4
         }
     ],
@@ -16,17 +16,14 @@
             "Type": "Card",
             "Action": [
                 {
-                    "Type": "Destroy",
-                    "Target": {
-                        "Type": "Summon"
-                    }
-                },
-                {
-                    "Type": "Destroy",
-                    "Target": {
-                        "Type": "Summon",
-                        "Team": "Enemy"
-                    }
+                    "Lua": [
+                        "while me.Summons.Count>0 do",
+                        "   me.Game:Destroy(me.Summons[0])",
+                        "end",
+                        "while me.Enemy.Summons.Count>0 do",
+                        "   me.Game:Destroy(me.Enemy.Summons[0])",
+                        "end"
+                    ]
                 }
             ]
         }

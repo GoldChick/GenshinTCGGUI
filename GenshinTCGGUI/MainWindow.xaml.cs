@@ -25,7 +25,7 @@ namespace GenshinTCGGUI
         public DescriptionEffectPanel MidDescriptionEffectPanel { get; }
         public DescriptionPanel RightDescriptionPanel { get; }
         public static MainWindow Instance { get => _instance; }
-        public Game game;
+        public LocalServer LocalServer;
         public IGuiCllient MainClient { get; }
         public MainWindow(bool isServer)
         {
@@ -49,9 +49,8 @@ namespace GenshinTCGGUI
 
             if (isServer)
             {
-                game = new();
-                game.AddClient(GameManager.Instance.Client0);
-                game.AddClient(GameManager.Instance.Client1);
+                LocalServer = new(GameManager.Instance.Client0);
+                LocalServer.Register(GameManager.Instance.Client1);
 
                 GameManager.Instance.Client0.BindInitRenderAction(InitRender);
                 MainClient = GameManager.Instance.Client0;
@@ -59,7 +58,7 @@ namespace GenshinTCGGUI
                 {
                     try
                     {
-                        game.StartGame();
+                        LocalServer.StartGame();
                     }
                     catch (Exception ex)
                     {

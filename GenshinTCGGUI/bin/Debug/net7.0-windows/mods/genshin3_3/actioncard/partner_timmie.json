@@ -21,7 +21,7 @@
             "Action": [
                 {
                     "Type": "Dice",
-                    "Element": "Trival",
+                    "Element": "Trivial",
                     "Count": 1
                 },
                 {
@@ -34,9 +34,9 @@
             ],
             "When": [
                 {
-                    "Type": "Counter",
-                    "Sign": 1,
-                    "Value": 2
+                    "Lua": [
+                        "result=p.AvailableTimes>2"
+                    ]
                 }
             ]
         }

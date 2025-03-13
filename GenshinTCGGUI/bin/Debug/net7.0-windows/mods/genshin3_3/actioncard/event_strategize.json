@@ -7,7 +7,7 @@
     "CardType": "Event",
     "Cost": [
         {
-            "Type": "Trival",
+            "Type": "Trivial",
             "Count": 1
         }
     ],
@@ -16,8 +16,9 @@
             "Type": "Card",
             "Action": [
                 {
-                    "Type": "DrawCard",
-                    "Count": 2
+                    "Lua": [
+                        "me.DrawCard(2)"
+                    ]
                 }
             ]
         }

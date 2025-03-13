@@ -101,8 +101,6 @@ namespace GenshinTCGGUI
             }));
             GameManager.Instance.Client1.StartListen();
             GameManager.Instance.Client1.BindHelpTextAction(null);
-
-
         }
 
         private void UpdateCardSet(object sender, RoutedEventArgs e)

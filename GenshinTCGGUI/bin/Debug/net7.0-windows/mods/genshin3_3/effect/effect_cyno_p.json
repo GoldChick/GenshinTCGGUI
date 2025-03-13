@@ -13,8 +13,9 @@
             "Consume": 0,
             "When": [
                 {
-                    "Type": "Counter",
-                    "Sign": 1,
+                    "Lua": [
+                        "result=p.AvailableTimes>0"
+                    ]
                     "Value": 1
                 },
                 {
@@ -28,8 +29,9 @@
             "Consume": 0,
             "When": [
                 {
-                    "Type": "Counter",
-                    "Sign": 1,
+                    "Lua": [
+                        "result=p.AvailableTimes>0"
+                    ]
                     "Value": 3
                 },
                 {

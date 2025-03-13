@@ -21,7 +21,9 @@
             "Type": "Character",
             "When": [
                 {
-                    "Type": "Alive"
+                    "Lua": [
+                        "result=p.Alive"
+                    ]
                 },
                 {
                     "Type": "Name",
@@ -59,7 +61,10 @@
                                 "Type": "Sender",
                                 "When": [
                                     {
-                                        "Type": "CurrCharacter"
+                                        "Type": "Lua",
+                                        "Lua": [
+                                            "result=me.CurrCharacter==p.PersistentRegion"
+                                        ]
                                     }
                                 ]
                             }

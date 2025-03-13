@@ -38,7 +38,10 @@
                                 "Value": "genshin3_3:ningguang"
                             },
                             {
-                                "Type": "CurrCharacter"
+                                "Type": "Lua",
+                                "Lua": [
+                                    "result=me.CurrCharacter==p.PersistentRegion"
+                                ]
                             }
                         ]
                     }

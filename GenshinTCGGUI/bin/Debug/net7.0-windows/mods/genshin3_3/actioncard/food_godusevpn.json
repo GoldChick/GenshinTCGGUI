@@ -24,18 +24,9 @@
     "CardType": "Event",
     "SkillList": [
         {
-            "Type": "Card",
-            "Action": [
-                {
-                    "Type": "Effect",
-                    "Add": [
-                        "genshin3_3:food_effect_godusevpn",
-                        "minecraft:effect_full"
-                    ],
-                    "Target": {
-                        "Type": "Sender"
-                    }
-                }
+            "Lua": [
+                "me:AddEffect('genshin3_3:food_effect_godusevpn',nil,s.Persistents[0])",
+                "me:AddEffect('minecraft:effect_full',nil,s.Persistents[0])"
             ]
         }
     ]

@@ -12,7 +12,9 @@
             "Type": "Character",
             "When": [
                 {
-                    "Type": "Alive"
+                    "Lua": [
+                        "result=p.Alive"
+                    ]
                 }
             ]
         }
@@ -28,25 +30,17 @@
             "Type": "AfterHurt",
             "Action": [
                 {
-                    "Type": "Dice",
-                    "Element": "Owner",
-                    "Value": 1
-                },
-                {
-                    "Type": "Counter",
-                    "Value": -1
+                    "Lua": [
+                        "me.GainDice(me.Characters[p.PersistentRegion].CardBase.CharacterElement,1)",
+                        "p.AvailableTimes=p.AvailableTimes-1"
+                    ]
                 }
             ],
             "When": [
                 {
-                    "Type": "Counter",
-                    "Sign": 1
-                },
-                {
-                    "Type": "SourceThis"
-                },
-                {
-                    "Type": "ElementReaction"
+                    "Lua": [
+                        "result=p.AvailableTimes>0 and s.TeamID==me.TeamID and s.Persistent.HP~=nil and s.Persistent.PersistentRegion==p.PersistentRegion and v.Reaction~=ReactionTags.None"
+                    ]
                 }
             ]
         },
@@ -54,25 +48,17 @@
             "Type": "AfterElement",
             "Action": [
                 {
-                    "Type": "Dice",
-                    "Element": "Owner",
-                    "Value": 1
-                },
-                {
-                    "Type": "Counter",
-                    "Value": -1
+                    "Lua": [
+                        "me.GainDice(me.Characters[p.PersistentRegion].CardBase.CharacterElement,1)",
+                        "p.AvailableTimes=p.AvailableTimes-1"
+                    ]
                 }
             ],
             "When": [
                 {
-                    "Type": "Counter",
-                    "Sign": 1
-                },
-                {
-                    "Type": "SourceThis"
-                },
-                {
-                    "Type": "ElementReaction"
+                    "Lua": [
+                        "result=p.AvailableTimes>0 and s.TeamID==me.TeamID and s.Persistent.HP~=nil and s.Persistent.PersistentRegion==p.PersistentRegion and v.Reaction~=ReactionTags.None"
+                    ]
                 }
             ]
         },
@@ -80,8 +66,9 @@
             "Type": "RoundStep",
             "Action": [
                 {
-                    "Type": "Counter",
-                    "Set": 3
+                    "Lua": [
+                        "p.AvailableTimes=3"
+                    ]
                 }
             ]
         }

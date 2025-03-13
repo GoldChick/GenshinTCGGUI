@@ -17,7 +17,9 @@
             "Type": "Character",
             "When": [
                 {
-                    "Type": "Alive"
+                    "Lua": [
+                        "result=p.Alive"
+                    ]
                 },
                 {
                     "Type": "Name",
@@ -32,8 +34,9 @@
             "Value": 1,
             "When": [
                 {
-                    "Type": "Counter",
-                    "Sign": 1
+                    "Lua": [
+                        "result=p.AvailableTimes>0"
+                    ]
                 },
                 {
                     "Type": "SkillType",
@@ -65,7 +68,10 @@
                     "Type": "SourceMe"
                 },
                 {
-                    "Type": "CurrCharacter"
+                    "Type": "Lua",
+                    "Lua": [
+                        "result=me.CurrCharacter==p.PersistentRegion"
+                    ]
                 }
             ]
         },
@@ -73,8 +79,9 @@
             "Type": "RoundStep",
             "Action": [
                 {
-                    "Type": "Counter",
-                    "Set": 1
+                    "Lua": [
+                        "p.AvailableTimes=1"
+                    ]
                 }
             ]
         }

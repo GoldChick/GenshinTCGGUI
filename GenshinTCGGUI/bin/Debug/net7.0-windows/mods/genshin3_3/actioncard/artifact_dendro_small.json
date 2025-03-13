@@ -11,7 +11,9 @@
             "Type": "Character",
             "When": [
                 {
-                    "Type": "Alive"
+                    "Lua": [
+                        "result=p.Alive"
+                    ]
                 }
             ]
         }
@@ -26,47 +28,32 @@
         {
             "Type": "Dice",
             "Element": "Dendro",
-            "Value": 1,
             "When": [
                 {
-                    "Type": "Counter",
-                    "Sign": 1
+                    "Lua": [
+                        "result=p.AvailableTimes>0"
+                    ]
                 },
                 {
-                    "Type": "CanBeAppliedFrom",
-                    "Target": {
-                        "Type": "Sender",
-                        "When": [
-                            {
-                                "Type": "HasTag",
-                                "Value": "Talent"
-                            }
-                        ]
-                    },
+                    "Lua": [
+                        "result=me.CurrCharacter==p.PersistentRegion and s.Persistent.PersistentRegion==p.PersistentRegion and s.MaySkill~=nil"
+                    ],
                     "Or": {
-                        "Type": "Compound",
-                        "Value": [
-                            {
-                                "Type": "CurrCharacter"
-                            },
-                            {
-                                "Type": "AnyTarget",
-                                "Target": {
-                                    "Type": "Sender",
-                                    "When": [
-                                        {
-                                            "Type": "SkillType"
-                                        },
-                                        {
-                                            "Type": "Alive"
-                                        }
-                                    ]
-                                }
-                            }
-                        ]
+                        "Lua": [
+                            "minecraft:condition_talentcanbeusedto.This"
+                        ],
+                        "LuaID": true
                     }
                 }
-            ]
+            ],
+            "Lua": [
+                "v.Count=v.Count-1"
+            ],
+            "AfterSuccess": {
+                "Lua": [
+                    "p.AvailableTimes=0"
+                ]
+            }
         }
     ],
     "SkillList": [
@@ -74,8 +61,9 @@
             "Type": "RoundStep",
             "Action": [
                 {
-                    "Type": "Counter",
-                    "Set": 1
+                    "Lua": [
+                        "p.AvailableTimes=1"
+                    ]
                 }
             ]
         }

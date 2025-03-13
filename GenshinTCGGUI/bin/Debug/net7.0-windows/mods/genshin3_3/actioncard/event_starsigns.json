@@ -15,12 +15,9 @@
             "Type": "Character",
             "When": [
                 {
-                    "Type": "CurrCharacter"
-                },
-                {
-                    "Type": "MPLost",
-                    "Sign": 1,
-                    "Value": 0
+                    "Lua": [
+                        "result=me.CurrCharacter==p.PersistentRegion and me.Characters[me.CurrCharacter].MP<me.Characters[me.CurrCharacter].CardBase.MaxMP"
+                    ]
                 }
             ]
         }
@@ -31,8 +28,9 @@
             "Type": "Card",
             "Action": [
                 {
-                    "Type": "MP",
-                    "Value": 1
+                    "Lua": [
+                        "me.Characters[me.CurrCharacter].MP=me.Characters[me.CurrCharacter].MP+1"
+                    ]
                 }
             ]
         }

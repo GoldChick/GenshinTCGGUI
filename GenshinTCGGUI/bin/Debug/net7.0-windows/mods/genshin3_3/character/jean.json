@@ -41,11 +41,16 @@
                                 "Team": "Enemy",
                                 "When": [
                                     {
-                                        "Type": "CurrCharacter",
+                                        "Type": "Lua",
+                                        "Lua": [
+                                            "result=me.CurrCharacter==p.PersistentRegion"
+                                        ],
                                         "Not": true
                                     },
                                     {
-                                        "Type": "Alive"
+                                        "Lua": [
+                                            "result=p.Alive"
+                                        ]
                                     }
                                 ]
                             }

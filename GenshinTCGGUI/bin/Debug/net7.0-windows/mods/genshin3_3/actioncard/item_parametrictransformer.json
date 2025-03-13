@@ -15,69 +15,27 @@
     ],
     "SkillList": [
         {
-            "Type": "AfterHurt",
-            "Action": [
-                {
-                    "Type": "SetData",
-                    "Value": "Add"
-                }
-            ],
-            "When": [
-                {
-                    "Type": "Element"
-                },
-                {
-                    "Type": "Damage",
-                    "Sign": 1,
-                    "Value": -1
-                }
-            ]
-        },
-        {
-            "Type": "AfterOperation",
-            "Action": [
-                {
-                    "Type": "SetData",
-                    "Value": "Clear"
-                }
-            ]
-        },
-        {
             "Type": "AfterUseSkill",
             "Action": [
                 {
-                    "Type": "Counter",
-                    "Add": 1,
-                    "When": [
-                        {
-                            "Type": "DataCount",
-                            "Sign": 1
-                        }
+                    "Lua": [
+                        "p.AvailableTimes=p.AvailableTimes+1",
+                        "if p.AvailableTimes>2 then",
+                        "   local n_random= me.Random:NextNDifferent(1,8,3)",
+                        "   for i=0,2,1 do",
+                        "       me:GainDice(n_random[i],1)",
+                        "   end",
+                        "   me:Destroy(p)",
+                        "end"
                     ]
-                },
-                {
-                    "Type": "SetData",
-                    "Value": "Clear"
-                }
-            ]
-        },
-        {
-            "Type": "AfterUseSkill",
-            "Action": [
-                {
-                    "Type": "Dice",
-                    "Element": "Random",
-                    "Count": 3
-                },
-                {
-                    "Type": "Destroy"
                 }
             ],
             "When": [
                 {
-                    "Type": "Counter",
-                    "Sign": 1,
-                    "Value": 2
+                    "Lua": [
+                        "local list=me.ListenerManager['minecraft:afteruseskill_do_damage']",
+                        "result=(list.Count>0 and list[0]>0 and list[0]<8) or (list.Count>1 and list[1]<8)"
+                    ]
                 }
             ]
         }

@@ -21,7 +21,9 @@
                         "Index": -1,
                         "When": [
                             {
-                                "Type": "Alive"
+                                "Lua": [
+                                    "result=p.Alive"
+                                ]
                             }
                         ]
                     }

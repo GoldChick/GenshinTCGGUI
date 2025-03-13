@@ -12,8 +12,8 @@ namespace TCGClient
         public void BindHelpTextAction(Action<string>? tb) => _tb = tb;
         public DiceCostPacket GetAllDiceCost()
         {
-            return new(Game.Cards.Select((value, index) => new CardCost(GetCardCostRequirement(index), GetCardTargetEnums(index))),
-                         Enumerable.Range(0, Game.Me.CurrCharacter == -1 ? 0 : Game.Me.Characters[Game.Me.CurrCharacter].SkillCount).Select(GetSkillCostRequirement),
+            return new(Game.Cards.Select((value, index) => new CardCost(GetEventFinalDiceRequirement(new(OperationType.UseCard, index)), GetCardTargetEnums(index))),
+                         Enumerable.Range(0, Game.Me.CurrCharacter == -1 ? 0 : Game.Me.Characters[Game.Me.CurrCharacter].SkillCount).Select(idx => GetEventFinalDiceRequirement(new(OperationType.UseSKill, idx))),
                          Enumerable.Range(0, Game.Me.Characters.Count).Select(index => GetEventFinalDiceRequirement(new(OperationType.Switch, index))),
                          GetEventFinalDiceRequirement(new(OperationType.Blend, 0)));
         }

@@ -7,17 +7,8 @@
     "CardType": "Event",
     "Skill": [
         {
-            "Type": "Card",
-            "Action": [
-                {
-                    "Type": "Effect",
-                    "Add": [
-                        "genshin3_3:event_effect_changingshifts"
-                    ],
-                    "Target": {
-                        "Type": "Team"
-                    }
-                }
+            "Lua": [
+                "me:AddEffect('genshin3_3:event_effect_changingshifts')"
             ]
         }
     ]

@@ -8,7 +8,7 @@
     "CardType": "Support",
     "Cost": [
         {
-            "Type": "Trival",
+            "Type": "Trivial",
             "Count": 1
         }
     ],
@@ -17,68 +17,21 @@
             "Type": "AfterUseCard",
             "Action": [
                 {
-                    "Type": "Dice",
-                    "Element": "Random",
-                    "Count": 1
-                }
-            ],
-            "When": [
-                {
-                    "Type": "Counter",
-                    "Sign": 1
-                },
-                {
-                    "Type": "SourceMe"
-                },
-                {
-                    "Type": "AnyTarget",
-                    "Target": {
-                        "Type": "Sender",
-                        "When": [
-                            {
-                                "Type": "HasTag",
-                                "Value": "Food"
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        {
-            "Type": "AfterUseCard",
-            "Action": [
-                {
-                    "Type": "DrawCard",
-                    "Count": 1,
-                    "WithTag": [
-                        "Food"
+                    "Lua": [
+                        "local random_int=me.Random:Next(1,8)",
+                        "me:GainDice(random_int,1)",
+                        "if p.Data.Count==0 then",
+                        "   me:DrawCard(1,'Food')",
+                        "   p.Data:Add(1)",
+                        "end"
                     ]
-                },
-                {
-                    "Type": "SetData",
-                    "Value": "Add"
                 }
             ],
             "When": [
                 {
-                    "Type": "DataCount",
-                    "Sign": 0,
-                    "Value": 0
-                },
-                {
-                    "Type": "SourceMe"
-                },
-                {
-                    "Type": "AnyTarget",
-                    "Target": {
-                        "Type": "Sender",
-                        "When": [
-                            {
-                                "Type": "HasTag",
-                                "Value": "Food"
-                            }
-                        ]
-                    }
+                    "Lua": [
+                        "result=s.TeamID==me.TeamID and s.Persistent.CardBase.Tags:Contains('Food') and p.AvailableTimes>0"
+                    ]
                 }
             ]
         },
@@ -86,8 +39,9 @@
             "Type": "RoundStep",
             "Action": [
                 {
-                    "Type": "Counter",
-                    "Set": 1
+                    "Lua": [
+                        "p.AvailableTimes=1"
+                    ]
                 }
             ]
         }

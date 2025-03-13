@@ -7,7 +7,7 @@
     "CardType": "Event",
     "Cost": [
         {
-            "Type": "Trival",
+            "Type": "Trivial",
             "Count": 1
         }
     ],
@@ -21,11 +21,9 @@
             "Type": "Card",
             "Action": [
                 {
-                    "Type": "Counter",
-                    "Add": 1,
-                    "Target": {
-                        "Type": "Sender"
-                    }
+                    "Lua": [
+                        "s.Persistents[0].AvailableTimes=s.Persistents[0].AvailableTimes+1"
+                    ]
                 }
             ]
         }

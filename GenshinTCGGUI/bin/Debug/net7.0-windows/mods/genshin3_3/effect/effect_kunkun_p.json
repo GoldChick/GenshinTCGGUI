@@ -14,8 +14,9 @@
             "Consume": 1,
             "When": [
                 {
-                    "Type": "Counter",
-                    "Sign": 1
+                    "Lua": [
+                        "result=p.AvailableTimes>0"
+                    ]
                 },
                 {
                     "Type": "ThisCharacterCause",
@@ -29,8 +30,9 @@
             "Consume": 1,
             "When": [
                 {
-                    "Type": "Counter",
-                    "Sign": 1
+                    "Lua": [
+                        "result=p.AvailableTimes>0"
+                    ]
                 },
                 {
                     "Type": "ThisCharacterCause",
@@ -44,8 +46,9 @@
             "Consume": 1,
             "When": [
                 {
-                    "Type": "Counter",
-                    "Sign": 1
+                    "Lua": [
+                        "result=p.AvailableTimes>0"
+                    ]
                 },
                 {
                     "Type": "ThisCharacterCause",
@@ -59,8 +62,9 @@
             "Consume": 1,
             "When": [
                 {
-                    "Type": "Counter",
-                    "Sign": 1
+                    "Lua": [
+                        "result=p.AvailableTimes>0"
+                    ]
                 },
                 {
                     "Type": "ThisCharacterCause",
@@ -131,8 +135,9 @@
             ],
             "When": [
                 {
-                    "Type": "Counter",
-                    "Sign": 1,
+                    "Lua": [
+                        "result=p.AvailableTimes>0"
+                    ]
                     "Value": 3,
                     "Or": {
                         "Type": "Compound",

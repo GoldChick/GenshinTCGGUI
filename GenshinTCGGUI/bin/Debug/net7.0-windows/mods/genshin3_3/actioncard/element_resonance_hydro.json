@@ -16,21 +16,11 @@
             "Type": "Card",
             "Action": [
                 {
-                    "Type": "Heal",
-                    "Value": 2
-                },
-                {
-                    "Type": "Heal",
-                    "Value": 1,
-                    "Target": {
-                        "Index": -1,
-                        "When": [
-                            {
-                                "Type": "CurrCharacter",
-                                "Not": true
-                            }
-                        ]
-                    }
+                    "Lua": [
+                        "me:Heal(p,this,2)",
+                        "me:Heal(p,this,1,1)",
+                        "me:Heal(p,this,1,-1)"
+                    ]
                 }
             ]
         }

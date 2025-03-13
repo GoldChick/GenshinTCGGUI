@@ -1,0 +1,49 @@
+{
+    "CardName": "双方使用技能后·双方受到反应",
+    "Description": "双方角色每受到一次反应（不一定是伤害），就记录反应类型到data。(详情查询TCGBase.ElementCategory，不重复记录)行动结束后，清除所有记录。",
+    "Tags": [
+        "Support",
+        "Partner"
+    ],
+    "CardType": "Support",
+    "SkillList": [
+        {
+            "Type": "AfterElement",
+            "Action": [
+                {
+                    "Lua": [
+                        "local reaction=v.Reaction:GetHashCode()",
+                        "if not p.data:Contains(reaction) then",
+                        "   p.data:Add(reaction)",
+                        "   p.data:sort()",
+                        "end"
+                    ]
+                }
+            ]
+        },
+        {
+            "Type": "AfterHurt",
+            "Action": [
+                {
+                    "Lua": [
+                        "local reaction=v.Reaction:GetHashCode()",
+                        "if not p.data:Contains(reaction) then",
+                        "   p.data:Add(reaction)",
+                        "   p.data:sort()",
+                        "end"
+                    ]
+                }
+            ]
+        },
+        {
+            "Type": "AfterOperation",
+            "Action": [
+                {
+                    "Lua": [
+                        "p.data:Clear()"
+                    ]
+                }
+            ]
+        }
+    ]
+}

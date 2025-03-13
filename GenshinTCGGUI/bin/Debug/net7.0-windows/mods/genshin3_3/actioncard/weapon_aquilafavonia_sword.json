@@ -4,7 +4,7 @@
     "CardType": "Equipment",
     "Cost": [
         {
-            "Type": "Trival",
+            "Type": "Trivial",
             "Count": 3
         }
     ],
@@ -52,11 +52,15 @@
             ],
             "When": [
                 {
-                    "Type": "Counter",
-                    "Sign": 1
+                    "Lua": [
+                        "result=p.AvailableTimes>0"
+                    ]
                 },
                 {
-                    "Type": "CurrCharacter"
+                    "Type": "Lua",
+                    "Lua": [
+                        "result=me.CurrCharacter==p.PersistentRegion"
+                    ]
                 },
                 {
                     "Type": "SourceMe",

@@ -76,7 +76,10 @@
                     "Type": "SourceMe"
                 },
                 {
-                    "Type": "CurrCharacter"
+                    "Type": "Lua",
+                    "Lua": [
+                        "result=me.CurrCharacter==p.PersistentRegion"
+                    ]
                 }
             ]
         }

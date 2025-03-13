@@ -16,9 +16,9 @@
             "Type": "Card",
             "Action": [
                 {
-                    "Type": "Dice",
-                    "Element": "Trival",
-                    "Count": 2
+                    "Lua": [
+                        "me:GainDice(ElementCategory.Trivial,2)"
+                    ]
                 }
             ]
         }

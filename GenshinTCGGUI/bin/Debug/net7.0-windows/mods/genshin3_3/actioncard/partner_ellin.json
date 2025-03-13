@@ -8,22 +8,23 @@
     "CardType": "Support",
     "Cost": [
         {
-            "Type": "Trival",
+            "Type": "Trivial",
             "Count": 2
         }
     ],
     "ModList": [
         {
             "Type": "Dice",
-            "Element": "Trival",
+            "Element": "Trivial",
             "Value": 1,
             "When": [
                 {
                     "Type": "SkillType"
                 },
                 {
-                    "Type": "Counter",
-                    "Sign": 1
+                    "Lua": [
+                        "result=p.AvailableTimes>0"
+                    ]
                 },
                 {
                     "Type": "AnyTarget",
@@ -45,8 +46,9 @@
             "Type": "RoundStep",
             "Action": [
                 {
-                    "Type": "Counter",
-                    "Set": 1
+                    "Lua": [
+                        "p.AvailableTimes=1"
+                    ]
                 }
             ]
         }

@@ -9,7 +9,7 @@
     "CardType": "Support",
     "Cost": [
         {
-            "Type": "Trival",
+            "Type": "Trivial",
             "Count": 2
         }
     ],
@@ -18,55 +18,21 @@
             "Type": "RoundOver",
             "Action": [
                 {
-                    "Type": "Heal",
-                    "Value": 2,
-                    "Target": {
-                        "Type": "Character",
-                        "When": [
-                            {
-                                "Type": "CurrCharacter"
-                            },
-                            {
-                                "Type": "HPLost",
-                                "Sign": 1
-                            }
-                        ]
-                    }
-                },
-                {
-                    "Type": "Counter",
-                    "Add": -1
+                    "Lua": [
+                        "me:Heal(p,this,2)",
+                        "p.AvailableTimes=p.AvailableTimes-1",
+                        "if p.AvailableTimes==0 then",
+                        "   me.Game:Destroy(p)",
+                        "end"
+                    ]
                 }
             ],
             "When": [
                 {
-                    "Type": "AnyTarget",
-                    "Target": {
-                        "Type": "Character",
-                        "When": [
-                            {
-                                "Type": "CurrCharacter"
-                            },
-                            {
-                                "Type": "HPLost",
-                                "Sign": 1
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        {
-            "Type": "RoundOver",
-            "Action": [
-                {
-                    "Type": "Destroy"
-                }
-            ],
-            "When": [
-                {
-                    "Type": "Counter",
-                    "Sign": 0
+                    "Type": "Lua",
+                    "Value": [
+                        "result=me.Characters[me.CurrCharacter].HP<me.Characters[me.CurrCharacter].CardBase.MaxHP"
+                    ]
                 }
             ]
         }

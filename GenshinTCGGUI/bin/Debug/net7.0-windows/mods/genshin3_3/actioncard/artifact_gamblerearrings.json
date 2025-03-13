@@ -12,14 +12,16 @@
             "Type": "Character",
             "When": [
                 {
-                    "Type": "Alive"
+                    "Lua": [
+                        "result=p.Alive"
+                    ]
                 }
             ]
         }
     ],
     "Cost": [
         {
-            "Type": "Trival",
+            "Type": "Trivial",
             "Count": 1
         }
     ],
@@ -28,22 +30,17 @@
             "Type": "AfterHurt",
             "Action": [
                 {
-                    "Type": "Dice",
-                    "Element": "Trival",
-                    "Count": 2
-                },
-                {
-                    "Type": "Counter",
-                    "Value": -1
+                    "Lua": [
+                        "me.GainDice(ElementCategory.Trivial,2)",
+                        "p.AvailableTimes=p.AvailableTimes-1"
+                    ]
                 }
             ],
             "When": [
                 {
-                    "Type": "Counter",
-                    "Sign": 1
-                },
-                {
-                    "Type": "CurrCharacter"
+                    "Lua": [
+                        "result=p.AvailableTimes>0 and me.CurrCharacter==p.PersistentRegion"
+                    ]
                 },
                 {
                     "Type": "TargetMe",

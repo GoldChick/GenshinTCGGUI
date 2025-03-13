@@ -11,7 +11,9 @@
             "Type": "Character",
             "When": [
                 {
-                    "Type": "Alive"
+                    "Lua": [
+                        "result=p.Alive"
+                    ]
                 }
             ]
         }
@@ -27,33 +29,17 @@
             "Type": "AfterUseSkill",
             "Action": [
                 {
-                    "Type": "Heal",
-                    "Value": 2,
-                    "Target": {
-                        "Type": "Sender",
-                        "When": [
-                            {
-                                "Type": "Alive"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "Type": "Counter",
-                    "Value": -1
+                    "Lua": [
+                        "me:heal(p,this,2,p.PersistentRegion,false)",
+                        "p.AvailableTimes=p.AvailableTimes-1"
+                    ]
                 }
             ],
             "When": [
                 {
-                    "Type": "Counter",
-                    "Sign": 1
-                },
-                {
-                    "Type": "SkillType",
-                    "Value": "E"
-                },
-                {
-                    "Type": "SourceThis"
+                    "Lua": [
+                        "result=p.AvailableTimes>0 and s.MaySkill.SkillCategory==SkillCategory.E and me.TeamID==s.TeamID and s.Character.PersistentRegion==p.PersisentRegion"
+                    ]
                 }
             ]
         },
@@ -61,8 +47,9 @@
             "Type": "RoundStep",
             "Action": [
                 {
-                    "Type": "Counter",
-                    "Set": 1
+                    "Lua": [
+                        "p.AvailableTimes=1"
+                    ]
                 }
             ]
         }

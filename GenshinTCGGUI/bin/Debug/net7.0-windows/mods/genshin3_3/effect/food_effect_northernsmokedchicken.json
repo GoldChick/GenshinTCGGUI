@@ -12,7 +12,10 @@
             "Consume": 1,
             "When": [
                 {
-                    "Type": "CurrCharacter"
+                    "Type": "Lua",
+                    "Lua": [
+                        "result=me.CurrCharacter==p.PersistentRegion"
+                    ]
                 },
                 {
                     "Type": "AnyTarget",
@@ -24,7 +27,9 @@
                                 "Value": "A"
                             },
                             {
-                                "Type": "Alive"
+                                "Lua": [
+                                    "result=p.Alive"
+                                ]
                             }
                         ]
                     }

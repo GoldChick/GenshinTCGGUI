@@ -4,7 +4,7 @@
     "CardType": "Event",
     "Cost": [
         {
-            "Type": "Cryo",
+            "Type": "Geo",
             "Count": 1
         }
     ],
@@ -13,17 +13,8 @@
     ],
     "SkillList": [
         {
-            "Type": "Card",
-            "Action": [
-                {
-                    "Type": "Effect",
-                    "Add": [
-                        "genshin3_3:element_resonance_effect_geo"
-                    ],
-                    "Target": {
-                        "Type": "Team"
-                    }
-                }
+            "Lua": [
+                "me:AddEffect('genshin3_3:element_resonance_effect_geo')"
             ]
         }
     ]

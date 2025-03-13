@@ -1,0 +1,35 @@
+{
+    "CardName": "双方使用技能后·双方受到伤害",
+    "Description": "双方角色每受到一次伤害，就记录元素类型到data。(int 0-8，不重复记录)行动结束后，清除所有记录。",
+    "Tags": [
+        "Support",
+        "Partner"
+    ],
+    "CardType": "Support",
+    "SkillList": [
+        {
+            "Type": "AfterHurt",
+            "Action": [
+                {
+                    "Lua": [
+                        "local element=v.Element:GetHashCode()",
+                        "if not p.data:Contains(element) then",
+                        "   p.data:Add(element)",
+                        "   p.data:sort()",
+                        "end"
+                    ]
+                }
+            ]
+        },
+        {
+            "Type": "AfterOperation",
+            "Action": [
+                {
+                    "Lua": [
+                        "p.data:Clear()"
+                    ]
+                }
+            ]
+        }
+    ]
+}

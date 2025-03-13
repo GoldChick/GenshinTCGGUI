@@ -11,8 +11,9 @@
             "Type": "Barrier",
             "When": [
                 {
-                    "Type": "Counter",
-                    "Sign": 1
+                    "Lua": [
+                        "result=p.AvailableTimes>0"
+                    ]
                 }
             ]
         }

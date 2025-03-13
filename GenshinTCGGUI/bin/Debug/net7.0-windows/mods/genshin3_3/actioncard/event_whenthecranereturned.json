@@ -7,20 +7,14 @@
     "CardType": "Event",
     "Cost": [
         {
-            "Type": "Trival",
+            "Type": "Trivial",
             "Count": 1
         }
     ],
     "SkillList": [
         {
-            "Type": "Card",
-            "Action": [
-                {
-                    "Type": "Effect",
-                    "Add": [
-                        "genshin3_3:event_effect_whenthecranereturned"
-                    ]
-                }
+            "Lua": [
+                "me:AddEffect('genshin3_3:event_effect_whenthecranereturned')"
             ]
         }
     ]
